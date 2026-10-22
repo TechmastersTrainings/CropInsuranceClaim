@@ -124,3 +124,14 @@ export async function assessClaim(claimId, assessmentPayload = {}) {
   return await res.json();
 }
 
+export async function ingestTelemetry(frame) {
+  const res = await fetch(`${API_BASE_URL}/telemetry/ingest`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(frame)
+  });
+  if (!res.ok) throw new Error("Failed to ingest telemetry frame");
+  return await res.json();
+}
+
+
