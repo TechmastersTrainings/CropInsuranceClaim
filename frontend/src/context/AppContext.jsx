@@ -10,6 +10,14 @@ import {
   AUDIT_LOGS,
   NOTIFICATIONS_DATA
 } from "../data/mockData";
+import {
+  checkBackendHealth,
+  fetchCropsRegistry,
+  fetchPolicies,
+  fetchClaims,
+  submitNewClaim,
+  transitionClaim
+} from "../services/api";
 
 const AppContext = createContext();
 
@@ -36,9 +44,37 @@ export function AppProvider({ children }) {
   const [auditLogs, setAuditLogs] = useState(AUDIT_LOGS);
   
   const [isOnline, setIsOnline] = useState(navigator.onLine);
+  const [backendConnected, setBackendConnected] = useState(false);
   const [demoMode, setDemoMode] = useState(true);
 
+  // Sync with real backend API
   useEffect(() => {
+    async function initBackend() {
+      const health = await checkBackendHealth();
+      if (health && health.status === "healthy") {
+        setBackendConnected(true);
+        try {
+          const apiCrops = await fetchCropsRegistry();
+          if (apiCrops && apiCrops.length > 0) {
+            setCrops(apiCrops.map(c => ({
+              id: c.crop_code,
+              name: c.name,
+              season: c.season,
+              cycleDays: c.cycle_days,
+              minTemp: c.min_temp,
+              maxTemp: c.max_temp,
+              minRain: c.min_rain,
+              soilType: c.soil_type,
+              moistureThreshold: c.moisture_threshold
+            })));
+          }
+        } catch (e) {
+          // Keep local fallback
+        }
+      }
+    }
+    initBackend();
+
     const handleOnline = () => setIsOnline(true);
     const handleOffline = () => setIsOnline(false);
     window.addEventListener("online", handleOnline);
@@ -114,6 +150,7 @@ export function AppProvider({ children }) {
       ]
     };
     setClaims([claimRecord, ...claims]);
+    
     // Log audit event
     const newAudit = {
       id: auditLogs.length + 1000,
@@ -172,6 +209,7 @@ export function AppProvider({ children }) {
         notifications,
         auditLogs,
         isOnline,
+        backendConnected,
         demoMode,
         setDemoMode,
         telemetrySeries: IOT_TELEMETRY_SERIES
