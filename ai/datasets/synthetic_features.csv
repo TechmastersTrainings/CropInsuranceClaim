@@ -1,0 +1,1201 @@
+sample_id,crop_name,crop_cycle_day,temperature_c,soil_moisture_pct,humidity_pct,rainfall_mm,consecutive_dry_days,canopy_green_index,foliage_wilting_index,damage_category,loss_percentage,is_inconsistent_claim,inconsistency_reason
+SMP-0001,Paddy (Rice),23,24.99,47.31,94.59,220.69,0,0.401,0.531,FLOOD_WATERLOGGING,73.0,0,Precipitation flood verified
+SMP-0002,Maize,114,28.3,26.12,69.34,3.01,5,0.751,0.052,HEALTHY_CANOPY,0.0,0,Normal healthy condition
+SMP-0003,Paddy (Rice),95,39.88,12.63,30.38,0.0,18,0.294,0.775,DROUGHT_DESICCATION,61.0,0,Prolonged dry spell verified
+SMP-0004,Soybean,84,19.72,44.85,94.39,251.78,0,0.452,0.56,FLOOD_WATERLOGGING,47.8,0,Precipitation flood verified
+SMP-0005,Fruits,73,24.2,31.79,67.33,8.7,4,0.748,0.08,HEALTHY_CANOPY,1.9,0,Normal healthy condition
+SMP-0006,Cotton,117,43.98,12.34,33.25,0.0,13,0.263,0.587,HEAT_STRESS,59.6,0,Extreme temperature anomaly verified
+SMP-0007,Maize,47,30.85,24.6,77.19,4.92,4,0.462,0.662,PEST_FOLIAGE_LESION,38.6,0,Foliage lesion symptoms
+SMP-0008,Sugarcane,32,34.13,9.24,32.35,0.0,29,0.328,0.855,DROUGHT_DESICCATION,76.9,0,Prolonged dry spell verified
+SMP-0009,Cotton,113,39.74,12.51,36.96,0.0,21,0.283,0.73,DROUGHT_DESICCATION,79.0,0,Prolonged dry spell verified
+SMP-0010,Sugarcane,30,23.64,45.95,96.72,148.05,0,0.487,0.574,FLOOD_WATERLOGGING,41.5,0,Precipitation flood verified
+SMP-0011,Pulses,93,25.77,31.89,71.36,12.36,0,0.778,0.127,HEALTHY_CANOPY,0.0,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-0012,Wheat,30,43.98,16.26,30.21,0.0,8,0.406,0.541,HEAT_STRESS,56.2,0,Extreme temperature anomaly verified
+SMP-0013,Vegetables,101,43.14,20.43,28.89,0.0,9,0.343,0.645,HEAT_STRESS,65.3,0,Extreme temperature anomaly verified
+SMP-0014,Soybean,105,26.99,25.88,69.11,33.46,5,0.849,0.085,HEALTHY_CANOPY,3.4,0,Normal healthy condition
+SMP-0015,Maize,88,25.35,46.72,90.53,213.21,0,0.397,0.338,FLOOD_WATERLOGGING,58.1,0,Precipitation flood verified
+SMP-0016,Sugarcane,54,28.01,22.99,81.17,3.9,7,0.47,0.751,PEST_FOLIAGE_LESION,45.7,0,Foliage lesion symptoms
+SMP-0017,Soybean,107,38.14,10.85,28.41,0.0,19,0.318,0.824,DROUGHT_DESICCATION,92.6,0,Prolonged dry spell verified
+SMP-0018,Cotton,123,37.02,11.6,37.83,0.0,26,0.25,0.889,DROUGHT_DESICCATION,75.5,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-0019,Soybean,103,39.48,9.18,45.01,0.0,32,0.236,0.855,DROUGHT_DESICCATION,89.9,0,Prolonged dry spell verified
+SMP-0020,Maize,51,22.02,45.17,92.4,159.9,0,0.296,0.555,FLOOD_WATERLOGGING,41.3,0,Precipitation flood verified
+SMP-0021,Sugarcane,134,24.95,43.4,98.2,151.5,0,0.394,0.615,FLOOD_WATERLOGGING,39.2,0,Precipitation flood verified
+SMP-0022,Maize,85,38.07,13.61,29.96,0.0,19,0.331,0.836,DROUGHT_DESICCATION,75.8,0,Prolonged dry spell verified
+SMP-0023,Maize,100,22.29,22.72,69.18,32.72,5,0.795,0.099,HEALTHY_CANOPY,6.4,0,Normal healthy condition
+SMP-0024,Paddy (Rice),69,38.07,12.69,38.87,0.0,32,0.247,0.883,DROUGHT_DESICCATION,81.3,0,Prolonged dry spell verified
+SMP-0025,Fruits,130,30.84,20.66,72.74,13.72,7,0.412,0.677,PEST_FOLIAGE_LESION,48.1,0,Foliage lesion symptoms
+SMP-0026,Fruits,116,28.47,35.59,63.04,4.62,5,0.742,0.106,HEALTHY_CANOPY,3.5,0,Normal healthy condition
+SMP-0027,Wheat,75,29.63,30.15,86.88,10.17,0,0.785,0.099,HEALTHY_CANOPY,2.3,0,Normal healthy condition
+SMP-0028,Wheat,84,40.57,17.45,30.66,0.0,15,0.45,0.713,HEAT_STRESS,57.4,0,Extreme temperature anomaly verified
+SMP-0029,Wheat,127,22.31,40.43,90.21,200.69,0,0.437,0.45,FLOOD_WATERLOGGING,56.1,0,Precipitation flood verified
+SMP-0030,Maize,67,43.19,13.35,32.92,0.0,15,0.404,0.6,HEAT_STRESS,60.9,0,Extreme temperature anomaly verified
+SMP-0031,Fruits,137,27.68,32.33,73.43,6.68,2,0.825,0.062,HEALTHY_CANOPY,4.6,0,Normal healthy condition
+SMP-0032,Paddy (Rice),138,38.14,11.05,42.36,0.0,27,0.406,0.82,DROUGHT_DESICCATION,81.3,0,Prolonged dry spell verified
+SMP-0033,Soybean,132,25.98,49.16,92.7,140.42,0,0.3,0.563,FLOOD_WATERLOGGING,43.7,1,"Claim reported drought, but local AWS recorded heavy rainfall (85mm+) during event window"
+SMP-0034,Paddy (Rice),117,37.4,9.93,29.06,0.0,22,0.341,0.795,DROUGHT_DESICCATION,68.8,0,Prolonged dry spell verified
+SMP-0035,Vegetables,90,23.32,26.66,77.48,3.65,4,0.786,0.058,HEALTHY_CANOPY,4.4,0,Normal healthy condition
+SMP-0036,Sugarcane,47,29.11,21.72,93.01,12.95,8,0.518,0.601,PEST_FOLIAGE_LESION,48.4,0,Foliage lesion symptoms
+SMP-0037,Soybean,111,40.12,9.74,35.78,0.0,29,0.22,0.774,DROUGHT_DESICCATION,84.6,0,Prolonged dry spell verified
+SMP-0038,Fruits,77,25.0,26.73,67.54,18.81,1,0.699,0.05,HEALTHY_CANOPY,5.8,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-0039,Fruits,49,28.24,53.16,85.92,160.47,0,0.521,0.493,FLOOD_WATERLOGGING,59.3,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-0040,Soybean,28,30.94,20.76,77.58,6.77,8,0.402,0.592,PEST_FOLIAGE_LESION,24.1,0,Foliage lesion symptoms
+SMP-0041,Fruits,50,22.1,34.17,75.59,0.7,3,0.852,0.05,HEALTHY_CANOPY,6.3,0,Normal healthy condition
+SMP-0042,Maize,112,29.03,20.56,81.23,0.73,6,0.468,0.605,PEST_FOLIAGE_LESION,50.5,0,Foliage lesion symptoms
+SMP-0043,Soybean,120,37.82,7.21,44.4,0.0,31,0.283,0.947,DROUGHT_DESICCATION,74.9,0,Prolonged dry spell verified
+SMP-0044,Paddy (Rice),104,37.68,11.88,37.46,0.0,31,0.291,0.832,DROUGHT_DESICCATION,76.8,0,Prolonged dry spell verified
+SMP-0045,Cotton,106,23.07,44.89,90.58,203.56,0,0.536,0.579,FLOOD_WATERLOGGING,61.0,0,Precipitation flood verified
+SMP-0046,Cotton,71,22.74,52.38,94.21,153.7,0,0.277,0.452,FLOOD_WATERLOGGING,46.0,0,Precipitation flood verified
+SMP-0047,Paddy (Rice),51,29.49,34.21,61.48,21.07,4,0.845,0.081,HEALTHY_CANOPY,5.4,0,Normal healthy condition
+SMP-0048,Sugarcane,43,25.07,29.3,63.96,45.12,1,0.876,0.112,HEALTHY_CANOPY,0.4,0,Normal healthy condition
+SMP-0049,Paddy (Rice),76,41.7,19.61,24.82,0.0,15,0.454,0.727,HEAT_STRESS,52.4,0,Extreme temperature anomaly verified
+SMP-0050,Fruits,127,25.97,19.64,79.16,32.8,0,0.739,0.07,HEALTHY_CANOPY,4.8,0,Normal healthy condition
+SMP-0051,Soybean,41,36.09,9.36,39.22,0.0,33,0.335,0.79,DROUGHT_DESICCATION,63.3,0,Prolonged dry spell verified
+SMP-0052,Sugarcane,135,26.7,22.21,53.74,25.13,3,0.747,0.121,HEALTHY_CANOPY,0.0,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-0053,Wheat,138,45.33,15.09,31.97,0.0,14,0.352,0.677,HEAT_STRESS,68.2,0,Extreme temperature anomaly verified
+SMP-0054,Fruits,104,25.54,50.46,92.36,131.63,0,0.352,0.523,FLOOD_WATERLOGGING,59.5,0,Precipitation flood verified
+SMP-0055,Wheat,47,29.17,27.44,81.32,7.4,6,0.483,0.716,PEST_FOLIAGE_LESION,53.6,0,Foliage lesion symptoms
+SMP-0056,Cotton,115,42.88,9.47,42.36,0.0,19,0.331,0.95,DROUGHT_DESICCATION,59.9,0,Prolonged dry spell verified
+SMP-0057,Fruits,137,40.99,14.2,19.26,0.0,9,0.363,0.627,HEAT_STRESS,59.2,1,"Claim reported flash flood, but rainfall station and soil probe recorded zero moisture anomaly"
+SMP-0058,Maize,28,24.68,57.38,95.8,157.69,0,0.348,0.589,FLOOD_WATERLOGGING,38.2,0,Precipitation flood verified
+SMP-0059,Soybean,71,31.49,32.72,61.25,65.46,4,0.795,0.05,HEALTHY_CANOPY,4.7,0,Normal healthy condition
+SMP-0060,Cotton,99,25.74,29.1,67.23,9.49,5,0.7,0.062,HEALTHY_CANOPY,4.0,0,Normal healthy condition
+SMP-0061,Fruits,60,29.12,22.42,82.36,5.99,3,0.398,0.643,PEST_FOLIAGE_LESION,54.6,0,Foliage lesion symptoms
+SMP-0062,Pulses,50,30.62,24.69,62.57,16.7,1,0.858,0.083,HEALTHY_CANOPY,6.4,0,Normal healthy condition
+SMP-0063,Wheat,78,37.67,15.12,46.78,0.0,20,0.305,0.878,DROUGHT_DESICCATION,74.5,1,"Claim reported flash flood, but rainfall station and soil probe recorded zero moisture anomaly"
+SMP-0064,Paddy (Rice),88,30.11,24.14,70.49,2.2,2,0.693,0.123,HEALTHY_CANOPY,5.8,0,Normal healthy condition
+SMP-0065,Pulses,132,25.59,28.8,47.63,22.96,1,0.861,0.05,HEALTHY_CANOPY,0.6,0,Normal healthy condition
+SMP-0066,Maize,76,42.4,17.15,31.8,0.0,11,0.255,0.674,HEAT_STRESS,47.6,0,Extreme temperature anomaly verified
+SMP-0067,Fruits,21,25.34,49.83,88.24,159.58,0,0.335,0.545,FLOOD_WATERLOGGING,65.5,0,Precipitation flood verified
+SMP-0068,Paddy (Rice),140,40.73,17.51,28.82,0.0,11,0.344,0.673,HEAT_STRESS,49.7,0,Extreme temperature anomaly verified
+SMP-0069,Paddy (Rice),115,22.89,42.01,99.86,176.06,0,0.364,0.567,FLOOD_WATERLOGGING,52.7,0,Precipitation flood verified
+SMP-0070,Soybean,111,36.95,12.23,41.79,0.0,26,0.288,0.785,DROUGHT_DESICCATION,65.2,0,Prolonged dry spell verified
+SMP-0071,Wheat,135,23.25,18.7,87.57,6.21,2,0.531,0.521,PEST_FOLIAGE_LESION,44.3,0,Foliage lesion symptoms
+SMP-0072,Sugarcane,126,28.91,24.11,65.64,8.9,0,0.7,0.086,HEALTHY_CANOPY,2.5,0,Normal healthy condition
+SMP-0073,Maize,101,25.44,21.74,70.43,1.28,3,0.493,0.673,PEST_FOLIAGE_LESION,54.6,0,Foliage lesion symptoms
+SMP-0074,Fruits,110,39.13,9.25,37.98,0.0,18,0.462,0.881,DROUGHT_DESICCATION,63.6,0,Prolonged dry spell verified
+SMP-0075,Maize,89,30.75,26.45,59.65,6.77,2,0.826,0.137,HEALTHY_CANOPY,1.2,0,Normal healthy condition
+SMP-0076,Maize,75,27.69,25.4,61.1,3.1,2,0.739,0.064,HEALTHY_CANOPY,0.0,0,Normal healthy condition
+SMP-0077,Cotton,135,39.21,11.78,37.58,0.0,25,0.334,0.836,DROUGHT_DESICCATION,60.8,0,Prolonged dry spell verified
+SMP-0078,Pulses,119,22.93,50.64,92.83,236.3,0,0.55,0.625,FLOOD_WATERLOGGING,44.9,0,Precipitation flood verified
+SMP-0079,Maize,138,27.59,20.49,79.96,2.78,8,0.316,0.621,PEST_FOLIAGE_LESION,35.0,0,Foliage lesion symptoms
+SMP-0080,Maize,132,39.1,7.68,37.67,0.0,23,0.247,0.781,DROUGHT_DESICCATION,68.5,0,Prolonged dry spell verified
+SMP-0081,Pulses,120,26.85,22.65,85.04,2.94,8,0.445,0.689,PEST_FOLIAGE_LESION,51.7,0,Foliage lesion symptoms
+SMP-0082,Soybean,54,23.83,37.74,50.84,39.79,5,0.728,0.091,HEALTHY_CANOPY,2.8,0,Normal healthy condition
+SMP-0083,Cotton,129,37.72,10.69,43.84,0.0,24,0.335,0.84,DROUGHT_DESICCATION,63.9,0,Prolonged dry spell verified
+SMP-0084,Vegetables,64,36.28,10.13,39.97,0.0,25,0.295,0.837,DROUGHT_DESICCATION,88.8,0,Prolonged dry spell verified
+SMP-0085,Soybean,71,39.68,10.35,44.01,0.0,20,0.296,0.698,DROUGHT_DESICCATION,57.9,0,Prolonged dry spell verified
+SMP-0086,Wheat,64,20.26,46.24,92.07,225.29,0,0.446,0.532,FLOOD_WATERLOGGING,64.0,0,Precipitation flood verified
+SMP-0087,Fruits,62,23.47,24.82,83.4,1.24,2,0.49,0.646,PEST_FOLIAGE_LESION,35.3,0,Foliage lesion symptoms
+SMP-0088,Wheat,42,23.2,50.55,96.99,203.98,0,0.427,0.511,FLOOD_WATERLOGGING,58.8,0,Precipitation flood verified
+SMP-0089,Cotton,33,21.82,43.91,98.04,187.06,0,0.392,0.616,FLOOD_WATERLOGGING,69.4,0,Precipitation flood verified
+SMP-0090,Pulses,75,23.11,45.86,89.79,203.92,0,0.498,0.661,FLOOD_WATERLOGGING,66.1,0,Precipitation flood verified
+SMP-0091,Sugarcane,135,20.74,49.4,87.77,159.61,0,0.434,0.617,FLOOD_WATERLOGGING,43.3,0,Precipitation flood verified
+SMP-0092,Sugarcane,20,31.69,11.36,51.22,0.0,35,0.308,0.823,DROUGHT_DESICCATION,85.8,0,Prolonged dry spell verified
+SMP-0093,Soybean,66,38.98,11.43,40.21,0.0,28,0.335,0.752,DROUGHT_DESICCATION,54.6,0,Prolonged dry spell verified
+SMP-0094,Paddy (Rice),112,33.72,24.64,78.7,25.98,6,0.421,0.59,PEST_FOLIAGE_LESION,44.6,0,Foliage lesion symptoms
+SMP-0095,Sugarcane,61,40.24,7.62,45.65,0.0,27,0.311,0.794,DROUGHT_DESICCATION,57.9,0,Prolonged dry spell verified
+SMP-0096,Soybean,73,20.69,52.12,92.29,136.3,0,0.316,0.523,FLOOD_WATERLOGGING,74.0,0,Precipitation flood verified
+SMP-0097,Maize,98,23.48,40.48,91.02,166.82,0,0.204,0.546,FLOOD_WATERLOGGING,51.2,0,Precipitation flood verified
+SMP-0098,Cotton,58,28.09,35.4,74.01,0.2,3,0.729,0.096,HEALTHY_CANOPY,2.4,0,Normal healthy condition
+SMP-0099,Pulses,79,37.09,11.0,38.79,0.0,24,0.279,0.829,DROUGHT_DESICCATION,60.2,0,Prolonged dry spell verified
+SMP-0100,Maize,104,28.02,27.54,66.24,3.17,4,0.778,0.064,HEALTHY_CANOPY,2.6,0,Normal healthy condition
+SMP-0101,Pulses,31,42.69,15.24,41.02,0.0,10,0.214,0.756,HEAT_STRESS,68.0,0,Extreme temperature anomaly verified
+SMP-0102,Soybean,123,19.78,26.63,62.03,29.68,0,0.773,0.096,HEALTHY_CANOPY,5.7,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-0103,Paddy (Rice),78,34.18,10.28,37.65,0.0,24,0.349,0.774,DROUGHT_DESICCATION,67.1,0,Prolonged dry spell verified
+SMP-0104,Sugarcane,83,37.57,9.59,34.36,0.0,22,0.326,0.812,DROUGHT_DESICCATION,73.0,0,Prolonged dry spell verified
+SMP-0105,Cotton,134,40.6,14.95,30.62,0.0,8,0.457,0.614,HEAT_STRESS,59.9,0,Extreme temperature anomaly verified
+SMP-0106,Soybean,42,42.95,20.94,25.96,0.0,15,0.354,0.614,HEAT_STRESS,44.6,0,Extreme temperature anomaly verified
+SMP-0107,Fruits,51,33.41,19.65,72.29,4.78,2,0.387,0.648,PEST_FOLIAGE_LESION,31.2,0,Foliage lesion symptoms
+SMP-0108,Vegetables,105,41.89,6.84,46.48,0.0,35,0.333,0.814,DROUGHT_DESICCATION,62.6,0,Prolonged dry spell verified
+SMP-0109,Vegetables,98,43.22,15.89,38.62,0.0,15,0.408,0.691,HEAT_STRESS,55.1,0,Extreme temperature anomaly verified
+SMP-0110,Fruits,77,42.4,16.92,21.74,0.0,14,0.306,0.732,HEAT_STRESS,59.4,0,Extreme temperature anomaly verified
+SMP-0111,Soybean,127,23.63,48.09,93.39,158.81,0,0.358,0.566,FLOOD_WATERLOGGING,42.3,0,Precipitation flood verified
+SMP-0112,Fruits,82,24.82,39.49,96.12,189.18,0,0.44,0.629,FLOOD_WATERLOGGING,74.0,0,Precipitation flood verified
+SMP-0113,Paddy (Rice),111,29.04,20.64,54.76,10.98,2,0.763,0.086,HEALTHY_CANOPY,1.1,0,Normal healthy condition
+SMP-0114,Fruits,30,27.74,21.9,58.61,6.59,1,0.731,0.112,HEALTHY_CANOPY,2.1,0,Normal healthy condition
+SMP-0115,Maize,110,33.9,29.97,66.48,19.78,3,0.81,0.05,HEALTHY_CANOPY,4.0,0,Normal healthy condition
+SMP-0116,Fruits,79,35.85,7.62,42.94,0.0,24,0.299,0.835,DROUGHT_DESICCATION,69.8,0,Prolonged dry spell verified
+SMP-0117,Sugarcane,135,41.9,21.93,31.72,0.0,7,0.291,0.652,HEAT_STRESS,62.0,0,Extreme temperature anomaly verified
+SMP-0118,Sugarcane,81,27.6,23.65,72.44,13.38,2,0.744,0.073,HEALTHY_CANOPY,3.9,0,Normal healthy condition
+SMP-0119,Sugarcane,129,43.62,16.53,23.99,0.0,13,0.427,0.723,HEAT_STRESS,62.5,0,Extreme temperature anomaly verified
+SMP-0120,Fruits,122,26.16,52.17,93.84,172.9,0,0.287,0.584,FLOOD_WATERLOGGING,56.5,0,Precipitation flood verified
+SMP-0121,Soybean,54,38.18,8.45,32.59,0.0,18,0.383,0.818,DROUGHT_DESICCATION,74.8,0,Prolonged dry spell verified
+SMP-0122,Sugarcane,112,26.08,28.12,72.51,0.57,3,0.754,0.05,HEALTHY_CANOPY,5.0,0,Normal healthy condition
+SMP-0123,Fruits,23,26.39,28.47,76.17,3.79,6,0.488,0.716,PEST_FOLIAGE_LESION,46.0,0,Foliage lesion symptoms
+SMP-0124,Cotton,30,26.06,40.57,93.07,201.69,0,0.427,0.635,FLOOD_WATERLOGGING,47.8,0,Precipitation flood verified
+SMP-0125,Vegetables,43,30.23,37.2,62.1,31.03,3,0.696,0.05,HEALTHY_CANOPY,2.3,0,Normal healthy condition
+SMP-0126,Vegetables,61,39.48,10.4,33.98,0.0,30,0.26,0.757,DROUGHT_DESICCATION,48.7,0,Prolonged dry spell verified
+SMP-0127,Sugarcane,52,40.33,12.79,36.1,0.0,14,0.388,0.622,HEAT_STRESS,76.5,1,"Claim reported flash flood, but rainfall station and soil probe recorded zero moisture anomaly"
+SMP-0128,Pulses,48,22.67,53.84,98.48,127.9,0,0.426,0.509,FLOOD_WATERLOGGING,46.8,0,Precipitation flood verified
+SMP-0129,Cotton,116,27.67,25.51,61.03,52.16,1,0.772,0.123,HEALTHY_CANOPY,2.9,0,Normal healthy condition
+SMP-0130,Cotton,99,23.5,29.89,60.58,3.8,1,0.812,0.151,HEALTHY_CANOPY,5.9,0,Normal healthy condition
+SMP-0131,Paddy (Rice),92,26.9,24.58,75.46,1.39,5,0.515,0.623,PEST_FOLIAGE_LESION,47.3,0,Foliage lesion symptoms
+SMP-0132,Pulses,41,25.32,58.05,91.29,151.05,0,0.31,0.492,FLOOD_WATERLOGGING,53.6,0,Precipitation flood verified
+SMP-0133,Paddy (Rice),119,45.73,14.45,33.34,0.0,11,0.399,0.763,HEAT_STRESS,78.2,0,Extreme temperature anomaly verified
+SMP-0134,Cotton,138,36.17,10.02,43.22,0.0,30,0.361,0.931,DROUGHT_DESICCATION,73.8,0,Prolonged dry spell verified
+SMP-0135,Soybean,29,23.28,50.95,96.43,199.61,0,0.461,0.635,FLOOD_WATERLOGGING,68.0,0,Precipitation flood verified
+SMP-0136,Soybean,33,26.76,51.24,91.33,179.4,0,0.517,0.485,FLOOD_WATERLOGGING,58.4,0,Precipitation flood verified
+SMP-0137,Paddy (Rice),121,28.02,24.1,86.95,0.06,8,0.529,0.481,PEST_FOLIAGE_LESION,44.2,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-0138,Pulses,28,37.72,12.51,31.25,0.0,28,0.41,0.833,DROUGHT_DESICCATION,70.7,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-0139,Vegetables,33,36.5,12.08,38.24,0.0,29,0.393,0.734,DROUGHT_DESICCATION,69.8,0,Prolonged dry spell verified
+SMP-0140,Vegetables,110,27.23,27.25,61.76,18.47,1,0.787,0.059,HEALTHY_CANOPY,6.4,0,Normal healthy condition
+SMP-0141,Wheat,98,39.76,14.32,34.26,0.0,15,0.51,0.675,HEAT_STRESS,53.6,0,Extreme temperature anomaly verified
+SMP-0142,Vegetables,75,45.89,11.66,18.81,0.0,11,0.431,0.645,HEAT_STRESS,49.8,0,Extreme temperature anomaly verified
+SMP-0143,Soybean,126,30.77,24.85,74.05,10.63,4,0.467,0.508,PEST_FOLIAGE_LESION,42.9,0,Foliage lesion symptoms
+SMP-0144,Soybean,116,39.08,8.55,46.3,0.0,30,0.374,0.808,DROUGHT_DESICCATION,60.9,0,Prolonged dry spell verified
+SMP-0145,Vegetables,128,35.83,11.15,36.85,0.0,33,0.377,0.799,DROUGHT_DESICCATION,73.1,0,Prolonged dry spell verified
+SMP-0146,Wheat,63,25.91,29.08,63.16,22.48,4,0.808,0.093,HEALTHY_CANOPY,5.3,0,Normal healthy condition
+SMP-0147,Wheat,91,29.99,28.79,70.67,23.88,1,0.728,0.079,HEALTHY_CANOPY,4.7,0,Normal healthy condition
+SMP-0148,Sugarcane,82,22.49,41.21,90.74,152.78,0,0.419,0.423,FLOOD_WATERLOGGING,60.8,0,Precipitation flood verified
+SMP-0149,Vegetables,102,22.73,52.98,90.89,174.24,0,0.406,0.495,FLOOD_WATERLOGGING,83.7,0,Precipitation flood verified
+SMP-0150,Cotton,31,24.51,32.09,56.25,29.5,3,0.732,0.079,HEALTHY_CANOPY,4.0,0,Normal healthy condition
+SMP-0151,Wheat,104,21.68,55.52,95.51,168.37,0,0.422,0.567,FLOOD_WATERLOGGING,30.0,0,Precipitation flood verified
+SMP-0152,Fruits,64,36.88,9.64,32.99,0.0,35,0.303,0.928,DROUGHT_DESICCATION,74.4,0,Prolonged dry spell verified
+SMP-0153,Vegetables,54,36.07,12.15,45.0,0.0,25,0.375,0.824,DROUGHT_DESICCATION,61.5,0,Prolonged dry spell verified
+SMP-0154,Soybean,60,28.09,29.57,72.16,6.22,4,0.812,0.083,HEALTHY_CANOPY,5.9,0,Normal healthy condition
+SMP-0155,Maize,44,25.41,33.27,68.21,19.73,3,0.889,0.06,HEALTHY_CANOPY,3.0,0,Normal healthy condition
+SMP-0156,Fruits,96,25.04,29.7,69.18,16.13,0,0.751,0.169,HEALTHY_CANOPY,3.8,0,Normal healthy condition
+SMP-0157,Wheat,49,35.17,12.51,32.36,0.0,27,0.354,0.79,DROUGHT_DESICCATION,70.1,1,"Claim reported flash flood, but rainfall station and soil probe recorded zero moisture anomaly"
+SMP-0158,Wheat,25,31.73,23.61,84.53,5.54,6,0.532,0.502,PEST_FOLIAGE_LESION,29.4,0,Foliage lesion symptoms
+SMP-0159,Maize,101,42.9,19.14,42.1,0.0,14,0.368,0.756,HEAT_STRESS,57.7,0,Extreme temperature anomaly verified
+SMP-0160,Cotton,93,25.48,31.53,70.22,36.52,3,0.701,0.096,HEALTHY_CANOPY,1.5,0,Normal healthy condition
+SMP-0161,Maize,26,30.13,31.11,68.21,35.96,3,0.746,0.063,HEALTHY_CANOPY,2.7,0,Normal healthy condition
+SMP-0162,Paddy (Rice),71,37.44,13.35,40.72,0.0,19,0.298,0.866,DROUGHT_DESICCATION,45.0,0,Prolonged dry spell verified
+SMP-0163,Wheat,30,31.87,17.91,75.46,34.87,2,0.413,0.665,PEST_FOLIAGE_LESION,31.5,0,Foliage lesion symptoms
+SMP-0164,Sugarcane,97,26.22,44.46,85.78,166.83,0,0.252,0.57,FLOOD_WATERLOGGING,50.9,0,Precipitation flood verified
+SMP-0165,Fruits,68,40.58,12.3,31.04,0.0,32,0.27,0.851,DROUGHT_DESICCATION,76.5,0,Prolonged dry spell verified
+SMP-0166,Sugarcane,59,26.45,54.07,91.64,185.88,0,0.524,0.526,FLOOD_WATERLOGGING,58.6,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-0167,Soybean,100,25.02,25.8,65.39,41.38,5,0.746,0.102,HEALTHY_CANOPY,3.8,0,Normal healthy condition
+SMP-0168,Soybean,42,24.16,38.01,95.67,185.39,0,0.5,0.318,FLOOD_WATERLOGGING,79.1,0,Precipitation flood verified
+SMP-0169,Sugarcane,77,23.72,53.54,87.84,193.38,0,0.336,0.5,FLOOD_WATERLOGGING,77.0,0,Precipitation flood verified
+SMP-0170,Cotton,49,25.43,28.87,71.96,43.4,2,0.805,0.079,HEALTHY_CANOPY,8.0,0,Normal healthy condition
+SMP-0171,Vegetables,29,25.93,49.54,90.2,177.02,0,0.436,0.586,FLOOD_WATERLOGGING,41.1,0,Precipitation flood verified
+SMP-0172,Soybean,74,28.01,23.64,78.05,15.8,1,0.795,0.057,HEALTHY_CANOPY,3.9,0,Normal healthy condition
+SMP-0173,Wheat,125,26.99,29.29,68.38,12.56,0,0.808,0.091,HEALTHY_CANOPY,0.6,0,Normal healthy condition
+SMP-0174,Wheat,96,22.13,53.23,94.28,196.64,0,0.471,0.653,FLOOD_WATERLOGGING,50.9,0,Precipitation flood verified
+SMP-0175,Wheat,76,26.36,23.89,54.78,17.83,5,0.698,0.05,HEALTHY_CANOPY,0.0,0,Normal healthy condition
+SMP-0176,Sugarcane,140,24.08,22.71,78.14,14.49,4,0.83,0.05,HEALTHY_CANOPY,2.6,0,Normal healthy condition
+SMP-0177,Paddy (Rice),96,26.18,32.5,61.37,6.26,3,0.779,0.05,HEALTHY_CANOPY,0.7,0,Normal healthy condition
+SMP-0178,Wheat,23,29.07,37.76,76.07,25.15,5,0.808,0.072,HEALTHY_CANOPY,4.8,0,Normal healthy condition
+SMP-0179,Cotton,117,23.62,50.77,91.87,146.49,0,0.35,0.471,FLOOD_WATERLOGGING,65.7,0,Precipitation flood verified
+SMP-0180,Cotton,117,41.39,10.26,34.38,0.0,14,0.506,0.734,HEAT_STRESS,53.2,0,Extreme temperature anomaly verified
+SMP-0181,Vegetables,137,21.24,27.46,63.73,17.14,4,0.785,0.05,HEALTHY_CANOPY,2.8,0,Normal healthy condition
+SMP-0182,Vegetables,31,38.3,7.81,40.2,0.0,31,0.319,0.853,DROUGHT_DESICCATION,70.2,0,Prolonged dry spell verified
+SMP-0183,Paddy (Rice),129,30.09,28.5,61.56,45.36,3,0.84,0.092,HEALTHY_CANOPY,3.4,0,Normal healthy condition
+SMP-0184,Wheat,104,30.0,25.75,68.93,5.29,8,0.405,0.545,PEST_FOLIAGE_LESION,36.8,0,Foliage lesion symptoms
+SMP-0185,Cotton,78,28.68,26.82,74.98,16.52,2,0.792,0.057,HEALTHY_CANOPY,8.4,0,Normal healthy condition
+SMP-0186,Sugarcane,130,34.41,12.05,34.33,0.0,18,0.299,0.847,DROUGHT_DESICCATION,80.2,0,Prolonged dry spell verified
+SMP-0187,Fruits,79,41.56,7.93,39.34,0.0,24,0.408,0.719,DROUGHT_DESICCATION,71.1,0,Prolonged dry spell verified
+SMP-0188,Vegetables,100,37.49,11.83,34.14,0.0,19,0.234,0.705,DROUGHT_DESICCATION,77.8,0,Prolonged dry spell verified
+SMP-0189,Fruits,36,31.76,25.06,74.26,8.64,5,0.457,0.584,PEST_FOLIAGE_LESION,38.2,0,Foliage lesion symptoms
+SMP-0190,Vegetables,35,22.96,25.4,55.21,1.08,5,0.742,0.081,HEALTHY_CANOPY,2.8,0,Normal healthy condition
+SMP-0191,Soybean,110,28.1,32.12,65.87,15.78,4,0.68,0.091,HEALTHY_CANOPY,6.5,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-0192,Paddy (Rice),48,25.98,29.85,80.93,6.26,2,0.486,0.546,PEST_FOLIAGE_LESION,34.1,0,Foliage lesion symptoms
+SMP-0193,Paddy (Rice),102,43.63,13.26,32.49,0.0,14,0.511,0.659,HEAT_STRESS,68.5,0,Extreme temperature anomaly verified
+SMP-0194,Wheat,85,21.57,45.33,86.37,177.19,0,0.482,0.556,FLOOD_WATERLOGGING,68.7,0,Precipitation flood verified
+SMP-0195,Vegetables,80,23.75,28.9,60.78,26.24,4,0.798,0.101,HEALTHY_CANOPY,5.9,0,Normal healthy condition
+SMP-0196,Soybean,137,22.43,41.34,84.66,190.24,0,0.332,0.378,FLOOD_WATERLOGGING,58.7,0,Precipitation flood verified
+SMP-0197,Maize,130,33.48,27.98,71.71,72.72,3,0.761,0.094,HEALTHY_CANOPY,3.1,0,Normal healthy condition
+SMP-0198,Fruits,54,44.6,17.71,35.6,0.0,11,0.365,0.663,HEAT_STRESS,48.5,0,Extreme temperature anomaly verified
+SMP-0199,Vegetables,130,24.94,23.85,75.5,55.7,4,0.834,0.094,HEALTHY_CANOPY,3.9,0,Normal healthy condition
+SMP-0200,Pulses,90,43.97,20.17,35.35,0.0,13,0.401,0.588,HEAT_STRESS,49.5,0,Extreme temperature anomaly verified
+SMP-0201,Pulses,131,25.08,25.56,63.5,0.39,5,0.805,0.082,HEALTHY_CANOPY,0.4,0,Normal healthy condition
+SMP-0202,Sugarcane,49,41.34,7.34,33.76,0.0,13,0.42,0.624,HEAT_STRESS,62.3,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-0203,Sugarcane,69,25.79,20.62,80.92,0.63,8,0.467,0.719,PEST_FOLIAGE_LESION,45.5,0,Foliage lesion symptoms
+SMP-0204,Maize,83,28.16,21.85,75.88,11.78,3,0.481,0.542,PEST_FOLIAGE_LESION,28.7,0,Foliage lesion symptoms
+SMP-0205,Pulses,131,28.74,30.0,83.31,8.33,3,0.712,0.073,HEALTHY_CANOPY,1.7,0,Normal healthy condition
+SMP-0206,Vegetables,21,20.4,50.71,95.04,157.7,0,0.213,0.506,FLOOD_WATERLOGGING,58.7,0,Precipitation flood verified
+SMP-0207,Maize,29,33.8,11.37,37.92,0.0,26,0.355,0.827,DROUGHT_DESICCATION,58.3,0,Prolonged dry spell verified
+SMP-0208,Sugarcane,103,29.59,27.37,64.78,2.44,2,0.733,0.115,HEALTHY_CANOPY,2.3,0,Normal healthy condition
+SMP-0209,Fruits,68,23.24,22.44,71.88,15.37,7,0.343,0.546,PEST_FOLIAGE_LESION,54.4,0,Foliage lesion symptoms
+SMP-0210,Vegetables,131,35.99,14.65,41.39,0.0,20,0.291,0.949,DROUGHT_DESICCATION,61.9,0,Prolonged dry spell verified
+SMP-0211,Wheat,49,25.48,49.5,97.21,221.85,0,0.423,0.49,FLOOD_WATERLOGGING,59.5,0,Precipitation flood verified
+SMP-0212,Paddy (Rice),117,22.64,58.07,92.55,164.04,0,0.435,0.442,FLOOD_WATERLOGGING,42.3,0,Precipitation flood verified
+SMP-0213,Vegetables,41,26.4,44.72,87.81,191.1,0,0.515,0.608,FLOOD_WATERLOGGING,66.0,0,Precipitation flood verified
+SMP-0214,Cotton,61,41.14,11.73,41.01,0.0,11,0.377,0.662,HEAT_STRESS,68.6,0,Extreme temperature anomaly verified
+SMP-0215,Sugarcane,38,27.67,29.82,82.32,0.64,3,0.853,0.134,HEALTHY_CANOPY,5.5,0,Normal healthy condition
+SMP-0216,Maize,41,27.78,24.59,67.87,6.19,4,0.728,0.05,HEALTHY_CANOPY,8.1,0,Normal healthy condition
+SMP-0217,Soybean,83,26.24,23.23,76.06,21.8,3,0.4,0.673,PEST_FOLIAGE_LESION,47.0,0,Foliage lesion symptoms
+SMP-0218,Wheat,78,26.8,31.35,58.49,9.26,0,0.805,0.102,HEALTHY_CANOPY,5.3,0,Normal healthy condition
+SMP-0219,Vegetables,135,29.52,28.72,54.63,62.67,4,0.775,0.077,HEALTHY_CANOPY,5.6,0,Normal healthy condition
+SMP-0220,Vegetables,140,38.94,11.06,30.54,0.0,27,0.35,0.863,DROUGHT_DESICCATION,91.0,0,Prolonged dry spell verified
+SMP-0221,Sugarcane,108,29.23,20.4,65.63,12.49,2,0.818,0.091,HEALTHY_CANOPY,6.6,0,Normal healthy condition
+SMP-0222,Sugarcane,129,39.18,10.72,31.88,0.0,25,0.307,0.769,DROUGHT_DESICCATION,62.2,0,Prolonged dry spell verified
+SMP-0223,Pulses,93,27.77,34.68,68.16,14.36,5,0.754,0.05,HEALTHY_CANOPY,4.6,0,Normal healthy condition
+SMP-0224,Sugarcane,55,30.36,22.2,56.15,2.42,5,0.816,0.069,HEALTHY_CANOPY,7.5,0,Normal healthy condition
+SMP-0225,Cotton,136,23.2,49.12,95.73,132.45,0,0.279,0.428,FLOOD_WATERLOGGING,69.2,0,Precipitation flood verified
+SMP-0226,Wheat,119,41.51,23.67,28.61,0.0,12,0.413,0.788,HEAT_STRESS,74.0,0,Extreme temperature anomaly verified
+SMP-0227,Soybean,99,32.18,32.83,73.19,4.72,5,0.81,0.08,HEALTHY_CANOPY,6.6,0,Normal healthy condition
+SMP-0228,Maize,100,29.35,25.4,72.58,10.92,5,0.814,0.05,HEALTHY_CANOPY,3.6,0,Normal healthy condition
+SMP-0229,Wheat,120,35.71,7.27,37.59,0.0,29,0.313,0.911,DROUGHT_DESICCATION,74.3,0,Prolonged dry spell verified
+SMP-0230,Paddy (Rice),136,22.93,35.42,74.77,1.89,5,0.809,0.114,HEALTHY_CANOPY,3.4,0,Normal healthy condition
+SMP-0231,Soybean,36,44.66,10.19,24.48,0.0,12,0.424,0.581,HEAT_STRESS,48.6,0,Extreme temperature anomaly verified
+SMP-0232,Wheat,126,24.42,31.09,49.83,42.37,3,0.789,0.066,HEALTHY_CANOPY,0.8,0,Normal healthy condition
+SMP-0233,Wheat,115,43.42,14.4,24.98,0.0,8,0.199,0.678,HEAT_STRESS,72.2,0,Extreme temperature anomaly verified
+SMP-0234,Paddy (Rice),38,45.49,14.63,28.39,0.0,10,0.433,0.61,HEAT_STRESS,60.4,0,Extreme temperature anomaly verified
+SMP-0235,Sugarcane,128,43.88,19.68,31.4,0.0,12,0.386,0.619,HEAT_STRESS,51.4,0,Extreme temperature anomaly verified
+SMP-0236,Sugarcane,21,25.32,29.47,72.31,8.96,0,0.74,0.064,HEALTHY_CANOPY,4.0,0,Normal healthy condition
+SMP-0237,Wheat,94,37.75,8.74,29.19,0.0,29,0.258,0.835,DROUGHT_DESICCATION,68.9,0,Prolonged dry spell verified
+SMP-0238,Soybean,80,28.11,28.39,64.12,4.52,4,0.75,0.104,HEALTHY_CANOPY,1.5,0,Normal healthy condition
+SMP-0239,Soybean,102,26.88,22.57,68.73,14.07,3,0.778,0.056,HEALTHY_CANOPY,3.4,0,Normal healthy condition
+SMP-0240,Wheat,103,36.43,9.92,41.16,0.0,22,0.293,0.881,DROUGHT_DESICCATION,94.6,1,"Claim reported flash flood, but rainfall station and soil probe recorded zero moisture anomaly"
+SMP-0241,Wheat,83,25.11,28.61,68.04,1.28,1,0.871,0.05,HEALTHY_CANOPY,0.0,0,Normal healthy condition
+SMP-0242,Maize,69,38.59,12.81,26.19,0.0,35,0.259,0.857,DROUGHT_DESICCATION,88.6,0,Prolonged dry spell verified
+SMP-0243,Maize,133,37.55,9.54,37.09,0.0,21,0.402,0.781,DROUGHT_DESICCATION,60.0,0,Prolonged dry spell verified
+SMP-0244,Sugarcane,140,27.79,20.66,78.86,2.29,2,0.577,0.571,PEST_FOLIAGE_LESION,49.1,0,Foliage lesion symptoms
+SMP-0245,Soybean,76,38.29,10.94,37.69,0.0,25,0.276,0.825,DROUGHT_DESICCATION,76.8,0,Prolonged dry spell verified
+SMP-0246,Paddy (Rice),107,35.07,10.99,43.19,0.0,29,0.35,0.899,DROUGHT_DESICCATION,62.3,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-0247,Soybean,35,24.42,24.7,80.54,10.07,8,0.562,0.564,PEST_FOLIAGE_LESION,56.8,0,Foliage lesion symptoms
+SMP-0248,Soybean,102,24.14,52.26,93.94,149.61,0,0.369,0.632,FLOOD_WATERLOGGING,50.0,0,Precipitation flood verified
+SMP-0249,Cotton,120,36.49,9.09,40.12,0.0,22,0.444,0.756,DROUGHT_DESICCATION,68.2,0,Prolonged dry spell verified
+SMP-0250,Soybean,28,45.04,15.76,34.71,0.0,15,0.326,0.71,HEAT_STRESS,56.5,0,Extreme temperature anomaly verified
+SMP-0251,Soybean,124,44.27,19.56,47.54,0.0,12,0.441,0.703,HEAT_STRESS,59.6,0,Extreme temperature anomaly verified
+SMP-0252,Cotton,55,41.86,17.02,30.23,0.0,9,0.412,0.772,HEAT_STRESS,49.9,0,Extreme temperature anomaly verified
+SMP-0253,Fruits,52,44.55,19.95,31.29,0.0,8,0.251,0.637,HEAT_STRESS,68.4,0,Extreme temperature anomaly verified
+SMP-0254,Cotton,36,25.93,24.0,60.96,18.67,1,0.752,0.068,HEALTHY_CANOPY,2.7,0,Normal healthy condition
+SMP-0255,Cotton,42,19.91,31.05,75.06,14.55,1,0.83,0.067,HEALTHY_CANOPY,4.8,0,Normal healthy condition
+SMP-0256,Fruits,34,23.95,43.48,93.3,139.63,0,0.515,0.513,FLOOD_WATERLOGGING,56.4,0,Precipitation flood verified
+SMP-0257,Pulses,85,24.57,46.71,94.35,160.75,0,0.49,0.442,FLOOD_WATERLOGGING,55.5,0,Precipitation flood verified
+SMP-0258,Soybean,98,31.82,24.0,59.58,0.51,5,0.831,0.05,HEALTHY_CANOPY,5.4,0,Normal healthy condition
+SMP-0259,Vegetables,102,30.67,19.76,83.84,23.77,2,0.52,0.752,PEST_FOLIAGE_LESION,42.7,0,Foliage lesion symptoms
+SMP-0260,Sugarcane,74,22.05,53.54,91.52,109.82,0,0.488,0.507,FLOOD_WATERLOGGING,52.9,0,Precipitation flood verified
+SMP-0261,Vegetables,29,43.1,16.57,36.26,0.0,12,0.37,0.716,HEAT_STRESS,55.9,0,Extreme temperature anomaly verified
+SMP-0262,Paddy (Rice),36,28.22,30.46,57.52,26.53,5,0.834,0.1,HEALTHY_CANOPY,3.2,0,Normal healthy condition
+SMP-0263,Pulses,68,29.85,21.74,71.63,2.77,6,0.486,0.598,PEST_FOLIAGE_LESION,41.0,0,Foliage lesion symptoms
+SMP-0264,Fruits,97,39.5,7.77,32.73,0.0,21,0.256,0.877,DROUGHT_DESICCATION,85.1,0,Prolonged dry spell verified
+SMP-0265,Fruits,112,42.31,15.49,32.42,0.0,13,0.481,0.615,HEAT_STRESS,59.9,0,Extreme temperature anomaly verified
+SMP-0266,Soybean,72,39.94,12.0,38.95,0.0,32,0.38,0.658,DROUGHT_DESICCATION,74.8,0,Prolonged dry spell verified
+SMP-0267,Paddy (Rice),60,35.86,7.34,40.56,0.0,26,0.402,0.812,DROUGHT_DESICCATION,77.5,0,Prolonged dry spell verified
+SMP-0268,Maize,107,33.03,28.6,89.48,2.71,2,0.525,0.523,PEST_FOLIAGE_LESION,44.3,0,Foliage lesion symptoms
+SMP-0269,Paddy (Rice),31,36.86,6.19,40.12,0.0,29,0.329,0.909,DROUGHT_DESICCATION,74.1,0,Prolonged dry spell verified
+SMP-0270,Fruits,27,28.58,48.54,91.58,169.47,0,0.385,0.373,FLOOD_WATERLOGGING,51.4,0,Precipitation flood verified
+SMP-0271,Pulses,105,19.8,29.81,55.08,4.94,2,0.784,0.05,HEALTHY_CANOPY,3.4,0,Normal healthy condition
+SMP-0272,Sugarcane,131,27.12,25.12,87.38,7.19,2,0.503,0.586,PEST_FOLIAGE_LESION,36.2,0,Foliage lesion symptoms
+SMP-0273,Wheat,65,25.42,24.46,67.15,6.35,4,0.834,0.081,HEALTHY_CANOPY,7.8,0,Normal healthy condition
+SMP-0274,Vegetables,48,42.39,13.87,22.92,0.0,12,0.274,0.569,HEAT_STRESS,60.1,0,Extreme temperature anomaly verified
+SMP-0275,Pulses,34,43.42,11.26,37.37,0.0,10,0.366,0.69,HEAT_STRESS,70.9,0,Extreme temperature anomaly verified
+SMP-0276,Fruits,118,44.11,15.19,26.65,0.0,15,0.249,0.63,HEAT_STRESS,56.3,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-0277,Cotton,43,23.04,27.47,65.61,1.25,2,0.806,0.075,HEALTHY_CANOPY,6.5,0,Normal healthy condition
+SMP-0278,Pulses,20,29.47,32.7,51.13,0.15,1,0.815,0.087,HEALTHY_CANOPY,5.9,0,Normal healthy condition
+SMP-0279,Sugarcane,28,26.86,25.55,67.89,34.91,5,0.783,0.058,HEALTHY_CANOPY,0.6,0,Normal healthy condition
+SMP-0280,Paddy (Rice),115,35.89,16.36,35.57,0.0,30,0.202,0.864,DROUGHT_DESICCATION,76.6,0,Prolonged dry spell verified
+SMP-0281,Pulses,40,40.72,11.94,42.23,0.0,28,0.43,0.775,DROUGHT_DESICCATION,58.6,0,Prolonged dry spell verified
+SMP-0282,Paddy (Rice),133,22.72,26.94,76.47,24.02,1,0.794,0.088,HEALTHY_CANOPY,3.7,0,Normal healthy condition
+SMP-0283,Cotton,106,28.43,31.17,51.01,6.96,3,0.859,0.103,HEALTHY_CANOPY,2.0,0,Normal healthy condition
+SMP-0284,Vegetables,97,41.21,10.49,31.93,0.0,26,0.262,0.794,DROUGHT_DESICCATION,68.5,0,Prolonged dry spell verified
+SMP-0285,Fruits,34,37.1,8.17,44.07,0.0,21,0.311,0.777,DROUGHT_DESICCATION,79.1,0,Prolonged dry spell verified
+SMP-0286,Vegetables,87,21.63,39.86,97.09,231.74,0,0.383,0.546,FLOOD_WATERLOGGING,40.2,1,"Claim reported drought, but local AWS recorded heavy rainfall (85mm+) during event window"
+SMP-0287,Cotton,20,26.02,26.1,64.18,0.6,1,0.8,0.077,HEALTHY_CANOPY,3.3,0,Normal healthy condition
+SMP-0288,Wheat,57,36.85,14.2,40.8,0.0,18,0.302,0.862,DROUGHT_DESICCATION,64.7,0,Prolonged dry spell verified
+SMP-0289,Sugarcane,42,29.52,29.48,64.14,7.3,4,0.802,0.096,HEALTHY_CANOPY,0.0,0,Normal healthy condition
+SMP-0290,Fruits,91,42.83,12.46,41.44,0.0,12,0.418,0.665,HEAT_STRESS,67.8,1,"Claim reported flash flood, but rainfall station and soil probe recorded zero moisture anomaly"
+SMP-0291,Sugarcane,22,34.84,9.25,31.69,0.0,20,0.268,0.824,DROUGHT_DESICCATION,72.9,0,Prolonged dry spell verified
+SMP-0292,Sugarcane,93,39.9,7.35,37.14,0.0,31,0.254,0.808,DROUGHT_DESICCATION,91.3,0,Prolonged dry spell verified
+SMP-0293,Sugarcane,22,29.73,27.15,91.72,2.25,3,0.548,0.563,PEST_FOLIAGE_LESION,42.9,0,Foliage lesion symptoms
+SMP-0294,Vegetables,126,29.29,40.49,93.01,189.03,0,0.507,0.558,FLOOD_WATERLOGGING,57.7,0,Precipitation flood verified
+SMP-0295,Sugarcane,128,24.83,29.08,62.25,4.84,3,0.774,0.05,HEALTHY_CANOPY,4.0,0,Normal healthy condition
+SMP-0296,Fruits,30,38.48,11.51,43.23,0.0,27,0.233,0.769,DROUGHT_DESICCATION,74.4,0,Prolonged dry spell verified
+SMP-0297,Soybean,62,41.19,16.72,17.48,0.0,8,0.59,0.661,HEAT_STRESS,67.6,0,Extreme temperature anomaly verified
+SMP-0298,Paddy (Rice),87,36.66,11.83,45.46,0.0,29,0.39,0.808,DROUGHT_DESICCATION,66.6,0,Prolonged dry spell verified
+SMP-0299,Maize,50,29.01,37.33,66.54,39.13,2,0.779,0.068,HEALTHY_CANOPY,6.2,0,Normal healthy condition
+SMP-0300,Maize,117,44.21,13.68,34.44,0.0,8,0.332,0.583,HEAT_STRESS,53.0,0,Extreme temperature anomaly verified
+SMP-0301,Vegetables,79,44.05,18.86,35.08,0.0,14,0.451,0.716,HEAT_STRESS,52.9,0,Extreme temperature anomaly verified
+SMP-0302,Pulses,130,30.08,26.8,83.28,10.75,4,0.515,0.636,PEST_FOLIAGE_LESION,36.3,0,Foliage lesion symptoms
+SMP-0303,Paddy (Rice),80,38.03,9.36,37.88,0.0,27,0.222,0.722,DROUGHT_DESICCATION,66.1,0,Prolonged dry spell verified
+SMP-0304,Cotton,65,36.13,11.21,37.33,0.0,27,0.322,0.857,DROUGHT_DESICCATION,63.4,0,Prolonged dry spell verified
+SMP-0305,Cotton,27,36.95,13.91,38.02,0.0,27,0.309,0.825,DROUGHT_DESICCATION,66.4,1,"Claim reported flash flood, but rainfall station and soil probe recorded zero moisture anomaly"
+SMP-0306,Fruits,69,35.73,9.0,34.18,0.0,35,0.372,0.782,DROUGHT_DESICCATION,66.5,0,Prolonged dry spell verified
+SMP-0307,Cotton,77,30.75,23.03,82.43,6.47,6,0.518,0.501,PEST_FOLIAGE_LESION,44.6,0,Foliage lesion symptoms
+SMP-0308,Pulses,97,38.19,13.72,31.46,0.0,22,0.139,0.831,DROUGHT_DESICCATION,86.0,0,Prolonged dry spell verified
+SMP-0309,Vegetables,33,44.73,16.63,29.05,0.0,12,0.456,0.612,HEAT_STRESS,61.8,0,Extreme temperature anomaly verified
+SMP-0310,Paddy (Rice),84,25.01,53.3,100.0,186.77,0,0.379,0.548,FLOOD_WATERLOGGING,32.8,1,"Claim reported drought, but local AWS recorded heavy rainfall (85mm+) during event window"
+SMP-0311,Vegetables,87,35.76,10.18,35.38,0.0,23,0.329,0.771,DROUGHT_DESICCATION,79.2,0,Prolonged dry spell verified
+SMP-0312,Wheat,69,37.5,10.98,36.36,0.0,28,0.329,0.87,DROUGHT_DESICCATION,59.3,0,Prolonged dry spell verified
+SMP-0313,Cotton,121,22.68,46.48,86.62,150.42,0,0.382,0.62,FLOOD_WATERLOGGING,57.2,0,Precipitation flood verified
+SMP-0314,Pulses,32,24.39,52.25,91.45,186.71,0,0.412,0.571,FLOOD_WATERLOGGING,47.0,0,Precipitation flood verified
+SMP-0315,Wheat,112,38.11,15.6,40.54,0.0,9,0.465,0.748,HEAT_STRESS,67.9,0,Extreme temperature anomaly verified
+SMP-0316,Maize,137,37.72,11.39,34.91,0.0,30,0.301,0.857,DROUGHT_DESICCATION,80.0,0,Prolonged dry spell verified
+SMP-0317,Paddy (Rice),59,23.72,45.75,92.0,193.04,0,0.304,0.366,FLOOD_WATERLOGGING,47.4,0,Precipitation flood verified
+SMP-0318,Pulses,124,22.34,25.97,63.82,21.89,5,0.842,0.07,HEALTHY_CANOPY,3.2,0,Normal healthy condition
+SMP-0319,Fruits,31,24.97,46.15,100.0,166.81,0,0.449,0.628,FLOOD_WATERLOGGING,73.2,0,Precipitation flood verified
+SMP-0320,Pulses,22,35.64,10.16,44.37,0.0,23,0.369,0.885,DROUGHT_DESICCATION,54.3,0,Prolonged dry spell verified
+SMP-0321,Pulses,118,41.37,9.48,38.96,0.0,25,0.311,0.767,DROUGHT_DESICCATION,53.9,0,Prolonged dry spell verified
+SMP-0322,Maize,29,20.77,28.48,52.8,0.29,0,0.723,0.073,HEALTHY_CANOPY,2.0,0,Normal healthy condition
+SMP-0323,Fruits,126,18.88,47.04,100.0,198.54,0,0.418,0.529,FLOOD_WATERLOGGING,54.3,0,Precipitation flood verified
+SMP-0324,Pulses,132,43.48,12.46,38.69,0.0,9,0.45,0.73,HEAT_STRESS,61.5,0,Extreme temperature anomaly verified
+SMP-0325,Maize,40,26.06,30.69,69.73,1.92,5,0.829,0.058,HEALTHY_CANOPY,0.0,0,Normal healthy condition
+SMP-0326,Maize,112,38.14,12.98,31.24,0.0,31,0.36,0.861,DROUGHT_DESICCATION,45.3,0,Prolonged dry spell verified
+SMP-0327,Soybean,76,22.13,46.02,91.28,152.71,0,0.356,0.684,FLOOD_WATERLOGGING,52.7,0,Precipitation flood verified
+SMP-0328,Vegetables,49,35.76,10.92,40.69,0.0,27,0.323,0.808,DROUGHT_DESICCATION,61.5,0,Prolonged dry spell verified
+SMP-0329,Vegetables,135,41.31,14.21,34.03,0.0,12,0.33,0.708,HEAT_STRESS,69.3,0,Extreme temperature anomaly verified
+SMP-0330,Vegetables,79,43.09,14.89,24.21,0.0,13,0.51,0.598,HEAT_STRESS,64.8,0,Extreme temperature anomaly verified
+SMP-0331,Sugarcane,40,43.65,15.29,30.42,0.0,9,0.272,0.703,HEAT_STRESS,63.0,0,Extreme temperature anomaly verified
+SMP-0332,Cotton,102,34.78,10.69,38.19,0.0,29,0.355,0.82,DROUGHT_DESICCATION,51.7,0,Prolonged dry spell verified
+SMP-0333,Paddy (Rice),111,41.55,16.67,37.05,0.0,8,0.357,0.833,HEAT_STRESS,42.8,0,Extreme temperature anomaly verified
+SMP-0334,Maize,54,36.09,10.83,37.0,0.0,34,0.246,0.847,DROUGHT_DESICCATION,71.7,0,Prolonged dry spell verified
+SMP-0335,Sugarcane,31,29.12,25.16,75.03,9.0,3,0.383,0.615,PEST_FOLIAGE_LESION,37.4,0,Foliage lesion symptoms
+SMP-0336,Pulses,139,27.28,28.08,59.87,9.72,0,0.804,0.051,HEALTHY_CANOPY,5.7,0,Normal healthy condition
+SMP-0337,Pulses,50,40.98,13.35,39.16,0.0,20,0.248,0.82,DROUGHT_DESICCATION,83.6,0,Prolonged dry spell verified
+SMP-0338,Cotton,60,30.55,23.27,82.4,2.51,8,0.404,0.671,PEST_FOLIAGE_LESION,39.5,0,Foliage lesion symptoms
+SMP-0339,Pulses,121,24.59,29.06,61.51,9.83,0,0.777,0.056,HEALTHY_CANOPY,4.7,0,Normal healthy condition
+SMP-0340,Vegetables,109,41.14,11.3,23.94,0.0,14,0.288,0.697,HEAT_STRESS,59.2,0,Extreme temperature anomaly verified
+SMP-0341,Cotton,135,26.3,30.35,74.54,4.34,2,0.75,0.05,HEALTHY_CANOPY,5.8,0,Normal healthy condition
+SMP-0342,Maize,90,25.97,26.56,78.1,2.5,6,0.423,0.617,PEST_FOLIAGE_LESION,42.1,0,Foliage lesion symptoms
+SMP-0343,Paddy (Rice),119,21.38,35.93,69.39,21.33,2,0.912,0.053,HEALTHY_CANOPY,1.3,0,Normal healthy condition
+SMP-0344,Soybean,73,23.62,52.61,91.49,220.33,0,0.304,0.549,FLOOD_WATERLOGGING,39.0,0,Precipitation flood verified
+SMP-0345,Paddy (Rice),34,43.15,18.66,29.48,0.0,14,0.218,0.694,HEAT_STRESS,61.5,0,Extreme temperature anomaly verified
+SMP-0346,Cotton,100,38.51,13.47,32.64,0.0,25,0.361,0.892,DROUGHT_DESICCATION,50.2,0,Prolonged dry spell verified
+SMP-0347,Wheat,74,26.96,25.98,64.35,2.05,2,0.815,0.05,HEALTHY_CANOPY,2.5,0,Normal healthy condition
+SMP-0348,Sugarcane,43,21.95,42.85,89.0,211.52,0,0.486,0.53,FLOOD_WATERLOGGING,67.6,0,Precipitation flood verified
+SMP-0349,Pulses,28,26.34,19.81,84.05,2.0,6,0.515,0.663,PEST_FOLIAGE_LESION,41.5,0,Foliage lesion symptoms
+SMP-0350,Fruits,90,24.21,33.69,78.91,1.23,3,0.829,0.134,HEALTHY_CANOPY,4.8,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-0351,Pulses,52,24.96,45.15,94.27,178.16,0,0.293,0.613,FLOOD_WATERLOGGING,65.6,0,Precipitation flood verified
+SMP-0352,Paddy (Rice),64,28.41,28.13,57.35,10.67,5,0.81,0.075,HEALTHY_CANOPY,5.1,0,Normal healthy condition
+SMP-0353,Pulses,37,28.66,26.72,79.36,38.07,4,0.834,0.108,HEALTHY_CANOPY,3.2,0,Normal healthy condition
+SMP-0354,Maize,126,43.72,14.39,35.24,0.0,14,0.309,0.594,HEAT_STRESS,66.5,0,Extreme temperature anomaly verified
+SMP-0355,Vegetables,100,28.81,30.53,65.7,10.29,1,0.725,0.068,HEALTHY_CANOPY,5.4,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-0356,Cotton,57,28.55,26.82,64.43,27.4,1,0.777,0.094,HEALTHY_CANOPY,5.5,0,Normal healthy condition
+SMP-0357,Pulses,139,35.0,11.39,44.6,0.0,30,0.429,0.822,DROUGHT_DESICCATION,65.6,0,Prolonged dry spell verified
+SMP-0358,Fruits,80,26.81,28.97,76.09,7.58,5,0.756,0.054,HEALTHY_CANOPY,5.4,0,Normal healthy condition
+SMP-0359,Pulses,130,41.79,19.18,35.7,0.0,12,0.448,0.584,HEAT_STRESS,67.7,0,Extreme temperature anomaly verified
+SMP-0360,Pulses,75,42.97,14.89,32.86,0.0,14,0.276,0.709,HEAT_STRESS,49.8,0,Extreme temperature anomaly verified
+SMP-0361,Sugarcane,63,25.62,18.67,85.79,13.19,5,0.439,0.588,PEST_FOLIAGE_LESION,37.0,0,Foliage lesion symptoms
+SMP-0362,Pulses,138,44.18,21.44,28.06,0.0,11,0.37,0.669,HEAT_STRESS,62.3,0,Extreme temperature anomaly verified
+SMP-0363,Sugarcane,30,37.12,13.77,43.73,0.0,23,0.249,0.851,DROUGHT_DESICCATION,83.2,0,Prolonged dry spell verified
+SMP-0364,Pulses,33,24.52,26.82,60.78,4.85,5,0.797,0.079,HEALTHY_CANOPY,4.1,0,Normal healthy condition
+SMP-0365,Vegetables,97,22.48,46.85,88.3,201.71,0,0.503,0.402,FLOOD_WATERLOGGING,42.8,0,Precipitation flood verified
+SMP-0366,Vegetables,64,33.76,9.7,37.58,0.0,29,0.233,0.765,DROUGHT_DESICCATION,58.0,0,Prolonged dry spell verified
+SMP-0367,Sugarcane,55,24.41,48.35,89.11,180.3,0,0.376,0.528,FLOOD_WATERLOGGING,74.1,0,Precipitation flood verified
+SMP-0368,Cotton,29,26.68,41.5,95.32,199.34,0,0.328,0.616,FLOOD_WATERLOGGING,72.5,0,Precipitation flood verified
+SMP-0369,Fruits,122,21.75,43.41,96.07,183.14,0,0.464,0.577,FLOOD_WATERLOGGING,58.7,0,Precipitation flood verified
+SMP-0370,Cotton,38,40.11,19.14,39.02,0.0,14,0.384,0.677,HEAT_STRESS,45.8,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-0371,Soybean,119,25.03,50.86,91.75,208.73,0,0.393,0.595,FLOOD_WATERLOGGING,41.8,0,Precipitation flood verified
+SMP-0372,Cotton,97,25.93,27.3,66.8,36.9,3,0.762,0.05,HEALTHY_CANOPY,3.1,0,Normal healthy condition
+SMP-0373,Pulses,76,45.52,14.52,32.09,0.0,9,0.394,0.79,HEAT_STRESS,68.3,0,Extreme temperature anomaly verified
+SMP-0374,Sugarcane,60,25.62,43.13,93.44,192.04,0,0.364,0.48,FLOOD_WATERLOGGING,74.5,0,Precipitation flood verified
+SMP-0375,Paddy (Rice),23,23.4,56.07,95.99,187.24,0,0.456,0.438,FLOOD_WATERLOGGING,56.5,0,Precipitation flood verified
+SMP-0376,Sugarcane,136,26.83,51.41,92.62,226.36,0,0.405,0.5,FLOOD_WATERLOGGING,55.8,0,Precipitation flood verified
+SMP-0377,Wheat,110,39.42,7.56,39.42,0.0,27,0.369,0.804,DROUGHT_DESICCATION,79.1,0,Prolonged dry spell verified
+SMP-0378,Vegetables,45,27.92,36.57,59.0,4.28,0,0.75,0.132,HEALTHY_CANOPY,8.0,0,Normal healthy condition
+SMP-0379,Vegetables,31,41.12,14.35,37.16,0.0,12,0.373,0.677,HEAT_STRESS,58.2,0,Extreme temperature anomaly verified
+SMP-0380,Paddy (Rice),90,32.7,10.97,34.55,0.0,27,0.29,0.907,DROUGHT_DESICCATION,55.4,0,Prolonged dry spell verified
+SMP-0381,Maize,121,39.53,10.44,36.6,0.0,25,0.367,0.84,DROUGHT_DESICCATION,73.7,0,Prolonged dry spell verified
+SMP-0382,Soybean,121,28.9,26.67,60.1,5.56,3,0.785,0.05,HEALTHY_CANOPY,0.0,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-0383,Vegetables,122,30.33,27.67,74.73,15.57,3,0.513,0.58,PEST_FOLIAGE_LESION,42.7,0,Foliage lesion symptoms
+SMP-0384,Paddy (Rice),28,38.32,11.17,26.9,0.0,33,0.306,0.769,DROUGHT_DESICCATION,69.8,0,Prolonged dry spell verified
+SMP-0385,Sugarcane,125,29.97,49.84,90.75,202.65,0,0.459,0.584,FLOOD_WATERLOGGING,61.3,0,Precipitation flood verified
+SMP-0386,Pulses,102,32.17,23.48,68.79,2.96,3,0.734,0.05,HEALTHY_CANOPY,5.5,0,Normal healthy condition
+SMP-0387,Pulses,36,42.7,21.23,30.31,0.0,15,0.43,0.625,HEAT_STRESS,55.7,0,Extreme temperature anomaly verified
+SMP-0388,Maize,118,29.26,18.65,68.08,0.59,5,0.516,0.49,PEST_FOLIAGE_LESION,38.4,0,Foliage lesion symptoms
+SMP-0389,Cotton,126,29.06,36.35,52.31,11.68,1,0.686,0.113,HEALTHY_CANOPY,6.1,0,Normal healthy condition
+SMP-0390,Maize,61,29.0,19.46,85.11,9.98,3,0.466,0.519,PEST_FOLIAGE_LESION,44.9,0,Foliage lesion symptoms
+SMP-0391,Fruits,134,23.22,29.02,57.84,17.67,0,0.76,0.066,HEALTHY_CANOPY,1.4,0,Normal healthy condition
+SMP-0392,Fruits,55,25.6,28.71,43.52,0.27,2,0.793,0.159,HEALTHY_CANOPY,1.8,0,Normal healthy condition
+SMP-0393,Paddy (Rice),84,26.93,52.98,93.12,227.76,0,0.45,0.581,FLOOD_WATERLOGGING,53.4,0,Precipitation flood verified
+SMP-0394,Maize,41,26.45,53.48,89.5,135.42,0,0.404,0.486,FLOOD_WATERLOGGING,53.2,0,Precipitation flood verified
+SMP-0395,Pulses,127,32.09,22.4,77.7,0.69,2,0.483,0.578,PEST_FOLIAGE_LESION,53.4,0,Foliage lesion symptoms
+SMP-0396,Cotton,30,27.49,28.18,66.53,1.15,5,0.752,0.116,HEALTHY_CANOPY,3.0,0,Normal healthy condition
+SMP-0397,Wheat,103,20.37,30.48,59.92,6.99,4,0.721,0.074,HEALTHY_CANOPY,2.8,0,Normal healthy condition
+SMP-0398,Cotton,83,45.67,15.15,39.74,0.0,15,0.468,0.665,HEAT_STRESS,74.9,0,Extreme temperature anomaly verified
+SMP-0399,Wheat,81,26.81,34.05,76.17,20.9,5,0.801,0.083,HEALTHY_CANOPY,6.8,0,Normal healthy condition
+SMP-0400,Vegetables,29,24.82,43.69,97.61,195.94,0,0.385,0.512,FLOOD_WATERLOGGING,57.6,0,Precipitation flood verified
+SMP-0401,Sugarcane,81,38.66,11.39,39.56,0.0,28,0.422,0.884,DROUGHT_DESICCATION,69.9,0,Prolonged dry spell verified
+SMP-0402,Pulses,130,25.88,42.84,93.59,229.28,0,0.403,0.482,FLOOD_WATERLOGGING,46.2,0,Precipitation flood verified
+SMP-0403,Pulses,71,22.73,24.86,62.04,35.76,2,0.71,0.05,HEALTHY_CANOPY,4.1,0,Normal healthy condition
+SMP-0404,Paddy (Rice),60,26.67,26.08,74.25,16.16,0,0.759,0.06,HEALTHY_CANOPY,5.7,0,Normal healthy condition
+SMP-0405,Soybean,38,22.72,31.56,66.37,5.88,2,0.808,0.055,HEALTHY_CANOPY,2.8,0,Normal healthy condition
+SMP-0406,Sugarcane,51,26.47,26.45,67.32,10.85,3,0.517,0.644,PEST_FOLIAGE_LESION,50.3,0,Foliage lesion symptoms
+SMP-0407,Pulses,44,41.25,17.75,33.56,0.0,14,0.362,0.609,HEAT_STRESS,42.3,0,Extreme temperature anomaly verified
+SMP-0408,Vegetables,83,43.13,11.31,32.57,0.0,14,0.382,0.728,HEAT_STRESS,55.6,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-0409,Fruits,78,28.18,26.56,80.35,2.86,3,0.499,0.543,PEST_FOLIAGE_LESION,45.3,0,Foliage lesion symptoms
+SMP-0410,Cotton,26,29.48,24.75,67.95,90.66,4,0.796,0.05,HEALTHY_CANOPY,3.5,0,Normal healthy condition
+SMP-0411,Vegetables,56,37.4,10.73,39.67,0.0,21,0.406,0.885,DROUGHT_DESICCATION,54.9,0,Prolonged dry spell verified
+SMP-0412,Wheat,113,39.06,13.66,39.93,0.0,30,0.385,0.941,DROUGHT_DESICCATION,78.2,0,Prolonged dry spell verified
+SMP-0413,Sugarcane,26,24.5,53.23,92.58,175.72,0,0.392,0.675,FLOOD_WATERLOGGING,44.2,0,Precipitation flood verified
+SMP-0414,Fruits,56,30.6,30.0,53.81,39.5,4,0.77,0.097,HEALTHY_CANOPY,1.1,0,Normal healthy condition
+SMP-0415,Fruits,55,42.75,19.36,35.3,0.0,8,0.448,0.792,HEAT_STRESS,57.5,0,Extreme temperature anomaly verified
+SMP-0416,Paddy (Rice),70,35.87,13.38,43.86,0.0,28,0.353,0.81,DROUGHT_DESICCATION,68.0,0,Prolonged dry spell verified
+SMP-0417,Pulses,116,22.17,32.45,73.62,15.69,4,0.743,0.065,HEALTHY_CANOPY,6.5,0,Normal healthy condition
+SMP-0418,Fruits,25,31.06,30.25,57.96,9.11,1,0.828,0.094,HEALTHY_CANOPY,5.0,0,Normal healthy condition
+SMP-0419,Vegetables,86,40.83,12.69,40.5,0.0,34,0.261,0.95,DROUGHT_DESICCATION,57.0,0,Prolonged dry spell verified
+SMP-0420,Pulses,40,36.72,7.69,40.69,0.0,27,0.329,0.866,DROUGHT_DESICCATION,50.6,0,Prolonged dry spell verified
+SMP-0421,Fruits,126,40.28,9.39,37.25,0.0,33,0.376,0.836,DROUGHT_DESICCATION,71.3,0,Prolonged dry spell verified
+SMP-0422,Wheat,80,43.94,17.29,29.95,0.0,12,0.388,0.695,HEAT_STRESS,50.8,0,Extreme temperature anomaly verified
+SMP-0423,Paddy (Rice),73,25.99,49.44,92.3,210.77,0,0.41,0.535,FLOOD_WATERLOGGING,48.2,0,Precipitation flood verified
+SMP-0424,Cotton,96,38.36,11.62,34.67,0.0,25,0.309,0.78,DROUGHT_DESICCATION,61.0,0,Prolonged dry spell verified
+SMP-0425,Vegetables,41,33.18,10.54,29.49,0.0,30,0.292,0.783,DROUGHT_DESICCATION,78.5,0,Prolonged dry spell verified
+SMP-0426,Soybean,24,21.97,44.19,90.47,157.6,0,0.53,0.459,FLOOD_WATERLOGGING,49.4,0,Precipitation flood verified
+SMP-0427,Soybean,22,38.33,12.76,36.1,0.0,31,0.205,0.811,DROUGHT_DESICCATION,81.5,0,Prolonged dry spell verified
+SMP-0428,Soybean,72,38.21,11.47,32.68,0.0,33,0.25,0.821,DROUGHT_DESICCATION,53.7,0,Prolonged dry spell verified
+SMP-0429,Cotton,110,28.34,24.61,64.8,9.23,1,0.826,0.064,HEALTHY_CANOPY,3.8,0,Normal healthy condition
+SMP-0430,Vegetables,87,35.91,14.48,36.39,0.0,23,0.43,0.869,DROUGHT_DESICCATION,72.8,0,Prolonged dry spell verified
+SMP-0431,Fruits,63,38.42,11.79,28.36,0.0,26,0.303,0.871,DROUGHT_DESICCATION,67.5,0,Prolonged dry spell verified
+SMP-0432,Soybean,51,21.78,27.79,78.63,9.9,2,0.759,0.111,HEALTHY_CANOPY,3.5,0,Normal healthy condition
+SMP-0433,Wheat,118,29.16,25.9,49.29,21.56,1,0.768,0.071,HEALTHY_CANOPY,7.8,0,Normal healthy condition
+SMP-0434,Vegetables,60,41.56,15.44,37.2,0.0,35,0.338,0.729,DROUGHT_DESICCATION,82.8,0,Prolonged dry spell verified
+SMP-0435,Wheat,56,22.5,28.87,56.22,3.07,5,0.735,0.059,HEALTHY_CANOPY,4.9,0,Normal healthy condition
+SMP-0436,Sugarcane,124,36.42,11.76,37.05,0.0,22,0.324,0.847,DROUGHT_DESICCATION,64.5,0,Prolonged dry spell verified
+SMP-0437,Wheat,111,23.01,25.87,74.56,1.37,3,0.839,0.086,HEALTHY_CANOPY,2.9,0,Normal healthy condition
+SMP-0438,Vegetables,47,27.45,23.59,70.45,3.69,4,0.762,0.096,HEALTHY_CANOPY,4.6,0,Normal healthy condition
+SMP-0439,Fruits,109,27.13,33.42,70.51,2.47,0,0.676,0.062,HEALTHY_CANOPY,3.9,0,Normal healthy condition
+SMP-0440,Soybean,51,23.27,24.25,59.66,4.08,4,0.777,0.107,HEALTHY_CANOPY,7.2,0,Normal healthy condition
+SMP-0441,Soybean,26,25.38,27.82,55.29,8.43,2,0.754,0.122,HEALTHY_CANOPY,3.2,0,Normal healthy condition
+SMP-0442,Paddy (Rice),107,43.19,16.42,19.22,0.0,7,0.454,0.695,HEAT_STRESS,62.1,0,Extreme temperature anomaly verified
+SMP-0443,Maize,72,31.85,37.58,98.9,166.38,0,0.443,0.546,FLOOD_WATERLOGGING,48.9,0,Precipitation flood verified
+SMP-0444,Vegetables,81,22.86,49.65,85.93,197.52,0,0.387,0.46,FLOOD_WATERLOGGING,48.6,0,Precipitation flood verified
+SMP-0445,Wheat,61,29.77,25.86,67.87,22.23,0,0.818,0.05,HEALTHY_CANOPY,5.5,0,Normal healthy condition
+SMP-0446,Paddy (Rice),103,24.23,44.8,91.34,221.02,0,0.431,0.494,FLOOD_WATERLOGGING,39.5,0,Precipitation flood verified
+SMP-0447,Cotton,136,30.26,24.69,82.87,11.35,5,0.392,0.67,PEST_FOLIAGE_LESION,39.4,0,Foliage lesion symptoms
+SMP-0448,Maize,139,26.78,27.34,84.13,46.16,8,0.568,0.513,PEST_FOLIAGE_LESION,31.2,0,Foliage lesion symptoms
+SMP-0449,Vegetables,43,28.73,21.2,72.26,17.99,8,0.405,0.651,PEST_FOLIAGE_LESION,42.1,0,Foliage lesion symptoms
+SMP-0450,Cotton,21,26.97,23.41,65.68,4.25,4,0.63,0.142,HEALTHY_CANOPY,3.3,0,Normal healthy condition
+SMP-0451,Pulses,56,39.56,12.63,42.33,0.0,35,0.33,0.854,DROUGHT_DESICCATION,75.0,0,Prolonged dry spell verified
+SMP-0452,Maize,128,39.09,8.77,29.46,0.0,26,0.227,0.804,DROUGHT_DESICCATION,73.9,0,Prolonged dry spell verified
+SMP-0453,Paddy (Rice),62,22.69,31.7,60.98,6.28,3,0.755,0.117,HEALTHY_CANOPY,3.5,0,Normal healthy condition
+SMP-0454,Maize,21,24.71,45.15,84.72,183.1,0,0.267,0.545,FLOOD_WATERLOGGING,37.6,0,Precipitation flood verified
+SMP-0455,Soybean,42,27.97,52.56,92.42,212.91,0,0.352,0.593,FLOOD_WATERLOGGING,56.4,0,Precipitation flood verified
+SMP-0456,Sugarcane,125,38.16,13.54,41.66,0.0,28,0.337,0.721,DROUGHT_DESICCATION,58.4,0,Prolonged dry spell verified
+SMP-0457,Paddy (Rice),43,28.69,24.33,70.09,1.26,5,0.625,0.612,PEST_FOLIAGE_LESION,37.2,0,Foliage lesion symptoms
+SMP-0458,Soybean,20,27.27,36.32,51.05,41.79,1,0.809,0.05,HEALTHY_CANOPY,2.3,0,Normal healthy condition
+SMP-0459,Wheat,62,36.47,14.78,40.78,0.0,18,0.24,0.849,DROUGHT_DESICCATION,52.5,0,Prolonged dry spell verified
+SMP-0460,Pulses,108,29.25,26.12,64.25,6.48,5,0.846,0.115,HEALTHY_CANOPY,3.0,0,Normal healthy condition
+SMP-0461,Wheat,40,34.8,9.73,37.66,0.0,34,0.269,0.894,DROUGHT_DESICCATION,67.4,0,Prolonged dry spell verified
+SMP-0462,Wheat,108,24.33,22.79,68.88,7.28,2,0.803,0.05,HEALTHY_CANOPY,3.2,0,Normal healthy condition
+SMP-0463,Soybean,48,29.48,25.57,74.43,6.45,5,0.482,0.508,PEST_FOLIAGE_LESION,40.9,0,Foliage lesion symptoms
+SMP-0464,Pulses,73,24.32,48.27,98.89,189.97,0,0.409,0.493,FLOOD_WATERLOGGING,57.2,0,Precipitation flood verified
+SMP-0465,Fruits,122,22.19,48.9,93.95,168.51,0,0.37,0.375,FLOOD_WATERLOGGING,67.7,0,Precipitation flood verified
+SMP-0466,Soybean,107,43.23,17.28,22.63,0.0,8,0.497,0.647,HEAT_STRESS,55.7,0,Extreme temperature anomaly verified
+SMP-0467,Fruits,110,34.83,7.43,43.79,0.0,21,0.397,0.81,DROUGHT_DESICCATION,61.2,1,"Claim reported flash flood, but rainfall station and soil probe recorded zero moisture anomaly"
+SMP-0468,Fruits,39,24.87,26.6,55.4,31.72,4,0.765,0.05,HEALTHY_CANOPY,4.6,0,Normal healthy condition
+SMP-0469,Soybean,111,27.51,48.09,92.9,195.78,0,0.318,0.686,FLOOD_WATERLOGGING,56.4,0,Precipitation flood verified
+SMP-0470,Fruits,77,45.44,13.8,42.91,0.0,14,0.454,0.719,HEAT_STRESS,59.9,0,Extreme temperature anomaly verified
+SMP-0471,Sugarcane,78,23.5,54.0,92.56,115.99,0,0.331,0.535,FLOOD_WATERLOGGING,57.7,0,Precipitation flood verified
+SMP-0472,Wheat,112,25.83,32.88,49.39,12.77,2,0.787,0.073,HEALTHY_CANOPY,3.8,0,Normal healthy condition
+SMP-0473,Soybean,94,30.52,25.23,75.46,24.55,3,0.721,0.076,HEALTHY_CANOPY,5.2,0,Normal healthy condition
+SMP-0474,Paddy (Rice),89,27.23,26.99,89.55,11.65,2,0.544,0.635,PEST_FOLIAGE_LESION,32.5,0,Foliage lesion symptoms
+SMP-0475,Vegetables,24,23.85,23.89,47.01,2.62,1,0.843,0.071,HEALTHY_CANOPY,1.6,0,Normal healthy condition
+SMP-0476,Sugarcane,67,29.97,24.88,76.64,1.06,5,0.435,0.509,PEST_FOLIAGE_LESION,47.4,0,Foliage lesion symptoms
+SMP-0477,Sugarcane,68,24.88,25.97,60.25,0.6,5,0.775,0.05,HEALTHY_CANOPY,6.6,0,Normal healthy condition
+SMP-0478,Maize,103,42.63,14.77,31.46,0.0,8,0.397,0.559,HEAT_STRESS,70.0,0,Extreme temperature anomaly verified
+SMP-0479,Fruits,70,37.6,11.89,42.76,0.0,25,0.259,0.848,DROUGHT_DESICCATION,65.3,0,Prolonged dry spell verified
+SMP-0480,Cotton,58,39.62,6.75,37.5,0.0,35,0.284,0.846,DROUGHT_DESICCATION,72.7,0,Prolonged dry spell verified
+SMP-0481,Sugarcane,125,23.88,25.15,64.11,6.17,3,0.735,0.1,HEALTHY_CANOPY,2.4,0,Normal healthy condition
+SMP-0482,Wheat,44,28.97,21.7,64.47,5.02,7,0.439,0.501,PEST_FOLIAGE_LESION,45.1,0,Foliage lesion symptoms
+SMP-0483,Cotton,123,26.66,49.57,89.57,188.68,0,0.383,0.494,FLOOD_WATERLOGGING,40.1,0,Precipitation flood verified
+SMP-0484,Cotton,50,20.74,26.44,66.26,0.53,0,0.858,0.054,HEALTHY_CANOPY,5.1,0,Normal healthy condition
+SMP-0485,Vegetables,96,21.72,50.62,90.7,165.62,0,0.469,0.512,FLOOD_WATERLOGGING,36.9,0,Precipitation flood verified
+SMP-0486,Soybean,114,28.28,23.42,69.13,26.09,3,0.829,0.05,HEALTHY_CANOPY,3.3,0,Normal healthy condition
+SMP-0487,Soybean,116,41.1,19.99,24.82,0.0,7,0.463,0.743,HEAT_STRESS,72.6,0,Extreme temperature anomaly verified
+SMP-0488,Wheat,49,41.76,18.14,45.69,0.0,12,0.357,0.573,HEAT_STRESS,43.0,0,Extreme temperature anomaly verified
+SMP-0489,Pulses,50,39.28,7.23,36.14,0.0,22,0.346,0.831,DROUGHT_DESICCATION,72.3,0,Prolonged dry spell verified
+SMP-0490,Fruits,48,38.06,13.56,33.24,0.0,26,0.279,0.774,DROUGHT_DESICCATION,76.3,1,"Claim reported flash flood, but rainfall station and soil probe recorded zero moisture anomaly"
+SMP-0491,Sugarcane,91,39.75,11.9,43.92,0.0,29,0.249,0.92,DROUGHT_DESICCATION,83.2,0,Prolonged dry spell verified
+SMP-0492,Sugarcane,120,39.34,14.56,29.72,0.0,31,0.289,0.776,DROUGHT_DESICCATION,75.2,0,Prolonged dry spell verified
+SMP-0493,Wheat,68,22.85,31.03,75.96,3.7,4,0.815,0.112,HEALTHY_CANOPY,4.7,0,Normal healthy condition
+SMP-0494,Soybean,58,41.98,9.66,30.75,0.0,9,0.437,0.658,HEAT_STRESS,57.8,0,Extreme temperature anomaly verified
+SMP-0495,Cotton,91,37.04,10.36,38.38,0.0,31,0.304,0.907,DROUGHT_DESICCATION,45.9,0,Prolonged dry spell verified
+SMP-0496,Maize,69,24.36,24.52,66.75,0.78,1,0.784,0.086,HEALTHY_CANOPY,5.9,0,Normal healthy condition
+SMP-0497,Paddy (Rice),138,37.53,16.74,29.66,0.0,29,0.384,0.81,DROUGHT_DESICCATION,75.7,0,Prolonged dry spell verified
+SMP-0498,Soybean,26,27.32,25.07,66.83,17.95,5,0.687,0.083,HEALTHY_CANOPY,4.3,0,Normal healthy condition
+SMP-0499,Cotton,131,29.55,32.64,64.07,0.02,4,0.793,0.054,HEALTHY_CANOPY,2.6,0,Normal healthy condition
+SMP-0500,Fruits,47,40.47,13.87,36.81,0.0,28,0.323,0.766,DROUGHT_DESICCATION,79.7,0,Prolonged dry spell verified
+SMP-0501,Cotton,47,30.66,30.79,71.85,0.99,7,0.457,0.539,PEST_FOLIAGE_LESION,46.9,0,Foliage lesion symptoms
+SMP-0502,Vegetables,137,30.61,25.37,61.98,0.0,4,0.794,0.053,HEALTHY_CANOPY,6.7,0,Normal healthy condition
+SMP-0503,Sugarcane,137,29.51,28.54,65.64,10.84,2,0.808,0.083,HEALTHY_CANOPY,2.3,0,Normal healthy condition
+SMP-0504,Sugarcane,79,41.05,7.82,31.06,0.0,29,0.284,0.803,DROUGHT_DESICCATION,61.8,0,Prolonged dry spell verified
+SMP-0505,Pulses,85,42.44,16.82,38.41,0.0,14,0.406,0.641,HEAT_STRESS,66.1,0,Extreme temperature anomaly verified
+SMP-0506,Vegetables,117,41.03,11.1,39.24,0.0,10,0.48,0.625,HEAT_STRESS,54.8,0,Extreme temperature anomaly verified
+SMP-0507,Sugarcane,25,22.17,49.63,98.93,196.09,0,0.503,0.616,FLOOD_WATERLOGGING,54.0,0,Precipitation flood verified
+SMP-0508,Maize,22,29.25,30.98,76.52,3.1,4,0.884,0.05,HEALTHY_CANOPY,3.3,0,Normal healthy condition
+SMP-0509,Sugarcane,57,27.25,27.78,57.14,13.21,2,0.737,0.083,HEALTHY_CANOPY,6.4,0,Normal healthy condition
+SMP-0510,Soybean,83,28.56,51.29,86.92,234.13,0,0.418,0.483,FLOOD_WATERLOGGING,41.0,0,Precipitation flood verified
+SMP-0511,Pulses,52,44.01,16.72,34.07,0.0,14,0.49,0.624,HEAT_STRESS,68.9,0,Extreme temperature anomaly verified
+SMP-0512,Vegetables,78,24.44,36.66,69.79,12.19,2,0.734,0.101,HEALTHY_CANOPY,3.5,0,Normal healthy condition
+SMP-0513,Fruits,82,22.92,32.92,57.28,21.17,4,0.861,0.05,HEALTHY_CANOPY,1.6,0,Normal healthy condition
+SMP-0514,Cotton,87,26.65,24.08,64.3,0.96,0,0.797,0.082,HEALTHY_CANOPY,0.0,0,Normal healthy condition
+SMP-0515,Cotton,117,27.37,24.08,55.77,1.83,1,0.696,0.074,HEALTHY_CANOPY,5.9,0,Normal healthy condition
+SMP-0516,Soybean,28,27.17,42.41,99.97,151.62,0,0.434,0.591,FLOOD_WATERLOGGING,83.3,1,"Claim reported drought, but local AWS recorded heavy rainfall (85mm+) during event window"
+SMP-0517,Pulses,27,22.92,39.02,97.96,150.0,0,0.391,0.461,FLOOD_WATERLOGGING,49.7,0,Precipitation flood verified
+SMP-0518,Vegetables,104,35.4,12.35,38.4,0.0,18,0.279,0.88,DROUGHT_DESICCATION,70.5,0,Prolonged dry spell verified
+SMP-0519,Sugarcane,21,20.46,31.68,66.48,1.24,5,0.85,0.106,HEALTHY_CANOPY,4.3,0,Normal healthy condition
+SMP-0520,Wheat,22,33.56,9.39,37.63,0.0,31,0.315,0.938,DROUGHT_DESICCATION,54.1,0,Prolonged dry spell verified
+SMP-0521,Maize,33,30.26,29.21,93.9,17.64,6,0.456,0.543,PEST_FOLIAGE_LESION,53.0,0,Foliage lesion symptoms
+SMP-0522,Soybean,99,38.9,9.37,37.49,0.0,29,0.29,0.95,DROUGHT_DESICCATION,73.3,0,Prolonged dry spell verified
+SMP-0523,Sugarcane,30,37.97,11.95,44.9,0.0,30,0.315,0.785,DROUGHT_DESICCATION,76.4,0,Prolonged dry spell verified
+SMP-0524,Soybean,109,25.48,23.72,54.88,0.84,5,0.856,0.105,HEALTHY_CANOPY,4.4,0,Normal healthy condition
+SMP-0525,Paddy (Rice),103,25.77,22.14,73.75,17.18,7,0.475,0.626,PEST_FOLIAGE_LESION,56.1,0,Foliage lesion symptoms
+SMP-0526,Paddy (Rice),71,40.35,9.88,44.35,0.0,35,0.333,0.894,DROUGHT_DESICCATION,73.7,0,Prolonged dry spell verified
+SMP-0527,Cotton,109,21.44,34.99,65.41,13.94,3,0.809,0.097,HEALTHY_CANOPY,1.4,0,Normal healthy condition
+SMP-0528,Pulses,92,25.78,25.02,79.02,14.43,2,0.443,0.476,PEST_FOLIAGE_LESION,45.3,0,Foliage lesion symptoms
+SMP-0529,Cotton,49,24.22,28.94,55.27,3.06,5,0.769,0.066,HEALTHY_CANOPY,1.5,0,Normal healthy condition
+SMP-0530,Vegetables,54,25.62,25.76,41.56,7.24,0,0.883,0.074,HEALTHY_CANOPY,4.4,0,Normal healthy condition
+SMP-0531,Wheat,135,35.68,11.02,38.63,0.0,19,0.276,0.881,DROUGHT_DESICCATION,69.8,0,Prolonged dry spell verified
+SMP-0532,Pulses,22,30.37,24.24,92.73,0.47,6,0.516,0.564,PEST_FOLIAGE_LESION,41.8,0,Foliage lesion symptoms
+SMP-0533,Sugarcane,138,25.73,27.68,65.42,4.23,1,0.727,0.09,HEALTHY_CANOPY,4.3,0,Normal healthy condition
+SMP-0534,Sugarcane,106,41.9,12.96,27.26,0.0,12,0.407,0.602,HEAT_STRESS,72.2,0,Extreme temperature anomaly verified
+SMP-0535,Maize,121,22.4,22.87,78.77,13.04,7,0.51,0.526,PEST_FOLIAGE_LESION,28.0,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-0536,Cotton,32,36.68,10.57,40.48,0.0,20,0.288,0.851,DROUGHT_DESICCATION,87.4,0,Prolonged dry spell verified
+SMP-0537,Sugarcane,119,39.54,10.9,37.08,0.0,26,0.299,0.891,DROUGHT_DESICCATION,61.7,0,Prolonged dry spell verified
+SMP-0538,Vegetables,82,26.14,28.2,60.99,7.91,4,0.711,0.062,HEALTHY_CANOPY,6.2,0,Normal healthy condition
+SMP-0539,Sugarcane,43,22.89,56.0,96.8,183.49,0,0.447,0.573,FLOOD_WATERLOGGING,55.9,0,Precipitation flood verified
+SMP-0540,Paddy (Rice),118,23.27,46.75,87.72,108.7,0,0.508,0.563,FLOOD_WATERLOGGING,54.1,0,Precipitation flood verified
+SMP-0541,Paddy (Rice),30,27.2,24.69,56.99,2.59,3,0.766,0.063,HEALTHY_CANOPY,1.7,0,Normal healthy condition
+SMP-0542,Maize,114,37.01,15.14,28.84,0.0,29,0.257,0.91,DROUGHT_DESICCATION,86.6,0,Prolonged dry spell verified
+SMP-0543,Cotton,140,37.24,8.52,48.48,0.0,29,0.416,0.861,DROUGHT_DESICCATION,59.9,0,Prolonged dry spell verified
+SMP-0544,Paddy (Rice),36,25.85,27.36,67.65,4.54,3,0.853,0.098,HEALTHY_CANOPY,7.6,0,Normal healthy condition
+SMP-0545,Fruits,85,39.14,12.66,36.69,0.0,18,0.466,0.796,DROUGHT_DESICCATION,61.9,0,Prolonged dry spell verified
+SMP-0546,Fruits,31,27.62,40.63,84.61,178.59,0,0.42,0.532,FLOOD_WATERLOGGING,65.9,0,Precipitation flood verified
+SMP-0547,Sugarcane,21,23.28,28.26,62.12,42.57,3,0.774,0.05,HEALTHY_CANOPY,4.5,0,Normal healthy condition
+SMP-0548,Fruits,135,27.11,16.34,86.36,7.37,3,0.478,0.604,PEST_FOLIAGE_LESION,53.4,0,Foliage lesion symptoms
+SMP-0549,Maize,107,37.96,13.51,39.96,0.0,22,0.414,0.794,DROUGHT_DESICCATION,69.4,0,Prolonged dry spell verified
+SMP-0550,Wheat,83,28.48,25.71,58.68,3.32,1,0.739,0.05,HEALTHY_CANOPY,8.2,0,Normal healthy condition
+SMP-0551,Sugarcane,58,40.83,14.84,31.89,0.0,20,0.324,0.742,DROUGHT_DESICCATION,61.0,0,Prolonged dry spell verified
+SMP-0552,Soybean,112,22.16,54.2,90.42,207.05,0,0.468,0.734,FLOOD_WATERLOGGING,36.2,0,Precipitation flood verified
+SMP-0553,Soybean,78,29.78,32.59,57.21,31.77,2,0.83,0.072,HEALTHY_CANOPY,4.9,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-0554,Pulses,127,23.05,46.17,92.0,209.52,0,0.329,0.611,FLOOD_WATERLOGGING,63.5,0,Precipitation flood verified
+SMP-0555,Pulses,76,39.46,9.39,29.54,0.0,22,0.354,0.831,DROUGHT_DESICCATION,78.0,0,Prolonged dry spell verified
+SMP-0556,Soybean,81,35.75,12.52,43.27,0.0,30,0.314,0.845,DROUGHT_DESICCATION,71.8,0,Prolonged dry spell verified
+SMP-0557,Wheat,114,22.36,50.66,98.49,175.67,0,0.303,0.495,FLOOD_WATERLOGGING,32.6,0,Precipitation flood verified
+SMP-0558,Soybean,61,40.73,12.53,35.49,0.0,30,0.235,0.77,DROUGHT_DESICCATION,61.6,0,Prolonged dry spell verified
+SMP-0559,Soybean,95,29.27,24.27,87.39,22.73,3,0.438,0.573,PEST_FOLIAGE_LESION,47.7,0,Foliage lesion symptoms
+SMP-0560,Fruits,23,28.69,25.6,74.52,6.66,5,0.469,0.577,PEST_FOLIAGE_LESION,39.5,0,Foliage lesion symptoms
+SMP-0561,Soybean,76,44.28,14.24,29.74,0.0,8,0.45,0.64,HEAT_STRESS,61.4,0,Extreme temperature anomaly verified
+SMP-0562,Sugarcane,106,38.33,11.28,32.33,0.0,27,0.394,0.95,DROUGHT_DESICCATION,68.1,0,Prolonged dry spell verified
+SMP-0563,Maize,111,34.88,11.06,42.95,0.0,30,0.283,0.812,DROUGHT_DESICCATION,71.4,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-0564,Sugarcane,88,40.51,12.55,42.08,0.0,31,0.294,0.844,DROUGHT_DESICCATION,60.8,0,Prolonged dry spell verified
+SMP-0565,Pulses,109,44.02,19.45,35.32,0.0,15,0.374,0.666,HEAT_STRESS,72.5,0,Extreme temperature anomaly verified
+SMP-0566,Paddy (Rice),33,41.87,19.15,34.03,0.0,12,0.377,0.586,HEAT_STRESS,59.7,0,Extreme temperature anomaly verified
+SMP-0567,Cotton,92,29.23,30.32,71.98,17.64,7,0.618,0.643,PEST_FOLIAGE_LESION,52.4,0,Foliage lesion symptoms
+SMP-0568,Pulses,121,40.55,13.11,42.36,0.0,18,0.301,0.786,DROUGHT_DESICCATION,71.3,0,Prolonged dry spell verified
+SMP-0569,Soybean,85,25.87,46.89,96.26,218.58,0,0.347,0.483,FLOOD_WATERLOGGING,52.3,0,Precipitation flood verified
+SMP-0570,Soybean,77,38.27,9.95,44.76,0.0,32,0.345,0.822,DROUGHT_DESICCATION,53.6,0,Prolonged dry spell verified
+SMP-0571,Fruits,39,34.21,11.56,27.34,0.0,18,0.381,0.811,DROUGHT_DESICCATION,100.0,0,Prolonged dry spell verified
+SMP-0572,Wheat,73,34.77,23.36,77.26,10.88,2,0.387,0.74,PEST_FOLIAGE_LESION,58.0,0,Foliage lesion symptoms
+SMP-0573,Maize,64,36.55,12.02,35.58,0.0,32,0.26,0.93,DROUGHT_DESICCATION,51.4,0,Prolonged dry spell verified
+SMP-0574,Fruits,81,36.79,11.17,46.26,0.0,21,0.374,0.72,DROUGHT_DESICCATION,68.0,0,Prolonged dry spell verified
+SMP-0575,Vegetables,60,26.06,27.09,69.96,0.84,0,0.761,0.05,HEALTHY_CANOPY,2.6,0,Normal healthy condition
+SMP-0576,Paddy (Rice),22,43.44,16.97,33.01,0.0,8,0.33,0.667,HEAT_STRESS,40.6,0,Extreme temperature anomaly verified
+SMP-0577,Maize,139,29.45,29.0,67.68,12.68,3,0.474,0.564,PEST_FOLIAGE_LESION,38.3,0,Foliage lesion symptoms
+SMP-0578,Fruits,40,40.23,14.81,34.97,0.0,31,0.388,0.822,DROUGHT_DESICCATION,65.9,0,Prolonged dry spell verified
+SMP-0579,Soybean,122,41.26,10.98,39.48,0.0,23,0.335,0.722,DROUGHT_DESICCATION,70.9,0,Prolonged dry spell verified
+SMP-0580,Sugarcane,70,24.31,22.32,60.86,25.63,4,0.83,0.065,HEALTHY_CANOPY,2.4,0,Normal healthy condition
+SMP-0581,Vegetables,95,35.6,7.46,40.36,0.0,18,0.21,0.746,DROUGHT_DESICCATION,47.2,0,Prolonged dry spell verified
+SMP-0582,Soybean,55,42.35,15.55,30.04,0.0,8,0.327,0.598,HEAT_STRESS,61.7,0,Extreme temperature anomaly verified
+SMP-0583,Fruits,43,36.12,11.63,33.57,0.0,24,0.331,0.898,DROUGHT_DESICCATION,73.9,0,Prolonged dry spell verified
+SMP-0584,Wheat,105,41.76,16.77,30.56,0.0,15,0.401,0.657,HEAT_STRESS,56.7,0,Extreme temperature anomaly verified
+SMP-0585,Pulses,96,38.03,9.01,32.92,0.0,30,0.237,0.724,DROUGHT_DESICCATION,55.8,0,Prolonged dry spell verified
+SMP-0586,Pulses,65,42.79,13.32,35.08,0.0,9,0.402,0.542,HEAT_STRESS,63.2,0,Extreme temperature anomaly verified
+SMP-0587,Wheat,137,25.62,43.03,93.68,149.31,0,0.428,0.449,FLOOD_WATERLOGGING,32.5,0,Precipitation flood verified
+SMP-0588,Maize,60,24.85,27.51,61.82,44.28,2,0.721,0.092,HEALTHY_CANOPY,2.9,0,Normal healthy condition
+SMP-0589,Pulses,108,29.94,25.74,74.58,3.2,3,0.706,0.115,HEALTHY_CANOPY,5.0,0,Normal healthy condition
+SMP-0590,Maize,93,36.99,9.94,43.18,0.0,23,0.235,0.762,DROUGHT_DESICCATION,64.0,0,Prolonged dry spell verified
+SMP-0591,Fruits,108,32.09,25.33,71.22,2.19,3,0.461,0.537,PEST_FOLIAGE_LESION,33.8,0,Foliage lesion symptoms
+SMP-0592,Vegetables,56,29.55,34.7,57.12,26.06,2,0.85,0.076,HEALTHY_CANOPY,1.1,0,Normal healthy condition
+SMP-0593,Cotton,130,36.19,11.99,44.48,0.0,18,0.254,0.798,DROUGHT_DESICCATION,66.5,0,Prolonged dry spell verified
+SMP-0594,Soybean,124,34.01,12.18,34.38,0.0,35,0.308,0.793,DROUGHT_DESICCATION,60.1,0,Prolonged dry spell verified
+SMP-0595,Vegetables,72,23.99,46.92,90.51,153.15,0,0.446,0.682,FLOOD_WATERLOGGING,55.7,0,Precipitation flood verified
+SMP-0596,Vegetables,82,28.99,22.44,66.26,2.73,4,0.768,0.098,HEALTHY_CANOPY,6.7,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-0597,Wheat,24,24.04,29.52,63.91,20.09,4,0.828,0.087,HEALTHY_CANOPY,0.9,0,Normal healthy condition
+SMP-0598,Vegetables,92,23.61,49.51,92.7,119.69,0,0.349,0.545,FLOOD_WATERLOGGING,60.4,0,Precipitation flood verified
+SMP-0599,Fruits,85,19.41,27.35,66.14,21.54,0,0.822,0.064,HEALTHY_CANOPY,6.1,0,Normal healthy condition
+SMP-0600,Fruits,125,31.88,23.23,86.36,28.3,6,0.447,0.711,PEST_FOLIAGE_LESION,51.1,0,Foliage lesion symptoms
+SMP-0601,Cotton,117,24.86,49.9,89.78,171.1,0,0.554,0.475,FLOOD_WATERLOGGING,73.4,0,Precipitation flood verified
+SMP-0602,Sugarcane,33,23.36,54.63,86.37,192.58,0,0.361,0.437,FLOOD_WATERLOGGING,56.6,0,Precipitation flood verified
+SMP-0603,Soybean,58,44.32,13.47,23.01,0.0,7,0.394,0.674,HEAT_STRESS,62.4,0,Extreme temperature anomaly verified
+SMP-0604,Pulses,130,44.21,15.82,43.13,0.0,14,0.416,0.656,HEAT_STRESS,45.1,0,Extreme temperature anomaly verified
+SMP-0605,Paddy (Rice),119,42.03,14.99,37.76,0.0,10,0.432,0.597,HEAT_STRESS,59.4,0,Extreme temperature anomaly verified
+SMP-0606,Pulses,130,25.34,55.64,95.55,197.83,0,0.425,0.581,FLOOD_WATERLOGGING,69.0,0,Precipitation flood verified
+SMP-0607,Maize,98,22.0,26.6,58.82,25.37,1,0.698,0.125,HEALTHY_CANOPY,6.3,0,Normal healthy condition
+SMP-0608,Cotton,92,37.28,12.71,36.15,0.0,26,0.326,0.811,DROUGHT_DESICCATION,64.7,0,Prolonged dry spell verified
+SMP-0609,Maize,61,29.9,19.77,76.24,12.26,4,0.611,0.646,PEST_FOLIAGE_LESION,38.2,0,Foliage lesion symptoms
+SMP-0610,Wheat,129,35.97,10.81,36.8,0.0,21,0.387,0.831,DROUGHT_DESICCATION,60.7,0,Prolonged dry spell verified
+SMP-0611,Sugarcane,137,31.67,28.2,71.15,4.49,2,0.762,0.059,HEALTHY_CANOPY,9.0,0,Normal healthy condition
+SMP-0612,Maize,109,44.75,12.55,34.08,0.0,10,0.502,0.575,HEAT_STRESS,58.6,0,Extreme temperature anomaly verified
+SMP-0613,Pulses,126,26.37,22.9,68.04,16.48,5,0.848,0.129,HEALTHY_CANOPY,10.3,0,Normal healthy condition
+SMP-0614,Maize,93,21.75,49.21,83.67,191.59,0,0.376,0.704,FLOOD_WATERLOGGING,44.7,0,Precipitation flood verified
+SMP-0615,Sugarcane,77,20.93,26.11,49.2,40.52,0,0.818,0.08,HEALTHY_CANOPY,5.6,0,Normal healthy condition
+SMP-0616,Wheat,108,31.96,20.99,77.79,4.1,4,0.447,0.731,PEST_FOLIAGE_LESION,47.6,0,Foliage lesion symptoms
+SMP-0617,Vegetables,61,22.27,47.84,92.07,189.18,0,0.311,0.597,FLOOD_WATERLOGGING,30.0,0,Precipitation flood verified
+SMP-0618,Paddy (Rice),113,27.43,22.29,82.43,2.17,7,0.575,0.602,PEST_FOLIAGE_LESION,45.2,0,Foliage lesion symptoms
+SMP-0619,Pulses,128,23.98,32.71,63.3,4.57,4,0.754,0.077,HEALTHY_CANOPY,8.3,0,Normal healthy condition
+SMP-0620,Sugarcane,125,21.73,20.59,71.27,5.69,2,0.766,0.056,HEALTHY_CANOPY,4.4,0,Normal healthy condition
+SMP-0621,Wheat,63,36.68,11.56,43.08,0.0,22,0.256,0.88,DROUGHT_DESICCATION,60.7,0,Prolonged dry spell verified
+SMP-0622,Vegetables,120,42.87,14.24,37.43,0.0,19,0.262,0.751,DROUGHT_DESICCATION,76.7,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-0623,Cotton,35,28.92,27.24,93.43,2.87,3,0.536,0.567,PEST_FOLIAGE_LESION,51.0,0,Foliage lesion symptoms
+SMP-0624,Cotton,74,34.44,27.58,68.15,13.87,5,0.792,0.064,HEALTHY_CANOPY,4.2,0,Normal healthy condition
+SMP-0625,Wheat,40,43.78,16.66,25.94,0.0,11,0.365,0.78,HEAT_STRESS,60.6,0,Extreme temperature anomaly verified
+SMP-0626,Pulses,52,28.52,29.0,71.47,2.11,5,0.73,0.061,HEALTHY_CANOPY,4.4,0,Normal healthy condition
+SMP-0627,Maize,26,38.24,8.62,43.27,0.0,27,0.354,0.778,DROUGHT_DESICCATION,52.6,0,Prolonged dry spell verified
+SMP-0628,Soybean,74,23.71,45.77,92.45,164.11,0,0.259,0.519,FLOOD_WATERLOGGING,50.3,0,Precipitation flood verified
+SMP-0629,Cotton,47,39.08,9.6,46.39,0.0,22,0.205,0.899,DROUGHT_DESICCATION,65.8,0,Prolonged dry spell verified
+SMP-0630,Fruits,107,39.65,11.16,43.7,0.0,18,0.297,0.754,DROUGHT_DESICCATION,82.2,0,Prolonged dry spell verified
+SMP-0631,Paddy (Rice),130,37.22,11.44,44.17,0.0,22,0.258,0.856,DROUGHT_DESICCATION,62.1,0,Prolonged dry spell verified
+SMP-0632,Soybean,69,25.6,28.29,53.0,5.45,0,0.741,0.116,HEALTHY_CANOPY,3.0,0,Normal healthy condition
+SMP-0633,Pulses,132,29.16,27.25,59.59,21.17,3,0.725,0.127,HEALTHY_CANOPY,0.9,0,Normal healthy condition
+SMP-0634,Maize,102,33.07,22.7,76.3,1.84,3,0.367,0.507,PEST_FOLIAGE_LESION,27.2,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-0635,Maize,76,37.8,9.73,46.42,0.0,24,0.38,0.922,DROUGHT_DESICCATION,61.2,0,Prolonged dry spell verified
+SMP-0636,Maize,137,37.84,5.76,36.59,0.0,32,0.326,0.829,DROUGHT_DESICCATION,67.6,0,Prolonged dry spell verified
+SMP-0637,Paddy (Rice),134,26.2,17.15,67.05,13.09,0,0.804,0.091,HEALTHY_CANOPY,4.6,0,Normal healthy condition
+SMP-0638,Sugarcane,64,25.2,14.79,80.72,11.95,4,0.474,0.539,PEST_FOLIAGE_LESION,43.7,0,Foliage lesion symptoms
+SMP-0639,Soybean,55,19.6,54.6,91.0,184.56,0,0.438,0.651,FLOOD_WATERLOGGING,31.7,0,Precipitation flood verified
+SMP-0640,Wheat,119,29.28,28.01,77.31,3.64,2,0.462,0.58,PEST_FOLIAGE_LESION,53.9,0,Foliage lesion symptoms
+SMP-0641,Wheat,46,35.72,7.91,37.2,0.0,34,0.291,0.762,DROUGHT_DESICCATION,66.2,0,Prolonged dry spell verified
+SMP-0642,Sugarcane,57,24.98,47.95,93.23,229.4,0,0.393,0.572,FLOOD_WATERLOGGING,47.9,0,Precipitation flood verified
+SMP-0643,Soybean,83,35.38,9.83,35.61,0.0,25,0.342,0.95,DROUGHT_DESICCATION,60.8,0,Prolonged dry spell verified
+SMP-0644,Paddy (Rice),87,41.75,15.81,34.37,0.0,7,0.418,0.77,HEAT_STRESS,38.6,0,Extreme temperature anomaly verified
+SMP-0645,Pulses,36,31.53,10.01,43.49,0.0,31,0.226,0.64,DROUGHT_DESICCATION,73.7,0,Prolonged dry spell verified
+SMP-0646,Maize,117,38.11,8.82,33.07,0.0,20,0.262,0.827,DROUGHT_DESICCATION,61.7,1,"Claim reported flash flood, but rainfall station and soil probe recorded zero moisture anomaly"
+SMP-0647,Cotton,53,27.48,16.58,58.15,1.36,0,0.724,0.075,HEALTHY_CANOPY,4.9,0,Normal healthy condition
+SMP-0648,Sugarcane,84,28.54,28.59,62.44,4.47,5,0.781,0.136,HEALTHY_CANOPY,3.0,0,Normal healthy condition
+SMP-0649,Sugarcane,74,24.65,38.98,82.43,200.34,0,0.42,0.644,FLOOD_WATERLOGGING,37.5,0,Precipitation flood verified
+SMP-0650,Fruits,88,25.04,57.34,93.68,183.3,0,0.421,0.424,FLOOD_WATERLOGGING,70.3,0,Precipitation flood verified
+SMP-0651,Wheat,30,35.97,12.01,30.18,0.0,24,0.249,0.906,DROUGHT_DESICCATION,64.5,0,Prolonged dry spell verified
+SMP-0652,Maize,88,41.13,10.84,28.79,0.0,20,0.374,0.785,DROUGHT_DESICCATION,75.0,0,Prolonged dry spell verified
+SMP-0653,Sugarcane,113,29.06,18.6,79.15,5.9,3,0.612,0.606,PEST_FOLIAGE_LESION,48.7,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-0654,Sugarcane,34,40.14,11.4,46.16,0.0,19,0.357,0.775,DROUGHT_DESICCATION,65.6,0,Prolonged dry spell verified
+SMP-0655,Maize,35,19.22,24.39,61.95,51.05,1,0.807,0.103,HEALTHY_CANOPY,3.4,0,Normal healthy condition
+SMP-0656,Maize,83,28.85,25.73,80.04,11.64,6,0.36,0.675,PEST_FOLIAGE_LESION,35.0,0,Foliage lesion symptoms
+SMP-0657,Wheat,41,33.57,8.56,37.51,0.0,26,0.2,0.76,DROUGHT_DESICCATION,62.1,0,Prolonged dry spell verified
+SMP-0658,Paddy (Rice),118,40.12,9.63,33.74,0.0,12,0.403,0.735,HEAT_STRESS,49.1,0,Extreme temperature anomaly verified
+SMP-0659,Wheat,87,28.28,34.12,67.1,0.99,5,0.75,0.125,HEALTHY_CANOPY,5.2,0,Normal healthy condition
+SMP-0660,Paddy (Rice),83,38.77,10.14,30.58,0.0,29,0.307,0.892,DROUGHT_DESICCATION,52.7,1,"Claim reported flash flood, but rainfall station and soil probe recorded zero moisture anomaly"
+SMP-0661,Pulses,40,22.83,28.51,57.12,3.6,0,0.74,0.129,HEALTHY_CANOPY,2.6,0,Normal healthy condition
+SMP-0662,Paddy (Rice),49,22.83,41.8,93.17,172.98,0,0.329,0.479,FLOOD_WATERLOGGING,72.4,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-0663,Soybean,25,37.58,11.2,38.53,0.0,30,0.404,0.757,DROUGHT_DESICCATION,64.0,0,Prolonged dry spell verified
+SMP-0664,Maize,139,28.58,17.98,71.59,11.82,2,0.434,0.683,PEST_FOLIAGE_LESION,38.0,0,Foliage lesion symptoms
+SMP-0665,Sugarcane,48,39.75,14.4,35.99,0.0,31,0.361,0.751,DROUGHT_DESICCATION,75.5,0,Prolonged dry spell verified
+SMP-0666,Pulses,54,42.86,17.42,28.13,0.0,12,0.284,0.715,HEAT_STRESS,41.5,0,Extreme temperature anomaly verified
+SMP-0667,Cotton,42,25.05,31.76,66.54,12.64,4,0.796,0.148,HEALTHY_CANOPY,0.1,0,Normal healthy condition
+SMP-0668,Sugarcane,28,42.35,16.05,23.94,0.0,11,0.319,0.621,HEAT_STRESS,49.2,0,Extreme temperature anomaly verified
+SMP-0669,Wheat,61,25.68,25.59,67.54,22.43,3,0.81,0.1,HEALTHY_CANOPY,4.6,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-0670,Wheat,92,41.02,16.83,39.17,0.0,10,0.358,0.827,HEAT_STRESS,53.8,0,Extreme temperature anomaly verified
+SMP-0671,Vegetables,118,42.56,13.98,33.34,0.0,15,0.278,0.642,HEAT_STRESS,49.3,0,Extreme temperature anomaly verified
+SMP-0672,Soybean,39,26.41,31.98,70.17,2.68,3,0.784,0.112,HEALTHY_CANOPY,2.1,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-0673,Cotton,62,25.76,31.56,67.89,26.42,5,0.747,0.086,HEALTHY_CANOPY,2.8,0,Normal healthy condition
+SMP-0674,Wheat,33,24.79,25.25,53.54,42.97,1,0.836,0.091,HEALTHY_CANOPY,2.8,0,Normal healthy condition
+SMP-0675,Cotton,38,24.68,43.49,95.79,133.09,0,0.518,0.576,FLOOD_WATERLOGGING,52.0,0,Precipitation flood verified
+SMP-0676,Soybean,134,43.87,17.53,39.98,0.0,13,0.492,0.705,HEAT_STRESS,51.0,0,Extreme temperature anomaly verified
+SMP-0677,Pulses,78,27.65,23.75,85.57,12.09,2,0.453,0.547,PEST_FOLIAGE_LESION,43.4,0,Foliage lesion symptoms
+SMP-0678,Fruits,37,21.88,35.51,92.8,193.27,0,0.441,0.394,FLOOD_WATERLOGGING,49.8,0,Precipitation flood verified
+SMP-0679,Cotton,75,19.56,54.85,87.66,212.66,0,0.496,0.478,FLOOD_WATERLOGGING,40.4,0,Precipitation flood verified
+SMP-0680,Wheat,53,43.13,13.47,32.61,0.0,13,0.366,0.555,HEAT_STRESS,40.2,0,Extreme temperature anomaly verified
+SMP-0681,Pulses,60,38.07,9.88,35.23,0.0,25,0.362,0.89,DROUGHT_DESICCATION,65.3,1,"Claim reported flash flood, but rainfall station and soil probe recorded zero moisture anomaly"
+SMP-0682,Maize,119,41.89,17.5,23.86,0.0,8,0.416,0.719,HEAT_STRESS,63.4,0,Extreme temperature anomaly verified
+SMP-0683,Maize,77,32.66,9.48,33.61,0.0,31,0.326,0.849,DROUGHT_DESICCATION,83.0,0,Prolonged dry spell verified
+SMP-0684,Pulses,118,24.52,26.01,74.2,0.26,2,0.795,0.083,HEALTHY_CANOPY,2.8,0,Normal healthy condition
+SMP-0685,Paddy (Rice),31,24.38,31.97,73.76,4.81,5,0.695,0.116,HEALTHY_CANOPY,7.7,0,Normal healthy condition
+SMP-0686,Cotton,47,44.02,19.49,28.52,0.0,12,0.319,0.74,HEAT_STRESS,61.3,0,Extreme temperature anomaly verified
+SMP-0687,Soybean,65,37.77,11.77,39.62,0.0,19,0.397,0.898,DROUGHT_DESICCATION,73.4,0,Prolonged dry spell verified
+SMP-0688,Wheat,124,31.11,25.8,74.77,10.23,2,0.525,0.616,PEST_FOLIAGE_LESION,43.2,0,Foliage lesion symptoms
+SMP-0689,Vegetables,91,24.16,45.69,94.08,150.46,0,0.377,0.498,FLOOD_WATERLOGGING,64.4,0,Precipitation flood verified
+SMP-0690,Vegetables,33,42.48,14.62,29.76,0.0,9,0.4,0.794,HEAT_STRESS,48.1,0,Extreme temperature anomaly verified
+SMP-0691,Cotton,126,43.72,17.42,26.7,0.0,10,0.503,0.718,HEAT_STRESS,53.9,0,Extreme temperature anomaly verified
+SMP-0692,Sugarcane,67,20.28,49.15,91.82,144.08,0,0.337,0.619,FLOOD_WATERLOGGING,30.5,0,Precipitation flood verified
+SMP-0693,Paddy (Rice),94,24.63,47.06,93.99,166.17,0,0.443,0.491,FLOOD_WATERLOGGING,53.4,0,Precipitation flood verified
+SMP-0694,Paddy (Rice),22,30.22,24.53,80.66,3.59,3,0.445,0.525,PEST_FOLIAGE_LESION,42.2,0,Foliage lesion symptoms
+SMP-0695,Vegetables,123,23.26,26.33,67.75,2.09,2,0.723,0.096,HEALTHY_CANOPY,6.7,0,Normal healthy condition
+SMP-0696,Vegetables,26,22.22,35.89,68.32,17.22,4,0.711,0.103,HEALTHY_CANOPY,3.9,0,Normal healthy condition
+SMP-0697,Sugarcane,83,24.35,28.67,72.56,26.79,5,0.835,0.116,HEALTHY_CANOPY,1.8,0,Normal healthy condition
+SMP-0698,Pulses,47,30.99,23.36,78.97,15.17,4,0.467,0.661,PEST_FOLIAGE_LESION,33.6,0,Foliage lesion symptoms
+SMP-0699,Maize,24,27.89,38.89,89.61,186.11,0,0.467,0.542,FLOOD_WATERLOGGING,53.3,0,Precipitation flood verified
+SMP-0700,Wheat,83,38.53,10.54,44.97,0.0,35,0.37,0.872,DROUGHT_DESICCATION,58.3,0,Prolonged dry spell verified
+SMP-0701,Paddy (Rice),55,37.3,10.4,32.97,0.0,31,0.342,0.788,DROUGHT_DESICCATION,74.6,0,Prolonged dry spell verified
+SMP-0702,Fruits,51,21.86,56.6,88.41,181.58,0,0.483,0.504,FLOOD_WATERLOGGING,64.2,0,Precipitation flood verified
+SMP-0703,Cotton,68,40.29,20.36,32.08,0.0,12,0.358,0.659,HEAT_STRESS,64.5,0,Extreme temperature anomaly verified
+SMP-0704,Vegetables,64,27.54,21.38,76.45,4.19,6,0.482,0.608,PEST_FOLIAGE_LESION,32.1,0,Foliage lesion symptoms
+SMP-0705,Wheat,43,25.1,26.65,63.62,0.87,4,0.79,0.05,HEALTHY_CANOPY,4.0,0,Normal healthy condition
+SMP-0706,Wheat,27,43.91,15.44,39.16,0.0,14,0.472,0.744,HEAT_STRESS,54.3,0,Extreme temperature anomaly verified
+SMP-0707,Soybean,40,22.76,25.55,66.57,6.73,5,0.787,0.08,HEALTHY_CANOPY,6.7,0,Normal healthy condition
+SMP-0708,Fruits,124,42.3,20.12,30.11,0.0,7,0.465,0.696,HEAT_STRESS,71.8,0,Extreme temperature anomaly verified
+SMP-0709,Soybean,93,39.84,12.51,42.99,0.0,13,0.349,0.633,HEAT_STRESS,51.0,0,Extreme temperature anomaly verified
+SMP-0710,Maize,42,29.45,22.99,65.18,48.19,2,0.852,0.065,HEALTHY_CANOPY,4.1,0,Normal healthy condition
+SMP-0711,Pulses,136,23.38,53.73,80.65,174.5,0,0.412,0.514,FLOOD_WATERLOGGING,74.7,0,Precipitation flood verified
+SMP-0712,Pulses,92,22.23,51.86,93.43,212.85,0,0.367,0.491,FLOOD_WATERLOGGING,67.2,0,Precipitation flood verified
+SMP-0713,Soybean,127,30.06,18.59,74.22,20.17,5,0.444,0.756,PEST_FOLIAGE_LESION,29.5,0,Foliage lesion symptoms
+SMP-0714,Maize,82,25.82,22.14,75.52,81.55,0,0.679,0.05,HEALTHY_CANOPY,5.6,0,Normal healthy condition
+SMP-0715,Soybean,22,37.82,10.55,44.95,0.0,18,0.358,0.917,DROUGHT_DESICCATION,54.1,0,Prolonged dry spell verified
+SMP-0716,Soybean,123,25.9,21.53,63.16,36.95,5,0.798,0.076,HEALTHY_CANOPY,8.4,0,Normal healthy condition
+SMP-0717,Pulses,27,27.67,23.7,66.0,7.07,4,0.792,0.056,HEALTHY_CANOPY,7.0,0,Normal healthy condition
+SMP-0718,Maize,119,25.15,25.74,61.23,7.82,4,0.79,0.092,HEALTHY_CANOPY,5.1,0,Normal healthy condition
+SMP-0719,Paddy (Rice),67,18.76,41.83,95.83,147.29,0,0.436,0.449,FLOOD_WATERLOGGING,62.8,0,Precipitation flood verified
+SMP-0720,Paddy (Rice),63,39.83,12.46,43.16,0.0,22,0.414,0.75,DROUGHT_DESICCATION,60.1,0,Prolonged dry spell verified
+SMP-0721,Sugarcane,121,25.8,53.65,89.3,152.68,0,0.368,0.422,FLOOD_WATERLOGGING,38.7,0,Precipitation flood verified
+SMP-0722,Pulses,42,21.51,46.53,93.08,188.0,0,0.379,0.511,FLOOD_WATERLOGGING,55.5,0,Precipitation flood verified
+SMP-0723,Pulses,48,21.01,52.8,97.14,156.23,0,0.388,0.649,FLOOD_WATERLOGGING,52.5,0,Precipitation flood verified
+SMP-0724,Sugarcane,59,25.18,47.54,98.23,189.7,0,0.464,0.595,FLOOD_WATERLOGGING,47.3,0,Precipitation flood verified
+SMP-0725,Maize,113,24.61,31.08,66.01,12.86,5,0.721,0.102,HEALTHY_CANOPY,4.2,0,Normal healthy condition
+SMP-0726,Sugarcane,128,31.52,25.81,78.18,6.15,6,0.462,0.537,PEST_FOLIAGE_LESION,44.0,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-0727,Soybean,101,24.07,57.98,91.65,222.66,0,0.453,0.473,FLOOD_WATERLOGGING,55.6,0,Precipitation flood verified
+SMP-0728,Maize,62,23.76,42.58,93.43,175.66,0,0.465,0.565,FLOOD_WATERLOGGING,46.2,0,Precipitation flood verified
+SMP-0729,Pulses,41,25.54,44.88,79.6,178.86,0,0.376,0.581,FLOOD_WATERLOGGING,78.0,0,Precipitation flood verified
+SMP-0730,Pulses,77,32.08,27.34,58.39,28.79,1,0.768,0.068,HEALTHY_CANOPY,2.9,0,Normal healthy condition
+SMP-0731,Paddy (Rice),64,26.88,22.01,75.25,23.33,0,0.813,0.05,HEALTHY_CANOPY,5.6,0,Normal healthy condition
+SMP-0732,Cotton,69,35.08,11.52,43.12,0.0,31,0.308,0.758,DROUGHT_DESICCATION,73.0,0,Prolonged dry spell verified
+SMP-0733,Sugarcane,83,40.99,14.79,33.59,0.0,12,0.495,0.682,HEAT_STRESS,58.2,0,Extreme temperature anomaly verified
+SMP-0734,Paddy (Rice),126,39.34,11.1,41.18,0.0,25,0.385,0.8,DROUGHT_DESICCATION,45.0,0,Prolonged dry spell verified
+SMP-0735,Paddy (Rice),122,41.03,19.63,31.8,0.0,11,0.376,0.762,HEAT_STRESS,57.2,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-0736,Paddy (Rice),29,32.27,7.99,40.09,0.0,30,0.316,0.907,DROUGHT_DESICCATION,60.7,0,Prolonged dry spell verified
+SMP-0737,Paddy (Rice),90,28.23,20.9,74.36,6.17,2,0.509,0.444,PEST_FOLIAGE_LESION,23.5,0,Foliage lesion symptoms
+SMP-0738,Vegetables,110,28.22,30.03,64.54,7.11,5,0.737,0.056,HEALTHY_CANOPY,7.2,0,Normal healthy condition
+SMP-0739,Sugarcane,40,25.23,30.65,57.56,0.32,2,0.851,0.067,HEALTHY_CANOPY,5.5,0,Normal healthy condition
+SMP-0740,Soybean,72,20.17,51.3,88.78,184.22,0,0.4,0.656,FLOOD_WATERLOGGING,43.5,0,Precipitation flood verified
+SMP-0741,Fruits,53,25.26,46.6,91.37,169.48,0,0.352,0.549,FLOOD_WATERLOGGING,53.2,0,Precipitation flood verified
+SMP-0742,Paddy (Rice),26,38.1,11.17,41.99,0.0,35,0.375,0.757,DROUGHT_DESICCATION,76.7,0,Prolonged dry spell verified
+SMP-0743,Maize,26,34.53,12.18,41.1,0.0,31,0.205,0.826,DROUGHT_DESICCATION,63.3,0,Prolonged dry spell verified
+SMP-0744,Vegetables,45,23.72,33.4,59.77,11.64,1,0.77,0.054,HEALTHY_CANOPY,4.4,0,Normal healthy condition
+SMP-0745,Wheat,30,38.97,10.69,45.02,0.0,21,0.271,0.803,DROUGHT_DESICCATION,71.0,0,Prolonged dry spell verified
+SMP-0746,Sugarcane,80,38.48,11.09,31.61,0.0,26,0.46,0.806,DROUGHT_DESICCATION,69.1,0,Prolonged dry spell verified
+SMP-0747,Fruits,69,27.85,25.45,65.46,0.97,3,0.824,0.108,HEALTHY_CANOPY,4.3,0,Normal healthy condition
+SMP-0748,Vegetables,25,25.58,26.1,58.39,4.29,3,0.712,0.059,HEALTHY_CANOPY,0.0,0,Normal healthy condition
+SMP-0749,Wheat,92,25.08,25.86,66.21,27.16,5,0.934,0.121,HEALTHY_CANOPY,1.5,0,Normal healthy condition
+SMP-0750,Paddy (Rice),105,38.08,9.78,32.93,0.0,35,0.24,0.846,DROUGHT_DESICCATION,61.2,0,Prolonged dry spell verified
+SMP-0751,Soybean,90,28.9,31.98,75.99,22.9,3,0.789,0.092,HEALTHY_CANOPY,3.1,0,Normal healthy condition
+SMP-0752,Sugarcane,88,22.75,45.88,94.0,181.03,0,0.386,0.61,FLOOD_WATERLOGGING,51.9,0,Precipitation flood verified
+SMP-0753,Soybean,80,23.92,29.02,56.9,0.79,3,0.696,0.05,HEALTHY_CANOPY,4.0,0,Normal healthy condition
+SMP-0754,Cotton,84,20.62,42.4,94.68,193.11,0,0.389,0.469,FLOOD_WATERLOGGING,41.7,0,Precipitation flood verified
+SMP-0755,Maize,35,28.07,26.26,84.5,2.11,5,0.431,0.578,PEST_FOLIAGE_LESION,35.0,0,Foliage lesion symptoms
+SMP-0756,Maize,47,43.05,20.0,20.83,0.0,9,0.408,0.74,HEAT_STRESS,54.6,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-0757,Sugarcane,45,26.17,25.47,85.01,10.52,7,0.58,0.624,PEST_FOLIAGE_LESION,49.9,0,Foliage lesion symptoms
+SMP-0758,Wheat,60,32.54,25.57,74.49,12.73,8,0.476,0.531,PEST_FOLIAGE_LESION,39.0,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-0759,Fruits,70,21.99,47.74,91.01,239.35,0,0.492,0.628,FLOOD_WATERLOGGING,59.7,0,Precipitation flood verified
+SMP-0760,Fruits,78,28.08,23.04,76.71,36.79,2,0.491,0.6,PEST_FOLIAGE_LESION,56.3,0,Foliage lesion symptoms
+SMP-0761,Fruits,120,39.96,8.2,40.94,0.0,31,0.308,0.825,DROUGHT_DESICCATION,60.7,0,Prolonged dry spell verified
+SMP-0762,Paddy (Rice),138,31.24,32.16,59.08,27.84,0,0.713,0.095,HEALTHY_CANOPY,3.1,0,Normal healthy condition
+SMP-0763,Fruits,132,41.32,11.73,33.41,0.0,31,0.36,0.884,DROUGHT_DESICCATION,70.0,0,Prolonged dry spell verified
+SMP-0764,Vegetables,93,24.96,47.65,87.46,170.45,0,0.462,0.54,FLOOD_WATERLOGGING,63.6,1,"Claim reported drought, but local AWS recorded heavy rainfall (85mm+) during event window"
+SMP-0765,Sugarcane,38,23.22,46.37,95.32,181.66,0,0.387,0.633,FLOOD_WATERLOGGING,45.7,0,Precipitation flood verified
+SMP-0766,Sugarcane,24,35.68,5.34,35.23,0.0,28,0.399,0.696,DROUGHT_DESICCATION,58.5,0,Prolonged dry spell verified
+SMP-0767,Cotton,115,38.6,6.51,35.45,0.0,26,0.388,0.943,DROUGHT_DESICCATION,70.9,0,Prolonged dry spell verified
+SMP-0768,Cotton,63,40.83,13.12,32.87,0.0,11,0.42,0.81,HEAT_STRESS,65.8,0,Extreme temperature anomaly verified
+SMP-0769,Vegetables,129,24.17,46.32,100.0,193.8,0,0.366,0.532,FLOOD_WATERLOGGING,43.5,0,Precipitation flood verified
+SMP-0770,Soybean,37,31.49,11.63,46.91,0.0,32,0.222,0.823,DROUGHT_DESICCATION,60.9,0,Prolonged dry spell verified
+SMP-0771,Pulses,54,25.04,47.14,86.56,145.57,0,0.354,0.658,FLOOD_WATERLOGGING,69.5,0,Precipitation flood verified
+SMP-0772,Paddy (Rice),44,36.72,13.46,37.13,0.0,31,0.3,0.823,DROUGHT_DESICCATION,70.8,0,Prolonged dry spell verified
+SMP-0773,Fruits,131,36.11,11.04,41.94,0.0,19,0.328,0.823,DROUGHT_DESICCATION,72.9,0,Prolonged dry spell verified
+SMP-0774,Maize,28,39.17,10.87,35.63,0.0,34,0.331,0.724,DROUGHT_DESICCATION,65.9,0,Prolonged dry spell verified
+SMP-0775,Fruits,132,19.06,39.62,84.7,206.42,0,0.421,0.449,FLOOD_WATERLOGGING,59.9,0,Precipitation flood verified
+SMP-0776,Soybean,127,28.97,30.03,63.49,36.49,0,0.817,0.096,HEALTHY_CANOPY,5.4,0,Normal healthy condition
+SMP-0777,Pulses,110,33.18,36.74,59.51,12.22,2,0.736,0.109,HEALTHY_CANOPY,2.3,0,Normal healthy condition
+SMP-0778,Fruits,70,24.27,55.54,89.92,174.56,0,0.276,0.497,FLOOD_WATERLOGGING,31.1,0,Precipitation flood verified
+SMP-0779,Cotton,50,38.57,12.66,36.89,0.0,32,0.337,0.8,DROUGHT_DESICCATION,75.4,0,Prolonged dry spell verified
+SMP-0780,Vegetables,95,24.26,38.07,95.76,163.31,0,0.318,0.515,FLOOD_WATERLOGGING,31.2,0,Precipitation flood verified
+SMP-0781,Wheat,115,40.25,16.43,33.36,0.0,8,0.421,0.68,HEAT_STRESS,52.5,0,Extreme temperature anomaly verified
+SMP-0782,Sugarcane,26,25.84,26.25,51.99,2.56,4,0.81,0.05,HEALTHY_CANOPY,4.4,0,Normal healthy condition
+SMP-0783,Soybean,129,26.3,28.17,73.3,22.35,1,0.867,0.142,HEALTHY_CANOPY,0.5,0,Normal healthy condition
+SMP-0784,Wheat,103,38.05,11.17,35.88,0.0,18,0.35,0.822,DROUGHT_DESICCATION,60.6,0,Prolonged dry spell verified
+SMP-0785,Cotton,80,28.93,28.22,79.28,57.6,7,0.371,0.544,PEST_FOLIAGE_LESION,30.1,0,Foliage lesion symptoms
+SMP-0786,Cotton,48,31.11,27.54,62.23,4.62,2,0.796,0.084,HEALTHY_CANOPY,5.6,0,Normal healthy condition
+SMP-0787,Wheat,74,41.42,16.17,27.97,0.0,12,0.449,0.763,HEAT_STRESS,61.9,0,Extreme temperature anomaly verified
+SMP-0788,Soybean,79,40.15,11.06,42.03,0.0,34,0.325,0.759,DROUGHT_DESICCATION,70.5,0,Prolonged dry spell verified
+SMP-0789,Sugarcane,94,23.01,37.36,62.33,0.15,4,0.778,0.05,HEALTHY_CANOPY,3.7,0,Normal healthy condition
+SMP-0790,Pulses,91,25.04,56.37,89.64,127.53,0,0.485,0.44,FLOOD_WATERLOGGING,48.8,0,Precipitation flood verified
+SMP-0791,Wheat,107,25.23,27.72,70.51,3.37,0,0.746,0.078,HEALTHY_CANOPY,2.3,0,Normal healthy condition
+SMP-0792,Wheat,101,38.97,12.33,36.31,0.0,26,0.328,0.851,DROUGHT_DESICCATION,72.3,0,Prolonged dry spell verified
+SMP-0793,Wheat,44,26.12,33.73,69.66,19.48,1,0.757,0.059,HEALTHY_CANOPY,2.7,0,Normal healthy condition
+SMP-0794,Sugarcane,104,36.06,12.07,43.17,0.0,22,0.296,0.874,DROUGHT_DESICCATION,69.2,0,Prolonged dry spell verified
+SMP-0795,Vegetables,57,25.63,27.15,70.97,9.24,3,0.796,0.05,HEALTHY_CANOPY,4.8,0,Normal healthy condition
+SMP-0796,Cotton,94,23.92,39.23,92.48,149.88,0,0.327,0.551,FLOOD_WATERLOGGING,30.8,0,Precipitation flood verified
+SMP-0797,Soybean,63,22.65,60.0,94.6,148.56,0,0.532,0.471,FLOOD_WATERLOGGING,47.4,0,Precipitation flood verified
+SMP-0798,Fruits,101,40.43,16.77,40.21,0.0,12,0.33,0.536,HEAT_STRESS,66.7,0,Extreme temperature anomaly verified
+SMP-0799,Maize,127,27.11,38.02,93.84,181.8,0,0.357,0.438,FLOOD_WATERLOGGING,65.9,0,Precipitation flood verified
+SMP-0800,Wheat,32,37.95,11.51,34.89,0.0,26,0.272,0.673,DROUGHT_DESICCATION,65.7,0,Prolonged dry spell verified
+SMP-0801,Fruits,117,32.6,20.88,67.34,19.27,7,0.429,0.674,PEST_FOLIAGE_LESION,40.7,0,Foliage lesion symptoms
+SMP-0802,Paddy (Rice),48,36.22,11.3,41.85,0.0,27,0.463,0.87,DROUGHT_DESICCATION,79.6,0,Prolonged dry spell verified
+SMP-0803,Pulses,67,24.48,23.9,65.5,2.07,2,0.816,0.082,HEALTHY_CANOPY,5.5,0,Normal healthy condition
+SMP-0804,Paddy (Rice),80,24.82,24.9,71.49,0.56,5,0.795,0.065,HEALTHY_CANOPY,3.0,0,Normal healthy condition
+SMP-0805,Paddy (Rice),80,40.34,21.35,32.08,0.0,15,0.384,0.615,HEAT_STRESS,81.5,0,Extreme temperature anomaly verified
+SMP-0806,Sugarcane,87,22.78,26.28,68.33,24.74,0,0.807,0.135,HEALTHY_CANOPY,2.5,0,Normal healthy condition
+SMP-0807,Maize,37,33.17,25.39,71.91,7.44,4,0.396,0.696,PEST_FOLIAGE_LESION,45.8,0,Foliage lesion symptoms
+SMP-0808,Vegetables,38,39.59,10.8,33.79,0.0,23,0.365,0.859,DROUGHT_DESICCATION,77.7,0,Prolonged dry spell verified
+SMP-0809,Vegetables,62,23.97,45.0,85.76,199.58,0,0.454,0.473,FLOOD_WATERLOGGING,47.5,0,Precipitation flood verified
+SMP-0810,Cotton,20,36.33,8.03,33.91,0.0,24,0.252,0.795,DROUGHT_DESICCATION,60.6,0,Prolonged dry spell verified
+SMP-0811,Maize,93,39.57,22.07,39.52,0.0,14,0.345,0.699,HEAT_STRESS,61.3,0,Extreme temperature anomaly verified
+SMP-0812,Paddy (Rice),36,26.38,43.91,96.37,158.56,0,0.313,0.608,FLOOD_WATERLOGGING,69.5,0,Precipitation flood verified
+SMP-0813,Sugarcane,74,35.47,19.8,82.89,19.98,5,0.547,0.513,PEST_FOLIAGE_LESION,50.1,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-0814,Pulses,21,38.76,18.03,25.52,0.0,15,0.419,0.775,HEAT_STRESS,64.6,0,Extreme temperature anomaly verified
+SMP-0815,Cotton,100,26.45,53.6,89.9,192.95,0,0.282,0.495,FLOOD_WATERLOGGING,70.7,0,Precipitation flood verified
+SMP-0816,Pulses,59,24.84,20.53,81.11,35.04,3,0.808,0.074,HEALTHY_CANOPY,3.4,0,Normal healthy condition
+SMP-0817,Wheat,41,28.57,30.21,62.94,1.4,0,0.834,0.05,HEALTHY_CANOPY,3.3,0,Normal healthy condition
+SMP-0818,Wheat,78,25.95,44.27,99.63,131.92,0,0.399,0.497,FLOOD_WATERLOGGING,51.8,0,Precipitation flood verified
+SMP-0819,Pulses,75,44.97,13.05,29.29,0.0,9,0.446,0.687,HEAT_STRESS,59.4,0,Extreme temperature anomaly verified
+SMP-0820,Vegetables,65,40.76,15.79,38.79,0.0,9,0.287,0.631,HEAT_STRESS,43.5,0,Extreme temperature anomaly verified
+SMP-0821,Sugarcane,22,27.61,32.9,63.53,12.74,5,0.741,0.065,HEALTHY_CANOPY,3.0,0,Normal healthy condition
+SMP-0822,Soybean,113,23.6,26.61,71.17,1.8,4,0.797,0.107,HEALTHY_CANOPY,3.5,0,Normal healthy condition
+SMP-0823,Pulses,111,21.59,53.0,88.41,182.82,0,0.418,0.537,FLOOD_WATERLOGGING,48.2,1,"Claim reported drought, but local AWS recorded heavy rainfall (85mm+) during event window"
+SMP-0824,Fruits,99,27.86,13.67,74.09,31.16,0,0.734,0.085,HEALTHY_CANOPY,6.3,0,Normal healthy condition
+SMP-0825,Cotton,26,22.92,52.47,85.47,147.85,0,0.275,0.528,FLOOD_WATERLOGGING,53.4,0,Precipitation flood verified
+SMP-0826,Sugarcane,35,37.79,11.12,33.36,0.0,33,0.309,0.73,DROUGHT_DESICCATION,81.6,0,Prolonged dry spell verified
+SMP-0827,Soybean,108,23.39,45.56,98.36,137.73,0,0.33,0.462,FLOOD_WATERLOGGING,53.2,1,"Claim reported drought, but local AWS recorded heavy rainfall (85mm+) during event window"
+SMP-0828,Paddy (Rice),104,38.58,12.48,50.86,0.0,22,0.185,0.857,DROUGHT_DESICCATION,62.4,0,Prolonged dry spell verified
+SMP-0829,Paddy (Rice),85,22.83,44.9,88.36,225.54,0,0.487,0.552,FLOOD_WATERLOGGING,70.2,0,Precipitation flood verified
+SMP-0830,Paddy (Rice),120,21.46,22.68,47.58,13.71,1,0.835,0.05,HEALTHY_CANOPY,4.9,0,Normal healthy condition
+SMP-0831,Wheat,126,36.87,9.74,38.98,0.0,24,0.324,0.771,DROUGHT_DESICCATION,59.4,0,Prolonged dry spell verified
+SMP-0832,Sugarcane,57,21.28,29.22,54.97,47.54,4,0.737,0.08,HEALTHY_CANOPY,0.9,0,Normal healthy condition
+SMP-0833,Soybean,108,31.88,23.28,85.83,2.14,4,0.515,0.546,PEST_FOLIAGE_LESION,52.8,0,Foliage lesion symptoms
+SMP-0834,Cotton,105,23.69,25.46,56.63,9.4,0,0.751,0.05,HEALTHY_CANOPY,4.1,0,Normal healthy condition
+SMP-0835,Vegetables,39,26.02,27.24,77.36,26.59,8,0.47,0.408,PEST_FOLIAGE_LESION,29.4,0,Foliage lesion symptoms
+SMP-0836,Paddy (Rice),135,24.74,22.74,71.35,0.81,1,0.814,0.062,HEALTHY_CANOPY,3.9,0,Normal healthy condition
+SMP-0837,Wheat,53,40.46,11.68,37.7,0.0,21,0.284,0.782,DROUGHT_DESICCATION,59.5,0,Prolonged dry spell verified
+SMP-0838,Cotton,129,24.38,31.02,63.22,14.33,5,0.814,0.076,HEALTHY_CANOPY,8.0,0,Normal healthy condition
+SMP-0839,Paddy (Rice),32,44.55,15.7,29.11,0.0,7,0.494,0.751,HEAT_STRESS,46.7,1,"Claim reported flash flood, but rainfall station and soil probe recorded zero moisture anomaly"
+SMP-0840,Maize,62,40.21,10.69,33.7,0.0,32,0.201,0.804,DROUGHT_DESICCATION,67.9,0,Prolonged dry spell verified
+SMP-0841,Wheat,132,27.17,52.79,89.67,186.68,0,0.486,0.557,FLOOD_WATERLOGGING,47.0,0,Precipitation flood verified
+SMP-0842,Pulses,43,24.4,29.54,68.3,0.3,3,0.765,0.075,HEALTHY_CANOPY,7.3,0,Normal healthy condition
+SMP-0843,Wheat,126,37.04,10.96,35.59,0.0,33,0.386,0.938,DROUGHT_DESICCATION,72.5,0,Prolonged dry spell verified
+SMP-0844,Maize,34,26.25,28.15,45.93,46.09,5,0.817,0.05,HEALTHY_CANOPY,5.9,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-0845,Paddy (Rice),73,32.52,19.77,68.12,9.21,5,0.472,0.59,PEST_FOLIAGE_LESION,37.5,0,Foliage lesion symptoms
+SMP-0846,Vegetables,43,19.61,56.0,94.81,191.0,0,0.433,0.439,FLOOD_WATERLOGGING,48.2,0,Precipitation flood verified
+SMP-0847,Cotton,130,25.68,42.74,81.87,168.19,0,0.409,0.561,FLOOD_WATERLOGGING,62.7,0,Precipitation flood verified
+SMP-0848,Maize,81,30.59,24.91,86.37,0.4,2,0.389,0.635,PEST_FOLIAGE_LESION,39.8,0,Foliage lesion symptoms
+SMP-0849,Vegetables,25,23.94,32.9,69.91,0.0,5,0.667,0.058,HEALTHY_CANOPY,2.7,0,Normal healthy condition
+SMP-0850,Fruits,118,25.51,44.93,88.57,156.65,0,0.509,0.551,FLOOD_WATERLOGGING,51.8,0,Precipitation flood verified
+SMP-0851,Soybean,105,42.3,19.88,27.5,0.0,15,0.492,0.695,HEAT_STRESS,56.7,0,Extreme temperature anomaly verified
+SMP-0852,Paddy (Rice),75,29.0,42.72,90.59,138.03,0,0.496,0.685,FLOOD_WATERLOGGING,74.0,0,Precipitation flood verified
+SMP-0853,Pulses,104,26.45,47.01,90.54,124.86,0,0.583,0.588,FLOOD_WATERLOGGING,48.1,0,Precipitation flood verified
+SMP-0854,Fruits,134,32.32,20.6,80.85,26.98,2,0.567,0.541,PEST_FOLIAGE_LESION,54.5,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-0855,Fruits,128,37.41,12.54,38.24,0.0,33,0.21,0.633,DROUGHT_DESICCATION,70.1,0,Prolonged dry spell verified
+SMP-0856,Paddy (Rice),116,36.84,11.8,36.74,0.0,25,0.441,0.834,DROUGHT_DESICCATION,63.5,0,Prolonged dry spell verified
+SMP-0857,Wheat,26,38.34,10.14,38.46,0.0,35,0.247,0.819,DROUGHT_DESICCATION,63.2,0,Prolonged dry spell verified
+SMP-0858,Sugarcane,124,22.63,35.9,56.33,1.16,3,0.713,0.08,HEALTHY_CANOPY,7.8,0,Normal healthy condition
+SMP-0859,Vegetables,31,44.34,20.93,34.35,0.0,14,0.482,0.629,HEAT_STRESS,52.8,0,Extreme temperature anomaly verified
+SMP-0860,Vegetables,115,18.52,53.93,98.16,158.4,0,0.4,0.49,FLOOD_WATERLOGGING,58.6,0,Precipitation flood verified
+SMP-0861,Sugarcane,24,26.25,39.29,93.64,166.7,0,0.429,0.587,FLOOD_WATERLOGGING,51.7,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-0862,Wheat,133,37.24,10.57,42.85,0.0,24,0.345,0.833,DROUGHT_DESICCATION,55.3,0,Prolonged dry spell verified
+SMP-0863,Vegetables,63,36.55,12.8,38.19,0.0,19,0.36,0.926,DROUGHT_DESICCATION,78.4,0,Prolonged dry spell verified
+SMP-0864,Vegetables,62,24.19,45.45,81.79,169.95,0,0.394,0.581,FLOOD_WATERLOGGING,52.2,0,Precipitation flood verified
+SMP-0865,Vegetables,111,23.36,39.1,88.24,189.3,0,0.557,0.542,FLOOD_WATERLOGGING,57.9,0,Precipitation flood verified
+SMP-0866,Paddy (Rice),32,44.21,13.57,34.2,0.0,10,0.348,0.741,HEAT_STRESS,59.2,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-0867,Wheat,90,38.25,9.43,41.54,0.0,21,0.445,0.76,DROUGHT_DESICCATION,64.6,1,"Claim reported flash flood, but rainfall station and soil probe recorded zero moisture anomaly"
+SMP-0868,Vegetables,37,42.92,18.36,28.64,0.0,13,0.202,0.775,HEAT_STRESS,64.1,0,Extreme temperature anomaly verified
+SMP-0869,Soybean,44,20.77,25.57,77.55,14.88,3,0.834,0.11,HEALTHY_CANOPY,0.6,0,Normal healthy condition
+SMP-0870,Soybean,111,36.76,10.79,29.9,0.0,31,0.304,0.872,DROUGHT_DESICCATION,64.1,1,"Claim reported flash flood, but rainfall station and soil probe recorded zero moisture anomaly"
+SMP-0871,Vegetables,78,24.48,49.25,91.95,153.84,0,0.473,0.423,FLOOD_WATERLOGGING,54.1,0,Precipitation flood verified
+SMP-0872,Maize,83,30.16,26.21,59.18,38.31,5,0.816,0.05,HEALTHY_CANOPY,6.7,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-0873,Vegetables,138,43.74,11.09,34.79,0.0,23,0.489,0.741,DROUGHT_DESICCATION,68.2,0,Prolonged dry spell verified
+SMP-0874,Maize,113,42.82,20.04,34.16,0.0,8,0.365,0.613,HEAT_STRESS,55.3,0,Extreme temperature anomaly verified
+SMP-0875,Pulses,84,40.69,16.14,28.61,0.0,13,0.295,0.768,HEAT_STRESS,54.0,0,Extreme temperature anomaly verified
+SMP-0876,Soybean,55,34.33,10.66,38.34,0.0,28,0.215,0.84,DROUGHT_DESICCATION,57.5,0,Prolonged dry spell verified
+SMP-0877,Vegetables,123,31.13,30.1,61.8,33.82,3,0.743,0.075,HEALTHY_CANOPY,3.9,0,Normal healthy condition
+SMP-0878,Fruits,58,41.44,15.78,19.88,0.0,15,0.438,0.845,HEAT_STRESS,53.6,0,Extreme temperature anomaly verified
+SMP-0879,Fruits,100,27.12,31.41,75.24,35.4,1,0.767,0.083,HEALTHY_CANOPY,1.9,0,Normal healthy condition
+SMP-0880,Wheat,107,39.64,11.8,39.97,0.0,22,0.294,0.847,DROUGHT_DESICCATION,65.4,0,Prolonged dry spell verified
+SMP-0881,Maize,84,38.89,7.19,35.83,0.0,28,0.423,0.774,DROUGHT_DESICCATION,62.0,0,Prolonged dry spell verified
+SMP-0882,Pulses,91,36.38,8.57,26.96,0.0,31,0.306,0.828,DROUGHT_DESICCATION,67.5,0,Prolonged dry spell verified
+SMP-0883,Fruits,56,42.24,16.13,38.14,0.0,13,0.387,0.64,HEAT_STRESS,55.8,0,Extreme temperature anomaly verified
+SMP-0884,Fruits,33,27.74,33.65,59.97,2.27,1,0.785,0.05,HEALTHY_CANOPY,5.0,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-0885,Soybean,54,48.06,16.84,32.69,0.0,9,0.396,0.714,HEAT_STRESS,64.0,0,Extreme temperature anomaly verified
+SMP-0886,Wheat,38,40.26,15.92,18.38,0.0,11,0.385,0.617,HEAT_STRESS,60.7,0,Extreme temperature anomaly verified
+SMP-0887,Fruits,24,33.36,9.98,42.83,0.0,32,0.279,0.706,DROUGHT_DESICCATION,70.6,0,Prolonged dry spell verified
+SMP-0888,Fruits,130,24.24,27.26,59.16,44.61,5,0.879,0.086,HEALTHY_CANOPY,0.8,0,Normal healthy condition
+SMP-0889,Soybean,85,45.9,15.51,36.19,0.0,11,0.341,0.702,HEAT_STRESS,47.6,0,Extreme temperature anomaly verified
+SMP-0890,Cotton,138,38.63,10.29,38.15,0.0,31,0.362,0.746,DROUGHT_DESICCATION,61.2,0,Prolonged dry spell verified
+SMP-0891,Pulses,90,27.37,36.39,63.9,17.76,5,0.81,0.164,HEALTHY_CANOPY,0.0,0,Normal healthy condition
+SMP-0892,Vegetables,126,25.01,21.21,79.81,42.36,5,0.767,0.071,HEALTHY_CANOPY,3.8,0,Normal healthy condition
+SMP-0893,Pulses,116,30.2,46.71,94.04,155.52,0,0.444,0.531,FLOOD_WATERLOGGING,49.1,0,Precipitation flood verified
+SMP-0894,Soybean,119,27.64,53.89,92.55,105.87,0,0.391,0.766,FLOOD_WATERLOGGING,51.2,0,Precipitation flood verified
+SMP-0895,Vegetables,42,31.76,29.05,79.53,1.29,2,0.429,0.604,PEST_FOLIAGE_LESION,35.8,0,Foliage lesion symptoms
+SMP-0896,Maize,114,41.4,7.59,37.29,0.0,30,0.269,0.93,DROUGHT_DESICCATION,74.0,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-0897,Fruits,53,24.05,26.88,79.89,0.38,4,0.733,0.085,HEALTHY_CANOPY,6.7,0,Normal healthy condition
+SMP-0898,Cotton,62,36.91,10.76,32.48,0.0,22,0.369,0.831,DROUGHT_DESICCATION,63.8,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-0899,Cotton,119,24.24,29.06,69.41,11.07,6,0.445,0.483,PEST_FOLIAGE_LESION,62.7,0,Foliage lesion symptoms
+SMP-0900,Wheat,82,39.58,14.95,31.64,0.0,15,0.492,0.549,HEAT_STRESS,61.3,0,Extreme temperature anomaly verified
+SMP-0901,Pulses,87,23.33,30.51,57.75,8.06,1,0.859,0.05,HEALTHY_CANOPY,3.0,0,Normal healthy condition
+SMP-0902,Fruits,40,36.75,9.74,44.22,0.0,35,0.394,0.8,DROUGHT_DESICCATION,50.1,0,Prolonged dry spell verified
+SMP-0903,Pulses,48,41.48,14.2,28.06,0.0,12,0.351,0.634,HEAT_STRESS,54.9,0,Extreme temperature anomaly verified
+SMP-0904,Wheat,47,27.41,24.73,80.52,4.15,6,0.425,0.639,PEST_FOLIAGE_LESION,61.7,0,Foliage lesion symptoms
+SMP-0905,Fruits,125,43.91,12.2,32.58,0.0,7,0.329,0.564,HEAT_STRESS,54.4,0,Extreme temperature anomaly verified
+SMP-0906,Pulses,77,28.94,29.1,53.87,4.46,5,0.756,0.05,HEALTHY_CANOPY,3.3,0,Normal healthy condition
+SMP-0907,Soybean,25,23.54,51.58,86.4,129.39,0,0.456,0.631,FLOOD_WATERLOGGING,35.1,0,Precipitation flood verified
+SMP-0908,Paddy (Rice),69,29.24,28.15,73.73,7.62,5,0.885,0.079,HEALTHY_CANOPY,0.0,0,Normal healthy condition
+SMP-0909,Fruits,125,41.29,15.45,25.41,0.0,15,0.221,0.673,HEAT_STRESS,51.7,0,Extreme temperature anomaly verified
+SMP-0910,Vegetables,82,31.32,28.4,68.76,24.71,5,0.768,0.053,HEALTHY_CANOPY,5.6,0,Normal healthy condition
+SMP-0911,Fruits,30,24.32,26.26,70.31,7.83,3,0.49,0.515,PEST_FOLIAGE_LESION,42.8,0,Foliage lesion symptoms
+SMP-0912,Fruits,88,27.82,31.98,52.08,39.99,0,0.839,0.092,HEALTHY_CANOPY,2.1,0,Normal healthy condition
+SMP-0913,Soybean,130,22.41,48.51,82.74,225.2,0,0.455,0.648,FLOOD_WATERLOGGING,35.0,0,Precipitation flood verified
+SMP-0914,Soybean,88,44.74,22.69,24.07,0.0,13,0.454,0.68,HEAT_STRESS,45.6,0,Extreme temperature anomaly verified
+SMP-0915,Paddy (Rice),115,24.99,52.17,89.6,209.98,0,0.287,0.43,FLOOD_WATERLOGGING,55.6,1,"Claim reported drought, but local AWS recorded heavy rainfall (85mm+) during event window"
+SMP-0916,Cotton,31,26.08,25.13,71.48,26.55,1,0.793,0.084,HEALTHY_CANOPY,7.5,0,Normal healthy condition
+SMP-0917,Fruits,29,22.05,59.04,89.62,134.8,0,0.403,0.809,FLOOD_WATERLOGGING,64.7,0,Precipitation flood verified
+SMP-0918,Wheat,72,39.01,12.59,34.15,0.0,30,0.34,0.82,DROUGHT_DESICCATION,86.1,0,Prolonged dry spell verified
+SMP-0919,Cotton,69,23.78,46.11,87.34,179.2,0,0.443,0.454,FLOOD_WATERLOGGING,59.4,0,Precipitation flood verified
+SMP-0920,Paddy (Rice),116,24.47,53.07,96.85,177.83,0,0.337,0.484,FLOOD_WATERLOGGING,75.1,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-0921,Pulses,138,37.91,14.49,40.49,0.0,27,0.365,0.876,DROUGHT_DESICCATION,55.8,0,Prolonged dry spell verified
+SMP-0922,Wheat,97,26.92,23.05,62.72,16.64,3,0.812,0.094,HEALTHY_CANOPY,1.7,0,Normal healthy condition
+SMP-0923,Cotton,80,22.66,25.48,57.46,34.83,1,0.753,0.05,HEALTHY_CANOPY,2.8,0,Normal healthy condition
+SMP-0924,Sugarcane,121,39.07,14.35,38.6,0.0,15,0.387,0.598,HEAT_STRESS,59.8,0,Extreme temperature anomaly verified
+SMP-0925,Maize,58,24.28,57.78,95.16,184.17,0,0.492,0.539,FLOOD_WATERLOGGING,53.1,0,Precipitation flood verified
+SMP-0926,Pulses,21,27.32,39.82,95.87,171.68,0,0.397,0.506,FLOOD_WATERLOGGING,55.8,0,Precipitation flood verified
+SMP-0927,Paddy (Rice),25,25.87,26.34,59.38,4.57,4,0.685,0.095,HEALTHY_CANOPY,2.2,0,Normal healthy condition
+SMP-0928,Fruits,30,33.93,11.14,42.31,0.0,29,0.218,0.869,DROUGHT_DESICCATION,76.2,0,Prolonged dry spell verified
+SMP-0929,Fruits,38,28.86,32.87,82.62,0.59,1,0.762,0.119,HEALTHY_CANOPY,5.1,0,Normal healthy condition
+SMP-0930,Wheat,44,19.28,28.02,71.9,17.7,5,0.713,0.069,HEALTHY_CANOPY,5.7,0,Normal healthy condition
+SMP-0931,Cotton,128,43.11,20.5,32.45,0.0,15,0.472,0.865,HEAT_STRESS,62.8,0,Extreme temperature anomaly verified
+SMP-0932,Fruits,29,26.15,30.89,62.08,1.48,0,0.899,0.103,HEALTHY_CANOPY,5.7,0,Normal healthy condition
+SMP-0933,Soybean,112,21.75,42.53,90.63,191.04,0,0.473,0.561,FLOOD_WATERLOGGING,44.0,0,Precipitation flood verified
+SMP-0934,Pulses,36,27.47,42.64,97.21,197.16,0,0.522,0.514,FLOOD_WATERLOGGING,52.3,0,Precipitation flood verified
+SMP-0935,Wheat,99,26.17,26.09,66.8,27.56,1,0.859,0.077,HEALTHY_CANOPY,3.3,0,Normal healthy condition
+SMP-0936,Vegetables,62,23.38,40.26,93.06,173.79,0,0.48,0.557,FLOOD_WATERLOGGING,52.0,0,Precipitation flood verified
+SMP-0937,Maize,92,22.26,48.36,94.95,140.7,0,0.427,0.569,FLOOD_WATERLOGGING,45.4,0,Precipitation flood verified
+SMP-0938,Sugarcane,41,24.24,28.92,55.93,19.97,1,0.797,0.07,HEALTHY_CANOPY,0.3,0,Normal healthy condition
+SMP-0939,Sugarcane,55,40.39,17.06,26.79,0.0,9,0.474,0.613,HEAT_STRESS,61.6,0,Extreme temperature anomaly verified
+SMP-0940,Pulses,132,35.6,11.77,30.33,0.0,32,0.293,0.769,DROUGHT_DESICCATION,76.8,0,Prolonged dry spell verified
+SMP-0941,Wheat,82,24.92,41.84,91.19,151.83,0,0.496,0.652,FLOOD_WATERLOGGING,36.7,0,Precipitation flood verified
+SMP-0942,Paddy (Rice),127,28.48,24.71,62.98,19.04,1,0.873,0.081,HEALTHY_CANOPY,2.4,0,Normal healthy condition
+SMP-0943,Soybean,53,21.71,53.45,89.72,176.31,0,0.496,0.511,FLOOD_WATERLOGGING,53.4,0,Precipitation flood verified
+SMP-0944,Paddy (Rice),134,25.95,30.73,69.73,0.37,4,0.769,0.12,HEALTHY_CANOPY,8.4,0,Normal healthy condition
+SMP-0945,Sugarcane,118,23.27,40.84,97.16,200.95,0,0.381,0.501,FLOOD_WATERLOGGING,45.4,0,Precipitation flood verified
+SMP-0946,Fruits,53,36.64,11.63,35.17,0.0,35,0.294,0.858,DROUGHT_DESICCATION,53.2,0,Prolonged dry spell verified
+SMP-0947,Maize,66,36.56,7.65,38.54,0.0,27,0.204,0.873,DROUGHT_DESICCATION,54.9,0,Prolonged dry spell verified
+SMP-0948,Fruits,85,20.68,26.55,78.69,29.15,2,0.772,0.093,HEALTHY_CANOPY,2.2,0,Normal healthy condition
+SMP-0949,Soybean,128,29.33,22.66,68.76,2.31,6,0.614,0.525,PEST_FOLIAGE_LESION,34.7,0,Foliage lesion symptoms
+SMP-0950,Fruits,37,41.32,11.39,43.27,0.0,23,0.276,0.814,DROUGHT_DESICCATION,81.2,0,Prolonged dry spell verified
+SMP-0951,Maize,114,23.71,53.62,93.55,143.81,0,0.419,0.629,FLOOD_WATERLOGGING,62.0,0,Precipitation flood verified
+SMP-0952,Cotton,48,42.43,10.32,21.22,0.0,10,0.289,0.644,HEAT_STRESS,55.0,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-0953,Soybean,25,21.05,53.11,86.94,133.88,0,0.427,0.628,FLOOD_WATERLOGGING,78.7,0,Precipitation flood verified
+SMP-0954,Pulses,69,38.96,14.16,31.94,0.0,32,0.45,0.708,DROUGHT_DESICCATION,63.0,0,Prolonged dry spell verified
+SMP-0955,Cotton,103,38.9,7.79,33.36,0.0,34,0.255,0.801,DROUGHT_DESICCATION,82.2,0,Prolonged dry spell verified
+SMP-0956,Wheat,126,24.03,45.68,80.46,189.0,0,0.483,0.414,FLOOD_WATERLOGGING,53.2,0,Precipitation flood verified
+SMP-0957,Maize,68,24.39,52.82,89.1,148.74,0,0.383,0.653,FLOOD_WATERLOGGING,66.5,0,Precipitation flood verified
+SMP-0958,Paddy (Rice),86,25.94,32.08,46.05,0.76,1,0.742,0.091,HEALTHY_CANOPY,3.6,0,Normal healthy condition
+SMP-0959,Pulses,124,40.81,20.0,37.57,0.0,14,0.358,0.715,HEAT_STRESS,62.3,0,Extreme temperature anomaly verified
+SMP-0960,Cotton,84,43.66,10.92,38.04,0.0,14,0.36,0.655,HEAT_STRESS,79.1,0,Extreme temperature anomaly verified
+SMP-0961,Paddy (Rice),85,24.6,46.07,83.18,216.69,0,0.312,0.47,FLOOD_WATERLOGGING,50.0,0,Precipitation flood verified
+SMP-0962,Maize,40,41.04,12.55,37.21,0.0,21,0.338,0.784,DROUGHT_DESICCATION,69.4,0,Prolonged dry spell verified
+SMP-0963,Sugarcane,123,37.68,12.94,42.84,0.0,21,0.35,0.798,DROUGHT_DESICCATION,75.4,0,Prolonged dry spell verified
+SMP-0964,Vegetables,81,25.72,23.67,61.77,4.82,1,0.784,0.078,HEALTHY_CANOPY,3.1,0,Normal healthy condition
+SMP-0965,Sugarcane,22,22.88,29.68,65.29,2.5,1,0.826,0.083,HEALTHY_CANOPY,4.4,0,Normal healthy condition
+SMP-0966,Maize,37,25.84,53.09,89.62,156.52,0,0.337,0.606,FLOOD_WATERLOGGING,71.4,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-0967,Cotton,41,25.05,27.03,76.73,23.57,1,0.803,0.11,HEALTHY_CANOPY,2.5,0,Normal healthy condition
+SMP-0968,Sugarcane,96,26.74,21.47,75.55,3.19,7,0.467,0.485,PEST_FOLIAGE_LESION,53.6,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-0969,Paddy (Rice),47,40.32,7.11,42.89,0.0,33,0.271,0.871,DROUGHT_DESICCATION,67.3,0,Prolonged dry spell verified
+SMP-0970,Maize,48,42.55,15.44,39.27,0.0,9,0.313,0.723,HEAT_STRESS,66.8,0,Extreme temperature anomaly verified
+SMP-0971,Maize,99,25.43,59.62,89.88,203.72,0,0.412,0.649,FLOOD_WATERLOGGING,53.9,0,Precipitation flood verified
+SMP-0972,Pulses,138,36.53,13.61,35.54,0.0,20,0.235,0.789,DROUGHT_DESICCATION,74.2,0,Prolonged dry spell verified
+SMP-0973,Sugarcane,36,30.18,28.44,75.55,4.23,1,0.712,0.085,HEALTHY_CANOPY,3.5,0,Normal healthy condition
+SMP-0974,Fruits,107,36.8,10.02,35.99,0.0,22,0.376,0.794,DROUGHT_DESICCATION,86.1,0,Prolonged dry spell verified
+SMP-0975,Maize,80,29.75,21.98,84.81,5.07,6,0.517,0.506,PEST_FOLIAGE_LESION,36.8,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-0976,Paddy (Rice),81,29.56,42.81,86.58,197.03,0,0.254,0.531,FLOOD_WATERLOGGING,79.7,0,Precipitation flood verified
+SMP-0977,Fruits,125,21.37,20.07,53.01,19.79,5,0.825,0.095,HEALTHY_CANOPY,5.2,0,Normal healthy condition
+SMP-0978,Fruits,73,33.94,7.38,43.91,0.0,19,0.201,0.811,DROUGHT_DESICCATION,64.3,0,Prolonged dry spell verified
+SMP-0979,Sugarcane,49,27.85,25.1,73.26,10.81,5,0.47,0.688,PEST_FOLIAGE_LESION,47.6,0,Foliage lesion symptoms
+SMP-0980,Sugarcane,64,24.13,52.53,92.29,236.73,0,0.305,0.509,FLOOD_WATERLOGGING,52.5,0,Precipitation flood verified
+SMP-0981,Paddy (Rice),74,27.32,33.07,64.8,20.34,3,0.709,0.08,HEALTHY_CANOPY,7.1,0,Normal healthy condition
+SMP-0982,Paddy (Rice),56,22.06,56.64,95.89,147.27,0,0.367,0.508,FLOOD_WATERLOGGING,32.0,0,Precipitation flood verified
+SMP-0983,Wheat,44,26.78,24.48,67.37,15.96,5,0.762,0.095,HEALTHY_CANOPY,5.0,0,Normal healthy condition
+SMP-0984,Fruits,35,40.84,10.84,39.53,0.0,30,0.294,0.831,DROUGHT_DESICCATION,72.4,0,Prolonged dry spell verified
+SMP-0985,Pulses,72,37.25,7.39,39.66,0.0,22,0.342,0.779,DROUGHT_DESICCATION,55.2,0,Prolonged dry spell verified
+SMP-0986,Wheat,53,45.16,17.47,30.63,0.0,13,0.32,0.622,HEAT_STRESS,68.4,0,Extreme temperature anomaly verified
+SMP-0987,Wheat,107,37.84,9.9,40.55,0.0,24,0.271,0.91,DROUGHT_DESICCATION,81.5,0,Prolonged dry spell verified
+SMP-0988,Fruits,81,24.6,25.49,44.05,7.08,4,0.755,0.076,HEALTHY_CANOPY,2.7,0,Normal healthy condition
+SMP-0989,Wheat,59,27.66,50.59,90.0,173.09,0,0.533,0.627,FLOOD_WATERLOGGING,37.2,0,Precipitation flood verified
+SMP-0990,Sugarcane,114,23.08,24.87,61.48,41.26,5,0.75,0.05,HEALTHY_CANOPY,4.7,0,Normal healthy condition
+SMP-0991,Soybean,77,42.01,18.91,25.41,0.0,9,0.357,0.575,HEAT_STRESS,50.0,0,Extreme temperature anomaly verified
+SMP-0992,Fruits,71,40.37,18.99,27.81,0.0,15,0.409,0.653,HEAT_STRESS,47.8,0,Extreme temperature anomaly verified
+SMP-0993,Cotton,40,37.08,12.2,31.96,0.0,18,0.369,0.769,DROUGHT_DESICCATION,63.2,0,Prolonged dry spell verified
+SMP-0994,Maize,80,30.33,21.68,78.26,4.77,5,0.461,0.829,PEST_FOLIAGE_LESION,47.0,0,Foliage lesion symptoms
+SMP-0995,Wheat,48,34.66,8.93,41.07,0.0,19,0.343,0.803,DROUGHT_DESICCATION,75.5,0,Prolonged dry spell verified
+SMP-0996,Sugarcane,98,19.87,51.77,92.95,145.12,0,0.305,0.56,FLOOD_WATERLOGGING,70.9,0,Precipitation flood verified
+SMP-0997,Cotton,119,42.09,13.44,33.15,0.0,14,0.527,0.71,HEAT_STRESS,62.3,0,Extreme temperature anomaly verified
+SMP-0998,Soybean,128,26.45,50.36,88.88,122.66,0,0.346,0.462,FLOOD_WATERLOGGING,61.9,0,Precipitation flood verified
+SMP-0999,Wheat,44,28.4,28.7,54.85,29.48,4,0.869,0.118,HEALTHY_CANOPY,5.0,0,Normal healthy condition
+SMP-1000,Soybean,98,22.33,33.7,77.41,6.29,0,0.824,0.098,HEALTHY_CANOPY,9.1,0,Normal healthy condition
+SMP-1001,Cotton,40,26.21,34.8,50.14,0.4,2,0.709,0.069,HEALTHY_CANOPY,5.6,0,Normal healthy condition
+SMP-1002,Pulses,105,40.3,11.57,36.3,0.0,24,0.318,0.821,DROUGHT_DESICCATION,60.0,0,Prolonged dry spell verified
+SMP-1003,Paddy (Rice),137,27.74,29.84,77.32,0.43,2,0.843,0.095,HEALTHY_CANOPY,5.1,0,Normal healthy condition
+SMP-1004,Fruits,137,25.76,42.93,89.88,160.24,0,0.348,0.406,FLOOD_WATERLOGGING,30.0,0,Precipitation flood verified
+SMP-1005,Wheat,48,26.39,40.23,98.27,197.18,0,0.388,0.599,FLOOD_WATERLOGGING,59.1,0,Precipitation flood verified
+SMP-1006,Sugarcane,93,22.69,27.94,57.16,8.73,1,0.813,0.077,HEALTHY_CANOPY,6.2,0,Normal healthy condition
+SMP-1007,Paddy (Rice),91,28.06,33.61,62.58,23.11,2,0.847,0.101,HEALTHY_CANOPY,3.9,0,Normal healthy condition
+SMP-1008,Paddy (Rice),122,30.03,8.82,40.91,0.0,26,0.351,0.742,DROUGHT_DESICCATION,70.2,0,Prolonged dry spell verified
+SMP-1009,Wheat,108,38.76,10.93,41.64,0.0,30,0.356,0.818,DROUGHT_DESICCATION,62.9,0,Prolonged dry spell verified
+SMP-1010,Soybean,116,40.11,11.93,31.09,0.0,32,0.333,0.751,DROUGHT_DESICCATION,58.4,0,Prolonged dry spell verified
+SMP-1011,Cotton,81,24.04,28.18,68.0,2.13,0,0.76,0.072,HEALTHY_CANOPY,0.9,0,Normal healthy condition
+SMP-1012,Soybean,106,27.19,48.52,97.72,167.2,0,0.35,0.572,FLOOD_WATERLOGGING,51.4,0,Precipitation flood verified
+SMP-1013,Sugarcane,65,34.56,13.94,34.89,0.0,18,0.21,0.9,DROUGHT_DESICCATION,63.0,0,Prolonged dry spell verified
+SMP-1014,Wheat,51,24.18,20.94,78.93,10.85,3,0.805,0.05,HEALTHY_CANOPY,3.1,0,Normal healthy condition
+SMP-1015,Pulses,29,25.3,50.24,91.97,204.07,0,0.284,0.566,FLOOD_WATERLOGGING,44.5,0,Precipitation flood verified
+SMP-1016,Pulses,65,28.75,30.75,70.79,8.97,4,0.862,0.103,HEALTHY_CANOPY,4.0,0,Normal healthy condition
+SMP-1017,Soybean,83,26.18,59.83,86.25,168.24,0,0.23,0.565,FLOOD_WATERLOGGING,58.4,0,Precipitation flood verified
+SMP-1018,Soybean,131,25.88,25.38,48.6,2.15,1,0.856,0.092,HEALTHY_CANOPY,4.5,0,Normal healthy condition
+SMP-1019,Soybean,127,21.73,43.88,89.01,153.82,0,0.392,0.528,FLOOD_WATERLOGGING,49.9,0,Precipitation flood verified
+SMP-1020,Paddy (Rice),35,27.32,24.47,75.8,0.22,7,0.384,0.512,PEST_FOLIAGE_LESION,62.0,0,Foliage lesion symptoms
+SMP-1021,Vegetables,98,23.44,25.32,57.17,2.97,4,0.87,0.099,HEALTHY_CANOPY,7.6,0,Normal healthy condition
+SMP-1022,Vegetables,67,25.32,53.42,93.39,154.45,0,0.472,0.543,FLOOD_WATERLOGGING,58.5,0,Precipitation flood verified
+SMP-1023,Wheat,82,23.16,29.87,64.04,6.01,4,0.822,0.061,HEALTHY_CANOPY,5.7,0,Normal healthy condition
+SMP-1024,Soybean,116,18.58,44.4,88.3,137.39,0,0.403,0.581,FLOOD_WATERLOGGING,62.4,1,"Claim reported drought, but local AWS recorded heavy rainfall (85mm+) during event window"
+SMP-1025,Vegetables,140,38.1,9.67,39.85,0.0,34,0.327,0.876,DROUGHT_DESICCATION,75.8,0,Prolonged dry spell verified
+SMP-1026,Maize,78,29.08,20.86,73.43,16.62,7,0.447,0.592,PEST_FOLIAGE_LESION,32.9,0,Foliage lesion symptoms
+SMP-1027,Pulses,108,22.25,28.84,59.16,5.55,5,0.691,0.094,HEALTHY_CANOPY,2.6,0,Normal healthy condition
+SMP-1028,Paddy (Rice),61,36.91,11.93,40.6,0.0,26,0.255,0.88,DROUGHT_DESICCATION,79.3,0,Prolonged dry spell verified
+SMP-1029,Wheat,50,22.61,24.7,74.53,9.03,4,0.773,0.05,HEALTHY_CANOPY,3.5,0,Normal healthy condition
+SMP-1030,Maize,83,40.54,6.21,37.77,0.0,31,0.296,0.861,DROUGHT_DESICCATION,78.7,0,Prolonged dry spell verified
+SMP-1031,Pulses,66,43.81,16.72,32.24,0.0,11,0.376,0.695,HEAT_STRESS,69.7,0,Extreme temperature anomaly verified
+SMP-1032,Maize,93,22.34,45.99,91.7,205.03,0,0.438,0.629,FLOOD_WATERLOGGING,66.4,0,Precipitation flood verified
+SMP-1033,Wheat,122,27.78,23.74,78.29,10.81,3,0.755,0.116,HEALTHY_CANOPY,2.4,0,Normal healthy condition
+SMP-1034,Soybean,38,42.1,12.87,42.7,0.0,9,0.518,0.618,HEAT_STRESS,59.2,0,Extreme temperature anomaly verified
+SMP-1035,Cotton,42,35.8,12.23,40.55,0.0,22,0.369,0.84,DROUGHT_DESICCATION,97.4,0,Prolonged dry spell verified
+SMP-1036,Fruits,88,21.94,39.45,90.43,127.96,0,0.301,0.47,FLOOD_WATERLOGGING,42.9,0,Precipitation flood verified
+SMP-1037,Wheat,52,22.09,50.59,89.98,169.61,0,0.492,0.489,FLOOD_WATERLOGGING,50.8,0,Precipitation flood verified
+SMP-1038,Sugarcane,32,24.73,38.29,82.46,185.38,0,0.459,0.715,FLOOD_WATERLOGGING,55.9,1,"Claim reported drought, but local AWS recorded heavy rainfall (85mm+) during event window"
+SMP-1039,Vegetables,127,25.64,47.02,93.19,225.02,0,0.25,0.583,FLOOD_WATERLOGGING,79.6,0,Precipitation flood verified
+SMP-1040,Pulses,53,38.21,14.3,34.85,0.0,35,0.318,0.822,DROUGHT_DESICCATION,45.8,0,Prolonged dry spell verified
+SMP-1041,Wheat,64,22.5,23.61,71.58,15.34,0,0.769,0.11,HEALTHY_CANOPY,3.5,0,Normal healthy condition
+SMP-1042,Soybean,93,23.26,48.05,86.66,129.28,0,0.477,0.516,FLOOD_WATERLOGGING,62.5,0,Precipitation flood verified
+SMP-1043,Maize,119,29.35,32.79,52.03,24.83,2,0.745,0.074,HEALTHY_CANOPY,6.8,0,Normal healthy condition
+SMP-1044,Vegetables,119,27.08,55.86,90.87,211.92,0,0.344,0.477,FLOOD_WATERLOGGING,30.0,0,Precipitation flood verified
+SMP-1045,Sugarcane,98,31.02,24.54,63.99,19.02,5,0.749,0.062,HEALTHY_CANOPY,1.2,0,Normal healthy condition
+SMP-1046,Maize,101,41.68,10.54,39.13,0.0,12,0.518,0.517,HEAT_STRESS,54.2,0,Extreme temperature anomaly verified
+SMP-1047,Sugarcane,128,27.99,23.39,85.01,5.31,2,0.48,0.557,PEST_FOLIAGE_LESION,63.9,0,Foliage lesion symptoms
+SMP-1048,Soybean,60,42.08,9.26,40.79,0.0,27,0.365,0.784,DROUGHT_DESICCATION,53.0,0,Prolonged dry spell verified
+SMP-1049,Sugarcane,54,42.48,15.48,29.39,0.0,12,0.431,0.627,HEAT_STRESS,48.8,0,Extreme temperature anomaly verified
+SMP-1050,Fruits,77,37.77,11.77,32.12,0.0,23,0.376,0.714,DROUGHT_DESICCATION,62.2,0,Prolonged dry spell verified
+SMP-1051,Maize,113,25.23,25.46,60.48,8.38,2,0.718,0.105,HEALTHY_CANOPY,4.0,0,Normal healthy condition
+SMP-1052,Paddy (Rice),46,25.08,29.77,65.81,13.35,0,0.906,0.05,HEALTHY_CANOPY,1.8,0,Normal healthy condition
+SMP-1053,Vegetables,90,23.74,28.13,51.19,20.44,3,0.742,0.08,HEALTHY_CANOPY,5.7,0,Normal healthy condition
+SMP-1054,Paddy (Rice),33,27.86,31.9,55.0,8.34,1,0.877,0.088,HEALTHY_CANOPY,4.0,0,Normal healthy condition
+SMP-1055,Sugarcane,59,29.09,32.38,58.55,3.73,5,0.83,0.071,HEALTHY_CANOPY,2.7,0,Normal healthy condition
+SMP-1056,Maize,36,41.39,9.79,32.03,0.0,23,0.27,0.787,DROUGHT_DESICCATION,59.4,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-1057,Pulses,130,39.61,6.6,33.59,0.0,35,0.317,0.833,DROUGHT_DESICCATION,84.9,0,Prolonged dry spell verified
+SMP-1058,Fruits,76,30.64,21.6,49.74,0.83,5,0.831,0.186,HEALTHY_CANOPY,1.5,0,Normal healthy condition
+SMP-1059,Vegetables,100,24.9,44.46,89.84,153.39,0,0.33,0.547,FLOOD_WATERLOGGING,36.3,0,Precipitation flood verified
+SMP-1060,Sugarcane,87,25.89,48.28,93.69,161.01,0,0.391,0.573,FLOOD_WATERLOGGING,40.0,0,Precipitation flood verified
+SMP-1061,Pulses,81,36.61,9.28,33.55,0.0,20,0.193,0.9,DROUGHT_DESICCATION,61.1,0,Prolonged dry spell verified
+SMP-1062,Pulses,72,29.49,32.28,54.71,12.54,2,0.755,0.05,HEALTHY_CANOPY,3.2,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-1063,Pulses,56,38.08,12.43,39.52,0.0,18,0.29,0.923,DROUGHT_DESICCATION,57.7,0,Prolonged dry spell verified
+SMP-1064,Vegetables,116,36.81,8.84,38.1,0.0,18,0.415,0.812,DROUGHT_DESICCATION,66.7,0,Prolonged dry spell verified
+SMP-1065,Wheat,96,20.91,26.85,74.2,21.91,0,0.759,0.05,HEALTHY_CANOPY,3.1,0,Normal healthy condition
+SMP-1066,Soybean,72,44.24,19.9,37.76,0.0,13,0.274,0.756,HEAT_STRESS,43.3,0,Extreme temperature anomaly verified
+SMP-1067,Maize,111,25.8,46.16,94.81,135.03,0,0.514,0.433,FLOOD_WATERLOGGING,46.0,0,Precipitation flood verified
+SMP-1068,Sugarcane,48,23.01,20.98,65.76,43.12,3,0.87,0.08,HEALTHY_CANOPY,2.8,0,Normal healthy condition
+SMP-1069,Fruits,117,43.89,16.46,32.58,0.0,11,0.358,0.65,HEAT_STRESS,62.7,0,Extreme temperature anomaly verified
+SMP-1070,Fruits,123,26.69,28.49,58.97,0.69,1,0.877,0.078,HEALTHY_CANOPY,5.7,0,Normal healthy condition
+SMP-1071,Maize,37,22.8,27.79,80.3,10.57,5,0.838,0.089,HEALTHY_CANOPY,4.5,0,Normal healthy condition
+SMP-1072,Vegetables,54,22.56,56.55,99.76,200.58,0,0.472,0.531,FLOOD_WATERLOGGING,58.7,0,Precipitation flood verified
+SMP-1073,Pulses,22,23.49,23.5,53.1,3.62,4,0.71,0.143,HEALTHY_CANOPY,4.0,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-1074,Wheat,54,25.83,30.35,72.7,19.36,3,0.726,0.114,HEALTHY_CANOPY,3.4,0,Normal healthy condition
+SMP-1075,Soybean,31,24.5,26.88,64.97,2.26,3,0.819,0.05,HEALTHY_CANOPY,5.4,0,Normal healthy condition
+SMP-1076,Sugarcane,59,42.08,18.12,36.66,0.0,14,0.513,0.775,HEAT_STRESS,68.8,0,Extreme temperature anomaly verified
+SMP-1077,Vegetables,109,45.1,16.87,32.19,0.0,12,0.461,0.731,HEAT_STRESS,55.5,0,Extreme temperature anomaly verified
+SMP-1078,Maize,27,27.21,27.86,58.17,10.83,3,0.769,0.118,HEALTHY_CANOPY,6.0,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-1079,Maize,44,47.12,16.32,29.42,0.0,11,0.377,0.702,HEAT_STRESS,71.0,0,Extreme temperature anomaly verified
+SMP-1080,Cotton,35,33.09,23.8,79.77,2.58,7,0.51,0.521,PEST_FOLIAGE_LESION,60.1,0,Foliage lesion symptoms
+SMP-1081,Vegetables,51,26.45,40.14,88.27,106.43,0,0.357,0.611,FLOOD_WATERLOGGING,49.0,1,"Claim reported drought, but local AWS recorded heavy rainfall (85mm+) during event window"
+SMP-1082,Paddy (Rice),86,24.92,40.39,95.19,158.35,0,0.421,0.543,FLOOD_WATERLOGGING,38.7,0,Precipitation flood verified
+SMP-1083,Sugarcane,107,26.12,27.39,80.79,9.4,4,0.453,0.654,PEST_FOLIAGE_LESION,20.0,0,Foliage lesion symptoms
+SMP-1084,Cotton,115,31.75,24.1,76.2,10.83,6,0.572,0.648,PEST_FOLIAGE_LESION,36.9,0,Foliage lesion symptoms
+SMP-1085,Vegetables,101,26.35,28.94,57.49,4.82,2,0.773,0.056,HEALTHY_CANOPY,0.1,0,Normal healthy condition
+SMP-1086,Soybean,34,27.84,31.5,75.74,6.07,3,0.817,0.118,HEALTHY_CANOPY,5.6,0,Normal healthy condition
+SMP-1087,Maize,121,32.18,30.23,63.75,25.55,0,0.704,0.096,HEALTHY_CANOPY,2.8,0,Normal healthy condition
+SMP-1088,Soybean,21,26.23,17.44,76.49,7.23,6,0.483,0.669,PEST_FOLIAGE_LESION,39.2,0,Foliage lesion symptoms
+SMP-1089,Vegetables,108,27.35,40.7,96.77,195.25,0,0.283,0.767,FLOOD_WATERLOGGING,53.2,0,Precipitation flood verified
+SMP-1090,Paddy (Rice),51,23.37,22.37,63.24,1.64,0,0.774,0.05,HEALTHY_CANOPY,5.8,0,Normal healthy condition
+SMP-1091,Pulses,139,28.89,27.81,79.23,4.81,8,0.364,0.522,PEST_FOLIAGE_LESION,45.6,0,Foliage lesion symptoms
+SMP-1092,Cotton,65,26.63,43.26,96.25,162.0,0,0.56,0.521,FLOOD_WATERLOGGING,43.9,0,Precipitation flood verified
+SMP-1093,Paddy (Rice),36,39.22,10.13,33.79,0.0,28,0.291,0.817,DROUGHT_DESICCATION,81.4,0,Prolonged dry spell verified
+SMP-1094,Pulses,123,39.02,16.07,35.75,0.0,10,0.414,0.772,HEAT_STRESS,57.4,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-1095,Pulses,112,25.45,30.37,65.79,29.4,0,0.744,0.059,HEALTHY_CANOPY,4.8,0,Normal healthy condition
+SMP-1096,Vegetables,91,27.58,28.4,45.17,9.36,5,0.782,0.05,HEALTHY_CANOPY,4.6,0,Normal healthy condition
+SMP-1097,Maize,89,38.69,12.18,24.74,0.0,32,0.402,0.776,DROUGHT_DESICCATION,74.9,0,Prolonged dry spell verified
+SMP-1098,Fruits,40,28.22,24.49,70.28,6.19,1,0.678,0.069,HEALTHY_CANOPY,2.4,0,Normal healthy condition
+SMP-1099,Wheat,89,40.4,10.42,32.85,0.0,18,0.249,0.939,DROUGHT_DESICCATION,67.8,0,Prolonged dry spell verified
+SMP-1100,Fruits,68,22.44,48.62,99.59,163.31,0,0.475,0.645,FLOOD_WATERLOGGING,31.3,0,Precipitation flood verified
+SMP-1101,Pulses,119,22.72,53.31,89.2,187.44,0,0.359,0.514,FLOOD_WATERLOGGING,47.2,0,Precipitation flood verified
+SMP-1102,Paddy (Rice),104,30.59,24.71,78.69,7.5,8,0.356,0.77,PEST_FOLIAGE_LESION,41.2,0,Foliage lesion symptoms
+SMP-1103,Fruits,107,32.44,11.32,38.17,0.0,35,0.315,0.879,DROUGHT_DESICCATION,75.5,0,Prolonged dry spell verified
+SMP-1104,Wheat,61,38.24,11.9,37.48,0.0,28,0.427,0.731,DROUGHT_DESICCATION,69.4,0,Prolonged dry spell verified
+SMP-1105,Fruits,104,26.2,31.25,58.25,11.04,1,0.824,0.058,HEALTHY_CANOPY,8.0,0,Normal healthy condition
+SMP-1106,Cotton,45,27.93,27.15,48.83,14.41,1,0.715,0.068,HEALTHY_CANOPY,4.0,0,Normal healthy condition
+SMP-1107,Sugarcane,104,38.91,9.82,45.78,0.0,26,0.253,0.716,DROUGHT_DESICCATION,79.1,1,"Claim reported flash flood, but rainfall station and soil probe recorded zero moisture anomaly"
+SMP-1108,Paddy (Rice),21,23.31,23.29,99.82,1.45,3,0.403,0.599,PEST_FOLIAGE_LESION,60.4,0,Foliage lesion symptoms
+SMP-1109,Paddy (Rice),79,44.44,18.43,30.83,0.0,7,0.488,0.725,HEAT_STRESS,61.2,0,Extreme temperature anomaly verified
+SMP-1110,Sugarcane,125,37.21,11.64,39.44,0.0,19,0.288,0.774,DROUGHT_DESICCATION,58.0,0,Prolonged dry spell verified
+SMP-1111,Wheat,87,23.2,27.25,62.18,3.34,0,0.815,0.061,HEALTHY_CANOPY,3.8,0,Normal healthy condition
+SMP-1112,Paddy (Rice),140,26.05,20.33,53.23,1.81,4,0.84,0.111,HEALTHY_CANOPY,5.9,0,Normal healthy condition
+SMP-1113,Soybean,88,39.84,11.87,40.01,0.0,24,0.335,0.795,DROUGHT_DESICCATION,68.8,0,Prolonged dry spell verified
+SMP-1114,Soybean,92,24.43,51.17,92.4,238.15,0,0.323,0.61,FLOOD_WATERLOGGING,53.5,0,Precipitation flood verified
+SMP-1115,Fruits,73,24.0,43.94,96.08,194.59,0,0.487,0.564,FLOOD_WATERLOGGING,50.1,0,Precipitation flood verified
+SMP-1116,Pulses,106,37.33,11.87,27.97,0.0,31,0.372,0.95,DROUGHT_DESICCATION,72.8,0,Prolonged dry spell verified
+SMP-1117,Maize,121,25.16,27.36,70.66,33.15,3,0.852,0.059,HEALTHY_CANOPY,1.9,0,Normal healthy condition
+SMP-1118,Maize,88,28.83,23.71,83.39,13.26,5,0.475,0.598,PEST_FOLIAGE_LESION,43.9,0,Foliage lesion symptoms
+SMP-1119,Pulses,90,26.63,20.19,86.75,11.89,4,0.545,0.684,PEST_FOLIAGE_LESION,52.6,0,Foliage lesion symptoms
+SMP-1120,Sugarcane,117,23.97,33.23,89.43,156.22,0,0.342,0.56,FLOOD_WATERLOGGING,49.0,0,Precipitation flood verified
+SMP-1121,Pulses,97,23.53,23.76,59.28,4.16,4,0.836,0.095,HEALTHY_CANOPY,2.8,0,Normal healthy condition
+SMP-1122,Fruits,138,23.73,42.63,99.92,177.2,0,0.512,0.589,FLOOD_WATERLOGGING,53.5,0,Precipitation flood verified
+SMP-1123,Vegetables,77,28.77,21.46,74.85,3.41,2,0.493,0.444,PEST_FOLIAGE_LESION,32.8,0,Foliage lesion symptoms
+SMP-1124,Wheat,96,30.62,24.29,74.95,5.14,1,0.759,0.081,HEALTHY_CANOPY,3.7,0,Normal healthy condition
+SMP-1125,Wheat,20,35.57,11.18,38.88,0.0,25,0.362,0.908,DROUGHT_DESICCATION,64.4,0,Prolonged dry spell verified
+SMP-1126,Pulses,22,44.69,16.2,22.84,0.0,11,0.525,0.839,HEAT_STRESS,63.0,0,Extreme temperature anomaly verified
+SMP-1127,Fruits,91,24.18,46.64,90.14,211.32,0,0.419,0.684,FLOOD_WATERLOGGING,54.4,0,Precipitation flood verified
+SMP-1128,Paddy (Rice),24,36.47,9.8,34.28,0.0,22,0.351,0.742,DROUGHT_DESICCATION,59.8,0,Prolonged dry spell verified
+SMP-1129,Pulses,133,26.65,43.23,95.45,113.11,0,0.536,0.448,FLOOD_WATERLOGGING,43.5,0,Precipitation flood verified
+SMP-1130,Wheat,31,25.36,49.35,95.58,136.65,0,0.397,0.501,FLOOD_WATERLOGGING,40.7,0,Precipitation flood verified
+SMP-1131,Soybean,113,27.79,31.77,62.31,18.91,2,0.856,0.05,HEALTHY_CANOPY,3.0,0,Normal healthy condition
+SMP-1132,Maize,82,42.88,16.17,29.64,0.0,8,0.266,0.713,HEAT_STRESS,73.8,0,Extreme temperature anomaly verified
+SMP-1133,Wheat,24,24.93,51.05,94.29,186.91,0,0.495,0.582,FLOOD_WATERLOGGING,50.2,0,Precipitation flood verified
+SMP-1134,Paddy (Rice),119,23.61,27.0,67.51,1.22,2,0.807,0.094,HEALTHY_CANOPY,4.4,0,Normal healthy condition
+SMP-1135,Sugarcane,73,28.49,24.74,91.77,17.73,2,0.402,0.572,PEST_FOLIAGE_LESION,44.4,0,Foliage lesion symptoms
+SMP-1136,Soybean,115,20.33,54.94,92.57,186.44,0,0.529,0.5,FLOOD_WATERLOGGING,60.9,0,Precipitation flood verified
+SMP-1137,Cotton,101,42.3,15.45,27.37,0.0,13,0.517,0.654,HEAT_STRESS,63.6,1,"Claim reported flash flood, but rainfall station and soil probe recorded zero moisture anomaly"
+SMP-1138,Pulses,89,20.25,53.9,96.21,177.92,0,0.402,0.582,FLOOD_WATERLOGGING,81.5,0,Precipitation flood verified
+SMP-1139,Soybean,39,20.71,31.13,57.71,7.12,5,0.735,0.05,HEALTHY_CANOPY,5.0,0,Normal healthy condition
+SMP-1140,Vegetables,116,20.47,43.67,89.93,132.28,0,0.381,0.438,FLOOD_WATERLOGGING,55.9,0,Precipitation flood verified
+SMP-1141,Soybean,75,22.31,28.12,74.3,1.75,3,0.819,0.057,HEALTHY_CANOPY,3.9,0,Normal healthy condition
+SMP-1142,Pulses,30,33.72,12.26,46.82,0.0,19,0.488,0.825,DROUGHT_DESICCATION,75.9,0,Prolonged dry spell verified
+SMP-1143,Wheat,30,33.05,14.01,41.88,0.0,31,0.291,0.894,DROUGHT_DESICCATION,65.5,0,Prolonged dry spell verified
+SMP-1144,Maize,117,24.63,29.9,56.49,5.3,4,0.831,0.111,HEALTHY_CANOPY,2.1,0,Normal healthy condition
+SMP-1145,Sugarcane,103,22.36,50.69,90.99,163.61,0,0.383,0.364,FLOOD_WATERLOGGING,42.4,0,Precipitation flood verified
+SMP-1146,Fruits,51,29.54,25.84,49.8,14.76,2,0.764,0.069,HEALTHY_CANOPY,3.2,0,Normal healthy condition
+SMP-1147,Pulses,107,30.55,27.32,75.86,10.88,2,0.557,0.511,PEST_FOLIAGE_LESION,57.7,0,Foliage lesion symptoms
+SMP-1148,Sugarcane,74,37.36,11.05,42.47,0.0,24,0.288,0.69,DROUGHT_DESICCATION,75.0,0,Prolonged dry spell verified
+SMP-1149,Cotton,118,38.37,10.28,41.11,0.0,29,0.37,0.729,DROUGHT_DESICCATION,68.2,0,Prolonged dry spell verified
+SMP-1150,Vegetables,99,19.17,27.51,62.02,2.96,0,0.754,0.144,HEALTHY_CANOPY,0.0,0,Normal healthy condition
+SMP-1151,Soybean,45,23.64,56.63,92.49,197.6,0,0.428,0.497,FLOOD_WATERLOGGING,30.0,0,Precipitation flood verified
+SMP-1152,Paddy (Rice),34,24.41,44.12,88.8,160.03,0,0.56,0.742,FLOOD_WATERLOGGING,56.6,0,Precipitation flood verified
+SMP-1153,Maize,131,41.66,12.47,34.81,0.0,11,0.525,0.663,HEAT_STRESS,39.0,1,"Claim reported flash flood, but rainfall station and soil probe recorded zero moisture anomaly"
+SMP-1154,Wheat,77,39.18,12.97,30.07,0.0,28,0.331,0.847,DROUGHT_DESICCATION,67.3,0,Prolonged dry spell verified
+SMP-1155,Fruits,47,23.63,32.06,61.77,8.13,4,0.881,0.053,HEALTHY_CANOPY,1.5,0,Normal healthy condition
+SMP-1156,Fruits,81,24.74,41.57,86.79,113.52,0,0.389,0.547,FLOOD_WATERLOGGING,47.8,0,Precipitation flood verified
+SMP-1157,Cotton,68,26.78,54.58,99.72,176.4,0,0.515,0.575,FLOOD_WATERLOGGING,56.5,0,Precipitation flood verified
+SMP-1158,Cotton,52,24.6,18.95,70.1,6.24,2,0.823,0.088,HEALTHY_CANOPY,6.6,0,Normal healthy condition
+SMP-1159,Wheat,26,37.46,9.26,36.93,0.0,18,0.228,0.752,DROUGHT_DESICCATION,77.7,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-1160,Pulses,130,28.62,29.45,51.23,2.34,2,0.754,0.095,HEALTHY_CANOPY,0.5,0,Normal healthy condition
+SMP-1161,Sugarcane,49,26.19,24.18,88.29,1.37,6,0.442,0.719,PEST_FOLIAGE_LESION,36.7,0,Foliage lesion symptoms
+SMP-1162,Paddy (Rice),135,34.0,6.69,37.85,0.0,35,0.286,0.734,DROUGHT_DESICCATION,79.9,0,Prolonged dry spell verified
+SMP-1163,Soybean,84,30.67,23.9,87.55,2.3,6,0.533,0.685,PEST_FOLIAGE_LESION,47.7,0,Foliage lesion symptoms
+SMP-1164,Cotton,25,25.3,29.69,71.46,41.89,4,0.738,0.098,HEALTHY_CANOPY,2.5,0,Normal healthy condition
+SMP-1165,Vegetables,70,23.8,55.23,89.36,127.81,0,0.336,0.63,FLOOD_WATERLOGGING,57.1,1,"Claim reported drought, but local AWS recorded heavy rainfall (85mm+) during event window"
+SMP-1166,Pulses,100,37.18,9.98,40.43,0.0,34,0.269,0.838,DROUGHT_DESICCATION,60.7,0,Prolonged dry spell verified
+SMP-1167,Cotton,100,23.31,25.45,62.0,9.91,3,0.778,0.05,HEALTHY_CANOPY,4.0,0,Normal healthy condition
+SMP-1168,Cotton,140,23.36,43.23,96.39,195.08,0,0.615,0.617,FLOOD_WATERLOGGING,46.3,0,Precipitation flood verified
+SMP-1169,Maize,63,40.87,14.52,28.0,0.0,9,0.408,0.572,HEAT_STRESS,63.2,0,Extreme temperature anomaly verified
+SMP-1170,Sugarcane,86,29.23,25.86,69.99,17.0,6,0.384,0.632,PEST_FOLIAGE_LESION,54.7,0,Foliage lesion symptoms
+SMP-1171,Soybean,73,23.44,31.86,70.63,9.11,1,0.736,0.126,HEALTHY_CANOPY,3.3,0,Normal healthy condition
+SMP-1172,Wheat,136,21.76,51.02,92.43,175.4,0,0.359,0.558,FLOOD_WATERLOGGING,30.0,0,Precipitation flood verified
+SMP-1173,Maize,46,24.44,54.49,84.94,162.8,0,0.35,0.429,FLOOD_WATERLOGGING,30.0,0,Precipitation flood verified
+SMP-1174,Soybean,130,22.46,27.03,74.19,12.05,5,0.818,0.055,HEALTHY_CANOPY,6.7,0,Normal healthy condition
+SMP-1175,Fruits,136,26.43,25.31,70.3,18.86,1,0.751,0.114,HEALTHY_CANOPY,0.0,0,Normal healthy condition
+SMP-1176,Maize,60,23.95,22.68,66.87,29.46,4,0.738,0.058,HEALTHY_CANOPY,3.6,0,Normal healthy condition
+SMP-1177,Paddy (Rice),43,28.5,9.6,33.62,0.0,22,0.352,0.772,DROUGHT_DESICCATION,65.8,0,Prolonged dry spell verified
+SMP-1178,Pulses,132,32.86,27.48,84.32,1.49,5,0.446,0.558,PEST_FOLIAGE_LESION,42.0,0,Foliage lesion symptoms
+SMP-1179,Wheat,39,45.47,18.11,36.85,0.0,8,0.513,0.743,HEAT_STRESS,48.9,0,Extreme temperature anomaly verified
+SMP-1180,Cotton,117,31.22,27.55,82.56,3.66,6,0.434,0.576,PEST_FOLIAGE_LESION,59.8,0,Foliage lesion symptoms
+SMP-1181,Soybean,96,25.86,25.09,57.98,4.17,5,0.818,0.084,HEALTHY_CANOPY,5.2,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-1182,Vegetables,37,34.43,12.1,34.7,0.0,33,0.259,0.79,DROUGHT_DESICCATION,81.6,0,Prolonged dry spell verified
+SMP-1183,Pulses,43,41.84,22.6,19.63,0.0,14,0.292,0.773,HEAT_STRESS,70.6,0,Extreme temperature anomaly verified
+SMP-1184,Maize,44,23.41,28.28,70.7,21.94,3,0.76,0.08,HEALTHY_CANOPY,4.2,0,Normal healthy condition
+SMP-1185,Cotton,138,20.98,38.84,69.16,39.01,3,0.727,0.134,HEALTHY_CANOPY,3.3,0,Normal healthy condition
+SMP-1186,Soybean,116,25.16,30.57,80.07,23.39,1,0.816,0.122,HEALTHY_CANOPY,4.0,0,Normal healthy condition
+SMP-1187,Vegetables,130,24.63,52.05,89.1,176.62,0,0.43,0.474,FLOOD_WATERLOGGING,81.8,0,Precipitation flood verified
+SMP-1188,Vegetables,133,21.78,22.81,75.51,17.02,3,0.816,0.079,HEALTHY_CANOPY,1.2,0,Normal healthy condition
+SMP-1189,Sugarcane,112,37.2,13.92,45.7,0.0,35,0.332,0.761,DROUGHT_DESICCATION,85.4,0,Prolonged dry spell verified
+SMP-1190,Cotton,86,28.46,24.35,67.74,71.68,3,0.795,0.111,HEALTHY_CANOPY,2.0,0,Normal healthy condition
+SMP-1191,Cotton,132,28.43,20.71,75.3,8.94,6,0.541,0.777,PEST_FOLIAGE_LESION,44.6,0,Foliage lesion symptoms
+SMP-1192,Cotton,91,40.18,11.44,33.88,0.0,19,0.318,0.705,DROUGHT_DESICCATION,74.9,0,Prolonged dry spell verified
+SMP-1193,Vegetables,70,42.85,15.43,36.52,0.0,11,0.403,0.722,HEAT_STRESS,65.7,0,Extreme temperature anomaly verified
+SMP-1194,Sugarcane,57,22.9,43.82,85.11,178.68,0,0.456,0.444,FLOOD_WATERLOGGING,71.0,1,Mismatch between claimed event date and satellite NDVI vegetative baseline
+SMP-1195,Vegetables,126,22.36,37.48,97.98,115.81,0,0.497,0.608,FLOOD_WATERLOGGING,57.8,0,Precipitation flood verified
+SMP-1196,Fruits,34,24.43,30.01,73.39,1.32,4,0.731,0.098,HEALTHY_CANOPY,5.7,0,Normal healthy condition
+SMP-1197,Fruits,37,36.26,11.57,42.81,0.0,28,0.39,0.816,DROUGHT_DESICCATION,65.8,0,Prolonged dry spell verified
+SMP-1198,Maize,78,24.38,42.25,91.23,197.34,0,0.471,0.528,FLOOD_WATERLOGGING,56.6,0,Precipitation flood verified
+SMP-1199,Soybean,132,35.44,12.41,37.61,0.0,26,0.303,0.798,DROUGHT_DESICCATION,67.4,0,Prolonged dry spell verified
+SMP-1200,Maize,111,23.1,51.29,90.42,222.79,0,0.537,0.479,FLOOD_WATERLOGGING,54.8,0,Precipitation flood verified

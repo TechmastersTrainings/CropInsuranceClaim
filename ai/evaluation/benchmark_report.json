@@ -1,0 +1,86 @@
+{
+  "dataset": {
+    "total_samples": 1200,
+    "test_split_samples": 240,
+    "stratification": "Stratified on damage_category",
+    "supported_crops": [
+      "Cotton",
+      "Fruits",
+      "Maize",
+      "Paddy (Rice)",
+      "Pulses",
+      "Soybean",
+      "Sugarcane",
+      "Vegetables",
+      "Wheat"
+    ]
+  },
+  "damage_classifier": {
+    "model_type": "Ensemble Random Forest with Scikit-learn Pipeline",
+    "accuracy": 1.0,
+    "macro_f1": 1.0,
+    "weighted_f1": 1.0,
+    "classes": [
+      "DROUGHT_DESICCATION",
+      "FLOOD_WATERLOGGING",
+      "HEALTHY_CANOPY",
+      "HEAT_STRESS",
+      "PEST_FOLIAGE_LESION"
+    ],
+    "confusion_matrix": [
+      [
+        59,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        50,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        72,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        33,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        26
+      ]
+    ]
+  },
+  "loss_regressor": {
+    "model_type": "Ensemble Random Forest Regressor",
+    "mae_percentage": 6.53,
+    "rmse_percentage": 9.15,
+    "r2_score": 0.8899
+  },
+  "anomaly_detector": {
+    "model_type": "Isolation Forest Multidimensional Sensor Screener",
+    "precision": 0.0385,
+    "recall": 0.0625,
+    "f1_score": 0.0476
+  },
+  "section_25_compliance": {
+    "status": "COMPLIANT",
+    "internal_weights_exposed": false,
+    "internal_hyperparameters_exposed": false,
+    "external_api_mode": "Business Advisory & Agronomic Indicators Only"
+  }
+}

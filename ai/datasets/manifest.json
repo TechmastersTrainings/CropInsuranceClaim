@@ -1,0 +1,26 @@
+{
+  "dataset_name": "AgriClaim Multi-Source Agronomic & Weather Anomaly Benchmark",
+  "version": "1.0.0",
+  "provenance": "Curated empirical agronomic benchmarks calibrated with IMD weather patterns and field sensor telemetry",
+  "license": "CC-BY-4.0 / Academic & Benchmark Use",
+  "crops_covered": [
+    "Cotton",
+    "Paddy (Rice)",
+    "Maize",
+    "Soybean",
+    "Wheat",
+    "Pulses",
+    "Sugarcane",
+    "Vegetables",
+    "Fruits"
+  ],
+  "damage_categories": [
+    "HEALTHY_CANOPY",
+    "DROUGHT_DESICCATION",
+    "FLOOD_WATERLOGGING",
+    "PEST_FOLIAGE_LESION",
+    "HEAT_STRESS"
+  ],
+  "evaluation_strategy": "Stratified 80/20 train/test split with zero cross-split leakage",
+  "confidentiality_notice": "In compliance with Section 25, model weights, serialized architectures and internal hyperparameter matrices remain strictly server-side."
+}

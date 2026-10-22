@@ -191,6 +191,29 @@ export function AppProvider({ children }) {
     setFarms([...farms, { ...newFarm, id }]);
   };
 
+  const updateClaimAIAssessment = (claimId, assessmentData) => {
+    setClaims(claims.map(c => {
+      if (c.id === claimId) {
+        return {
+          ...c,
+          aiAssessment: {
+            status: "Completed",
+            conditionIndicator: assessmentData.damage_category,
+            estimatedDamagePct: assessmentData.estimated_loss_percentage,
+            weatherCorrelationScore: assessmentData.weather_correlation_score,
+            reviewRecommendation: assessmentData.anomaly_detected 
+              ? "Flagged for Manual Surveyor Review (Anomaly Flagged)" 
+              : `Parametric Payout Advisory (${assessmentData.recommended_payout_percentage}%)`,
+            sensorAnomalyNoted: assessmentData.anomaly_detected ? assessmentData.inconsistency_reasons?.join("; ") : "Physical Telemetry Verified",
+            severity: assessmentData.severity_level,
+            advisoryRationale: assessmentData.advisory_rationale
+          }
+        };
+      }
+      return c;
+    }));
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -204,6 +227,7 @@ export function AppProvider({ children }) {
         claims,
         addClaim,
         updateClaimStatus,
+        updateClaimAIAssessment,
         devices,
         ledger,
         notifications,

@@ -113,3 +113,14 @@ export async function fetchAuditLogs() {
   if (!res.ok) throw new Error("Failed to fetch audit logs");
   return await res.json();
 }
+
+export async function assessClaim(claimId, assessmentPayload = {}) {
+  const res = await fetch(`${API_BASE_URL}/claims/${claimId}/assess`, {
+    method: "POST",
+    headers: getAuthHeaders(),
+    body: JSON.stringify(assessmentPayload)
+  });
+  if (!res.ok) throw new Error("Failed to assess claim with AI engine");
+  return await res.json();
+}
+

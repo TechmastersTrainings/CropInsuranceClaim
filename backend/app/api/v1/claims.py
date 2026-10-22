@@ -1,6 +1,6 @@
 import secrets
 import hashlib
-from typing import List
+from typing import List, Optional
 from datetime import datetime, timezone
 from fastapi import APIRouter, Depends, HTTPException, status, UploadFile, File, Form
 from sqlalchemy.orm import Session
@@ -12,6 +12,10 @@ from backend.app.models.claim import Claim, ClaimStatus, ClaimEvidence, ClaimSta
 from backend.app.models.audit import AuditLog, BlockchainBlockRecord
 from backend.app.schemas.claim import ClaimCreate, ClaimResponse, ClaimTransitionRequest, EvidenceResponse
 from backend.app.api.deps import get_current_user, require_insurer
+
+from backend.app.models.telemetry import SensorReading
+from backend.app.schemas.ai import AIAssessmentResponse, AIAssessClaimRequest
+from ai.inference.predictor import CropDamagePredictor
 
 router = APIRouter(tags=["Claims Management"])
 
@@ -37,7 +41,28 @@ def submit_claim(
     claim_num = f"CLM-2026-{random_id}"
     tx_hash = f"0x{secrets.token_hex(32)}"
     
-    # Calculate baseline algorithmic advisory indicators
+    # Calculate real AI assessment based on environmental telemetry and agronomic conditions
+    recent_readings = (
+        db.query(SensorReading)
+        .filter(SensorReading.farm_plot_id == farm.id)
+        .order_by(SensorReading.recorded_at.desc())
+        .limit(24)
+        .all()
+    )
+    readings_data = [
+        {"temperature": r.temperature, "moisture": r.moisture, "humidity": r.humidity, "rainfall": r.rainfall}
+        for r in recent_readings
+    ]
+    
+    predictor = CropDamagePredictor()
+    ai_assessment = predictor.assess_claim(
+        crop_name=farm.active_crop_name if farm else "Cotton",
+        crop_cycle_day=60,
+        telemetry_readings=readings_data if readings_data else None,
+        claimed_cause=claim_in.damage_reason,
+        claimed_loss_percentage=None
+    )
+    
     new_claim = Claim(
         claim_number=claim_num,
         farmer_id=current_user.id,
@@ -48,10 +73,10 @@ def submit_claim(
         damage_event_date=claim_in.damage_event_date,
         status=ClaimStatus.SUBMITTED,
         blockchain_tx_hash=tx_hash,
-        ai_condition_indicator="Foliage Desiccation & Wilting Detected",
-        ai_loss_percentage=65.0,
-        weather_correlation_score=0.92,
-        officer_remarks="Claim registered via automated wizard. Awaiting evidence and officer review."
+        ai_condition_indicator=ai_assessment["damage_category"],
+        ai_loss_percentage=ai_assessment["estimated_loss_percentage"],
+        weather_correlation_score=ai_assessment["weather_correlation_score"],
+        officer_remarks=f"{ai_assessment['advisory_rationale']} Awaiting officer review."
     )
     db.add(new_claim)
     db.flush()
@@ -211,3 +236,89 @@ def upload_claim_evidence(
     db.commit()
     db.refresh(evidence)
     return evidence
+
+
+@router.post("/claims/{claim_id}/assess", response_model=AIAssessmentResponse)
+def run_ai_claim_assessment(
+    claim_id: int,
+    assess_req: Optional[AIAssessClaimRequest] = None,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    """Triggers ML-driven multi-modal damage assessment & fraud screening for a claim."""
+    claim = db.query(Claim).filter(Claim.id == claim_id).first()
+    if not claim:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Claim not found")
+        
+    farm = db.query(FarmPlot).filter(FarmPlot.id == claim.farm_plot_id).first()
+    crop_name = farm.active_crop_name if farm else "Cotton"
+    
+    # Query environmental sensor telemetry
+    readings = (
+        db.query(SensorReading)
+        .filter(SensorReading.farm_plot_id == claim.farm_plot_id)
+        .order_by(SensorReading.recorded_at.desc())
+        .limit(24)
+        .all()
+    )
+    readings_data = [
+        {"temperature": r.temperature, "moisture": r.moisture, "humidity": r.humidity, "rainfall": r.rainfall}
+        for r in readings
+    ]
+    
+    canopy_input = None
+    if assess_req and (assess_req.canopy_green_index is not None or assess_req.foliage_wilting_index is not None):
+        canopy_input = {
+            "canopy_green_index": assess_req.canopy_green_index or 0.55,
+            "foliage_wilting_index": assess_req.foliage_wilting_index or 0.30
+        }
+        
+    claimed_cause = (assess_req.claimed_cause if assess_req and assess_req.claimed_cause else claim.damage_reason)
+    cycle_day = assess_req.crop_cycle_day if assess_req and assess_req.crop_cycle_day else 65
+    
+    predictor = CropDamagePredictor()
+    result = predictor.assess_claim(
+        crop_name=crop_name,
+        crop_cycle_day=cycle_day,
+        telemetry_readings=readings_data if readings_data else None,
+        canopy_features=canopy_input,
+        claimed_cause=claimed_cause,
+        claimed_loss_percentage=None
+    )
+    
+    # Update claim record with verified AI metrics
+    claim.ai_condition_indicator = result["damage_category"]
+    claim.ai_loss_percentage = result["estimated_loss_percentage"]
+    claim.weather_correlation_score = result["weather_correlation_score"]
+    claim.officer_remarks = result["advisory_rationale"]
+    
+    # System audit log
+    audit = AuditLog(
+        actor_email=current_user.email,
+        actor_role=current_user.role.value,
+        action=f"AI Assessment Computed: {result['damage_category']} ({result['estimated_loss_percentage']}%)",
+        target_entity=claim.claim_number,
+        ip_address="127.0.0.1"
+    )
+    db.add(audit)
+    db.commit()
+    db.refresh(claim)
+    
+    return {
+        "claim_id": claim.id,
+        "claim_number": claim.claim_number,
+        "crop_name": crop_name,
+        "damage_category": result["damage_category"],
+        "severity_level": result["severity_level"],
+        "estimated_loss_percentage": result["estimated_loss_percentage"],
+        "recommended_payout_percentage": result["recommended_payout_percentage"],
+        "confidence_score": result["confidence_score"],
+        "weather_correlation_score": result["weather_correlation_score"],
+        "anomaly_detected": result["anomaly_detected"],
+        "anomaly_score": result["anomaly_score"],
+        "inconsistency_reasons": result["inconsistency_reasons"],
+        "advisory_rationale": result["advisory_rationale"],
+        "canopy_indicators": result["canopy_indicators"],
+        "environmental_telemetry_summary": result["environmental_telemetry_summary"]
+    }
+
