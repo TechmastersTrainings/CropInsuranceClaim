@@ -82,7 +82,7 @@ class ESP32DeviceSimulator:
             temp = 26.5 + diurnal_temp_factor * 4.0 + random.uniform(-0.5, 0.5)
             moisture = 26.0 + random.uniform(-1.5, 1.5)
             humidity = 65.0 - diurnal_temp_factor * 10.0 + random.uniform(-2.0, 2.0)
-            rainfall = round(random.exponential(1.5), 1) if random.random() < 0.15 else 0.0
+            rainfall = round(random.expovariate(1.0 / 1.5), 1) if random.random() < 0.15 else 0.0
 
         # Discharging battery slightly
         self.battery_mv = max(3300, self.battery_mv - 1)

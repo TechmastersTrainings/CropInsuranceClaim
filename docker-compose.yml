@@ -1,0 +1,81 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: agrishield-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgrespassword
+      POSTGRES_DB: crop_insurance_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d crop_insurance_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - agrishield-net
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: agrishield-backend
+    restart: always
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql://postgres:postgrespassword@db:5432/crop_insurance_db
+      SECRET_KEY: agrishield_production_secret_key_2026_entropy_secure
+      ALGORITHM: HS256
+      ACCESS_TOKEN_EXPIRE_MINUTES: 1440
+      ENVIRONMENT: production
+      CORS_ORIGINS: "http://localhost,http://localhost:5173,http://localhost:80"
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - agrishield-net
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: agrishield-frontend
+    restart: always
+    ports:
+      - "5173:80"
+      - "80:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+    networks:
+      - agrishield-net
+
+  iot-simulator:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: agrishield-iot-simulator
+    restart: unless-stopped
+    command: ["python", "iot/simulator/esp32_simulator.py"]
+    environment:
+      PYTHONPATH: /app
+    depends_on:
+      backend:
+        condition: service_healthy
+    networks:
+      - agrishield-net
+
+networks:
+  agrishield-net:
+    driver: bridge
+
+volumes:
+  pgdata:
+    driver: local
