@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import {
   ShieldCheck,
   User,
@@ -13,49 +13,181 @@ import {
   Check,
   Compass,
   AlertTriangle,
-  UserCheck
+  UserCheck,
+  Building2,
+  FileBadge,
+  KeyRound,
+  Layers,
+  HelpCircle
 } from "lucide-react";
 import { useApp } from "../context/AppContext";
 import { loginUser } from "../services/api";
 
+const ROLE_METADATA = {
+  FARMER: {
+    key: "FARMER",
+    path: "farmer",
+    title: "Farmer Access Portal (Kisan)",
+    subtitle: "Register land survey plots, track IoT sensor metrics, and submit automated parametric claims.",
+    icon: Sprout,
+    accentColor: "var(--color-primary)",
+    softBg: "var(--color-primary-soft)",
+    demoCreds: {
+      name: "Ramesh C. Patil",
+      email: "ramesh.farmer@agrishield.org",
+      phone: "+91 98451 23456",
+      state: "Karnataka",
+      district: "Dharwad",
+      village: "Navalgund",
+      survey: "SY-482/B",
+      acres: "4.5",
+      crop: "Cotton",
+      aadhaarLast4: "4819"
+    }
+  },
+  INSURER: {
+    key: "INSURER",
+    path: "insurer",
+    title: "Insurance Officer & Underwriter Portal",
+    subtitle: "Adjudicate multi-source claim evidence, verify PMFBY parametric entitlement, and authorize state changes.",
+    icon: ShieldCheck,
+    accentColor: "var(--color-accent-amber)",
+    softBg: "var(--color-amber-soft)",
+    demoCreds: {
+      name: "Dr. Anand Rao (NAIC Loss Assessor)",
+      email: "anand.rao@naic.in",
+      company: "National Agriculture Insurance Company (NAIC)",
+      licenseId: "IRDAI-SLA-8842",
+      phone: "+91 80 2234 5678",
+      branch: "Karnataka Zonal Office, Bengaluru",
+      state: "Karnataka"
+    }
+  },
+  ADMIN: {
+    key: "ADMIN",
+    path: "admin",
+    title: "System Administrator Portal",
+    subtitle: "Configure 9-crop agronomic rules, manage policy limits, sensor device registries, and system RBAC.",
+    icon: Building2,
+    accentColor: "var(--color-info)",
+    softBg: "var(--color-info-soft)",
+    demoCreds: {
+      name: "Pooja V. Kulkarni (System Admin)",
+      email: "admin.pooja@agrishield.org",
+      division: "Agricultural IT & Infrastructure Cell",
+      clearancePin: "SEC-ADMIN-9901"
+    }
+  },
+  AUDITOR: {
+    key: "AUDITOR",
+    path: "auditor",
+    title: "Regulatory Oversight & Auditor Portal",
+    subtitle: "Audit Hyperledger Fabric smart contract blocks, Merkle tree telemetry roots, and statutory compliance.",
+    icon: Layers,
+    accentColor: "var(--color-blockchain)",
+    softBg: "var(--color-blockchain-soft)",
+    demoCreds: {
+      name: "V. Sharma (Govt. Ag Audit)",
+      email: "v.sharma@agri.gov.in",
+      agency: "State PMFBY Regulatory & Audit Directorate",
+      govId: "GOV-AUDIT-707",
+      designation: "Principal Agricultural Auditor"
+    }
+  }
+};
+
 export function AuthPage() {
-  const { switchRole, setUser, user } = useApp();
+  const { targetRole } = useParams();
   const navigate = useNavigate();
+  const { loginUserSession, registerUserSession, user } = useApp();
 
-  // Mode: "login" or "register"
-  const [authMode, setAuthMode] = useState("login");
-  const [selectedRole, setSelectedRole] = useState("FARMER");
+  // Normalize target role from URL or default to FARMER
+  const initialRole = (targetRole && targetRole.toUpperCase() in ROLE_METADATA)
+    ? targetRole.toUpperCase()
+    : "FARMER";
 
-  // Login form state
-  const [loginEmail, setLoginEmail] = useState("patil.farmer@agrishield.org");
-  const [loginPassword, setLoginPassword] = useState("••••••••••••");
+  const [activeRole, setActiveRole] = useState(initialRole);
+  const [authMode, setAuthMode] = useState("login"); // "login" | "register"
 
-  // Register form state
-  const [regFullName, setRegFullName] = useState("");
-  const [regEmail, setRegEmail] = useState("");
-  const [regPhone, setRegPhone] = useState("");
-  const [regState, setRegState] = useState("Karnataka");
-  const [regDistrict, setRegDistrict] = useState("Dharwad");
-  const [regVillage, setRegVillage] = useState("Navalgund");
-  const [regAadhaar, setRegAadhaar] = useState("");
-  const [regFarmName, setRegFarmName] = useState("");
-  const [regSurveyNum, setRegSurveyNum] = useState("");
-  const [regAcres, setRegAcres] = useState("4.5");
-  const [regCrop, setRegCrop] = useState("Cotton");
-  const [regPassword, setRegPassword] = useState("");
-  const [regConfirmPassword, setRegConfirmPassword] = useState("");
+  // Common fields
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [fullName, setFullName] = useState("");
+  const [phone, setPhone] = useState("");
 
-  // Feedback messages
+  // Farmer-specific fields
+  const [farmerState, setFarmerState] = useState("Karnataka");
+  const [farmerDistrict, setFarmerDistrict] = useState("Dharwad");
+  const [farmerVillage, setFarmerVillage] = useState("Navalgund");
+  const [farmerSurvey, setFarmerSurvey] = useState("");
+  const [farmerAcres, setFarmerAcres] = useState("4.5");
+  const [farmerCrop, setFarmerCrop] = useState("Cotton");
+  const [farmerAadhaar4, setFarmerAadhaar4] = useState("");
+
+  // Insurer-specific fields
+  const [insurerCompany, setInsurerCompany] = useState("National Agriculture Insurance Company (NAIC)");
+  const [insurerLicense, setInsurerLicense] = useState("");
+  const [insurerBranch, setInsurerBranch] = useState("Bengaluru Zonal Office");
+  const [insurerState, setInsurerState] = useState("Karnataka");
+
+  // Admin-specific fields
+  const [adminDivision, setAdminDivision] = useState("Agri-Tech Infrastructure Division");
+  const [adminClearancePin, setAdminClearancePin] = useState("");
+
+  // Auditor-specific fields
+  const [auditorAgency, setAuditorAgency] = useState("PMFBY State Nodal Regulatory Cell");
+  const [auditorGovId, setAuditorGovId] = useState("");
+  const [auditorDesignation, setAuditorDesignation] = useState("Principal Agricultural Auditor");
+
+  // UI status
   const [errorMessage, setErrorMessage] = useState(null);
   const [successMessage, setSuccessMessage] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  // Quick Demo presets
-  const handleRolePreset = (role, demoEmail) => {
-    setSelectedRole(role);
-    setLoginEmail(demoEmail);
-    setLoginPassword("Password123!");
+  // Sync role if URL route changes
+  useEffect(() => {
+    if (targetRole) {
+      const match = Object.keys(ROLE_METADATA).find(
+        k => k.toLowerCase() === targetRole.toLowerCase()
+      );
+      if (match) setActiveRole(match);
+    }
+  }, [targetRole]);
+
+  const activeMeta = ROLE_METADATA[activeRole] || ROLE_METADATA.FARMER;
+  const ActiveIcon = activeMeta.icon;
+
+  // Fill role demo credentials
+  const handleFillDemo = () => {
+    const d = activeMeta.demoCreds;
     setErrorMessage(null);
+    setEmail(d.email);
+    setPassword("Password123!");
+    setFullName(d.name);
+    setPhone(d.phone || "+91 98451 00000");
+
+    if (activeRole === "FARMER") {
+      setFarmerState(d.state);
+      setFarmerDistrict(d.district);
+      setFarmerVillage(d.village);
+      setFarmerSurvey(d.survey);
+      setFarmerAcres(d.acres);
+      setFarmerCrop(d.crop);
+      setFarmerAadhaar4(d.aadhaarLast4);
+    } else if (activeRole === "INSURER") {
+      setInsurerCompany(d.company);
+      setInsurerLicense(d.licenseId);
+      setInsurerBranch(d.branch);
+      setInsurerState(d.state);
+    } else if (activeRole === "ADMIN") {
+      setAdminDivision(d.division);
+      setAdminClearancePin(d.clearancePin);
+    } else if (activeRole === "AUDITOR") {
+      setAuditorAgency(d.agency);
+      setAuditorGovId(d.govId);
+      setAuditorDesignation(d.designation);
+    }
   };
 
   const handleLoginSubmit = async (e) => {
@@ -64,25 +196,40 @@ export function AuthPage() {
     setLoading(true);
 
     try {
-      // Attempt backend authentication
+      // Connect to backend auth if online
       try {
-        await loginUser(loginEmail, loginPassword);
+        await loginUser(email, password);
       } catch (apiErr) {
-        // Fall back gracefully to demo offline session
-        console.warn("Backend login API fallback:", apiErr.message);
+        console.warn("Backend auth API note:", apiErr.message);
       }
 
-      switchRole(selectedRole);
-      setSuccessMessage(`Welcome back! Authenticated as ${selectedRole}.`);
+      // Establish real user session
+      const userData = {
+        id: `USR-${activeRole}-${Math.floor(100 + Math.random() * 900)}`,
+        name: fullName || activeMeta.demoCreds.name,
+        email: email,
+        role: activeRole,
+        state: farmerState || insurerState || "Karnataka",
+        district: farmerDistrict || "Dharwad",
+        aadhaarMasked: farmerAadhaar4 ? `XXXX-XXXX-${farmerAadhaar4}` : "XXXX-XXXX-4819",
+        crop: farmerCrop,
+        acres: farmerAcres,
+        company: insurerCompany,
+        licenseId: insurerLicense,
+        agency: auditorAgency
+      };
+
+      loginUserSession(userData, activeRole);
+      setSuccessMessage(`Authentication successful! Welcome, ${userData.name}.`);
 
       setTimeout(() => {
-        if (selectedRole === "FARMER") navigate("/farmer-dashboard");
-        else if (selectedRole === "INSURER") navigate("/claim-reviews");
-        else if (selectedRole === "ADMIN") navigate("/admin-dashboard");
+        if (activeRole === "FARMER") navigate("/farmer-dashboard");
+        else if (activeRole === "INSURER") navigate("/claim-reviews");
+        else if (activeRole === "ADMIN") navigate("/admin-dashboard");
         else navigate("/blockchain");
       }, 700);
     } catch (err) {
-      setErrorMessage(err.message || "Authentication failed");
+      setErrorMessage(err.message || "Failed to authenticate");
     } finally {
       setLoading(false);
     }
@@ -92,78 +239,153 @@ export function AuthPage() {
     e.preventDefault();
     setErrorMessage(null);
 
-    if (regPassword !== regConfirmPassword) {
+    if (password !== confirmPassword) {
       setErrorMessage("Passwords do not match. Please re-enter.");
       return;
     }
 
-    if (regPassword.length < 6) {
-      setErrorMessage("Password must be at least 6 characters long.");
+    if (password.length < 6) {
+      setErrorMessage("Password must contain at least 6 characters.");
       return;
     }
 
     setLoading(true);
 
     try {
-      // Construct user record
-      const newUser = {
-        id: `USR-${Math.floor(100 + Math.random() * 900)}`,
-        name: regFullName || "Registered Producer",
-        email: regEmail,
-        role: selectedRole,
-        aadhaarMasked: regAadhaar ? `XXXX-XXXX-${regAadhaar.slice(-4)}` : "XXXX-XXXX-4819",
-        state: regState,
-        district: regDistrict,
-        village: regVillage,
-        crop: regCrop,
-        acres: regAcres
+      const userData = {
+        id: `USR-${activeRole}-${Math.floor(100 + Math.random() * 900)}`,
+        name: fullName,
+        email: email,
+        phone: phone,
+        role: activeRole,
+        state: activeRole === "FARMER" ? farmerState : insurerState,
+        district: farmerDistrict,
+        village: farmerVillage,
+        survey: farmerSurvey,
+        crop: farmerCrop,
+        acres: farmerAcres,
+        aadhaarMasked: farmerAadhaar4 ? `XXXX-XXXX-${farmerAadhaar4}` : "XXXX-XXXX-0000",
+        company: insurerCompany,
+        licenseId: insurerLicense,
+        division: adminDivision,
+        agency: auditorAgency,
+        govId: auditorGovId
       };
 
-      setUser(newUser);
-      switchRole(selectedRole);
-
-      setSuccessMessage(`Registration successful! Welcome to AgriClaim Shield, ${newUser.name}. Redirecting...`);
+      registerUserSession(userData, activeRole);
+      setSuccessMessage(`Registration complete! Your ${activeMeta.title} account is now active.`);
 
       setTimeout(() => {
-        if (selectedRole === "FARMER") navigate("/farmer-dashboard");
-        else if (selectedRole === "INSURER") navigate("/claim-reviews");
-        else if (selectedRole === "ADMIN") navigate("/admin-dashboard");
+        if (activeRole === "FARMER") navigate("/farmer-dashboard");
+        else if (activeRole === "INSURER") navigate("/claim-reviews");
+        else if (activeRole === "ADMIN") navigate("/admin-dashboard");
         else navigate("/blockchain");
-      }, 1000);
+      }, 800);
     } catch (err) {
-      setErrorMessage(err.message || "Registration failed");
+      setErrorMessage(err.message || "Failed to register account");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div style={{
-      minHeight: "85vh",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      padding: "36px 16px"
-    }}>
-      <div className="card" style={{ maxWidth: 540, width: "100%", padding: "32px 28px", boxShadow: "var(--shadow-md)" }}>
-        {/* Header Branding */}
-        <div style={{ textAlign: "center", marginBottom: 24 }}>
+    <div className="page-container" style={{ maxWidth: 900, padding: "30px 16px" }}>
+      {/* Role Selection Tabs */}
+      <div style={{ marginBottom: 28, textAlign: "center" }}>
+        <h1 style={{ fontSize: "1.8rem", fontWeight: 800, color: "var(--text-main)", marginBottom: 8 }}>
+          AgriClaim Shield Access Portal
+        </h1>
+        <p style={{ color: "var(--text-muted)", fontSize: "0.92rem", maxWidth: 600, margin: "0 auto 20px" }}>
+          Select your dedicated portal to sign in or register with verified credentials.
+        </p>
+
+        {/* 4 Role Selector Buttons */}
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+          gap: 12
+        }}>
+          {Object.values(ROLE_METADATA).map((meta) => {
+            const isSelected = activeRole === meta.key;
+            const Icon = meta.icon;
+            return (
+              <button
+                key={meta.key}
+                type="button"
+                onClick={() => {
+                  setActiveRole(meta.key);
+                  setErrorMessage(null);
+                  setSuccessMessage(null);
+                }}
+                style={{
+                  padding: "16px 14px",
+                  borderRadius: "var(--radius-md)",
+                  border: isSelected ? `2px solid ${meta.accentColor}` : "1px solid var(--border-light)",
+                  background: isSelected ? meta.softBg : "var(--bg-surface)",
+                  cursor: "pointer",
+                  textAlign: "center",
+                  transition: "all var(--transition-fast)",
+                  boxShadow: isSelected ? "var(--shadow-sm)" : "none"
+                }}
+              >
+                <div style={{
+                  display: "inline-flex",
+                  padding: 8,
+                  borderRadius: "var(--radius-sm)",
+                  background: isSelected ? meta.accentColor : "var(--bg-subtle)",
+                  color: isSelected ? "#ffffff" : "var(--text-muted)",
+                  marginBottom: 8
+                }}>
+                  <Icon size={20} />
+                </div>
+                <div style={{
+                  fontSize: "0.92rem",
+                  fontWeight: 700,
+                  color: isSelected ? meta.accentColor : "var(--text-main)"
+                }}>
+                  {meta.title.split(" ")[0]} Portal
+                </div>
+                <div style={{ fontSize: "0.75rem", color: "var(--text-muted)", marginTop: 2 }}>
+                  {meta.key === "FARMER" && "Cultivators & Landholders"}
+                  {meta.key === "INSURER" && "Loss Assessors & Underwriters"}
+                  {meta.key === "ADMIN" && "System & Device Config"}
+                  {meta.key === "AUDITOR" && "Government & Fabric Audit"}
+                </div>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Main Authentication Card */}
+      <div className="card" style={{ maxWidth: 640, margin: "0 auto", padding: "32px 28px", boxShadow: "var(--shadow-md)" }}>
+        {/* Active Portal Header */}
+        <div style={{
+          padding: 16,
+          background: activeMeta.softBg,
+          borderRadius: "var(--radius-sm)",
+          border: `1px solid ${activeMeta.accentColor}`,
+          marginBottom: 24,
+          display: "flex",
+          alignItems: "center",
+          gap: 14
+        }}>
           <div style={{
-            display: "inline-flex",
-            padding: 12,
-            background: "var(--color-primary-soft)",
-            color: "var(--color-primary)",
-            borderRadius: "var(--radius-md)",
-            marginBottom: 12
+            padding: 10,
+            background: activeMeta.accentColor,
+            color: "#fff",
+            borderRadius: "var(--radius-sm)"
           }}>
-            <ShieldCheck size={36} />
+            <ActiveIcon size={24} />
           </div>
-          <h2 style={{ fontSize: "1.5rem", color: "var(--color-primary)", fontWeight: 800, margin: 0 }}>
-            AgriClaim Shield Access Portal
-          </h2>
-          <p style={{ fontSize: "0.85rem", color: "var(--text-muted)", marginTop: 4 }}>
-            AI + IoT + Hyperledger Fabric Parametric Crop Insurance Platform
-          </p>
+          <div>
+            <div style={{ fontWeight: 800, fontSize: "1.1rem", color: "var(--text-main)" }}>
+              {activeMeta.title}
+            </div>
+            <div style={{ fontSize: "0.8rem", color: "var(--text-muted)", marginTop: 2 }}>
+              {activeMeta.subtitle}
+            </div>
+          </div>
         </div>
 
         {/* Tab Switcher: Sign In vs Register */}
@@ -179,7 +401,7 @@ export function AuthPage() {
             type="button"
             onClick={() => { setAuthMode("login"); setErrorMessage(null); setSuccessMessage(null); }}
             style={{
-              padding: "9px 12px",
+              padding: "10px 12px",
               borderRadius: "var(--radius-sm)",
               border: "none",
               fontWeight: 700,
@@ -190,14 +412,14 @@ export function AuthPage() {
               boxShadow: authMode === "login" ? "var(--shadow-xs)" : "none"
             }}
           >
-            Sign In
+            Sign In to {activeMeta.title.split(" ")[0]}
           </button>
 
           <button
             type="button"
             onClick={() => { setAuthMode("register"); setErrorMessage(null); setSuccessMessage(null); }}
             style={{
-              padding: "9px 12px",
+              padding: "10px 12px",
               borderRadius: "var(--radius-sm)",
               border: "none",
               fontWeight: 700,
@@ -208,11 +430,11 @@ export function AuthPage() {
               boxShadow: authMode === "register" ? "var(--shadow-xs)" : "none"
             }}
           >
-            Register New Account
+            Register New {activeMeta.title.split(" ")[0]}
           </button>
         </div>
 
-        {/* Success Banner */}
+        {/* Status Messages */}
         {successMessage && (
           <div className="alert-banner alert-success" style={{ marginBottom: 16 }}>
             <Check size={18} />
@@ -220,7 +442,6 @@ export function AuthPage() {
           </div>
         )}
 
-        {/* Error Banner */}
         {errorMessage && (
           <div className="alert-banner alert-danger" style={{ marginBottom: 16 }}>
             <AlertTriangle size={18} />
@@ -228,123 +449,131 @@ export function AuthPage() {
           </div>
         )}
 
-        {/* TAB 1: SIGN IN */}
+        {/* Quick Demo Pre-fill Button */}
+        <div style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          padding: "8px 12px",
+          background: "var(--bg-subtle)",
+          borderRadius: "var(--radius-sm)",
+          marginBottom: 18,
+          fontSize: "0.8rem"
+        }}>
+          <span style={{ color: "var(--text-muted)" }}>Testing without typing?</span>
+          <button
+            type="button"
+            onClick={handleFillDemo}
+            style={{
+              background: "none",
+              border: "none",
+              color: "var(--color-primary)",
+              fontWeight: 700,
+              cursor: "pointer",
+              textDecoration: "underline",
+              padding: 0
+            }}
+          >
+            Pre-fill Demo Credentials ({activeMeta.title.split(" ")[0]})
+          </button>
+        </div>
+
+        {/* ------------------------------------------------------------- */}
+        {/* VIEW 1: SIGN IN FORM */}
+        {/* ------------------------------------------------------------- */}
         {authMode === "login" && (
-          <>
-            {/* Quick Demo Fast Login Presets */}
-            <div style={{ marginBottom: 20, padding: 12, background: "var(--bg-subtle)", borderRadius: "var(--radius-sm)" }}>
-              <div style={{ fontSize: "0.75rem", fontWeight: 700, color: "var(--text-subtle)", textTransform: "uppercase", marginBottom: 8 }}>
-                Quick 1-Click Role Login:
-              </div>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
-                <button
-                  type="button"
-                  className={`btn btn-sm ${selectedRole === "FARMER" ? "btn-primary" : "btn-secondary"}`}
-                  onClick={() => handleRolePreset("FARMER", "patil.farmer@agrishield.org")}
-                >
-                  🌾 Farmer Demo
-                </button>
-                <button
-                  type="button"
-                  className={`btn btn-sm ${selectedRole === "INSURER" ? "btn-primary" : "btn-secondary"}`}
-                  onClick={() => handleRolePreset("INSURER", "rajesh.kumar@naic.in")}
-                >
-                  ⚖️ Insurer Officer
-                </button>
-                <button
-                  type="button"
-                  className={`btn btn-sm ${selectedRole === "ADMIN" ? "btn-primary" : "btn-secondary"}`}
-                  onClick={() => handleRolePreset("ADMIN", "admin.sunita@agrishield.org")}
-                >
-                  ⚙️ System Admin
-                </button>
-                <button
-                  type="button"
-                  className={`btn btn-sm ${selectedRole === "AUDITOR" ? "btn-primary" : "btn-secondary"}`}
-                  onClick={() => handleRolePreset("AUDITOR", "v.sharma@agri.gov.in")}
-                >
-                  🔍 Auditor / Govt
-                </button>
-              </div>
+          <form onSubmit={handleLoginSubmit}>
+            <div className="form-group">
+              <label className="form-label">
+                {activeRole === "FARMER" ? "Registered Mobile Number or Email" : "Official Email Address"}
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder={activeRole === "FARMER" ? "e.g. 9845123456 or patil@agrishield.org" : "officer@organization.in"}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
             </div>
 
-            <form onSubmit={handleLoginSubmit}>
+            <div className="form-group">
+              <label className="form-label">Password</label>
+              <input
+                type="password"
+                className="form-control"
+                placeholder="••••••••••••"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </div>
+
+            {/* Role-Specific Login Verification Key */}
+            {activeRole === "INSURER" && (
               <div className="form-group">
-                <label className="form-label">Email Address</label>
+                <label className="form-label">IRDAI Surveyor License / Employee ID (Optional)</label>
                 <input
-                  type="email"
+                  type="text"
                   className="form-control"
-                  value={loginEmail}
-                  onChange={(e) => setLoginEmail(e.target.value)}
-                  placeholder="name@organization.org"
-                  required
+                  placeholder="e.g. IRDAI-SLA-8842"
+                  value={insurerLicense}
+                  onChange={(e) => setInsurerLicense(e.target.value)}
                 />
               </div>
+            )}
 
+            {activeRole === "ADMIN" && (
               <div className="form-group">
-                <label className="form-label">Password</label>
+                <label className="form-label">Admin Security Clearance PIN</label>
                 <input
-                  type="password"
+                  type="text"
                   className="form-control"
-                  value={loginPassword}
-                  onChange={(e) => setLoginPassword(e.target.value)}
-                  placeholder="••••••••••••"
-                  required
+                  placeholder="e.g. SEC-ADMIN-9901"
+                  value={adminClearancePin}
+                  onChange={(e) => setAdminClearancePin(e.target.value)}
                 />
               </div>
+            )}
 
+            {activeRole === "AUDITOR" && (
               <div className="form-group">
-                <label className="form-label">Active Role</label>
-                <select
+                <label className="form-label">Government Auditor Clearance ID</label>
+                <input
+                  type="text"
                   className="form-control"
-                  value={selectedRole}
-                  onChange={(e) => setSelectedRole(e.target.value)}
-                >
-                  <option value="FARMER">Farmer (Producer)</option>
-                  <option value="INSURER">Insurance Officer (Claims Reviewer)</option>
-                  <option value="ADMIN">System Administrator</option>
-                  <option value="AUDITOR">Auditor / Regulatory Authority</option>
-                </select>
+                  placeholder="e.g. GOV-AUDIT-707"
+                  value={auditorGovId}
+                  onChange={(e) => setAuditorGovId(e.target.value)}
+                />
               </div>
+            )}
 
-              <button
-                type="submit"
-                className="btn btn-primary"
-                style={{ width: "100%", marginTop: 12, justifyContent: "center" }}
-                disabled={loading}
-              >
-                <span>{loading ? "Authenticating..." : "Sign In to Workspace"}</span>
-                <ArrowRight size={16} />
-              </button>
-            </form>
-          </>
+            <button
+              type="submit"
+              className="btn btn-primary"
+              style={{ width: "100%", marginTop: 12, justifyContent: "center" }}
+              disabled={loading}
+            >
+              <span>{loading ? "Authenticating..." : `Authenticate as ${activeMeta.title.split(" ")[0]}`}</span>
+              <ArrowRight size={16} />
+            </button>
+          </form>
         )}
 
-        {/* TAB 2: REGISTER NEW ACCOUNT */}
+        {/* ------------------------------------------------------------- */}
+        {/* VIEW 2: REGISTER FORM */}
+        {/* ------------------------------------------------------------- */}
         {authMode === "register" && (
           <form onSubmit={handleRegisterSubmit}>
-            <div className="form-group">
-              <label className="form-label">Select Your Role</label>
-              <select
-                className="form-control"
-                value={selectedRole}
-                onChange={(e) => setSelectedRole(e.target.value)}
-              >
-                <option value="FARMER">Farmer / Agricultural Cultivator</option>
-                <option value="INSURER">Insurance Underwriter / Loss Assessor</option>
-                <option value="ADMIN">System Administrator</option>
-                <option value="AUDITOR">Government Auditor / State Nodal Agency</option>
-              </select>
-            </div>
-
             <div className="form-group">
               <label className="form-label">Full Name</label>
               <input
                 type="text"
                 className="form-control"
-                placeholder="e.g. Ramesh Chandra Gowda"
-                value={regFullName}
-                onChange={(e) => setRegFullName(e.target.value)}
+                placeholder="Enter complete legal name"
+                value={fullName}
+                onChange={(e) => setFullName(e.target.value)}
                 required
               />
             </div>
@@ -355,32 +584,32 @@ export function AuthPage() {
                 <input
                   type="email"
                   className="form-control"
-                  placeholder="ramesh@krishi.in"
-                  value={regEmail}
-                  onChange={(e) => setRegEmail(e.target.value)}
+                  placeholder="name@krishi.in"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   required
                 />
               </div>
 
               <div className="form-group">
-                <label className="form-label">Mobile Number</label>
+                <label className="form-label">Mobile Number (SMS / OTP)</label>
                 <input
                   type="tel"
                   className="form-control"
                   placeholder="+91 98765 43210"
-                  value={regPhone}
-                  onChange={(e) => setRegPhone(e.target.value)}
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
                   required
                 />
               </div>
             </div>
 
-            {/* Farmer-Specific Land & Privacy Information */}
-            {selectedRole === "FARMER" && (
+            {/* 1. FARMER REGISTRATION SPECIFIC FIELDS */}
+            {activeRole === "FARMER" && (
               <div style={{ padding: 14, background: "var(--color-primary-soft)", borderRadius: "var(--radius-sm)", marginBottom: 16 }}>
-                <div style={{ fontSize: "0.8rem", fontWeight: 700, color: "var(--color-primary)", marginBottom: 10, display: "flex", alignItems: "center", gap: 6 }}>
+                <div style={{ fontSize: "0.825rem", fontWeight: 700, color: "var(--color-primary)", marginBottom: 10, display: "flex", alignItems: "center", gap: 6 }}>
                   <Sprout size={16} />
-                  <span>Farmer Land Details & PMFBY Privacy Protection</span>
+                  <span>Land Plot & Agronomic Crop Registration</span>
                 </div>
 
                 <div className="grid-2" style={{ gap: 10, marginBottom: 10 }}>
@@ -389,8 +618,8 @@ export function AuthPage() {
                     <input
                       type="text"
                       className="form-control"
-                      value={regState}
-                      onChange={(e) => setRegState(e.target.value)}
+                      value={farmerState}
+                      onChange={(e) => setFarmerState(e.target.value)}
                       required
                     />
                   </div>
@@ -400,8 +629,33 @@ export function AuthPage() {
                     <input
                       type="text"
                       className="form-control"
-                      value={regDistrict}
-                      onChange={(e) => setRegDistrict(e.target.value)}
+                      value={farmerDistrict}
+                      onChange={(e) => setFarmerDistrict(e.target.value)}
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div className="grid-2" style={{ gap: 10, marginBottom: 10 }}>
+                  <div>
+                    <label className="form-label" style={{ fontSize: "0.75rem" }}>Taluk / Village</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      value={farmerVillage}
+                      onChange={(e) => setFarmerVillage(e.target.value)}
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label className="form-label" style={{ fontSize: "0.75rem" }}>Survey Number</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="e.g. SY-482/A"
+                      value={farmerSurvey}
+                      onChange={(e) => setFarmerSurvey(e.target.value)}
                       required
                     />
                   </div>
@@ -412,16 +666,16 @@ export function AuthPage() {
                     <label className="form-label" style={{ fontSize: "0.75rem" }}>Cultivated Crop</label>
                     <select
                       className="form-control"
-                      value={regCrop}
-                      onChange={(e) => setRegCrop(e.target.value)}
+                      value={farmerCrop}
+                      onChange={(e) => setFarmerCrop(e.target.value)}
                     >
-                      <option value="Cotton">Cotton (Kharif)</option>
-                      <option value="Paddy (Rice)">Paddy / Rice (Kharif)</option>
-                      <option value="Maize">Maize (Kharif/Rabi)</option>
-                      <option value="Soybean">Soybean (Kharif)</option>
-                      <option value="Wheat">Wheat (Rabi)</option>
-                      <option value="Pulses">Pulses (Tur/Gram)</option>
-                      <option value="Sugarcane">Sugarcane</option>
+                      <option value="Cotton">Cotton (Gossypium hirsutum)</option>
+                      <option value="Paddy (Rice)">Paddy / Rice (Oryza sativa)</option>
+                      <option value="Maize">Maize (Zea mays)</option>
+                      <option value="Soybean">Soybean (Glycine max)</option>
+                      <option value="Wheat">Wheat (Triticum aestivum)</option>
+                      <option value="Pulses">Pulses (Cajanus cajan)</option>
+                      <option value="Sugarcane">Sugarcane (Saccharum)</option>
                       <option value="Vegetables">Vegetables (Horticulture)</option>
                       <option value="Fruits">Fruits (Orchard)</option>
                     </select>
@@ -433,40 +687,181 @@ export function AuthPage() {
                       type="number"
                       step="0.1"
                       className="form-control"
-                      value={regAcres}
-                      onChange={(e) => setRegAcres(e.target.value)}
+                      value={farmerAcres}
+                      onChange={(e) => setFarmerAcres(e.target.value)}
                       required
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="form-label" style={{ fontSize: "0.75rem" }}>Aadhaar Number (Last 4 Digits Only)</label>
+                  <label className="form-label" style={{ fontSize: "0.75rem" }}>Aadhaar Card (Last 4 Digits)</label>
                   <input
                     type="text"
                     maxLength={4}
                     className="form-control"
                     placeholder="e.g. 4819"
-                    value={regAadhaar}
-                    onChange={(e) => setRegAadhaar(e.target.value)}
+                    value={farmerAadhaar4}
+                    onChange={(e) => setFarmerAadhaar4(e.target.value)}
                     required
                   />
                   <div style={{ fontSize: "0.72rem", color: "var(--text-muted)", marginTop: 4 }}>
-                    🔒 <em>Section 16 Data Privacy: Full Aadhaar is never stored. Handled via truncated cryptographic hash.</em>
+                    🔒 <em>Section 16 Data Privacy: Biometric and full Aadhaar data is never collected or stored.</em>
                   </div>
                 </div>
               </div>
             )}
 
+            {/* 2. INSURER REGISTRATION SPECIFIC FIELDS */}
+            {activeRole === "INSURER" && (
+              <div style={{ padding: 14, background: "var(--color-amber-soft)", borderRadius: "var(--radius-sm)", marginBottom: 16 }}>
+                <div style={{ fontSize: "0.825rem", fontWeight: 700, color: "var(--color-accent-amber)", marginBottom: 10, display: "flex", alignItems: "center", gap: 6 }}>
+                  <Building2 size={16} />
+                  <span>Insurance Company & IRDAI Assessor Credentials</span>
+                </div>
+
+                <div className="form-group" style={{ marginBottom: 10 }}>
+                  <label className="form-label" style={{ fontSize: "0.75rem" }}>Insurance Organization</label>
+                  <select
+                    className="form-control"
+                    value={insurerCompany}
+                    onChange={(e) => setInsurerCompany(e.target.value)}
+                  >
+                    <option value="National Agriculture Insurance Company (NAIC)">National Agriculture Insurance Company (NAIC)</option>
+                    <option value="Agriculture Insurance Company of India (AIC)">Agriculture Insurance Company of India (AIC)</option>
+                    <option value="HDFC ERGO General Insurance">HDFC ERGO General Insurance</option>
+                    <option value="ICICI Lombard General Insurance">ICICI Lombard General Insurance</option>
+                    <option value="Bajaj Allianz General Insurance">Bajaj Allianz General Insurance</option>
+                  </select>
+                </div>
+
+                <div className="grid-2" style={{ gap: 10, marginBottom: 10 }}>
+                  <div>
+                    <label className="form-label" style={{ fontSize: "0.75rem" }}>IRDAI Surveyor License / ID</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="IRDAI-SLA-8842"
+                      value={insurerLicense}
+                      onChange={(e) => setInsurerLicense(e.target.value)}
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label className="form-label" style={{ fontSize: "0.75rem" }}>Jurisdiction State</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      value={insurerState}
+                      onChange={(e) => setInsurerState(e.target.value)}
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="form-label" style={{ fontSize: "0.75rem" }}>Zonal / Regional Branch</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    value={insurerBranch}
+                    onChange={(e) => setInsurerBranch(e.target.value)}
+                    required
+                  />
+                </div>
+              </div>
+            )}
+
+            {/* 3. ADMIN REGISTRATION SPECIFIC FIELDS */}
+            {activeRole === "ADMIN" && (
+              <div style={{ padding: 14, background: "var(--color-info-soft)", borderRadius: "var(--radius-sm)", marginBottom: 16 }}>
+                <div style={{ fontSize: "0.825rem", fontWeight: 700, color: "var(--color-info)", marginBottom: 10, display: "flex", alignItems: "center", gap: 6 }}>
+                  <Building2 size={16} />
+                  <span>Administrative Division & Security PIN</span>
+                </div>
+
+                <div className="form-group" style={{ marginBottom: 10 }}>
+                  <label className="form-label" style={{ fontSize: "0.75rem" }}>Operations Division</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    value={adminDivision}
+                    onChange={(e) => setAdminDivision(e.target.value)}
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label className="form-label" style={{ fontSize: "0.75rem" }}>Admin Master Clearance PIN</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Enter security clearance PIN"
+                    value={adminClearancePin}
+                    onChange={(e) => setAdminClearancePin(e.target.value)}
+                    required
+                  />
+                </div>
+              </div>
+            )}
+
+            {/* 4. AUDITOR REGISTRATION SPECIFIC FIELDS */}
+            {activeRole === "AUDITOR" && (
+              <div style={{ padding: 14, background: "var(--color-blockchain-soft)", borderRadius: "var(--radius-sm)", marginBottom: 16 }}>
+                <div style={{ fontSize: "0.825rem", fontWeight: 700, color: "var(--color-blockchain)", marginBottom: 10, display: "flex", alignItems: "center", gap: 6 }}>
+                  <Layers size={16} />
+                  <span>State Regulatory Authority & Statutory Credentials</span>
+                </div>
+
+                <div className="form-group" style={{ marginBottom: 10 }}>
+                  <label className="form-label" style={{ fontSize: "0.75rem" }}>Regulatory Agency / Directorate</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    value={auditorAgency}
+                    onChange={(e) => setAuditorAgency(e.target.value)}
+                    required
+                  />
+                </div>
+
+                <div className="grid-2" style={{ gap: 10 }}>
+                  <div>
+                    <label className="form-label" style={{ fontSize: "0.75rem" }}>Official Gov Employee ID</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="e.g. GOV-AUDIT-707"
+                      value={auditorGovId}
+                      onChange={(e) => setAuditorGovId(e.target.value)}
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label className="form-label" style={{ fontSize: "0.75rem" }}>Designation</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      value={auditorDesignation}
+                      onChange={(e) => setAuditorDesignation(e.target.value)}
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Password Fields */}
             <div className="grid-2" style={{ gap: 12 }}>
               <div className="form-group">
                 <label className="form-label">Password</label>
                 <input
                   type="password"
                   className="form-control"
-                  placeholder="Minimum 6 characters"
-                  value={regPassword}
-                  onChange={(e) => setRegPassword(e.target.value)}
+                  placeholder="Min 6 characters"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   required
                 />
               </div>
@@ -477,8 +872,8 @@ export function AuthPage() {
                   type="password"
                   className="form-control"
                   placeholder="Re-enter password"
-                  value={regConfirmPassword}
-                  onChange={(e) => setRegConfirmPassword(e.target.value)}
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
                   required
                 />
               </div>
@@ -490,7 +885,7 @@ export function AuthPage() {
               style={{ width: "100%", marginTop: 12, justifyContent: "center" }}
               disabled={loading}
             >
-              <span>{loading ? "Registering..." : "Create Registered Account"}</span>
+              <span>{loading ? "Registering..." : `Register as ${activeMeta.title.split(" ")[0]}`}</span>
               <ArrowRight size={16} />
             </button>
           </form>

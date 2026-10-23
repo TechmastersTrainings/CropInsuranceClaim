@@ -49,18 +49,18 @@ export function SettingsPage() {
           <form onSubmit={handleSave}>
             <div className="form-group">
               <label className="form-label">Full Name</label>
-              <input type="text" className="form-control" defaultValue={user.name} />
+              <input type="text" className="form-control" defaultValue={user?.name || ""} />
             </div>
 
             <div className="form-group">
               <label className="form-label">Email Address</label>
-              <input type="email" className="form-control" defaultValue={user.email} disabled />
+              <input type="email" className="form-control" defaultValue={user?.email || ""} disabled />
               <span className="form-hint">Email serves as the unique identifier.</span>
             </div>
 
             <div className="form-group">
               <label className="form-label">Jurisdiction / State</label>
-              <input type="text" className="form-control" defaultValue={`${user.district}, ${user.state}`} />
+              <input type="text" className="form-control" defaultValue={user ? `${user.district || ""}, ${user.state || ""}` : ""} />
             </div>
 
             <button type="submit" className="btn btn-primary" style={{ width: "100%", marginTop: 8 }}>

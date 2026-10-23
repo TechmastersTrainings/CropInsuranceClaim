@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ShieldCheck, Bell, Wifi, WifiOff, Globe, UserCheck, AlertTriangle } from "lucide-react";
+import { ShieldCheck, Bell, Wifi, WifiOff, Globe, UserCheck, AlertTriangle, LogOut, LogIn, UserPlus } from "lucide-react";
 import { useApp } from "../context/AppContext";
 import { useLocale } from "../locales";
 
 export function Header() {
-  const { currentRole, switchRole, user, isOnline, demoMode, notifications } = useApp();
+  const { currentRole, switchRole, user, logoutUserSession, isOnline, demoMode, notifications } = useApp();
   const { lang, setLang, t } = useLocale();
   const unreadCount = notifications.filter(n => !n.read).length;
 
@@ -190,27 +190,70 @@ export function Header() {
           )}
         </Link>
 
-        {/* User Badge */}
-        <div style={{ display: "flex", alignItems: "center", gap: 8, paddingLeft: 6, borderLeft: "1px solid var(--border-light)" }}>
-          <div style={{
-            width: 34,
-            height: 34,
-            borderRadius: "50%",
-            background: "var(--color-primary-soft)",
-            color: "var(--color-primary)",
-            fontWeight: 700,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontSize: "0.85rem"
-          }}>
-            {user.name.charAt(0)}
+        {/* User Session or Guest Authentication */}
+        {user ? (
+          <div style={{ display: "flex", alignItems: "center", gap: 10, paddingLeft: 6, borderLeft: "1px solid var(--border-light)" }}>
+            <div style={{
+              width: 34,
+              height: 34,
+              borderRadius: "50%",
+              background: "var(--color-primary-soft)",
+              color: "var(--color-primary)",
+              fontWeight: 700,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: "0.85rem"
+            }}>
+              {user.name ? user.name.charAt(0).toUpperCase() : "U"}
+            </div>
+            <div>
+              <div style={{ fontSize: "0.825rem", fontWeight: 700, lineHeight: 1.2 }}>{user.name}</div>
+              <div style={{ fontSize: "0.7rem", color: "var(--text-muted)" }}>{user.role}</div>
+            </div>
+            <button
+              type="button"
+              onClick={logoutUserSession}
+              title="Sign Out"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 4,
+                padding: "5px 8px",
+                borderRadius: "var(--radius-sm)",
+                border: "1px solid var(--border-light)",
+                background: "var(--bg-subtle)",
+                color: "var(--color-danger)",
+                fontSize: "0.75rem",
+                fontWeight: 600,
+                cursor: "pointer",
+                marginLeft: 4
+              }}
+            >
+              <LogOut size={13} />
+              <span>Exit</span>
+            </button>
           </div>
-          <div style={{ display: "none", mdDisplay: "block" }}>
-            <div style={{ fontSize: "0.85rem", fontWeight: 600, lineHeight: 1.2 }}>{user.name}</div>
-            <div style={{ fontSize: "0.72rem", color: "var(--text-muted)" }}>{user.role}</div>
+        ) : (
+          <div style={{ display: "flex", alignItems: "center", gap: 8, paddingLeft: 6, borderLeft: "1px solid var(--border-light)" }}>
+            <Link
+              to="/auth"
+              className="btn btn-secondary btn-sm"
+              style={{ padding: "5px 10px", fontSize: "0.8rem", display: "inline-flex", alignItems: "center", gap: 5 }}
+            >
+              <LogIn size={13} />
+              <span>Sign In</span>
+            </Link>
+            <Link
+              to="/auth"
+              className="btn btn-primary btn-sm"
+              style={{ padding: "5px 10px", fontSize: "0.8rem", display: "inline-flex", alignItems: "center", gap: 5 }}
+            >
+              <UserPlus size={13} />
+              <span>Register</span>
+            </Link>
           </div>
-        </div>
+        )}
       </div>
     </header>
   );

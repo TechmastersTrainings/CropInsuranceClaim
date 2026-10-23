@@ -22,16 +22,18 @@ import {
 const AppContext = createContext();
 
 export function AppProvider({ children }) {
-  // Roles: "FARMER", "INSURER", "ADMIN", "AUDITOR"
-  const [currentRole, setCurrentRole] = useState("FARMER");
-  const [user, setUser] = useState({
-    id: "USR-001",
-    name: "Basavaraj Patil",
-    email: "patil.farmer@agrishield.org",
-    role: "FARMER",
-    aadhaarMasked: "XXXX-XXXX-4819",
-    state: "Karnataka",
-    district: "Dharwad"
+  // Dynamic session state: loads from localStorage or defaults to null (no hardcoded user!)
+  const [user, setUser] = useState(() => {
+    try {
+      const saved = localStorage.getItem("agrishield_user");
+      return saved ? JSON.parse(saved) : null;
+    } catch (e) {
+      return null;
+    }
+  });
+
+  const [currentRole, setCurrentRole] = useState(() => {
+    return localStorage.getItem("agrishield_role") || "FARMER";
   });
 
   const [farms, setFarms] = useState(FARMS_DATA);
@@ -85,52 +87,48 @@ export function AppProvider({ children }) {
     };
   }, []);
 
+  const loginUserSession = (userData, role) => {
+    setUser(userData);
+    setCurrentRole(role);
+    try {
+      localStorage.setItem("agrishield_user", JSON.stringify(userData));
+      localStorage.setItem("agrishield_role", role);
+    } catch (e) {}
+  };
+
+  const registerUserSession = (userData, role) => {
+    setUser(userData);
+    setCurrentRole(role);
+    try {
+      localStorage.setItem("agrishield_user", JSON.stringify(userData));
+      localStorage.setItem("agrishield_role", role);
+    } catch (e) {}
+  };
+
+  const logoutUserSession = () => {
+    setUser(null);
+    setCurrentRole("FARMER");
+    try {
+      localStorage.removeItem("agrishield_user");
+      localStorage.removeItem("agrishield_role");
+      localStorage.removeItem("agrishield_token");
+    } catch (e) {}
+  };
+
   const switchRole = (newRole) => {
     setCurrentRole(newRole);
-    if (newRole === "FARMER") {
-      setUser({
-        id: "USR-001",
-        name: "Basavaraj Patil",
-        email: "patil.farmer@agrishield.org",
-        role: "FARMER",
-        aadhaarMasked: "XXXX-XXXX-4819",
-        state: "Karnataka",
-        district: "Dharwad"
-      });
-    } else if (newRole === "INSURER") {
-      setUser({
-        id: "USR-202",
-        name: "Rajesh Kumar (NAIC Claims Div)",
-        email: "rajesh.kumar@naic.in",
-        role: "INSURER",
-        licenseNo: "IRDAI-OFFICER-491",
-        state: "All India",
-        district: "Zonal HQ"
-      });
-    } else if (newRole === "ADMIN") {
-      setUser({
-        id: "USR-999",
-        name: "Dr. Sunita Rao (System Admin)",
-        email: "admin.sunita@agrishield.org",
-        role: "ADMIN",
-        state: "HQ",
-        district: "Central"
-      });
-    } else if (newRole === "AUDITOR") {
-      setUser({
-        id: "USR-707",
-        name: "V. Sharma (Govt. Ag Audit)",
-        email: "v.sharma@agri.gov.in",
-        role: "AUDITOR",
-        state: "National Audit Cell",
-        district: "Govt Oversight"
-      });
-    }
+    try {
+      localStorage.setItem("agrishield_role", newRole);
+    } catch (e) {}
   };
 
   const addClaim = (newClaim) => {
     const id = `CLM-2026-${Math.floor(884 + Math.random() * 100)}`;
     const tx = `0x${Array.from({ length: 64 }, () => Math.floor(Math.random() * 16).toString(16)).join("")}`;
+    const actorName = user?.name || "Registered Farmer";
+    const actorEmail = user?.email || "farmer@agrishield.org";
+    const actorRole = user?.role || currentRole || "FARMER";
+
     const claimRecord = {
       ...newClaim,
       id,
@@ -146,7 +144,7 @@ export function AppProvider({ children }) {
         sensorAnomalyNoted: "Processing station telemetry"
       },
       timeline: [
-        { step: "Claim Submitted", timestamp: new Date().toLocaleString(), actor: user.name, state: "Completed" }
+        { step: "Claim Submitted", timestamp: new Date().toLocaleString(), actor: actorName, state: "Completed" }
       ]
     };
     setClaims([claimRecord, ...claims]);
@@ -155,8 +153,8 @@ export function AppProvider({ children }) {
     const newAudit = {
       id: auditLogs.length + 1000,
       timestamp: new Date().toLocaleString(),
-      actor: user.email,
-      role: user.role,
+      actor: actorEmail,
+      role: actorRole,
       action: "Created New Claim",
       target: id,
       ip: "127.0.0.1"
@@ -166,6 +164,9 @@ export function AppProvider({ children }) {
   };
 
   const updateClaimStatus = (claimId, newStatus, remarks) => {
+    const actorName = user?.name || `Authorized Officer (${currentRole})`;
+    const actorRole = user?.role || currentRole;
+
     setClaims(claims.map(c => {
       if (c.id === claimId) {
         return {
@@ -176,7 +177,7 @@ export function AppProvider({ children }) {
             {
               step: `Status changed to ${newStatus}`,
               timestamp: new Date().toLocaleString(),
-              actor: `${user.name} (${user.role}) - ${remarks || "Action processed"}`,
+              actor: `${actorName} (${actorRole}) - ${remarks || "Action processed"}`,
               state: "Completed"
             }
           ]
@@ -220,6 +221,10 @@ export function AppProvider({ children }) {
         currentRole,
         switchRole,
         user,
+        setUser,
+        loginUserSession,
+        registerUserSession,
+        logoutUserSession,
         farms,
         addFarm,
         crops,

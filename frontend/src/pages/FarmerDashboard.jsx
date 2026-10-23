@@ -37,10 +37,10 @@ export function FarmerDashboard() {
         <div>
           <h1 className="page-title">
             <Sprout size={28} />
-            <span>Welcome, {user.name}</span>
+            <span>Welcome, {user?.name || "Farmer"}</span>
           </h1>
           <p className="page-subtitle">
-            District: {user.district}, {user.state} | Aadhaar ID: {user.aadhaarMasked}
+            District: {user?.district || "Dharwad"}, {user?.state || "Karnataka"} | Aadhaar ID: {user?.aadhaarMasked || "XXXX-XXXX-4819"}
           </p>
         </div>
         <div style={{ display: "flex", gap: 10 }}>

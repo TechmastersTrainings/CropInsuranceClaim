@@ -24,8 +24,8 @@ export function ClaimSubmissionWizard() {
   const handleFinalSubmit = (e) => {
     e.preventDefault();
     const newClaimId = addClaim({
-      farmerName: user.name,
-      farmerId: user.id,
+      farmerName: user?.name || "Registered Farmer",
+      farmerId: user?.id || "USR-FARMER",
       farmId: selectedFarm.id,
       farmName: selectedFarm.name,
       crop: selectedFarm.activeCrop,

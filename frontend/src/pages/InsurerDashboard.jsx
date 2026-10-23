@@ -21,7 +21,7 @@ export function InsurerDashboard() {
             <span>Insurance Underwriter & Claims Workspace</span>
           </h1>
           <p className="page-subtitle">
-            Officer: {user.name} | Underwriter: National Agri-Insurance Corp (NAIC)
+            Officer: {user?.name || "Dr. Anand Rao (Loss Assessor)"} | Underwriter: National Agri-Insurance Corp (NAIC)
           </p>
         </div>
         <div style={{ display: "flex", gap: 10 }}>

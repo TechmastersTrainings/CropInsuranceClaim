@@ -46,8 +46,9 @@ export default function App() {
               <Route path="/" element={<LandingPage />} />
               <Route path="/working-procedure" element={<WorkingProcedurePage />} />
               
-              {/* Authentication */}
+              {/* Authentication Portals */}
               <Route path="/auth" element={<AuthPage />} />
+              <Route path="/auth/:targetRole" element={<AuthPage />} />
               
               {/* Farmer Module */}
               <Route path="/farmer-dashboard" element={<FarmerDashboard />} />
