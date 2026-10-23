@@ -2,8 +2,11 @@ import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Header } from "./components/Header";
 import { Sidebar } from "./components/Sidebar";
+import { Footer } from "./components/Footer";
 
 // Pages
+import { LandingPage } from "./pages/LandingPage";
+import { WorkingProcedurePage } from "./pages/WorkingProcedurePage";
 import { AuthPage } from "./pages/AuthPage";
 import { FarmerDashboard } from "./pages/FarmerDashboard";
 import { FarmRegistryPage } from "./pages/FarmRegistryPage";
@@ -39,8 +42,9 @@ export default function App() {
           <Header />
           <main style={{ flex: 1 }}>
             <Routes>
-              {/* Default Redirect to Farmer Dashboard */}
-              <Route path="/" element={<Navigate to="/farmer-dashboard" replace />} />
+              {/* Homepage */}
+              <Route path="/" element={<LandingPage />} />
+              <Route path="/working-procedure" element={<WorkingProcedurePage />} />
               
               {/* Authentication */}
               <Route path="/auth" element={<AuthPage />} />
@@ -89,6 +93,7 @@ export default function App() {
               <Route path="*" element={<SystemStatesPage />} />
             </Routes>
           </main>
+          <Footer />
         </div>
       </div>
     </BrowserRouter>

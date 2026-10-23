@@ -61,6 +61,28 @@ export function Header() {
             <AlertTriangle size={12} /> Demo Mode
           </span>
         )}
+
+        {/* Quick Nav Shortcuts */}
+        <nav style={{ display: "flex", alignItems: "center", gap: 16, marginLeft: 10 }}>
+          <Link
+            to="/"
+            style={{ fontSize: "0.85rem", fontWeight: 600, color: "var(--text-main)", textDecoration: "none" }}
+          >
+            Home
+          </Link>
+          <Link
+            to="/working-procedure"
+            style={{ fontSize: "0.85rem", fontWeight: 600, color: "var(--text-muted)", textDecoration: "none" }}
+          >
+            Operating Guide
+          </Link>
+          <Link
+            to="/auth"
+            style={{ fontSize: "0.85rem", fontWeight: 600, color: "var(--color-primary)", textDecoration: "none" }}
+          >
+            Sign In / Register
+          </Link>
+        </nav>
       </div>
 
       {/* Right Controls: Connectivity, Role Switcher, Language, Notifications, User */}

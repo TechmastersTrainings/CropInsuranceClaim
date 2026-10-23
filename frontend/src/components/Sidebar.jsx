@@ -16,7 +16,10 @@ import {
   HelpCircle,
   Radio,
   FileCheck2,
-  Compass
+  Compass,
+  Home,
+  BookOpen,
+  KeyRound
 } from "lucide-react";
 import { useApp } from "../context/AppContext";
 import { useLocale } from "../locales";
@@ -93,6 +96,27 @@ export function Sidebar() {
       </div>
 
       <nav style={{ display: "flex", flexDirection: "column", gap: 4, flex: 1 }}>
+        <NavLink
+          to="/"
+          style={({ isActive }) => ({
+            display: "flex",
+            alignItems: "center",
+            gap: 10,
+            padding: "9px 12px",
+            borderRadius: "var(--radius-sm)",
+            fontSize: "0.88rem",
+            fontWeight: isActive ? 600 : 500,
+            color: isActive ? "var(--color-primary)" : "var(--text-main)",
+            background: isActive ? "var(--color-primary-soft)" : "transparent",
+            textDecoration: "none",
+            transition: "all var(--transition-fast)",
+            marginBottom: 4
+          })}
+        >
+          <Home size={18} />
+          <span>Home / Overview</span>
+        </NavLink>
+
         {activeLinks.map((link) => {
           const Icon = link.icon;
           return (
@@ -123,20 +147,56 @@ export function Sidebar() {
       {/* Footer Common Links */}
       <div style={{ borderTop: "1px solid var(--border-light)", paddingTop: 12, display: "flex", flexDirection: "column", gap: 4 }}>
         <NavLink
-          to="/settings"
+          to="/working-procedure"
           style={({ isActive }) => ({
             display: "flex",
             alignItems: "center",
             gap: 10,
-            padding: "9px 12px",
+            padding: "8px 12px",
             borderRadius: "var(--radius-sm)",
-            fontSize: "0.88rem",
+            fontSize: "0.85rem",
             color: isActive ? "var(--color-primary)" : "var(--text-muted)",
             background: isActive ? "var(--color-primary-soft)" : "transparent",
             textDecoration: "none"
           })}
         >
-          <SettingsIcon size={18} />
+          <BookOpen size={16} />
+          <span>Operating Guide</span>
+        </NavLink>
+
+        <NavLink
+          to="/auth"
+          style={({ isActive }) => ({
+            display: "flex",
+            alignItems: "center",
+            gap: 10,
+            padding: "8px 12px",
+            borderRadius: "var(--radius-sm)",
+            fontSize: "0.85rem",
+            color: isActive ? "var(--color-primary)" : "var(--text-muted)",
+            background: isActive ? "var(--color-primary-soft)" : "transparent",
+            textDecoration: "none"
+          })}
+        >
+          <KeyRound size={16} />
+          <span>Sign In / Register</span>
+        </NavLink>
+
+        <NavLink
+          to="/settings"
+          style={({ isActive }) => ({
+            display: "flex",
+            alignItems: "center",
+            gap: 10,
+            padding: "8px 12px",
+            borderRadius: "var(--radius-sm)",
+            fontSize: "0.85rem",
+            color: isActive ? "var(--color-primary)" : "var(--text-muted)",
+            background: isActive ? "var(--color-primary-soft)" : "transparent",
+            textDecoration: "none"
+          })}
+        >
+          <SettingsIcon size={16} />
           <span>{t("nav_settings")}</span>
         </NavLink>
       </div>
