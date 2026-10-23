@@ -134,4 +134,39 @@ export async function ingestTelemetry(frame) {
   return await res.json();
 }
 
+export async function fetchAllowedTransitions(claimId) {
+  const res = await fetch(`${API_BASE_URL}/claims/${claimId}/allowed-transitions`, {
+    headers: getAuthHeaders()
+  });
+  if (!res.ok) throw new Error("Failed to fetch allowed transitions");
+  return await res.json();
+}
+
+export async function fetchStateMachineGraph() {
+  const res = await fetch(`${API_BASE_URL}/claims/state-machine/graph`);
+  if (!res.ok) throw new Error("Failed to fetch state machine graph");
+  return await res.json();
+}
+
+export async function fetchCropAgronomicProfile(cropName) {
+  const res = await fetch(`${API_BASE_URL}/crops/${encodeURIComponent(cropName)}/agronomic-profile`);
+  if (!res.ok) throw new Error("Failed to fetch crop agronomic profile");
+  return await res.json();
+}
+
+export async function evaluateParametricPayout(sumInsured, lossPercentage, deductiblePct = 10.0) {
+  const res = await fetch(`${API_BASE_URL}/claims/evaluate-parametric-payout`, {
+    method: "POST",
+    headers: getAuthHeaders(),
+    body: JSON.stringify({
+      sum_insured: sumInsured,
+      loss_percentage: lossPercentage,
+      deductible_pct: deductiblePct
+    })
+  });
+  if (!res.ok) throw new Error("Failed to evaluate parametric payout");
+  return await res.json();
+}
+
+
 

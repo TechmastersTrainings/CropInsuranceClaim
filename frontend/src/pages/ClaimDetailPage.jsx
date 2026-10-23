@@ -18,7 +18,8 @@ export function ClaimDetailPage() {
     "Under Review",
     "Approved",
     "Settlement Pending",
-    "Settled"
+    "Settled",
+    "Closed"
   ];
 
   return (

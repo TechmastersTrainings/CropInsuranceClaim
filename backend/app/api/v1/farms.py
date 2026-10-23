@@ -70,3 +70,11 @@ def get_farm_by_id(
 def get_crops(db: Session = Depends(get_db)):
     """Retrieves all active crops from the multi-crop agronomic registry."""
     return db.query(CropRegistry).filter(CropRegistry.is_active == True).order_by(CropRegistry.id.asc()).all()
+
+
+@router.get("/crops/{crop_name}/agronomic-profile")
+def get_crop_agronomic_profile(crop_name: str):
+    """Retrieves agronomic stage vulnerability and parametric trigger thresholds for the specified crop."""
+    from backend.app.core.agronomic_rules import get_crop_profile
+    return get_crop_profile(crop_name)
+

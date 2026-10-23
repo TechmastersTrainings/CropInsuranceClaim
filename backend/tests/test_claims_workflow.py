@@ -26,7 +26,7 @@ def test_claim_adjudication_transition_by_insurer(client, insurer_token):
         "new_status": "Approved",
         "remarks": "Automated meteorological and sensor telemetry confirmed. Payout approved."
     }
-    response = client.post("/api/v1/claims/1/transition", json=payload, headers=headers)
+    response = client.post("/api/v1/claims/2/transition", json=payload, headers=headers)
     assert response.status_code == status.HTTP_200_OK
     data = response.json()
     assert data["status"] == "Approved"

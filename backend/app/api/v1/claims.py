@@ -16,6 +16,8 @@ from backend.app.api.deps import get_current_user, require_insurer
 from backend.app.models.telemetry import SensorReading
 from backend.app.schemas.ai import AIAssessmentResponse, AIAssessClaimRequest
 from ai.inference.predictor import CropDamagePredictor
+from backend.app.core.state_machine import ClaimStateMachine
+from backend.app.core.agronomic_rules import evaluate_parametric_payout, get_crop_profile
 
 router = APIRouter(tags=["Claims Management"])
 
@@ -132,6 +134,46 @@ def get_claims(
     return db.query(Claim).filter(Claim.farmer_id == current_user.id).order_by(Claim.id.desc()).all()
 
 
+@router.get("/claims/state-machine/graph")
+def get_claim_lifecycle_graph():
+    """Returns the complete directed graph of legal 10-state claim lifecycle transitions."""
+    return ClaimStateMachine.get_full_graph()
+
+
+@router.post("/claims/evaluate-parametric-payout")
+def evaluate_payout_calculation(
+    payload: dict,
+    current_user: User = Depends(get_current_user)
+):
+    """Calculates legal PMFBY parametric entitlement given sum insured, loss percentage, and deductible."""
+    sum_insured = float(payload.get("sum_insured", 0.0))
+    loss_percentage = float(payload.get("loss_percentage", 0.0))
+    deductible_pct = float(payload.get("deductible_pct", 10.0))
+    return evaluate_parametric_payout(sum_insured, loss_percentage, deductible_pct)
+
+
+@router.get("/claims/{claim_id}/allowed-transitions")
+def get_claim_allowed_transitions(
+    claim_id: int,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    """Returns the legal destination states for the specified claim and current user's role."""
+    claim = db.query(Claim).filter(Claim.id == claim_id).first()
+    if not claim:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Claim not found")
+    
+    current_status = claim.status.value if hasattr(claim.status, "value") else str(claim.status)
+    allowed = ClaimStateMachine.get_allowed_transitions(current_status, current_user.role)
+    return {
+        "claim_id": claim.id,
+        "claim_number": claim.claim_number,
+        "current_status": current_status,
+        "user_role": current_user.role.value,
+        "allowed_next_states": allowed
+    }
+
+
 @router.get("/claims/{claim_id}", response_model=ClaimResponse)
 def get_claim_details(
     claim_id: int,
@@ -162,6 +204,10 @@ def transition_claim_status(
     old_status = claim.status.value if hasattr(claim.status, "value") else str(claim.status)
     new_status = transition_in.new_status.value if hasattr(transition_in.new_status, "value") else str(transition_in.new_status)
     
+    is_valid, err_msg = ClaimStateMachine.is_valid_transition(old_status, new_status, current_user.role)
+    if not is_valid:
+        raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail=err_msg)
+        
     claim.status = transition_in.new_status
     if new_status == "Approved":
         claim.approved_amount = claim.claimed_amount
