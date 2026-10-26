@@ -165,22 +165,33 @@ export function FarmerDashboard() {
                 </tr>
               </thead>
               <tbody>
-                {myClaims.slice(0, 4).map((claim) => (
-                  <tr key={claim.id}>
-                    <td>
-                      <strong>{claim.id}</strong>
-                      <div style={{ fontSize: "0.75rem", color: "var(--text-muted)" }}>{claim.submissionDate}</div>
-                    </td>
-                    <td>{claim.crop}</td>
-                    <td>₹{claim.claimedAmount.toLocaleString("en-IN")}</td>
-                    <td><StatusBadge status={claim.status} /></td>
-                    <td>
-                      <Link to={`/claims/${claim.id}`} className="btn btn-sm btn-secondary">
-                        Timeline
+                {myClaims.length === 0 ? (
+                  <tr>
+                    <td colSpan={5} style={{ textAlign: "center", padding: "28px 12px", color: "var(--text-muted)" }}>
+                      <div>No claims filed yet.</div>
+                      <Link to="/claim-wizard" style={{ fontSize: "0.85rem", color: "var(--color-primary)", marginTop: 4, display: "inline-block" }}>
+                        Submit your first claim &rarr;
                       </Link>
                     </td>
                   </tr>
-                ))}
+                ) : (
+                  myClaims.slice(0, 4).map((claim) => (
+                    <tr key={claim.id}>
+                      <td>
+                        <strong>{claim.id}</strong>
+                        <div style={{ fontSize: "0.75rem", color: "var(--text-muted)" }}>{claim.submissionDate}</div>
+                      </td>
+                      <td>{claim.crop}</td>
+                      <td>₹{Number(claim.claimedAmount || 0).toLocaleString("en-IN")}</td>
+                      <td><StatusBadge status={claim.status} /></td>
+                      <td>
+                        <Link to={`/claims/${claim.id}`} className="btn btn-sm btn-secondary">
+                          Timeline
+                        </Link>
+                      </td>
+                    </tr>
+                  ))
+                )}
               </tbody>
             </table>
           </div>
@@ -198,33 +209,42 @@ export function FarmerDashboard() {
             </Link>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-            {farms.map((farm) => (
-              <div
-                key={farm.id}
-                style={{
-                  padding: "14px",
-                  borderRadius: "var(--radius-sm)",
-                  border: "1px solid var(--border-light)",
-                  background: "var(--bg-subtle)",
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center"
-                }}
-              >
-                <div>
-                  <div style={{ fontWeight: 600, fontSize: "0.95rem" }}>{farm.name}</div>
-                  <div style={{ fontSize: "0.8rem", color: "var(--text-muted)" }}>
-                    Survey No: {farm.surveyNo} | {farm.area} {farm.unit} | {farm.activeCrop}
-                  </div>
-                  <div style={{ fontSize: "0.75rem", color: "var(--color-primary-light)" }}>
-                    GPS: {farm.latitude}, {farm.longitude} ({farm.village})
-                  </div>
-                </div>
-                <Link to={`/farms/${farm.id}`} className="btn btn-sm btn-primary">
-                  Plot Details
+            {farms.length === 0 ? (
+              <div style={{ textAlign: "center", padding: "28px 12px", color: "var(--text-muted)" }}>
+                <div>No farm plots registered in database yet.</div>
+                <Link to="/farms" className="btn btn-sm btn-primary" style={{ marginTop: 10 }}>
+                  + Register Your First Land Plot
                 </Link>
               </div>
-            ))}
+            ) : (
+              farms.map((farm) => (
+                <div
+                  key={farm.id}
+                  style={{
+                    padding: "14px",
+                    borderRadius: "var(--radius-sm)",
+                    border: "1px solid var(--border-light)",
+                    background: "var(--bg-subtle)",
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center"
+                  }}
+                >
+                  <div>
+                    <div style={{ fontWeight: 600, fontSize: "0.95rem" }}>{farm.name}</div>
+                    <div style={{ fontSize: "0.8rem", color: "var(--text-muted)" }}>
+                      Survey No: {farm.surveyNo} | {farm.area} {farm.unit || "Acres"} | {farm.activeCrop}
+                    </div>
+                    <div style={{ fontSize: "0.75rem", color: "var(--color-primary-light)" }}>
+                      GPS: {farm.latitude}, {farm.longitude} ({farm.village})
+                    </div>
+                  </div>
+                  <Link to={`/farms/${farm.id}`} className="btn btn-sm btn-primary">
+                    Plot Details
+                  </Link>
+                </div>
+              ))
+            )}
           </div>
         </div>
       </div>

@@ -38,6 +38,19 @@ export async function loginUser(email, password) {
   return data;
 }
 
+export async function registerUser(userData) {
+  const res = await fetch(`${API_BASE_URL}/auth/register`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(userData)
+  });
+  if (!res.ok) {
+    const err = await res.json();
+    throw new Error(err.detail || "Registration failed");
+  }
+  return await res.json();
+}
+
 export async function fetchCropsRegistry() {
   const res = await fetch(`${API_BASE_URL}/crops`);
   if (!res.ok) throw new Error("Failed to fetch crop registry");

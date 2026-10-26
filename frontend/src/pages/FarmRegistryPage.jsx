@@ -80,54 +80,69 @@ export function FarmRegistryPage() {
       </div>
 
       {/* Farm Plots Grid */}
-      <div className="grid-3">
-        {filteredFarms.map((farm) => (
-          <div key={farm.id} className="card" style={{ display: "flex", flexDirection: "column" }}>
-            <div className="card-header">
-              <div>
-                <h3 className="card-title" style={{ fontSize: "1rem" }}>{farm.name}</h3>
-                <span style={{ fontSize: "0.75rem", color: "var(--text-muted)" }}>ID: {farm.id}</span>
+      {filteredFarms.length === 0 ? (
+        <div className="card" style={{ textAlign: "center", padding: "50px 24px", border: "1px dashed var(--border-light)" }}>
+          <Compass size={48} style={{ color: "var(--text-muted)", margin: "0 auto 16px" }} />
+          <h3 style={{ fontSize: "1.2rem", fontWeight: 700, marginBottom: 8, color: "var(--text-main)" }}>
+            No Farm Plots Registered in Database
+          </h3>
+          <p style={{ color: "var(--text-muted)", fontSize: "0.9rem", maxWidth: 460, margin: "0 auto 20px" }}>
+            You have not registered any cadastral land parcels yet. Click below to record your first survey plot. It will be saved directly into your database.
+          </p>
+          <button className="btn btn-primary" onClick={() => setIsModalOpen(true)}>
+            <Plus size={16} /> Register Your First Farm Plot
+          </button>
+        </div>
+      ) : (
+        <div className="grid-3">
+          {filteredFarms.map((farm) => (
+            <div key={farm.id} className="card" style={{ display: "flex", flexDirection: "column" }}>
+              <div className="card-header">
+                <div>
+                  <h3 className="card-title" style={{ fontSize: "1rem" }}>{farm.name}</h3>
+                  <span style={{ fontSize: "0.75rem", color: "var(--text-muted)" }}>ID: {farm.id}</span>
+                </div>
+                <span className="badge badge-approved">{farm.activeCrop}</span>
               </div>
-              <span className="badge badge-approved">{farm.activeCrop}</span>
-            </div>
 
-            <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: 8, fontSize: "0.85rem" }}>
-              <div style={{ display: "flex", justifyContent: "space-between" }}>
-                <span style={{ color: "var(--text-muted)" }}>Survey Number:</span>
-                <strong>{farm.surveyNo}</strong>
+              <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: 8, fontSize: "0.85rem" }}>
+                <div style={{ display: "flex", justifyContent: "space-between" }}>
+                  <span style={{ color: "var(--text-muted)" }}>Survey Number:</span>
+                  <strong>{farm.surveyNo}</strong>
+                </div>
+                <div style={{ display: "flex", justifyContent: "space-between" }}>
+                  <span style={{ color: "var(--text-muted)" }}>Cultivated Area:</span>
+                  <strong>{farm.area} {farm.unit || "Acres"}</strong>
+                </div>
+                <div style={{ display: "flex", justifyContent: "space-between" }}>
+                  <span style={{ color: "var(--text-muted)" }}>Location:</span>
+                  <span>{farm.village}, {farm.district}</span>
+                </div>
+                <div style={{ display: "flex", justifyContent: "space-between" }}>
+                  <span style={{ color: "var(--text-muted)" }}>Soil Classification:</span>
+                  <span>{farm.soilType}</span>
+                </div>
+                <div style={{ display: "flex", justifyContent: "space-between" }}>
+                  <span style={{ color: "var(--text-muted)" }}>Irrigation Method:</span>
+                  <span>{farm.irrigation}</span>
+                </div>
+                <div style={{ display: "flex", alignItems: "center", gap: 6, color: "var(--color-primary-light)", fontSize: "0.78rem", marginTop: 4 }}>
+                  <MapPin size={14} /> GPS: {farm.latitude}°N, {farm.longitude}°E
+                </div>
               </div>
-              <div style={{ display: "flex", justifyContent: "space-between" }}>
-                <span style={{ color: "var(--text-muted)" }}>Cultivated Area:</span>
-                <strong>{farm.area} {farm.unit}</strong>
-              </div>
-              <div style={{ display: "flex", justifyContent: "space-between" }}>
-                <span style={{ color: "var(--text-muted)" }}>Location:</span>
-                <span>{farm.village}, {farm.district}</span>
-              </div>
-              <div style={{ display: "flex", justifyContent: "space-between" }}>
-                <span style={{ color: "var(--text-muted)" }}>Soil Classification:</span>
-                <span>{farm.soilType}</span>
-              </div>
-              <div style={{ display: "flex", justifyContent: "space-between" }}>
-                <span style={{ color: "var(--text-muted)" }}>Irrigation Method:</span>
-                <span>{farm.irrigation}</span>
-              </div>
-              <div style={{ display: "flex", alignItems: "center", gap: 6, color: "var(--color-primary-light)", fontSize: "0.78rem", marginTop: 4 }}>
-                <MapPin size={14} /> GPS: {farm.latitude}°N, {farm.longitude}°E
-              </div>
-            </div>
 
-            <div style={{ marginTop: 16, paddingTop: 12, borderTop: "1px solid var(--border-light)", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-              <span style={{ fontSize: "0.75rem", color: "var(--text-muted)", display: "flex", alignItems: "center", gap: 4 }}>
-                <FileCheck size={14} /> Land Title Verified
-              </span>
-              <Link to={`/farms/${farm.id}`} className="btn btn-sm btn-primary">
-                View Plot Details
-              </Link>
+              <div style={{ marginTop: 16, paddingTop: 12, borderTop: "1px solid var(--border-light)", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <span style={{ fontSize: "0.75rem", color: "var(--text-muted)", display: "flex", alignItems: "center", gap: 4 }}>
+                  <FileCheck size={14} /> Land Title Verified
+                </span>
+                <Link to={`/farms/${farm.id}`} className="btn btn-sm btn-primary">
+                  View Plot Details
+                </Link>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
 
       {/* Register Farm Modal */}
       <Modal

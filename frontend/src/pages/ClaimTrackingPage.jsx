@@ -85,43 +85,52 @@ export function ClaimTrackingPage() {
               </tr>
             </thead>
             <tbody>
-              {filtered.map((claim) => (
-                <tr key={claim.id}>
-                  <td>
-                    <strong>{claim.id}</strong>
-                    <div style={{ fontSize: "0.75rem", color: "var(--text-muted)" }}>{claim.submissionDate}</div>
-                  </td>
-                  <td>
-                    <div style={{ fontWeight: 600 }}>{claim.farmName}</div>
-                    <div style={{ fontSize: "0.78rem", color: "var(--color-primary-light)" }}>{claim.crop}</div>
-                  </td>
-                  <td>{claim.eventDate}</td>
-                  <td>
-                    <strong>₹{claim.claimedAmount.toLocaleString("en-IN")}</strong>
-                  </td>
-                  <td>
-                    <StatusBadge status={claim.status} />
-                  </td>
-                  <td>
-                    <div style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: 4,
-                      fontFamily: "var(--font-mono)",
-                      fontSize: "0.75rem",
-                      color: "var(--color-blockchain)"
-                    }}>
-                      <Layers size={12} />
-                      <span>{claim.blockchainTx.slice(0, 10)}...{claim.blockchainTx.slice(-6)}</span>
-                    </div>
-                  </td>
-                  <td>
-                    <Link to={`/claims/${claim.id}`} className="btn btn-sm btn-secondary">
-                      Timeline <ArrowRight size={14} />
-                    </Link>
+              {filtered.length === 0 ? (
+                <tr>
+                  <td colSpan={7} style={{ textAlign: "center", padding: "40px 20px", color: "var(--text-muted)" }}>
+                    <div style={{ marginBottom: 8, fontSize: "1rem", fontWeight: 600 }}>No claims found in database</div>
+                    <div style={{ fontSize: "0.85rem" }}>You haven't filed any crop insurance claims yet. Click "Submit New Claim" to initiate a claim.</div>
                   </td>
                 </tr>
-              ))}
+              ) : (
+                filtered.map((claim) => (
+                  <tr key={claim.id}>
+                    <td>
+                      <strong>{claim.id}</strong>
+                      <div style={{ fontSize: "0.75rem", color: "var(--text-muted)" }}>{claim.submissionDate}</div>
+                    </td>
+                    <td>
+                      <div style={{ fontWeight: 600 }}>{claim.farmName}</div>
+                      <div style={{ fontSize: "0.78rem", color: "var(--color-primary-light)" }}>{claim.crop}</div>
+                    </td>
+                    <td>{claim.eventDate}</td>
+                    <td>
+                      <strong>₹{Number(claim.claimedAmount || 0).toLocaleString("en-IN")}</strong>
+                    </td>
+                    <td>
+                      <StatusBadge status={claim.status} />
+                    </td>
+                    <td>
+                      <div style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 4,
+                        fontFamily: "var(--font-mono)",
+                        fontSize: "0.75rem",
+                        color: "var(--color-blockchain)"
+                      }}>
+                        <Layers size={12} />
+                        <span>{(claim.blockchainTx || "0x00000000").slice(0, 10)}...{(claim.blockchainTx || "000000").slice(-6)}</span>
+                      </div>
+                    </td>
+                    <td>
+                      <Link to={`/claims/${claim.id}`} className="btn btn-sm btn-secondary">
+                        Timeline <ArrowRight size={14} />
+                      </Link>
+                    </td>
+                  </tr>
+                ))
+              )}
             </tbody>
           </table>
         </div>

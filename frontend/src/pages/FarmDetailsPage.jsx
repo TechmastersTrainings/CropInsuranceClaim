@@ -7,8 +7,27 @@ export function FarmDetailsPage() {
   const { farmId } = useParams();
   const { farms, telemetrySeries } = useApp();
 
-  const farm = farms.find(f => f.id === farmId) || farms[0];
+  const farm = farms.find(f => String(f.id) === String(farmId)) || farms[0];
   const latest = telemetrySeries[telemetrySeries.length - 1] || { temp: 28, moisture: 16 };
+
+  if (!farm) {
+    return (
+      <div className="page-container">
+        <div style={{ marginBottom: 16 }}>
+          <Link to="/farms" style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: "0.85rem", color: "var(--text-muted)" }}>
+            <ArrowLeft size={16} /> Back to Farm Registry
+          </Link>
+        </div>
+        <div className="card" style={{ textAlign: "center", padding: "40px 20px" }}>
+          <h3 style={{ marginBottom: 8 }}>Land Plot Not Found</h3>
+          <p style={{ color: "var(--text-muted)", fontSize: "0.9rem" }}>No farm parcel matching ID "{farmId}" exists in the database.</p>
+          <Link to="/farms" className="btn btn-primary" style={{ marginTop: 14 }}>
+            Go to Farm Registry
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="page-container">

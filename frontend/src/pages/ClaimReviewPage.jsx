@@ -222,6 +222,31 @@ export function ClaimReviewPage() {
     }
   };
 
+  if (claims.length === 0) {
+    return (
+      <div className="page-container">
+        <div className="page-header">
+          <div>
+            <h1 className="page-title">
+              <CheckCircle2 size={28} />
+              <span>Insurance Claim Adjudication Workspace</span>
+            </h1>
+            <p className="page-subtitle">
+              Officer adjudication: Correlate multi-source telemetry, evaluate PMFBY parametric payout entitlement, and enforce strict 10-state lifecycle transitions.
+            </p>
+          </div>
+        </div>
+        <div className="card" style={{ textAlign: "center", padding: "60px 24px" }}>
+          <CheckCircle2 size={48} style={{ color: "var(--text-muted)", margin: "0 auto 16px" }} />
+          <h3 style={{ fontSize: "1.25rem", fontWeight: 700, marginBottom: 8 }}>No Claims Submitted for Adjudication</h3>
+          <p style={{ color: "var(--text-muted)", fontSize: "0.92rem", maxWidth: 520, margin: "0 auto" }}>
+            There are currently no active claims submitted in the database. When a farmer submits a claim, it will appear here immediately for officer review and state transitions.
+          </p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="page-container">
       {/* Header */}

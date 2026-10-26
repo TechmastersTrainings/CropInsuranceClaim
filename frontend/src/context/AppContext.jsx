@@ -1,19 +1,15 @@
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useState, useEffect, useCallback } from "react";
 import {
   CROPS_CATALOG,
-  FARMS_DATA,
   POLICIES_DATA,
-  CLAIMS_DATA,
-  IOT_TELEMETRY_SERIES,
-  SENSOR_DEVICES,
-  BLOCKCHAIN_LEDGER,
-  AUDIT_LOGS,
-  NOTIFICATIONS_DATA
+  IOT_TELEMETRY_SERIES
 } from "../data/mockData";
 import {
   checkBackendHealth,
   fetchCropsRegistry,
   fetchPolicies,
+  fetchFarms,
+  createFarmPlot,
   fetchClaims,
   submitNewClaim,
   transitionClaim
@@ -22,7 +18,7 @@ import {
 const AppContext = createContext();
 
 export function AppProvider({ children }) {
-  // Dynamic session state: loads from localStorage or defaults to null (no hardcoded user!)
+  // Dynamic session state: loads from localStorage or defaults to null (no hardcoded demo user)
   const [user, setUser] = useState(() => {
     try {
       const saved = localStorage.getItem("agrishield_user");
@@ -36,26 +32,106 @@ export function AppProvider({ children }) {
     return localStorage.getItem("agrishield_role") || "FARMER";
   });
 
-  const [farms, setFarms] = useState(FARMS_DATA);
+  // Zero-dummy data: User transactional states start strictly empty
+  const [farms, setFarms] = useState([]);
   const [crops, setCrops] = useState(CROPS_CATALOG);
   const [policies, setPolicies] = useState(POLICIES_DATA);
-  const [claims, setClaims] = useState(CLAIMS_DATA);
-  const [devices, setDevices] = useState(SENSOR_DEVICES);
-  const [ledger, setLedger] = useState(BLOCKCHAIN_LEDGER);
-  const [notifications, setNotifications] = useState(NOTIFICATIONS_DATA);
-  const [auditLogs, setAuditLogs] = useState(AUDIT_LOGS);
+  const [claims, setClaims] = useState([]);
+  const [devices, setDevices] = useState([]);
+  const [ledger, setLedger] = useState([]);
+  const [notifications, setNotifications] = useState([]);
+  const [auditLogs, setAuditLogs] = useState([]);
   
   const [isOnline, setIsOnline] = useState(navigator.onLine);
   const [backendConnected, setBackendConnected] = useState(false);
-  const [demoMode, setDemoMode] = useState(true);
+  const [demoMode, setDemoMode] = useState(false);
 
-  // Sync with real backend API
+  // Sync user-created records from MySQL backend
+  const loadUserDataFromBackend = useCallback(async () => {
+    try {
+      const token = localStorage.getItem("agrishield_token");
+      if (!token) return;
+
+      // 1. Fetch user's registered farm plots from MySQL
+      try {
+        const apiFarms = await fetchFarms();
+        if (Array.isArray(apiFarms)) {
+          setFarms(apiFarms.map(f => ({
+            id: f.id,
+            name: f.name,
+            surveyNo: f.survey_number,
+            area: f.area_acres,
+            unit: "Acres",
+            village: f.village,
+            taluk: f.taluk || "Dharwad",
+            district: f.district || "Dharwad",
+            state: f.state || "Karnataka",
+            latitude: f.latitude || 15.3647,
+            longitude: f.longitude || 75.1240,
+            soilType: f.soil_type || "Black Cotton Soil",
+            irrigation: f.irrigation_type || "Borewell + Drip",
+            activeCrop: f.active_crop_name || "Cotton",
+            documentRef: f.document_ref || "VERIFIED_KHATA.pdf"
+          })));
+        }
+      } catch (err) {
+        // User might not have plots yet
+      }
+
+      // 2. Fetch user's claims from MySQL
+      try {
+        const apiClaims = await fetchClaims();
+        if (Array.isArray(apiClaims)) {
+          setClaims(apiClaims.map(c => ({
+            id: c.claim_number || `CLM-2026-${c.id}`,
+            backendId: c.id,
+            farmerId: c.farmer_id,
+            farmId: c.farm_plot_id,
+            farmName: `Plot #${c.farm_plot_id}`,
+            policyId: c.policy_id,
+            claimedAmount: c.claimed_amount,
+            approvedAmount: c.approved_amount,
+            damageReason: c.damage_reason,
+            eventDate: c.damage_event_date,
+            submissionDate: c.created_at ? c.created_at.split("T")[0] : new Date().toISOString().split("T")[0],
+            status: c.status,
+            blockchainTx: c.blockchain_tx_hash || "0x0000000000000000000000000000000000000000",
+            aiAssessment: {
+              status: c.ai_condition_indicator ? "Completed" : "Assessment Pending",
+              conditionIndicator: c.ai_condition_indicator || "In-situ & satellite telemetry verification",
+              estimatedDamagePct: c.ai_loss_percentage || 0,
+              weatherCorrelationScore: c.weather_correlation_score || 0.0,
+              reviewRecommendation: c.status === "Approved" ? "Parametric Payout Authorized" : "Under Adjudication",
+              sensorAnomalyNoted: c.officer_remarks || "Awaiting surveyor adjudication"
+            },
+            timeline: c.transitions && c.transitions.length > 0
+              ? c.transitions.map(t => ({
+                  step: `Status: ${t.to_state}`,
+                  timestamp: t.created_at ? new Date(t.created_at).toLocaleString() : new Date().toLocaleString(),
+                  actor: `${t.actor_name} (${t.actor_role}) - ${t.remarks || ""}`,
+                  state: "Completed"
+                }))
+              : [
+                  { step: "Claim Submitted", timestamp: new Date().toLocaleString(), actor: "Farmer", state: "Completed" }
+                ]
+          })));
+        }
+      } catch (err) {
+        // User might not have claims yet
+      }
+    } catch (e) {
+      console.warn("Could not sync user data from backend:", e);
+    }
+  }, []);
+
+  // Sync with real backend API on mount
   useEffect(() => {
     async function initBackend() {
       const health = await checkBackendHealth();
       if (health && health.status === "healthy") {
         setBackendConnected(true);
         try {
+          // Fetch master certified crop catalog from MySQL
           const apiCrops = await fetchCropsRegistry();
           if (apiCrops && apiCrops.length > 0) {
             setCrops(apiCrops.map(c => ({
@@ -70,9 +146,30 @@ export function AppProvider({ children }) {
               moistureThreshold: c.moisture_threshold
             })));
           }
+
+          // Fetch master PMFBY policies from MySQL
+          const apiPolicies = await fetchPolicies();
+          if (apiPolicies && apiPolicies.length > 0) {
+            setPolicies(apiPolicies.map(p => ({
+              id: p.id,
+              policyCode: p.policy_code,
+              title: p.title,
+              provider: p.underwriter_name,
+              crop: p.crop_name,
+              season: p.season,
+              premiumPerAcre: p.premium_per_acre,
+              coveragePerAcre: p.coverage_per_acre,
+              triggerParam: p.trigger_parameter,
+              deductible: p.deductible_percent,
+              validUntil: p.valid_until
+            })));
+          }
         } catch (e) {
-          // Keep local fallback
+          // Keep master defaults
         }
+
+        // If a session exists, load user records
+        loadUserDataFromBackend();
       }
     }
     initBackend();
@@ -85,7 +182,7 @@ export function AppProvider({ children }) {
       window.removeEventListener("online", handleOnline);
       window.removeEventListener("offline", handleOffline);
     };
-  }, []);
+  }, [loadUserDataFromBackend]);
 
   const loginUserSession = (userData, role) => {
     setUser(userData);
@@ -94,6 +191,7 @@ export function AppProvider({ children }) {
       localStorage.setItem("agrishield_user", JSON.stringify(userData));
       localStorage.setItem("agrishield_role", role);
     } catch (e) {}
+    loadUserDataFromBackend();
   };
 
   const registerUserSession = (userData, role) => {
@@ -103,11 +201,14 @@ export function AppProvider({ children }) {
       localStorage.setItem("agrishield_user", JSON.stringify(userData));
       localStorage.setItem("agrishield_role", role);
     } catch (e) {}
+    loadUserDataFromBackend();
   };
 
   const logoutUserSession = () => {
     setUser(null);
     setCurrentRole("FARMER");
+    setFarms([]);
+    setClaims([]);
     try {
       localStorage.removeItem("agrishield_user");
       localStorage.removeItem("agrishield_role");
@@ -120,63 +221,151 @@ export function AppProvider({ children }) {
     try {
       localStorage.setItem("agrishield_role", newRole);
     } catch (e) {}
+    loadUserDataFromBackend();
   };
 
-  const addClaim = (newClaim) => {
+  // Add new farm plot: Saves directly into MySQL database
+  const addFarm = async (newFarm) => {
+    try {
+      const created = await createFarmPlot({
+        name: newFarm.name,
+        survey_number: newFarm.surveyNo,
+        area_acres: parseFloat(newFarm.area) || 2.5,
+        village: newFarm.village || "Navalgund",
+        taluk: newFarm.taluk || "Dharwad",
+        district: newFarm.district || "Dharwad",
+        state: newFarm.state || "Karnataka",
+        latitude: parseFloat(newFarm.latitude) || 15.3647,
+        longitude: parseFloat(newFarm.longitude) || 75.1240,
+        soil_type: newFarm.soilType || "Black Cotton Soil",
+        irrigation_type: newFarm.irrigation || "Borewell + Drip",
+        active_crop_name: newFarm.activeCrop || "Cotton"
+      });
+
+      const mapped = {
+        id: created.id,
+        name: created.name,
+        surveyNo: created.survey_number,
+        area: created.area_acres,
+        unit: "Acres",
+        village: created.village,
+        taluk: created.taluk,
+        district: created.district,
+        state: created.state,
+        soilType: created.soil_type,
+        irrigation: created.irrigation_type,
+        activeCrop: created.active_crop_name,
+        latitude: created.latitude,
+        longitude: created.longitude,
+        documentRef: created.document_ref || "VERIFIED_KHATA.pdf"
+      };
+
+      setFarms(prev => [mapped, ...prev]);
+      return mapped;
+    } catch (err) {
+      console.error("Backend error saving farm plot to MySQL:", err);
+      // Fallback local persistence if network unavailable
+      const fallbackId = `FARM-${Date.now() % 10000}`;
+      const mappedFallback = { ...newFarm, id: fallbackId, unit: "Acres" };
+      setFarms(prev => [mappedFallback, ...prev]);
+      return mappedFallback;
+    }
+  };
+
+  // Add new claim: Saves directly into MySQL database & triggers FSM state transition
+  const addClaim = async (newClaim) => {
     if (!user) {
       throw new Error("Authentication Required: Only authenticated farmers can submit claims under PMFBY regulations.");
     }
-    const id = `CLM-2026-${Math.floor(884 + Math.random() * 100)}`;
-    const tx = `0x${Array.from({ length: 64 }, () => Math.floor(Math.random() * 16).toString(16)).join("")}`;
-    const actorName = user.name;
-    const actorEmail = user.email || `${user.id?.toLowerCase()}@agrishield.org`;
-    const actorRole = (user.role || "FARMER").toUpperCase();
 
-    const claimRecord = {
-      ...newClaim,
-      id,
-      blockchainTx: tx,
-      submissionDate: new Date().toISOString().split("T")[0],
-      status: "Submitted",
-      aiAssessment: {
-        status: "Assessment Pending",
-        conditionIndicator: "Queued for automated assessment",
-        estimatedDamagePct: 0,
-        weatherCorrelationScore: 0.0,
-        reviewRecommendation: "Evidence submitted",
-        sensorAnomalyNoted: "Processing station telemetry"
-      },
-      timeline: [
-        { step: "Claim Submitted", timestamp: new Date().toLocaleString(), actor: actorName, state: "Completed" }
-      ]
-    };
-    setClaims([claimRecord, ...claims]);
-    
-    // Log audit event
-    const newAudit = {
-      id: auditLogs.length + 1000,
-      timestamp: new Date().toLocaleString(),
-      actor: actorEmail,
-      role: actorRole,
-      action: "Created New Claim",
-      target: id,
-      ip: "127.0.0.1"
-    };
-    setAuditLogs([newAudit, ...auditLogs]);
-    return id;
+    try {
+      const created = await submitNewClaim({
+        farm_plot_id: parseInt(newClaim.farmId || 1),
+        policy_id: parseInt(newClaim.policyId || 1),
+        claimed_amount: parseFloat(newClaim.claimedAmount || 100000),
+        damage_reason: newClaim.damageReason || "Crop foliage desiccation",
+        damage_event_date: newClaim.eventDate || new Date().toISOString().split("T")[0]
+      });
+
+      const mapped = {
+        id: created.claim_number || `CLM-2026-${created.id}`,
+        backendId: created.id,
+        farmerName: user.name,
+        farmerId: created.farmer_id,
+        farmId: created.farm_plot_id,
+        farmName: newClaim.farmName || `Plot #${created.farm_plot_id}`,
+        crop: newClaim.crop || "Cotton",
+        policyId: created.policy_id,
+        claimedAmount: created.claimed_amount,
+        approvedAmount: created.approved_amount,
+        damageReason: created.damage_reason,
+        eventDate: created.damage_event_date,
+        submissionDate: created.created_at ? created.created_at.split("T")[0] : new Date().toISOString().split("T")[0],
+        status: created.status,
+        blockchainTx: created.blockchain_tx_hash,
+        aiAssessment: {
+          status: created.ai_condition_indicator ? "Completed" : "Assessment Pending",
+          conditionIndicator: created.ai_condition_indicator || "Analyzing in-situ sensor & satellite vegetation indices",
+          estimatedDamagePct: created.ai_loss_percentage || 0,
+          weatherCorrelationScore: created.weather_correlation_score || 0.0,
+          reviewRecommendation: created.status === "Approved" ? "Parametric Payout Advisory" : "Under Adjudication",
+          sensorAnomalyNoted: "Ground sensor telemetry anchored"
+        },
+        timeline: [
+          { step: "Claim Submitted", timestamp: new Date().toLocaleString(), actor: user.name, state: "Completed" }
+        ]
+      };
+
+      setClaims(prev => [mapped, ...prev]);
+      return mapped.id;
+    } catch (err) {
+      console.error("Backend error saving claim to MySQL:", err);
+      // Fallback local persistence if offline
+      const id = `CLM-2026-${Math.floor(884 + Math.random() * 100)}`;
+      const tx = `0x${Array.from({ length: 64 }, () => Math.floor(Math.random() * 16).toString(16)).join("")}`;
+      const claimRecord = {
+        ...newClaim,
+        id,
+        blockchainTx: tx,
+        submissionDate: new Date().toISOString().split("T")[0],
+        status: "Submitted",
+        aiAssessment: {
+          status: "Assessment Pending",
+          conditionIndicator: "Queued for automated assessment",
+          estimatedDamagePct: 0,
+          weatherCorrelationScore: 0.0,
+          reviewRecommendation: "Evidence submitted",
+          sensorAnomalyNoted: "Processing station telemetry"
+        },
+        timeline: [
+          { step: "Claim Submitted", timestamp: new Date().toLocaleString(), actor: user.name, state: "Completed" }
+        ]
+      };
+      setClaims(prev => [claimRecord, ...prev]);
+      return id;
+    }
   };
 
-  const updateClaimStatus = (claimId, newStatus, remarks) => {
+  // Update claim status: Persists transition to MySQL and records transition audit log
+  const updateClaimStatus = async (claimId, newStatus, remarks) => {
     const actorName = user?.name || `Authorized Officer (${currentRole})`;
     const actorRole = user?.role || currentRole;
 
-    setClaims(claims.map(c => {
-      if (c.id === claimId) {
+    try {
+      const claimObj = claims.find(c => c.id === claimId || c.backendId === claimId);
+      const targetId = claimObj?.backendId || claimId;
+      await transitionClaim(targetId, newStatus, remarks);
+    } catch (err) {
+      console.warn("Backend state transition warning:", err.message);
+    }
+
+    setClaims(prev => prev.map(c => {
+      if (c.id === claimId || c.backendId === claimId) {
         return {
           ...c,
           status: newStatus,
           timeline: [
-            ...c.timeline,
+            ...(c.timeline || []),
             {
               step: `Status changed to ${newStatus}`,
               timestamp: new Date().toLocaleString(),
@@ -190,13 +379,8 @@ export function AppProvider({ children }) {
     }));
   };
 
-  const addFarm = (newFarm) => {
-    const id = `FARM-${100 + farms.length + 1}`;
-    setFarms([...farms, { ...newFarm, id }]);
-  };
-
   const updateClaimAIAssessment = (claimId, assessmentData) => {
-    setClaims(claims.map(c => {
+    setClaims(prev => prev.map(c => {
       if (c.id === claimId) {
         return {
           ...c,

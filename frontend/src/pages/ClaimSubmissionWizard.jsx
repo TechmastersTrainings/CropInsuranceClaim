@@ -134,31 +134,63 @@ export function ClaimSubmissionWizard() {
     );
   }
 
-  const selectedFarm = farms.find(f => f.id === selectedFarmId) || farms[0] || {
-    id: "FARM-01",
-    name: "Survey Plot #88/4B",
-    surveyNo: user.survey || user.landSurveyNumber || "KA-DWR-2024-8841",
-    area: user.acres ? parseFloat(user.acres) : 4.5,
-    activeCrop: user.crop || "Cotton"
-  };
+  // 3. Registered Plot Guard: Farmer must have registered at least one plot in database
+  if (farms.length === 0) {
+    return (
+      <div className="page-container" style={{ maxWidth: 640, marginTop: 40, textAlign: "center" }}>
+        <div className="card" style={{ padding: "40px 28px", border: "1px solid var(--border-light)" }}>
+          <div style={{
+            width: 60,
+            height: 60,
+            borderRadius: "50%",
+            background: "var(--color-primary-soft)",
+            color: "var(--color-primary)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            margin: "0 auto 16px"
+          }}>
+            <FilePlus2 size={30} />
+          </div>
+
+          <h2 style={{ fontSize: "1.45rem", fontWeight: 800, color: "var(--text-main)", marginBottom: 10 }}>
+            Registered Land Parcel Required
+          </h2>
+
+          <p style={{ color: "var(--text-muted)", fontSize: "0.92rem", lineHeight: 1.6, marginBottom: 20 }}>
+            Under Section 44 PMFBY regulations, claims must be linked to a registered cadastral survey parcel. 
+            You have not registered any land plots in your database yet.
+          </p>
+
+          <div style={{ display: "flex", justifyContent: "center", gap: 12 }}>
+            <Link to="/farms" className="btn btn-primary">
+              Register Land Plot Now &rarr;
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  const selectedFarm = farms.find(f => f.id === selectedFarmId) || farms[0];
 
   const selectedPolicy = policies.find(p => p.id === selectedPolicyId) || policies[0] || {
-    id: "POL-001",
+    id: 1,
     title: "PMFBY Kharif Multi-Peril Comprehensive",
     provider: "National Agriculture Insurance Company",
     coveragePerAcre: 35000
   };
 
-  const handleFinalSubmit = (e) => {
+  const handleFinalSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     try {
-      const newClaimId = addClaim({
+      const newClaimId = await addClaim({
         farmerName: user.name,
-        farmerId: user.id || `USR-FARMER-${Math.floor(100 + Math.random() * 900)}`,
-        farmerMobile: user.phone || user.mobile || "+91 98451 00000",
-        farmerAadhaar: user.aadhaarMasked || "XXXX-XXXX-4812",
+        farmerId: user.id || 1,
+        farmerMobile: user.phone || "+91 98451 00000",
+        farmerAadhaar: user.aadhaarMasked || "XXXX-XXXX-4819",
         farmId: selectedFarm.id,
         farmName: selectedFarm.name,
         crop: selectedFarm.activeCrop,

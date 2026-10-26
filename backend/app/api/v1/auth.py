@@ -26,6 +26,7 @@ def register(user_in: UserRegister, db: Session = Depends(get_db)):
         hashed_password=get_password_hash(user_in.password),
         role=user_in.role,
         phone=user_in.phone,
+        aadhaar_masked=user_in.aadhaar_masked,
         district=user_in.district,
         state=user_in.state,
         is_active=True

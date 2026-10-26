@@ -21,7 +21,7 @@ import {
   HelpCircle
 } from "lucide-react";
 import { useApp } from "../context/AppContext";
-import { loginUser } from "../services/api";
+import { loginUser, registerUser } from "../services/api";
 
 const ROLE_METADATA = {
   FARMER: {
@@ -196,22 +196,16 @@ export function AuthPage() {
     setLoading(true);
 
     try {
-      // Connect to backend auth if online
-      try {
-        await loginUser(email, password);
-      } catch (apiErr) {
-        console.warn("Backend auth API note:", apiErr.message);
-      }
-
-      // Establish real user session
-      const userData = {
-        id: `USR-${activeRole}-${Math.floor(100 + Math.random() * 900)}`,
-        name: fullName || activeMeta.demoCreds.name,
-        email: email,
-        role: activeRole,
-        state: farmerState || insurerState || "Karnataka",
-        district: farmerDistrict || "Dharwad",
-        aadhaarMasked: farmerAadhaar4 ? `XXXX-XXXX-${farmerAadhaar4}` : "XXXX-XXXX-4819",
+      const res = await loginUser(email, password);
+      const loggedUser = {
+        id: res.user?.id || 1,
+        name: res.user?.full_name || fullName || activeMeta.demoCreds.name,
+        email: res.user?.email || email,
+        role: res.user?.role || activeRole,
+        phone: res.user?.phone || phone,
+        state: res.user?.state || farmerState || "Karnataka",
+        district: res.user?.district || farmerDistrict || "Dharwad",
+        aadhaarMasked: res.user?.aadhaar_masked || (farmerAadhaar4 ? `XXXX-XXXX-${farmerAadhaar4}` : "XXXX-XXXX-4819"),
         crop: farmerCrop,
         acres: farmerAcres,
         company: insurerCompany,
@@ -219,8 +213,8 @@ export function AuthPage() {
         agency: auditorAgency
       };
 
-      loginUserSession(userData, activeRole);
-      setSuccessMessage(`Authentication successful! Welcome, ${userData.name}.`);
+      loginUserSession(loggedUser, activeRole);
+      setSuccessMessage(`Authentication successful! Welcome, ${loggedUser.name}.`);
 
       setTimeout(() => {
         if (activeRole === "FARMER") navigate("/farmer-dashboard");
@@ -229,7 +223,7 @@ export function AuthPage() {
         else navigate("/blockchain");
       }, 700);
     } catch (err) {
-      setErrorMessage(err.message || "Failed to authenticate");
+      setErrorMessage(err.message || "Failed to authenticate. Please verify email and password.");
     } finally {
       setLoading(false);
     }
@@ -252,19 +246,36 @@ export function AuthPage() {
     setLoading(true);
 
     try {
-      const userData = {
-        id: `USR-${activeRole}-${Math.floor(100 + Math.random() * 900)}`,
-        name: fullName,
+      // 1. Register directly in MySQL
+      const regPayload = {
         email: email,
-        phone: phone,
+        password: password,
+        full_name: fullName,
         role: activeRole,
-        state: activeRole === "FARMER" ? farmerState : insurerState,
-        district: farmerDistrict,
+        phone: phone || "+91 98451 00000",
+        aadhaar_masked: farmerAadhaar4 ? `XXXX-XXXX-${farmerAadhaar4}` : "XXXX-XXXX-4819",
+        district: farmerDistrict || "Dharwad",
+        state: activeRole === "FARMER" ? farmerState : insurerState || "Karnataka"
+      };
+
+      const newUserRes = await registerUser(regPayload);
+
+      // 2. Authenticate to acquire real JWT token
+      const loginRes = await loginUser(email, password);
+
+      const userData = {
+        id: newUserRes.id || loginRes.user?.id,
+        name: newUserRes.full_name,
+        email: newUserRes.email,
+        phone: newUserRes.phone,
+        role: newUserRes.role,
+        state: newUserRes.state,
+        district: newUserRes.district,
         village: farmerVillage,
         survey: farmerSurvey,
         crop: farmerCrop,
         acres: farmerAcres,
-        aadhaarMasked: farmerAadhaar4 ? `XXXX-XXXX-${farmerAadhaar4}` : "XXXX-XXXX-0000",
+        aadhaarMasked: newUserRes.aadhaar_masked || "XXXX-XXXX-4819",
         company: insurerCompany,
         licenseId: insurerLicense,
         division: adminDivision,
@@ -273,7 +284,7 @@ export function AuthPage() {
       };
 
       registerUserSession(userData, activeRole);
-      setSuccessMessage(`Registration complete! Your ${activeMeta.title} account is now active.`);
+      setSuccessMessage(`Registration complete! Account saved in database. Welcome, ${userData.name}.`);
 
       setTimeout(() => {
         if (activeRole === "FARMER") navigate("/farmer-dashboard");

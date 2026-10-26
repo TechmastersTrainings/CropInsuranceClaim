@@ -16,8 +16,8 @@ class Settings(BaseSettings):
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60
     REFRESH_TOKEN_EXPIRE_DAYS: int = 7
     
-    # Primary DB is PostgreSQL; SQLite development fallback when PostgreSQL is not running
-    DATABASE_URL: str = "sqlite:///./backend/app.db"
+    # Primary DB is MySQL 8.0; fallback SQLite when MySQL is unreachable
+    DATABASE_URL: str = "mysql+pymysql://root:root@localhost:3306/crop_insurance_db"
     POSTGRES_URL: str = "postgresql+psycopg2://crop_user:crop_password_secure@localhost:5432/crop_insurance_db"
     
     # CORS
