@@ -1,52 +1,237 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { FilePlus2, CheckCircle2, ArrowRight, ArrowLeft, Upload, Shield, AlertTriangle } from "lucide-react";
+import { useNavigate, Link } from "react-router-dom";
+import {
+  FilePlus2,
+  CheckCircle2,
+  ArrowRight,
+  ArrowLeft,
+  Shield,
+  ShieldCheck,
+  AlertTriangle,
+  Lock,
+  UserCheck
+} from "lucide-react";
 import { useApp } from "../context/AppContext";
 
 export function ClaimSubmissionWizard() {
   const { farms, policies, addClaim, user } = useApp();
   const navigate = useNavigate();
 
+  // Hooks must be called unconditionally at top of component
   const [step, setStep] = useState(1);
   const [selectedFarmId, setSelectedFarmId] = useState(farms[0]?.id || "");
   const [selectedPolicyId, setSelectedPolicyId] = useState(policies[0]?.id || "");
   const [damageReason, setDamageReason] = useState("Severe Prolonged Dry Spell & Thermal Desiccation");
   const [eventDate, setEventDate] = useState("2026-09-20");
   const [claimedAmount, setClaimedAmount] = useState(120000);
-  const [evidenceFiles, setEvidenceFiles] = useState([
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [evidenceFiles] = useState([
     { name: "Field_Canopy_North_Sector.jpg", size: "2.4 MB", type: "Geotagged Photo" },
     { name: "Soil_Cracking_CloseUp.jpg", size: "1.8 MB", type: "Foliage Evidence" }
   ]);
 
-  const selectedFarm = farms.find(f => f.id === selectedFarmId) || farms[0];
-  const selectedPolicy = policies.find(p => p.id === selectedPolicyId) || policies[0];
+  // 1. Authentication Guard: Must be signed in
+  if (!user) {
+    return (
+      <div className="page-container" style={{ maxWidth: 640, marginTop: 40, textAlign: "center" }}>
+        <div className="card" style={{ padding: "40px 28px", border: "1px solid var(--border-light)" }}>
+          <div style={{
+            width: 64,
+            height: 64,
+            borderRadius: "50%",
+            background: "var(--color-danger-soft)",
+            color: "var(--color-danger)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            margin: "0 auto 18px"
+          }}>
+            <Lock size={32} />
+          </div>
+
+          <h2 style={{ fontSize: "1.5rem", fontWeight: 800, color: "var(--text-main)", marginBottom: 10 }}>
+            Farmer Authentication Required
+          </h2>
+
+          <p style={{ color: "var(--text-muted)", fontSize: "0.93rem", lineHeight: 1.6, marginBottom: 24 }}>
+            Under Section 44 of the Pradhan Mantri Fasal Bima Yojana (PMFBY) guidelines and IRDAI regulations, 
+            crop insurance claims can <strong>only</strong> be initiated by authenticated, registered cultivators 
+            with verified Land Survey (Khata) and Aadhaar identification.
+          </p>
+
+          <div style={{
+            background: "var(--bg-subtle)",
+            padding: "14px 18px",
+            borderRadius: "var(--radius-sm)",
+            fontSize: "0.85rem",
+            color: "var(--text-main)",
+            marginBottom: 26,
+            textAlign: "left"
+          }}>
+            <div style={{ fontWeight: 700, marginBottom: 4, color: "var(--color-primary)" }}>
+              Mandatory Regulatory Requirement:
+            </div>
+            <ul style={{ paddingLeft: 18, margin: 0, color: "var(--text-muted)", lineHeight: 1.5 }}>
+              <li>Direct verification against State Land Records (Bhoomi / RoR / Patta)</li>
+              <li>Aadhaar-seeded Direct Benefit Transfer (DBT) bank verification</li>
+              <li>Cryptographic timestamping of crop loss event on distributed ledger</li>
+            </ul>
+          </div>
+
+          <div style={{ display: "flex", justifyContent: "center", gap: 12, flexWrap: "wrap" }}>
+            <Link to="/auth/farmer" className="btn btn-primary">
+              <UserCheck size={16} /> Sign In as Farmer
+            </Link>
+            <Link to="/auth/farmer" className="btn btn-secondary">
+              Register New Farmer Account
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // 2. Role Clearance Guard: Only Farmers and Admins can submit claims
+  const userRole = (user.role || "").toUpperCase();
+  if (userRole !== "FARMER" && userRole !== "ADMIN") {
+    return (
+      <div className="page-container" style={{ maxWidth: 640, marginTop: 40, textAlign: "center" }}>
+        <div className="card" style={{ padding: "40px 28px", border: "1px solid var(--border-light)" }}>
+          <div style={{
+            width: 60,
+            height: 60,
+            borderRadius: "50%",
+            background: "var(--color-amber-soft)",
+            color: "#bf360c",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            margin: "0 auto 16px"
+          }}>
+            <AlertTriangle size={30} />
+          </div>
+
+          <h2 style={{ fontSize: "1.45rem", fontWeight: 800, color: "var(--text-main)", marginBottom: 10 }}>
+            Farmer Role Clearance Required
+          </h2>
+
+          <p style={{ color: "var(--text-muted)", fontSize: "0.92rem", lineHeight: 1.6, marginBottom: 20 }}>
+            You are currently signed in as <strong>{user.name}</strong> with the <strong>{user.role}</strong> role. 
+            Under insurance law, underwriters and regulatory auditors cannot initiate claims on behalf of beneficiaries. 
+            Please use your respective adjudication workspace to review existing filings.
+          </p>
+
+          <div style={{ display: "flex", justifyContent: "center", gap: 12 }}>
+            <Link to="/claim-reviews" className="btn btn-primary">
+              Go to Claim Adjudication Workspace
+            </Link>
+            <Link to="/auth/farmer" className="btn btn-secondary">
+              Switch to Farmer Session
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  const selectedFarm = farms.find(f => f.id === selectedFarmId) || farms[0] || {
+    id: "FARM-01",
+    name: "Survey Plot #88/4B",
+    surveyNo: user.survey || user.landSurveyNumber || "KA-DWR-2024-8841",
+    area: user.acres ? parseFloat(user.acres) : 4.5,
+    activeCrop: user.crop || "Cotton"
+  };
+
+  const selectedPolicy = policies.find(p => p.id === selectedPolicyId) || policies[0] || {
+    id: "POL-001",
+    title: "PMFBY Kharif Multi-Peril Comprehensive",
+    provider: "National Agriculture Insurance Company",
+    coveragePerAcre: 35000
+  };
 
   const handleFinalSubmit = (e) => {
     e.preventDefault();
-    const newClaimId = addClaim({
-      farmerName: user?.name || "Registered Farmer",
-      farmerId: user?.id || "USR-FARMER",
-      farmId: selectedFarm.id,
-      farmName: selectedFarm.name,
-      crop: selectedFarm.activeCrop,
-      policyId: selectedPolicy.id,
-      claimedAmount: parseFloat(claimedAmount),
-      damageReason,
-      eventDate
-    });
-    navigate(`/claims/${newClaimId}`);
+    setIsSubmitting(true);
+
+    try {
+      const newClaimId = addClaim({
+        farmerName: user.name,
+        farmerId: user.id || `USR-FARMER-${Math.floor(100 + Math.random() * 900)}`,
+        farmerMobile: user.phone || user.mobile || "+91 98451 00000",
+        farmerAadhaar: user.aadhaarMasked || "XXXX-XXXX-4812",
+        farmId: selectedFarm.id,
+        farmName: selectedFarm.name,
+        crop: selectedFarm.activeCrop,
+        policyId: selectedPolicy.id,
+        claimedAmount: parseFloat(claimedAmount),
+        damageReason,
+        eventDate
+      });
+      navigate(`/claims/${newClaimId}`);
+    } catch (err) {
+      alert("Submission error: " + err.message);
+      setIsSubmitting(false);
+    }
   };
 
   return (
-    <div className="page-container" style={{ maxWidth: 860 }}>
+    <div className="page-container" style={{ maxWidth: 880 }}>
+      {/* Authenticated Farmer Session Badge */}
+      <div style={{
+        background: "var(--color-primary-soft)",
+        border: "1px solid var(--color-primary)",
+        borderRadius: "var(--radius-md)",
+        padding: "14px 18px",
+        marginBottom: 24,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        gap: 16,
+        flexWrap: "wrap"
+      }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+          <div style={{
+            width: 40,
+            height: 40,
+            borderRadius: "50%",
+            background: "var(--color-primary)",
+            color: "#fff",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center"
+          }}>
+            <ShieldCheck size={22} />
+          </div>
+          <div>
+            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+              <span style={{ fontWeight: 800, fontSize: "0.95rem", color: "var(--color-primary)" }}>
+                Verified Beneficiary: {user.name}
+              </span>
+              <span className="badge badge-success" style={{ fontSize: "0.7rem", padding: "2px 8px" }}>
+                Session Authenticated
+              </span>
+            </div>
+            <div style={{ fontSize: "0.78rem", color: "var(--text-muted)", marginTop: 2 }}>
+              Khata / Survey No: <strong>{user.survey || selectedFarm.surveyNo}</strong> | 
+              Aadhaar: <strong>{user.aadhaarMasked || "XXXX-XXXX-4812"}</strong> | 
+              DBT Bank: <strong>State Bank of India (A/C: ****5592)</strong>
+            </div>
+          </div>
+        </div>
+
+        <div style={{ fontSize: "0.75rem", color: "var(--color-primary)", fontWeight: 600, textAlign: "right" }}>
+          PMFBY Beneficiary Registry Active
+        </div>
+      </div>
+
       <div className="page-header">
         <div>
           <h1 className="page-title">
-            <FilePlus2 size={28} />
+            <FilePlus2 size={26} />
             <span>Parametric Claim Submission Wizard</span>
           </h1>
           <p className="page-subtitle">
-            Step-by-step verifiable claim filing integrated with on-farm IoT sensors and satellite data.
+            Authenticated claim filing integrated with on-farm IoT sensors, automated AI assessment, and smart contracts.
           </p>
         </div>
       </div>
@@ -118,7 +303,7 @@ export function ClaimSubmissionWizard() {
             justifyContent: "center",
             fontSize: "0.85rem"
           }}>3</span>
-          <span>Evidence & Review</span>
+          <span>Evidence & Digital Signature</span>
         </div>
       </div>
 
@@ -126,11 +311,11 @@ export function ClaimSubmissionWizard() {
         {step === 1 && (
           <div>
             <div className="card-header">
-              <h3 className="card-title">Step 1: Choose Affected Plot & Active Policy</h3>
+              <h3 className="card-title">Step 1: Choose Affected Plot & Active Enrolled Policy</h3>
             </div>
 
             <div className="form-group">
-              <label className="form-label">Select Registered Farm Plot</label>
+              <label className="form-label">Registered Land Parcel (RoR / Khata)</label>
               <select
                 className="form-control"
                 value={selectedFarmId}
@@ -145,7 +330,7 @@ export function ClaimSubmissionWizard() {
             </div>
 
             <div className="form-group">
-              <label className="form-label">Select Enrolled Parametric Policy</label>
+              <label className="form-label">Enrolled Parametric Insurance Policy</label>
               <select
                 className="form-control"
                 value={selectedPolicyId}
@@ -153,21 +338,33 @@ export function ClaimSubmissionWizard() {
               >
                 {policies.map((p) => (
                   <option key={p.id} value={p.id}>
-                    {p.title} — {p.provider} (Max: ₹{p.coveragePerAcre}/Acre)
+                    {p.title} — {p.provider} (Max: ₹{p.coveragePerAcre.toLocaleString()}/Acre)
                   </option>
                 ))}
               </select>
             </div>
 
-            <div style={{ padding: 12, background: "var(--bg-subtle)", borderRadius: "var(--radius-sm)", marginTop: 16 }}>
-              <div style={{ fontSize: "0.85rem", color: "var(--text-muted)" }}>
-                Selected Plot Area: <strong>{selectedFarm.area} Acres</strong> | Insured Crop: <strong>{selectedFarm.activeCrop}</strong>
+            <div style={{
+              padding: 14,
+              background: "var(--bg-subtle)",
+              borderRadius: "var(--radius-sm)",
+              marginTop: 16,
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center"
+            }}>
+              <div>
+                <div style={{ fontSize: "0.85rem", color: "var(--text-muted)" }}>
+                  Insured Crop: <strong style={{ color: "var(--text-main)" }}>{selectedFarm.activeCrop}</strong> | 
+                  Plot Area: <strong style={{ color: "var(--text-main)" }}>{selectedFarm.area} Acres</strong>
+                </div>
               </div>
+              <span className="badge badge-success">Coverage Active</span>
             </div>
 
             <div style={{ display: "flex", justifyContent: "flex-end", marginTop: 24 }}>
               <button type="button" className="btn btn-primary" onClick={() => setStep(2)}>
-                Next: Damage Details <ArrowRight size={16} />
+                Next: Damage Event Details <ArrowRight size={16} />
               </button>
             </div>
           </div>
@@ -176,11 +373,11 @@ export function ClaimSubmissionWizard() {
         {step === 2 && (
           <div>
             <div className="card-header">
-              <h3 className="card-title">Step 2: Enter Damage Event Details</h3>
+              <h3 className="card-title">Step 2: Enter Climate Anomaly & Loss Details</h3>
             </div>
 
             <div className="form-group">
-              <label className="form-label">Date of Climate Anomaly / Damage Event</label>
+              <label className="form-label">Date of Climate Anomaly / Crop Damage Event</label>
               <input
                 type="date"
                 className="form-control"
@@ -215,7 +412,7 @@ export function ClaimSubmissionWizard() {
                 required
               />
               <span className="form-hint">
-                Max allowable coverage for {selectedFarm.area} Acres is ₹{(selectedFarm.area * selectedPolicy.coveragePerAcre).toLocaleString()}.
+                Max allowable statutory coverage for {selectedFarm.area} Acres is ₹{(selectedFarm.area * selectedPolicy.coveragePerAcre).toLocaleString()}.
               </span>
             </div>
 
@@ -224,7 +421,7 @@ export function ClaimSubmissionWizard() {
                 <ArrowLeft size={16} /> Back
               </button>
               <button type="button" className="btn btn-primary" onClick={() => setStep(3)}>
-                Next: Upload Evidence <ArrowRight size={16} />
+                Next: Verification & Evidence <ArrowRight size={16} />
               </button>
             </div>
           </div>
@@ -233,7 +430,7 @@ export function ClaimSubmissionWizard() {
         {step === 3 && (
           <div>
             <div className="card-header">
-              <h3 className="card-title">Step 3: Verification & Submission to Smart Contract</h3>
+              <h3 className="card-title">Step 3: Verification & Cryptographic Smart Contract Dispatch</h3>
             </div>
 
             <div style={{ marginBottom: 16 }}>
@@ -255,32 +452,41 @@ export function ClaimSubmissionWizard() {
               </div>
             </div>
 
-            {/* Final Summary Card */}
-            <div style={{ padding: 16, background: "var(--color-primary-soft)", borderRadius: "var(--radius-sm)", border: "1px solid var(--border-light)", marginBottom: 20 }}>
-              <div style={{ fontWeight: 700, color: "var(--color-primary)", marginBottom: 8 }}>
-                Claim Summary Confirmation:
+            {/* Final Summary Card with Authenticated Beneficiary */}
+            <div style={{
+              padding: 16,
+              background: "var(--color-primary-soft)",
+              borderRadius: "var(--radius-sm)",
+              border: "1px solid var(--border-light)",
+              marginBottom: 20
+            }}>
+              <div style={{ fontWeight: 700, color: "var(--color-primary)", marginBottom: 10, display: "flex", alignItems: "center", gap: 6 }}>
+                <CheckCircle2 size={16} />
+                <span>Parametric Claim Summary Confirmation:</span>
               </div>
-              <div className="grid-2" style={{ fontSize: "0.85rem" }}>
-                <div><strong>Farm:</strong> {selectedFarm.name} ({selectedFarm.surveyNo})</div>
-                <div><strong>Crop:</strong> {selectedFarm.activeCrop}</div>
-                <div><strong>Event Date:</strong> {eventDate}</div>
-                <div><strong>Claim Amount:</strong> ₹{claimedAmount.toLocaleString()}</div>
+              <div className="grid-2" style={{ fontSize: "0.85rem", gap: 8 }}>
+                <div><strong>Claimant:</strong> {user.name} ({user.id || "FMR-USR"})</div>
+                <div><strong>Survey Plot:</strong> {selectedFarm.name} ({selectedFarm.surveyNo})</div>
+                <div><strong>Aadhaar Verification:</strong> {user.aadhaarMasked || "XXXX-XXXX-4812"}</div>
+                <div><strong>Insured Crop:</strong> {selectedFarm.activeCrop}</div>
+                <div><strong>Anomaly Event Date:</strong> {eventDate}</div>
+                <div><strong>Claimed Amount:</strong> ₹{parseFloat(claimedAmount).toLocaleString()}</div>
               </div>
             </div>
 
             <div className="alert-banner alert-info" style={{ marginBottom: 20 }}>
               <Shield size={18} />
               <span>
-                Upon submission, a state transition transaction will be cryptographically broadcasted to the Hyperledger Fabric channel.
+                By clicking submit, your claim is authenticated with your session signature and broadcasted to the Hyperledger Fabric channel. Section 420 IPC penalties apply for fraudulent filings.
               </span>
             </div>
 
             <div style={{ display: "flex", justifyContent: "space-between" }}>
-              <button type="button" className="btn btn-secondary" onClick={() => setStep(2)}>
+              <button type="button" className="btn btn-secondary" onClick={() => setStep(2)} disabled={isSubmitting}>
                 <ArrowLeft size={16} /> Back
               </button>
-              <button type="button" className="btn btn-primary" onClick={handleFinalSubmit}>
-                Confirm & Submit Claim <CheckCircle2 size={16} />
+              <button type="button" className="btn btn-primary" onClick={handleFinalSubmit} disabled={isSubmitting}>
+                {isSubmitting ? "Broadcasting to Ledger..." : "Confirm & Sign Claim Submission"} <CheckCircle2 size={16} />
               </button>
             </div>
           </div>

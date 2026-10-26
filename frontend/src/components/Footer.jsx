@@ -14,7 +14,7 @@ import {
 import { useApp } from "../context/AppContext";
 
 export function Footer() {
-  const { currentRole, switchRole, isOnline } = useApp();
+  const { user, isOnline } = useApp();
 
   return (
     <footer style={{
@@ -76,40 +76,36 @@ export function Footer() {
           </div>
           <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 8 }}>
             <li>
-              <button
-                type="button"
-                onClick={() => switchRole("FARMER")}
-                style={{ background: "none", border: "none", padding: 0, color: currentRole === "FARMER" ? "var(--color-primary)" : "var(--text-muted)", cursor: "pointer", fontWeight: currentRole === "FARMER" ? 700 : 400 }}
+              <Link
+                to={user && user.role?.toUpperCase() === "FARMER" ? "/farmer-dashboard" : "/auth/farmer"}
+                style={{ color: "var(--text-muted)", textDecoration: "none" }}
               >
-                🌾 Farmer Dashboard {currentRole === "FARMER" && "(Active)"}
-              </button>
+                🌾 Farmer Portal {user && user.role?.toUpperCase() === "FARMER" && "(Signed In)"}
+              </Link>
             </li>
             <li>
-              <button
-                type="button"
-                onClick={() => switchRole("INSURER")}
-                style={{ background: "none", border: "none", padding: 0, color: currentRole === "INSURER" ? "var(--color-primary)" : "var(--text-muted)", cursor: "pointer", fontWeight: currentRole === "INSURER" ? 700 : 400 }}
+              <Link
+                to={user && user.role?.toUpperCase() === "INSURER" ? "/claim-reviews" : "/auth/insurer"}
+                style={{ color: "var(--text-muted)", textDecoration: "none" }}
               >
-                ⚖️ Insurance Officer Adjudication {currentRole === "INSURER" && "(Active)"}
-              </button>
+                ⚖️ Insurance Officer Portal {user && user.role?.toUpperCase() === "INSURER" && "(Signed In)"}
+              </Link>
             </li>
             <li>
-              <button
-                type="button"
-                onClick={() => switchRole("ADMIN")}
-                style={{ background: "none", border: "none", padding: 0, color: currentRole === "ADMIN" ? "var(--color-primary)" : "var(--text-muted)", cursor: "pointer", fontWeight: currentRole === "ADMIN" ? 700 : 400 }}
+              <Link
+                to={user && user.role?.toUpperCase() === "ADMIN" ? "/admin-dashboard" : "/auth/admin"}
+                style={{ color: "var(--text-muted)", textDecoration: "none" }}
               >
-                ⚙️ Administrator Control Console {currentRole === "ADMIN" && "(Active)"}
-              </button>
+                ⚙️ Administrator Console {user && user.role?.toUpperCase() === "ADMIN" && "(Signed In)"}
+              </Link>
             </li>
             <li>
-              <button
-                type="button"
-                onClick={() => switchRole("AUDITOR")}
-                style={{ background: "none", border: "none", padding: 0, color: currentRole === "AUDITOR" ? "var(--color-primary)" : "var(--text-muted)", cursor: "pointer", fontWeight: currentRole === "AUDITOR" ? 700 : 400 }}
+              <Link
+                to={user && user.role?.toUpperCase() === "AUDITOR" ? "/blockchain" : "/auth/auditor"}
+                style={{ color: "var(--text-muted)", textDecoration: "none" }}
               >
-                🔍 Auditor / Regulatory Explorer {currentRole === "AUDITOR" && "(Active)"}
-              </button>
+                🔍 Auditor / Regulatory Cell {user && user.role?.toUpperCase() === "AUDITOR" && "(Signed In)"}
+              </Link>
             </li>
             <li style={{ marginTop: 4 }}>
               <Link to="/auth" style={{ color: "var(--color-primary)", textDecoration: "none", fontWeight: 600 }}>

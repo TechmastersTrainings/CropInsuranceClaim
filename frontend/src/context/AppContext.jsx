@@ -123,11 +123,14 @@ export function AppProvider({ children }) {
   };
 
   const addClaim = (newClaim) => {
+    if (!user) {
+      throw new Error("Authentication Required: Only authenticated farmers can submit claims under PMFBY regulations.");
+    }
     const id = `CLM-2026-${Math.floor(884 + Math.random() * 100)}`;
     const tx = `0x${Array.from({ length: 64 }, () => Math.floor(Math.random() * 16).toString(16)).join("")}`;
-    const actorName = user?.name || "Registered Farmer";
-    const actorEmail = user?.email || "farmer@agrishield.org";
-    const actorRole = user?.role || currentRole || "FARMER";
+    const actorName = user.name;
+    const actorEmail = user.email || `${user.id?.toLowerCase()}@agrishield.org`;
+    const actorRole = (user.role || "FARMER").toUpperCase();
 
     const claimRecord = {
       ...newClaim,

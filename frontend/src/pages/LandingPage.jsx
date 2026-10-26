@@ -22,12 +22,31 @@ import {
 import { useApp } from "../context/AppContext";
 
 export function LandingPage() {
-  const { switchRole } = useApp();
+  const { user } = useApp();
   const navigate = useNavigate();
 
-  const handleLaunchRole = (role, path) => {
-    switchRole(role);
-    navigate(path);
+  const handleFarmerAction = () => {
+    if (user && (user.role === "FARMER" || user.role === "ADMIN")) {
+      navigate("/claim-wizard");
+    } else {
+      navigate("/auth/farmer");
+    }
+  };
+
+  const handleInsurerAction = () => {
+    if (user && (user.role === "INSURER" || user.role === "ADMIN")) {
+      navigate("/claim-reviews");
+    } else {
+      navigate("/auth/insurer");
+    }
+  };
+
+  const handleRoleCard = (roleKey, authedPath) => {
+    if (user && user.role?.toUpperCase() === roleKey.toUpperCase()) {
+      navigate(authedPath);
+    } else {
+      navigate(`/auth/${roleKey.toLowerCase()}`);
+    }
   };
 
   return (
@@ -86,9 +105,9 @@ export function LandingPage() {
               type="button"
               className="btn btn-primary"
               style={{ padding: "12px 24px", fontSize: "0.95rem" }}
-              onClick={() => handleLaunchRole("FARMER", "/claim-wizard")}
+              onClick={handleFarmerAction}
             >
-              <span>🌾 Submit Crop Claim</span>
+              <span>🌾 {user ? "Submit Crop Claim" : "File Crop Claim (Farmer Login)"}</span>
               <ArrowRight size={18} />
             </button>
 
@@ -96,9 +115,9 @@ export function LandingPage() {
               type="button"
               className="btn btn-secondary"
               style={{ padding: "12px 24px", fontSize: "0.95rem" }}
-              onClick={() => handleLaunchRole("INSURER", "/claim-reviews")}
+              onClick={handleInsurerAction}
             >
-              <span>⚖️ Officer Adjudication</span>
+              <span>⚖️ {user ? "Claim Adjudication" : "Officer Portal (Insurer Login)"}</span>
             </button>
 
             <Link
@@ -106,16 +125,18 @@ export function LandingPage() {
               className="btn btn-secondary"
               style={{ padding: "12px 24px", fontSize: "0.95rem" }}
             >
-              <span>📖 How It Works (Operating Guide)</span>
+              <span>📖 Operating Guide</span>
             </Link>
 
-            <Link
-              to="/auth"
-              className="btn btn-secondary"
-              style={{ padding: "12px 24px", fontSize: "0.95rem" }}
-            >
-              <span>🔐 Sign In / Register</span>
-            </Link>
+            {!user && (
+              <Link
+                to="/auth"
+                className="btn btn-secondary"
+                style={{ padding: "12px 24px", fontSize: "0.95rem" }}
+              >
+                <span>🔐 Sign In / Register</span>
+              </Link>
+            )}
           </div>
 
           {/* Metrics Ticker */}
@@ -177,9 +198,9 @@ export function LandingPage() {
               type="button"
               className="btn btn-primary"
               style={{ width: "100%", justifyContent: "center" }}
-              onClick={() => handleLaunchRole("FARMER", "/farmer-dashboard")}
+              onClick={() => handleRoleCard("FARMER", "/farmer-dashboard")}
             >
-              Launch Farmer Portal &rarr;
+              {user && user.role?.toUpperCase() === "FARMER" ? "Open Farmer Workspace →" : "Sign In / Register as Farmer →"}
             </button>
           </div>
 
@@ -199,9 +220,9 @@ export function LandingPage() {
               type="button"
               className="btn btn-primary"
               style={{ width: "100%", justifyContent: "center", background: "var(--color-primary-light)", borderColor: "var(--color-primary-light)" }}
-              onClick={() => handleLaunchRole("INSURER", "/claim-reviews")}
+              onClick={() => handleRoleCard("INSURER", "/claim-reviews")}
             >
-              Launch Officer Adjudication &rarr;
+              {user && user.role?.toUpperCase() === "INSURER" ? "Open Adjudication Portal →" : "Sign In as Insurance Officer →"}
             </button>
           </div>
 
@@ -221,9 +242,9 @@ export function LandingPage() {
               type="button"
               className="btn btn-secondary"
               style={{ width: "100%", justifyContent: "center" }}
-              onClick={() => handleLaunchRole("ADMIN", "/admin-dashboard")}
+              onClick={() => handleRoleCard("ADMIN", "/admin-dashboard")}
             >
-              Launch Admin Console &rarr;
+              {user && user.role?.toUpperCase() === "ADMIN" ? "Open Admin Console →" : "Sign In as Administrator →"}
             </button>
           </div>
 
@@ -243,9 +264,9 @@ export function LandingPage() {
               type="button"
               className="btn btn-secondary"
               style={{ width: "100%", justifyContent: "center", color: "var(--color-blockchain)", borderColor: "var(--color-blockchain)" }}
-              onClick={() => handleLaunchRole("AUDITOR", "/blockchain")}
+              onClick={() => handleRoleCard("AUDITOR", "/blockchain")}
             >
-              Launch Audit Console &rarr;
+              {user && user.role?.toUpperCase() === "AUDITOR" ? "Open Audit Console →" : "Sign In as Govt. Auditor →"}
             </button>
           </div>
         </div>
