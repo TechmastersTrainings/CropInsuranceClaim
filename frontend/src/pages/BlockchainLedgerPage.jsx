@@ -69,7 +69,7 @@ export function BlockchainLedgerPage() {
         <div className="card" style={{ padding: 16 }}>
           <div style={{ fontSize: "0.75rem", color: "var(--text-muted)", textTransform: "uppercase" }}>Current Block Height</div>
           <div style={{ fontSize: "1.4rem", fontWeight: 700, color: "var(--color-blockchain)", marginTop: 4 }}>
-            #{ledger[0]?.blockNumber || 10428}
+            #{ledger.length > 0 ? ledger[0]?.blockNumber : 0}
           </div>
           <div style={{ fontSize: "0.75rem", color: "var(--color-primary-light)", marginTop: 2 }}>Zero orphaned blocks</div>
         </div>
@@ -115,52 +115,62 @@ export function BlockchainLedgerPage() {
       </div>
 
       {/* Blocks Table */}
-      <div className="card" style={{ padding: 0 }}>
-        <div className="table-wrapper">
-          <table className="data-table">
-            <thead>
-              <tr>
-                <th>Block #</th>
-                <th>Lifecycle Event</th>
-                <th>Target Claim ID</th>
-                <th>Cryptographic Transaction Hash</th>
-                <th>Endorsers</th>
-                <th>Timestamp (UTC)</th>
-                <th>Validation</th>
-              </tr>
-            </thead>
-            <tbody>
-              {filtered.map((b) => (
-                <tr key={b.blockNumber}>
-                  <td>
-                    <strong style={{ fontFamily: "var(--font-mono)", color: "var(--color-blockchain)" }}>
-                      #{b.blockNumber}
-                    </strong>
-                  </td>
-                  <td>
-                    <span className="badge badge-blockchain">{b.event}</span>
-                  </td>
-                  <td>
-                    <strong>{b.claimId}</strong>
-                  </td>
-                  <td>
-                    <code style={{ fontSize: "0.75rem", color: "var(--color-blockchain)" }}>
-                      {b.txHash}
-                    </code>
-                  </td>
-                  <td style={{ fontSize: "0.8rem", color: "var(--text-muted)" }}>{b.endorsers}</td>
-                  <td style={{ fontSize: "0.8rem", color: "var(--text-muted)" }}>{b.timestamp}</td>
-                  <td>
-                    <span className="badge badge-approved" style={{ display: "inline-flex", alignItems: "center", gap: 4 }}>
-                      <CheckCircle2 size={12} /> {b.status}
-                    </span>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+      {filtered.length === 0 ? (
+        <div className="card" style={{ textAlign: "center", padding: "40px 20px" }}>
+          <Layers size={40} style={{ color: "var(--text-muted)", margin: "0 auto 12px" }} />
+          <h3 style={{ fontSize: "1.1rem", fontWeight: 700, marginBottom: 6 }}>No Blocks Committed in Channel Yet</h3>
+          <p style={{ color: "var(--text-muted)", fontSize: "0.88rem", maxWidth: 440, margin: "0 auto 16px" }}>
+            When claims are submitted, assessed, and settled, peer-endorsed transactions and cryptographic block receipts will be committed here.
+          </p>
         </div>
-      </div>
+      ) : (
+        <div className="card" style={{ padding: 0 }}>
+          <div className="table-wrapper">
+            <table className="data-table">
+              <thead>
+                <tr>
+                  <th>Block #</th>
+                  <th>Lifecycle Event</th>
+                  <th>Target Claim ID</th>
+                  <th>Cryptographic Transaction Hash</th>
+                  <th>Endorsers</th>
+                  <th>Timestamp (UTC)</th>
+                  <th>Validation</th>
+                </tr>
+              </thead>
+              <tbody>
+                {filtered.map((b) => (
+                  <tr key={b.blockNumber}>
+                    <td>
+                      <strong style={{ fontFamily: "var(--font-mono)", color: "var(--color-blockchain)" }}>
+                        #{b.blockNumber}
+                      </strong>
+                    </td>
+                    <td>
+                      <span className="badge badge-blockchain">{b.event}</span>
+                    </td>
+                    <td>
+                      <strong>{b.claimId}</strong>
+                    </td>
+                    <td>
+                      <code style={{ fontSize: "0.75rem", color: "var(--color-blockchain)" }}>
+                        {b.txHash}
+                      </code>
+                    </td>
+                    <td style={{ fontSize: "0.8rem", color: "var(--text-muted)" }}>{b.endorsers}</td>
+                    <td style={{ fontSize: "0.8rem", color: "var(--text-muted)" }}>{b.timestamp}</td>
+                    <td>
+                      <span className="badge badge-approved" style={{ display: "inline-flex", alignItems: "center", gap: 4 }}>
+                        <CheckCircle2 size={12} /> {b.status}
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

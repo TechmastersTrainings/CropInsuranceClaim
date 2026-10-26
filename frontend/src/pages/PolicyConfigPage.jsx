@@ -12,21 +12,39 @@ export function PolicyConfigPage() {
   const [newPolicy, setNewPolicy] = useState({
     id: `POL-NEW-${Math.floor(100 + Math.random() * 900)}`,
     title: "",
-    provider: "National Agri-Insurance Corp (NAIC)",
-    licenseNo: "IRDAI/NL-104/AGRI",
-    crop: "Wheat",
-    season: "Rabi 2026-27",
-    premiumPerAcre: 1100,
-    coveragePerAcre: 32000,
-    triggerParameter: "Terminal Heat > 36°C for 4 days during grain filling",
-    deductiblePercent: 5,
+    provider: "",
+    licenseNo: "",
+    crop: crops[0]?.name || "",
+    season: "",
+    premiumPerAcre: "",
+    coveragePerAcre: "",
+    triggerParameter: "",
+    deductiblePercent: "",
     status: "Active",
-    validUntil: "2027-03-31"
+    validUntil: ""
   });
 
   const handleCreate = (e) => {
     e.preventDefault();
-    setPolicyList([...policyList, newPolicy]);
+    setPolicyList([...policyList, {
+      ...newPolicy,
+      premiumPerAcre: parseFloat(newPolicy.premiumPerAcre) || 0,
+      coveragePerAcre: parseFloat(newPolicy.coveragePerAcre) || 0,
+    }]);
+    setNewPolicy({
+      id: `POL-NEW-${Math.floor(100 + Math.random() * 900)}`,
+      title: "",
+      provider: "",
+      licenseNo: "",
+      crop: crops[0]?.name || "",
+      season: "",
+      premiumPerAcre: "",
+      coveragePerAcre: "",
+      triggerParameter: "",
+      deductiblePercent: "",
+      status: "Active",
+      validUntil: ""
+    });
     setIsModalOpen(false);
     setSuccessMsg(`Parametric policy "${newPolicy.title}" published and registered to smart contract catalog.`);
     setTimeout(() => setSuccessMsg(""), 3500);
@@ -130,6 +148,7 @@ export function PolicyConfigPage() {
               <input
                 type="text"
                 className="form-control"
+                placeholder="e.g. Kharif 2026, Rabi 2026-27"
                 value={newPolicy.season}
                 onChange={(e) => setNewPolicy({ ...newPolicy, season: e.target.value })}
               />
@@ -142,8 +161,9 @@ export function PolicyConfigPage() {
               <input
                 type="number"
                 className="form-control"
+                placeholder="Enter premium rate"
                 value={newPolicy.premiumPerAcre}
-                onChange={(e) => setNewPolicy({ ...newPolicy, premiumPerAcre: parseFloat(e.target.value) || 1000 })}
+                onChange={(e) => setNewPolicy({ ...newPolicy, premiumPerAcre: e.target.value })}
               />
             </div>
             <div className="form-group">
@@ -151,8 +171,9 @@ export function PolicyConfigPage() {
               <input
                 type="number"
                 className="form-control"
+                placeholder="Enter coverage amount"
                 value={newPolicy.coveragePerAcre}
-                onChange={(e) => setNewPolicy({ ...newPolicy, coveragePerAcre: parseFloat(e.target.value) || 30000 })}
+                onChange={(e) => setNewPolicy({ ...newPolicy, coveragePerAcre: e.target.value })}
               />
             </div>
           </div>
@@ -162,6 +183,7 @@ export function PolicyConfigPage() {
             <textarea
               className="form-control"
               rows={2}
+              placeholder="e.g. Rainfall < 20mm for 18 days OR Temp > 40°C"
               value={newPolicy.triggerParameter}
               onChange={(e) => setNewPolicy({ ...newPolicy, triggerParameter: e.target.value })}
             />

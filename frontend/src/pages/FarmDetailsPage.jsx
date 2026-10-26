@@ -7,8 +7,8 @@ export function FarmDetailsPage() {
   const { farmId } = useParams();
   const { farms, telemetrySeries } = useApp();
 
-  const farm = farms.find(f => String(f.id) === String(farmId)) || farms[0];
-  const latest = telemetrySeries[telemetrySeries.length - 1] || { temp: 28, moisture: 16 };
+  const farm = farms.find(f => String(f.id) === String(farmId));
+  const latest = telemetrySeries.length > 0 ? telemetrySeries[telemetrySeries.length - 1] : { temp: "--", moisture: "--" };
 
   if (!farm) {
     return (

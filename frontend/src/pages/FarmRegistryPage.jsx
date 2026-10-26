@@ -9,28 +9,43 @@ export function FarmRegistryPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // New plot form state
+  // New plot form state (strictly empty defaults)
   const [formData, setFormData] = useState({
     name: "",
     surveyNo: "",
     area: "",
     unit: "Acres",
-    latitude: "15.3647",
-    longitude: "75.1240",
+    latitude: "",
+    longitude: "",
     village: "",
-    district: "Dharwad",
-    state: "Karnataka",
-    soilType: "Black Cotton Soil",
-    irrigation: "Borewell + Drip",
-    activeCrop: "Cotton",
-    documentRef: "DOC-NEW-UPLOAD.pdf"
+    district: "",
+    state: "",
+    soilType: "",
+    irrigation: "",
+    activeCrop: "",
+    documentRef: ""
   });
 
-  const handleCreateFarm = (e) => {
+  const handleCreateFarm = async (e) => {
     e.preventDefault();
-    addFarm({
+    await addFarm({
       ...formData,
-      area: parseFloat(formData.area) || 2.5
+      area: parseFloat(formData.area) || 1.0
+    });
+    setFormData({
+      name: "",
+      surveyNo: "",
+      area: "",
+      unit: "Acres",
+      latitude: "",
+      longitude: "",
+      village: "",
+      district: "",
+      state: "",
+      soilType: "",
+      irrigation: "",
+      activeCrop: "",
+      documentRef: ""
     });
     setIsModalOpen(false);
   };
@@ -156,7 +171,7 @@ export function FarmRegistryPage() {
             <input
               type="text"
               className="form-control"
-              placeholder="e.g. Cauvery Riverbank Section A"
+              placeholder="Enter plot identification name"
               required
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -169,7 +184,7 @@ export function FarmRegistryPage() {
               <input
                 type="text"
                 className="form-control"
-                placeholder="e.g. SY-304/2A"
+                placeholder="Enter cadastral survey number"
                 required
                 value={formData.surveyNo}
                 onChange={(e) => setFormData({ ...formData, surveyNo: e.target.value })}
@@ -181,7 +196,7 @@ export function FarmRegistryPage() {
                 type="number"
                 step="0.1"
                 className="form-control"
-                placeholder="e.g. 3.5"
+                placeholder="Enter area in acres"
                 required
                 value={formData.area}
                 onChange={(e) => setFormData({ ...formData, area: e.target.value })}
@@ -191,11 +206,11 @@ export function FarmRegistryPage() {
 
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
             <div className="form-group">
-              <label className="form-label">Village / Town</label>
+              <label className="form-label">Village / Taluk</label>
               <input
                 type="text"
                 className="form-control"
-                placeholder="e.g. Navalgund"
+                placeholder="Enter village or taluk"
                 required
                 value={formData.village}
                 onChange={(e) => setFormData({ ...formData, village: e.target.value })}
@@ -206,10 +221,23 @@ export function FarmRegistryPage() {
               <input
                 type="text"
                 className="form-control"
+                placeholder="Enter district"
+                required
                 value={formData.district}
                 onChange={(e) => setFormData({ ...formData, district: e.target.value })}
               />
             </div>
+          </div>
+
+          <div className="form-group">
+            <label className="form-label">State</label>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Enter state"
+              value={formData.state}
+              onChange={(e) => setFormData({ ...formData, state: e.target.value })}
+            />
           </div>
 
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
@@ -220,6 +248,7 @@ export function FarmRegistryPage() {
                 value={formData.soilType}
                 onChange={(e) => setFormData({ ...formData, soilType: e.target.value })}
               >
+                <option value="">-- Select Soil Classification --</option>
                 <option value="Black Cotton Soil">Black Cotton Soil</option>
                 <option value="Clay Loam">Clay Loam</option>
                 <option value="Sandy Loam">Sandy Loam</option>
@@ -234,6 +263,7 @@ export function FarmRegistryPage() {
                 value={formData.irrigation}
                 onChange={(e) => setFormData({ ...formData, irrigation: e.target.value })}
               >
+                <option value="">-- Select Irrigation Method --</option>
                 <option value="Borewell + Drip Irrigation">Borewell + Drip Irrigation</option>
                 <option value="Canal Fed">Canal Fed</option>
                 <option value="Rainfed">Rainfed</option>
@@ -247,7 +277,7 @@ export function FarmRegistryPage() {
             <input
               type="text"
               className="form-control"
-              placeholder="e.g. Cotton, Paddy, Soybean"
+              placeholder="Enter cultivated crop (e.g. Cotton, Paddy, Maize)"
               value={formData.activeCrop}
               onChange={(e) => setFormData({ ...formData, activeCrop: e.target.value })}
             />

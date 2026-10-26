@@ -47,7 +47,7 @@ export function AdminDashboard() {
         <StatCard
           icon={Layers}
           label="Ledger Blocks Committed"
-          value={`#${ledger[0]?.blockNumber || 10428}`}
+          value={ledger.length > 0 ? `#${ledger[0]?.blockNumber}` : "#0"}
           trend="Hyperledger Fabric Testnet"
           trendType="positive"
         />

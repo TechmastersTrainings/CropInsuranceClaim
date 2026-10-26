@@ -643,7 +643,7 @@ export function ClaimReviewPage() {
                       onClick={() => handleAction("Settled")}
                       style={{ justifyContent: "center" }}
                     >
-                      <Check size={16} /> Confirm Settlement (Demo)
+                      <Check size={16} /> Confirm Payout Settlement
                     </button>
                   )}
 

@@ -56,36 +56,46 @@ export function AuditLogsPage() {
         </div>
       </div>
 
-      <div className="card" style={{ padding: 0 }}>
-        <div className="table-wrapper">
-          <table className="data-table">
-            <thead>
-              <tr>
-                <th>Log ID</th>
-                <th>Timestamp</th>
-                <th>Actor Email</th>
-                <th>Role</th>
-                <th>Action Performed</th>
-                <th>Target Object</th>
-                <th>IP Address</th>
-              </tr>
-            </thead>
-            <tbody>
-              {filtered.map((log) => (
-                <tr key={log.id}>
-                  <td><strong style={{ fontFamily: "var(--font-mono)" }}>#{log.id}</strong></td>
-                  <td>{log.timestamp}</td>
-                  <td><strong>{log.actor}</strong></td>
-                  <td><span className="badge badge-draft">{log.role}</span></td>
-                  <td>{log.action}</td>
-                  <td><strong style={{ color: "var(--color-primary)" }}>{log.target}</strong></td>
-                  <td><span style={{ fontFamily: "var(--font-mono)", fontSize: "0.8rem" }}>{log.ip}</span></td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+      {filtered.length === 0 ? (
+        <div className="card" style={{ textAlign: "center", padding: "40px 20px" }}>
+          <Shield size={40} style={{ color: "var(--text-muted)", margin: "0 auto 12px" }} />
+          <h3 style={{ fontSize: "1.1rem", fontWeight: 700, marginBottom: 6 }}>No Audit Events Recorded Yet</h3>
+          <p style={{ color: "var(--text-muted)", fontSize: "0.88rem", maxWidth: 440, margin: "0 auto 16px" }}>
+            Audit records will be generated automatically as users authenticate, register land plots, file claims, and authorize claim transitions.
+          </p>
         </div>
-      </div>
+      ) : (
+        <div className="card" style={{ padding: 0 }}>
+          <div className="table-wrapper">
+            <table className="data-table">
+              <thead>
+                <tr>
+                  <th>Log ID</th>
+                  <th>Timestamp</th>
+                  <th>Actor Email</th>
+                  <th>Role</th>
+                  <th>Action Performed</th>
+                  <th>Target Object</th>
+                  <th>IP Address</th>
+                </tr>
+              </thead>
+              <tbody>
+                {filtered.map((log) => (
+                  <tr key={log.id}>
+                    <td><strong style={{ fontFamily: "var(--font-mono)" }}>#{log.id}</strong></td>
+                    <td>{log.timestamp}</td>
+                    <td><strong>{log.actor}</strong></td>
+                    <td><span className="badge badge-draft">{log.role}</span></td>
+                    <td>{log.action}</td>
+                    <td><strong style={{ color: "var(--color-primary)" }}>{log.target}</strong></td>
+                    <td><span style={{ fontFamily: "var(--font-mono)", fontSize: "0.8rem" }}>{log.ip}</span></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

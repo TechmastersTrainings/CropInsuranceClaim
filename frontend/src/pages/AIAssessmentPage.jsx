@@ -62,6 +62,32 @@ export function AIAssessmentPage() {
     }
   };
 
+  if (claims.length === 0) {
+    return (
+      <div className="page-container">
+        <div className="page-header">
+          <div>
+            <h1 className="page-title">
+              <Activity size={28} />
+              <span>Crop Condition & Anomaly Assessment Workspace</span>
+            </h1>
+            <p className="page-subtitle">
+              Authorized multi-source evidence verification correlating field telemetry, weather indices, and satellite observations.
+            </p>
+          </div>
+        </div>
+
+        <div className="card" style={{ textAlign: "center", padding: "50px 24px" }}>
+          <Activity size={48} style={{ color: "var(--text-muted)", margin: "0 auto 16px" }} />
+          <h3 style={{ fontSize: "1.2rem", fontWeight: 700, marginBottom: 8 }}>No Claims Filed in Database Yet</h3>
+          <p style={{ color: "var(--text-muted)", fontSize: "0.9rem", maxWidth: 480, margin: "0 auto 20px" }}>
+            Automated multi-modal condition scoring and satellite anomaly inference become active when an insurance claim is filed by a farmer.
+          </p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="page-container">
       <div className="page-header" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: 16 }}>

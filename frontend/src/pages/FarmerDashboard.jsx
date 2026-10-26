@@ -40,7 +40,8 @@ export function FarmerDashboard() {
             <span>Welcome, {user?.name || "Farmer"}</span>
           </h1>
           <p className="page-subtitle">
-            District: {user?.district || "Dharwad"}, {user?.state || "Karnataka"} | Aadhaar ID: {user?.aadhaarMasked || "XXXX-XXXX-4819"}
+            {user?.district ? `${user.district}${user.state ? `, ${user.state}` : ""}` : "Registered Cultivator Portal"}
+            {user?.aadhaarMasked ? ` | Aadhaar ID: ${user.aadhaarMasked}` : ""}
           </p>
         </div>
         <div style={{ display: "flex", gap: 10 }}>

@@ -54,11 +54,15 @@ export function IoTMonitoringPage() {
             value={selectedFarm}
             onChange={(e) => setSelectedFarm(e.target.value)}
           >
-            {farms.map((f) => (
-              <option key={f.id} value={f.id}>
-                {f.name} (Survey: {f.surveyNo}, Crop: {f.activeCrop})
-              </option>
-            ))}
+            {farms.length === 0 ? (
+              <option value="">No registered farm plots</option>
+            ) : (
+              farms.map((f) => (
+                <option key={f.id} value={f.id}>
+                  {f.name} (Survey: {f.surveyNo}, Crop: {f.activeCrop})
+                </option>
+              ))
+            )}
           </select>
         </div>
       </div>

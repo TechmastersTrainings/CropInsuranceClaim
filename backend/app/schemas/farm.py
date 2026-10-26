@@ -8,14 +8,14 @@ class FarmCreate(BaseModel):
     survey_number: str
     area_acres: float
     village: str
-    taluk: Optional[str] = "Navalgund"
-    district: Optional[str] = "Dharwad"
-    state: Optional[str] = "Karnataka"
-    latitude: Optional[float] = 15.3647
-    longitude: Optional[float] = 75.1240
-    soil_type: Optional[str] = "Black Cotton Soil"
-    irrigation_type: Optional[str] = "Borewell + Drip"
-    active_crop_name: Optional[str] = "Cotton"
+    taluk: Optional[str] = None
+    district: Optional[str] = None
+    state: Optional[str] = None
+    latitude: Optional[float] = None
+    longitude: Optional[float] = None
+    soil_type: Optional[str] = None
+    irrigation_type: Optional[str] = None
+    active_crop_name: Optional[str] = None
 
 
 class FarmResponse(FarmCreate):

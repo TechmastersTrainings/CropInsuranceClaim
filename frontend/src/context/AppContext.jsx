@@ -62,15 +62,15 @@ export function AppProvider({ children }) {
             surveyNo: f.survey_number,
             area: f.area_acres,
             unit: "Acres",
-            village: f.village,
-            taluk: f.taluk || "Dharwad",
-            district: f.district || "Dharwad",
-            state: f.state || "Karnataka",
-            latitude: f.latitude || 15.3647,
-            longitude: f.longitude || 75.1240,
-            soilType: f.soil_type || "Black Cotton Soil",
-            irrigation: f.irrigation_type || "Borewell + Drip",
-            activeCrop: f.active_crop_name || "Cotton",
+            village: f.village || "",
+            taluk: f.taluk || "",
+            district: f.district || "",
+            state: f.state || "",
+            latitude: f.latitude || 0,
+            longitude: f.longitude || 0,
+            soilType: f.soil_type || "",
+            irrigation: f.irrigation_type || "",
+            activeCrop: f.active_crop_name || "",
             documentRef: f.document_ref || "VERIFIED_KHATA.pdf"
           })));
         }
@@ -230,16 +230,16 @@ export function AppProvider({ children }) {
       const created = await createFarmPlot({
         name: newFarm.name,
         survey_number: newFarm.surveyNo,
-        area_acres: parseFloat(newFarm.area) || 2.5,
-        village: newFarm.village || "Navalgund",
-        taluk: newFarm.taluk || "Dharwad",
-        district: newFarm.district || "Dharwad",
-        state: newFarm.state || "Karnataka",
-        latitude: parseFloat(newFarm.latitude) || 15.3647,
-        longitude: parseFloat(newFarm.longitude) || 75.1240,
-        soil_type: newFarm.soilType || "Black Cotton Soil",
-        irrigation_type: newFarm.irrigation || "Borewell + Drip",
-        active_crop_name: newFarm.activeCrop || "Cotton"
+        area_acres: parseFloat(newFarm.area) || 1.0,
+        village: newFarm.village || "",
+        taluk: newFarm.taluk || "",
+        district: newFarm.district || "",
+        state: newFarm.state || "",
+        latitude: newFarm.latitude ? parseFloat(newFarm.latitude) : null,
+        longitude: newFarm.longitude ? parseFloat(newFarm.longitude) : null,
+        soil_type: newFarm.soilType || "",
+        irrigation_type: newFarm.irrigation || "",
+        active_crop_name: newFarm.activeCrop || ""
       });
 
       const mapped = {

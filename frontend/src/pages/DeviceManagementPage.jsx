@@ -14,7 +14,7 @@ export function DeviceManagementPage() {
 
   const [newDevice, setNewDevice] = useState({
     id: "",
-    farm: farms[0]?.name || "Navalgund Plot",
+    farm: farms[0]?.name || "",
     type: "ESP32 Solar Probe",
     battery: "100%",
     signal: "Strong (WiFi)",
@@ -25,6 +25,15 @@ export function DeviceManagementPage() {
   const handleCreate = (e) => {
     e.preventDefault();
     setDeviceList([...deviceList, newDevice]);
+    setNewDevice({
+      id: "",
+      farm: farms[0]?.name || "",
+      type: "ESP32 Solar Probe",
+      battery: "100%",
+      signal: "Strong (WiFi)",
+      status: "Online",
+      lastSync: "Just now"
+    });
     setIsModalOpen(false);
   };
 
@@ -106,23 +115,35 @@ export function DeviceManagementPage() {
       )}
 
       {/* Devices Table */}
-      <div className="card" style={{ padding: 0 }}>
-        <div className="table-wrapper">
-          <table className="data-table">
-            <thead>
-              <tr>
-                <th>Hardware ID</th>
-                <th>Device Architecture</th>
-                <th>Assigned Farm Plot</th>
-                <th>Battery Level</th>
-                <th>Telemetry Signal</th>
-                <th>Status</th>
-                <th>Last Ping</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {deviceList.map((dev) => (
+      {deviceList.length === 0 ? (
+        <div className="card" style={{ textAlign: "center", padding: "40px 20px" }}>
+          <Cpu size={40} style={{ color: "var(--text-muted)", margin: "0 auto 12px" }} />
+          <h3 style={{ fontSize: "1.1rem", fontWeight: 700, marginBottom: 6 }}>No Sensor Devices Provisioned</h3>
+          <p style={{ color: "var(--text-muted)", fontSize: "0.88rem", maxWidth: 420, margin: "0 auto 16px" }}>
+            Provision on-farm IoT microclimate sensor probes to bind hardware keys and stream telemetry.
+          </p>
+          <button className="btn btn-primary" onClick={() => setIsModalOpen(true)}>
+            <Plus size={16} /> Provision New Sensor Node
+          </button>
+        </div>
+      ) : (
+        <div className="card" style={{ padding: 0 }}>
+          <div className="table-wrapper">
+            <table className="data-table">
+              <thead>
+                <tr>
+                  <th>Hardware ID</th>
+                  <th>Device Architecture</th>
+                  <th>Assigned Farm Plot</th>
+                  <th>Battery Level</th>
+                  <th>Telemetry Signal</th>
+                  <th>Status</th>
+                  <th>Last Ping</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {deviceList.map((dev) => (
                 <tr key={dev.id}>
                   <td>
                     <strong>{dev.id}</strong>
@@ -172,6 +193,7 @@ export function DeviceManagementPage() {
           </table>
         </div>
       </div>
+      )}
 
       {/* Provision Modal */}
       <Modal

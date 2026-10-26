@@ -8,7 +8,7 @@ export function ClaimDetailPage() {
   const { claimId } = useParams();
   const { claims } = useApp();
 
-  const claim = claims.find(c => c.id === claimId) || claims[0];
+  const claim = claims.find(c => c.id === claimId);
 
   const lifecycleStages = [
     "Draft",
@@ -21,6 +21,26 @@ export function ClaimDetailPage() {
     "Settled",
     "Closed"
   ];
+
+  if (!claim) {
+    return (
+      <div className="page-container">
+        <div style={{ marginBottom: 16 }}>
+          <Link to="/claims" style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: "0.85rem", color: "var(--text-muted)" }}>
+            <ArrowLeft size={16} /> Back to Claim Tracking
+          </Link>
+        </div>
+        <div className="card" style={{ textAlign: "center", padding: "40px 20px" }}>
+          <AlertCircle size={40} style={{ color: "var(--text-muted)", margin: "0 auto 12px" }} />
+          <h3 style={{ marginBottom: 8 }}>Claim Record Not Found</h3>
+          <p style={{ color: "var(--text-muted)", fontSize: "0.9rem" }}>No claim matching ID "{claimId}" exists in the database.</p>
+          <Link to="/claims" className="btn btn-primary" style={{ marginTop: 14 }}>
+            Go to Claim Tracking
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="page-container">

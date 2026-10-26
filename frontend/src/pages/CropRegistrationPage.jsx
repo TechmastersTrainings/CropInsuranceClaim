@@ -6,8 +6,8 @@ export function CropRegistrationPage() {
   const { crops, farms } = useApp();
   const [selectedCrop, setSelectedCrop] = useState(crops[0]);
   const [selectedFarm, setSelectedFarm] = useState(farms[0]?.id || "");
-  const [sowingDate, setSowingDate] = useState("2026-06-15");
-  const [estimatedYield, setEstimatedYield] = useState("18.5");
+  const [sowingDate, setSowingDate] = useState("");
+  const [estimatedYield, setEstimatedYield] = useState("");
   const [savedSuccess, setSavedSuccess] = useState(false);
 
   const handleSubmit = (e) => {
@@ -51,11 +51,15 @@ export function CropRegistrationPage() {
                 value={selectedFarm}
                 onChange={(e) => setSelectedFarm(e.target.value)}
               >
-                {farms.map((f) => (
-                  <option key={f.id} value={f.id}>
-                    {f.name} ({f.surveyNo})
-                  </option>
-                ))}
+                {farms.length === 0 ? (
+                  <option value="">No registered farm plots</option>
+                ) : (
+                  farms.map((f) => (
+                    <option key={f.id} value={f.id}>
+                      {f.name} ({f.surveyNo})
+                    </option>
+                  ))
+                )}
               </select>
             </div>
 
@@ -93,6 +97,7 @@ export function CropRegistrationPage() {
               <input
                 type="number"
                 step="0.5"
+                placeholder="Enter estimated yield (e.g. 18.5)"
                 className="form-control"
                 value={estimatedYield}
                 onChange={(e) => setEstimatedYield(e.target.value)}

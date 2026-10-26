@@ -16,8 +16,8 @@ class UserRegister(BaseModel):
     role: UserRole = UserRole.FARMER
     phone: Optional[str] = None
     aadhaar_masked: Optional[str] = None
-    district: Optional[str] = "Dharwad"
-    state: Optional[str] = "Karnataka"
+    district: Optional[str] = None
+    state: Optional[str] = None
 
 
 class UserResponse(BaseModel):

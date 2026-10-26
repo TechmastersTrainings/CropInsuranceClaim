@@ -21,14 +21,11 @@ export function ClaimSubmissionWizard() {
   const [step, setStep] = useState(1);
   const [selectedFarmId, setSelectedFarmId] = useState(farms[0]?.id || "");
   const [selectedPolicyId, setSelectedPolicyId] = useState(policies[0]?.id || "");
-  const [damageReason, setDamageReason] = useState("Severe Prolonged Dry Spell & Thermal Desiccation");
-  const [eventDate, setEventDate] = useState("2026-09-20");
-  const [claimedAmount, setClaimedAmount] = useState(120000);
+  const [damageReason, setDamageReason] = useState("");
+  const [eventDate, setEventDate] = useState("");
+  const [claimedAmount, setClaimedAmount] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [evidenceFiles] = useState([
-    { name: "Field_Canopy_North_Sector.jpg", size: "2.4 MB", type: "Geotagged Photo" },
-    { name: "Soil_Cracking_CloseUp.jpg", size: "1.8 MB", type: "Foliage Evidence" }
-  ]);
+  const [evidenceFiles, setEvidenceFiles] = useState([]);
 
   // 1. Authentication Guard: Must be signed in
   if (!user) {
@@ -187,17 +184,17 @@ export function ClaimSubmissionWizard() {
 
     try {
       const newClaimId = await addClaim({
-        farmerName: user.name,
+        farmerName: user.name || "Authenticated Farmer",
         farmerId: user.id || 1,
-        farmerMobile: user.phone || "+91 98451 00000",
-        farmerAadhaar: user.aadhaarMasked || "XXXX-XXXX-4819",
+        farmerMobile: user.phone || "",
+        farmerAadhaar: user.aadhaarMasked || "",
         farmId: selectedFarm.id,
         farmName: selectedFarm.name,
         crop: selectedFarm.activeCrop,
         policyId: selectedPolicy.id,
-        claimedAmount: parseFloat(claimedAmount),
-        damageReason,
-        eventDate
+        claimedAmount: parseFloat(claimedAmount) || 0,
+        damageReason: damageReason || "Weather Anomaly Crop Loss",
+        eventDate: eventDate || new Date().toISOString().split("T")[0]
       });
       navigate(`/claims/${newClaimId}`);
     } catch (err) {
@@ -244,9 +241,9 @@ export function ClaimSubmissionWizard() {
               </span>
             </div>
             <div style={{ fontSize: "0.78rem", color: "var(--text-muted)", marginTop: 2 }}>
-              Khata / Survey No: <strong>{user.survey || selectedFarm.surveyNo}</strong> | 
-              Aadhaar: <strong>{user.aadhaarMasked || "XXXX-XXXX-4812"}</strong> | 
-              DBT Bank: <strong>State Bank of India (A/C: ****5592)</strong>
+              Khata / Survey No: <strong>{user.survey || selectedFarm.surveyNo}</strong>
+              {user.aadhaarMasked ? ` | Aadhaar: ${user.aadhaarMasked}` : ""}
+              {user.phone ? ` | Mobile: ${user.phone}` : ""}
             </div>
           </div>
         </div>
@@ -425,7 +422,9 @@ export function ClaimSubmissionWizard() {
                 className="form-control"
                 value={damageReason}
                 onChange={(e) => setDamageReason(e.target.value)}
+                required
               >
+                <option value="">-- Select Damage Category --</option>
                 <option value="Severe Prolonged Dry Spell & Thermal Desiccation">Severe Prolonged Dry Spell & Thermal Desiccation (Drought)</option>
                 <option value="Flash Flood Waterlogging after Cloudburst">Flash Flood Waterlogging after Cloudburst</option>
                 <option value="Unseasonal Hailstorm & High Velocity Winds">Unseasonal Hailstorm & High Velocity Winds</option>
@@ -437,7 +436,8 @@ export function ClaimSubmissionWizard() {
               <label className="form-label">Estimated Loss / Claim Amount (₹)</label>
               <input
                 type="number"
-                step="5000"
+                step="1000"
+                placeholder="Enter estimated claim loss amount"
                 className="form-control"
                 value={claimedAmount}
                 onChange={(e) => setClaimedAmount(e.target.value)}
@@ -466,22 +466,34 @@ export function ClaimSubmissionWizard() {
             </div>
 
             <div style={{ marginBottom: 16 }}>
-              <label className="form-label">Attached Photo / Field Evidence</label>
-              <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-                {evidenceFiles.map((f, idx) => (
-                  <div key={idx} style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    padding: "10px 14px",
-                    background: "var(--bg-subtle)",
-                    borderRadius: "var(--radius-sm)",
-                    fontSize: "0.85rem"
-                  }}>
-                    <span>{f.name} ({f.size})</span>
-                    <span className="badge badge-evidence">{f.type}</span>
-                  </div>
-                ))}
-              </div>
+              <label className="form-label">Attach Photo / Field Evidence (Optional)</label>
+              <input
+                type="file"
+                className="form-control"
+                onChange={(e) => {
+                  const file = e.target.files?.[0];
+                  if (file) {
+                    setEvidenceFiles([...evidenceFiles, { name: file.name, size: `${(file.size / 1024).toFixed(1)} KB`, type: "Field Geotagged Media" }]);
+                  }
+                }}
+              />
+              {evidenceFiles.length > 0 && (
+                <div style={{ display: "flex", flexDirection: "column", gap: 8, marginTop: 8 }}>
+                  {evidenceFiles.map((f, idx) => (
+                    <div key={idx} style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      padding: "10px 14px",
+                      background: "var(--bg-subtle)",
+                      borderRadius: "var(--radius-sm)",
+                      fontSize: "0.85rem"
+                    }}>
+                      <span>{f.name} ({f.size})</span>
+                      <span className="badge badge-evidence">{f.type}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
 
             {/* Final Summary Card with Authenticated Beneficiary */}
@@ -497,12 +509,12 @@ export function ClaimSubmissionWizard() {
                 <span>Parametric Claim Summary Confirmation:</span>
               </div>
               <div className="grid-2" style={{ fontSize: "0.85rem", gap: 8 }}>
-                <div><strong>Claimant:</strong> {user.name} ({user.id || "FMR-USR"})</div>
+                <div><strong>Claimant:</strong> {user.name} ({user.id ? `UID-${user.id}` : "Registered"})</div>
                 <div><strong>Survey Plot:</strong> {selectedFarm.name} ({selectedFarm.surveyNo})</div>
-                <div><strong>Aadhaar Verification:</strong> {user.aadhaarMasked || "XXXX-XXXX-4812"}</div>
+                <div><strong>Aadhaar Verification:</strong> {user.aadhaarMasked || "Verified with Account"}</div>
                 <div><strong>Insured Crop:</strong> {selectedFarm.activeCrop}</div>
                 <div><strong>Anomaly Event Date:</strong> {eventDate}</div>
-                <div><strong>Claimed Amount:</strong> ₹{parseFloat(claimedAmount).toLocaleString()}</div>
+                <div><strong>Claimed Amount:</strong> ₹{parseFloat(claimedAmount || 0).toLocaleString()}</div>
               </div>
             </div>
 

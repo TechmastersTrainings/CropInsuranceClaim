@@ -31,19 +31,7 @@ const ROLE_METADATA = {
     subtitle: "Register land survey plots, track IoT sensor metrics, and submit automated parametric claims.",
     icon: Sprout,
     accentColor: "var(--color-primary)",
-    softBg: "var(--color-primary-soft)",
-    demoCreds: {
-      name: "Ramesh C. Patil",
-      email: "ramesh.farmer@agrishield.org",
-      phone: "+91 98451 23456",
-      state: "Karnataka",
-      district: "Dharwad",
-      village: "Navalgund",
-      survey: "SY-482/B",
-      acres: "4.5",
-      crop: "Cotton",
-      aadhaarLast4: "4819"
-    }
+    softBg: "var(--color-primary-soft)"
   },
   INSURER: {
     key: "INSURER",
@@ -52,16 +40,7 @@ const ROLE_METADATA = {
     subtitle: "Adjudicate multi-source claim evidence, verify PMFBY parametric entitlement, and authorize state changes.",
     icon: ShieldCheck,
     accentColor: "var(--color-accent-amber)",
-    softBg: "var(--color-amber-soft)",
-    demoCreds: {
-      name: "Dr. Anand Rao (NAIC Loss Assessor)",
-      email: "anand.rao@naic.in",
-      company: "National Agriculture Insurance Company (NAIC)",
-      licenseId: "IRDAI-SLA-8842",
-      phone: "+91 80 2234 5678",
-      branch: "Karnataka Zonal Office, Bengaluru",
-      state: "Karnataka"
-    }
+    softBg: "var(--color-amber-soft)"
   },
   ADMIN: {
     key: "ADMIN",
@@ -70,13 +49,7 @@ const ROLE_METADATA = {
     subtitle: "Configure 9-crop agronomic rules, manage policy limits, sensor device registries, and system RBAC.",
     icon: Building2,
     accentColor: "var(--color-info)",
-    softBg: "var(--color-info-soft)",
-    demoCreds: {
-      name: "Pooja V. Kulkarni (System Admin)",
-      email: "admin.pooja@agrishield.org",
-      division: "Agricultural IT & Infrastructure Cell",
-      clearancePin: "SEC-ADMIN-9901"
-    }
+    softBg: "var(--color-info-soft)"
   },
   AUDITOR: {
     key: "AUDITOR",
@@ -85,14 +58,7 @@ const ROLE_METADATA = {
     subtitle: "Audit Hyperledger Fabric smart contract blocks, Merkle tree telemetry roots, and statutory compliance.",
     icon: Layers,
     accentColor: "var(--color-blockchain)",
-    softBg: "var(--color-blockchain-soft)",
-    demoCreds: {
-      name: "V. Sharma (Govt. Ag Audit)",
-      email: "v.sharma@agri.gov.in",
-      agency: "State PMFBY Regulatory & Audit Directorate",
-      govId: "GOV-AUDIT-707",
-      designation: "Principal Agricultural Auditor"
-    }
+    softBg: "var(--color-blockchain-soft)"
   }
 };
 
@@ -109,36 +75,36 @@ export function AuthPage() {
   const [activeRole, setActiveRole] = useState(initialRole);
   const [authMode, setAuthMode] = useState("login"); // "login" | "register"
 
-  // Common fields
+  // Common fields (strictly empty defaults)
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [fullName, setFullName] = useState("");
   const [phone, setPhone] = useState("");
 
-  // Farmer-specific fields
-  const [farmerState, setFarmerState] = useState("Karnataka");
-  const [farmerDistrict, setFarmerDistrict] = useState("Dharwad");
-  const [farmerVillage, setFarmerVillage] = useState("Navalgund");
+  // Farmer-specific fields (strictly empty defaults)
+  const [farmerState, setFarmerState] = useState("");
+  const [farmerDistrict, setFarmerDistrict] = useState("");
+  const [farmerVillage, setFarmerVillage] = useState("");
   const [farmerSurvey, setFarmerSurvey] = useState("");
-  const [farmerAcres, setFarmerAcres] = useState("4.5");
-  const [farmerCrop, setFarmerCrop] = useState("Cotton");
+  const [farmerAcres, setFarmerAcres] = useState("");
+  const [farmerCrop, setFarmerCrop] = useState("");
   const [farmerAadhaar4, setFarmerAadhaar4] = useState("");
 
-  // Insurer-specific fields
-  const [insurerCompany, setInsurerCompany] = useState("National Agriculture Insurance Company (NAIC)");
+  // Insurer-specific fields (strictly empty defaults)
+  const [insurerCompany, setInsurerCompany] = useState("");
   const [insurerLicense, setInsurerLicense] = useState("");
-  const [insurerBranch, setInsurerBranch] = useState("Bengaluru Zonal Office");
-  const [insurerState, setInsurerState] = useState("Karnataka");
+  const [insurerBranch, setInsurerBranch] = useState("");
+  const [insurerState, setInsurerState] = useState("");
 
-  // Admin-specific fields
-  const [adminDivision, setAdminDivision] = useState("Agri-Tech Infrastructure Division");
+  // Admin-specific fields (strictly empty defaults)
+  const [adminDivision, setAdminDivision] = useState("");
   const [adminClearancePin, setAdminClearancePin] = useState("");
 
-  // Auditor-specific fields
-  const [auditorAgency, setAuditorAgency] = useState("PMFBY State Nodal Regulatory Cell");
+  // Auditor-specific fields (strictly empty defaults)
+  const [auditorAgency, setAuditorAgency] = useState("");
   const [auditorGovId, setAuditorGovId] = useState("");
-  const [auditorDesignation, setAuditorDesignation] = useState("Principal Agricultural Auditor");
+  const [auditorDesignation, setAuditorDesignation] = useState("");
 
   // UI status
   const [errorMessage, setErrorMessage] = useState(null);
@@ -158,38 +124,6 @@ export function AuthPage() {
   const activeMeta = ROLE_METADATA[activeRole] || ROLE_METADATA.FARMER;
   const ActiveIcon = activeMeta.icon;
 
-  // Fill role demo credentials
-  const handleFillDemo = () => {
-    const d = activeMeta.demoCreds;
-    setErrorMessage(null);
-    setEmail(d.email);
-    setPassword("Password123!");
-    setFullName(d.name);
-    setPhone(d.phone || "+91 98451 00000");
-
-    if (activeRole === "FARMER") {
-      setFarmerState(d.state);
-      setFarmerDistrict(d.district);
-      setFarmerVillage(d.village);
-      setFarmerSurvey(d.survey);
-      setFarmerAcres(d.acres);
-      setFarmerCrop(d.crop);
-      setFarmerAadhaar4(d.aadhaarLast4);
-    } else if (activeRole === "INSURER") {
-      setInsurerCompany(d.company);
-      setInsurerLicense(d.licenseId);
-      setInsurerBranch(d.branch);
-      setInsurerState(d.state);
-    } else if (activeRole === "ADMIN") {
-      setAdminDivision(d.division);
-      setAdminClearancePin(d.clearancePin);
-    } else if (activeRole === "AUDITOR") {
-      setAuditorAgency(d.agency);
-      setAuditorGovId(d.govId);
-      setAuditorDesignation(d.designation);
-    }
-  };
-
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     setErrorMessage(null);
@@ -199,13 +133,13 @@ export function AuthPage() {
       const res = await loginUser(email, password);
       const loggedUser = {
         id: res.user?.id || 1,
-        name: res.user?.full_name || fullName || activeMeta.demoCreds.name,
+        name: res.user?.full_name || fullName || (email ? email.split("@")[0] : "Authenticated User"),
         email: res.user?.email || email,
         role: res.user?.role || activeRole,
-        phone: res.user?.phone || phone,
-        state: res.user?.state || farmerState || "Karnataka",
-        district: res.user?.district || farmerDistrict || "Dharwad",
-        aadhaarMasked: res.user?.aadhaar_masked || (farmerAadhaar4 ? `XXXX-XXXX-${farmerAadhaar4}` : "XXXX-XXXX-4819"),
+        phone: res.user?.phone || phone || "",
+        state: res.user?.state || farmerState || "",
+        district: res.user?.district || farmerDistrict || "",
+        aadhaarMasked: res.user?.aadhaar_masked || (farmerAadhaar4 ? `XXXX-XXXX-${farmerAadhaar4}` : ""),
         crop: farmerCrop,
         acres: farmerAcres,
         company: insurerCompany,
@@ -252,10 +186,10 @@ export function AuthPage() {
         password: password,
         full_name: fullName,
         role: activeRole,
-        phone: phone || "+91 98451 00000",
-        aadhaar_masked: farmerAadhaar4 ? `XXXX-XXXX-${farmerAadhaar4}` : "XXXX-XXXX-4819",
-        district: farmerDistrict || "Dharwad",
-        state: activeRole === "FARMER" ? farmerState : insurerState || "Karnataka"
+        phone: phone || "",
+        aadhaar_masked: farmerAadhaar4 ? `XXXX-XXXX-${farmerAadhaar4}` : "",
+        district: farmerDistrict || "",
+        state: activeRole === "FARMER" ? farmerState : (insurerState || "")
       };
 
       const newUserRes = await registerUser(regPayload);
@@ -275,7 +209,7 @@ export function AuthPage() {
         survey: farmerSurvey,
         crop: farmerCrop,
         acres: farmerAcres,
-        aadhaarMasked: newUserRes.aadhaar_masked || "XXXX-XXXX-4819",
+        aadhaarMasked: newUserRes.aadhaar_masked || (farmerAadhaar4 ? `XXXX-XXXX-${farmerAadhaar4}` : ""),
         company: insurerCompany,
         licenseId: insurerLicense,
         division: adminDivision,
@@ -460,34 +394,6 @@ export function AuthPage() {
           </div>
         )}
 
-        {/* Quick Demo Pre-fill Button */}
-        <div style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          padding: "8px 12px",
-          background: "var(--bg-subtle)",
-          borderRadius: "var(--radius-sm)",
-          marginBottom: 18,
-          fontSize: "0.8rem"
-        }}>
-          <span style={{ color: "var(--text-muted)" }}>Testing without typing?</span>
-          <button
-            type="button"
-            onClick={handleFillDemo}
-            style={{
-              background: "none",
-              border: "none",
-              color: "var(--color-primary)",
-              fontWeight: 700,
-              cursor: "pointer",
-              textDecoration: "underline",
-              padding: 0
-            }}
-          >
-            Pre-fill Demo Credentials ({activeMeta.title.split(" ")[0]})
-          </button>
-        </div>
 
         {/* ------------------------------------------------------------- */}
         {/* VIEW 1: SIGN IN FORM */}
@@ -501,7 +407,7 @@ export function AuthPage() {
               <input
                 type="text"
                 className="form-control"
-                placeholder={activeRole === "FARMER" ? "e.g. 9845123456 or patil@agrishield.org" : "officer@organization.in"}
+                placeholder={activeRole === "FARMER" ? "Enter mobile number or email" : "Enter official email"}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -527,7 +433,7 @@ export function AuthPage() {
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="e.g. IRDAI-SLA-8842"
+                  placeholder="Enter IRDAI license or employee ID"
                   value={insurerLicense}
                   onChange={(e) => setInsurerLicense(e.target.value)}
                 />
@@ -540,7 +446,7 @@ export function AuthPage() {
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="e.g. SEC-ADMIN-9901"
+                  placeholder="Enter security clearance PIN"
                   value={adminClearancePin}
                   onChange={(e) => setAdminClearancePin(e.target.value)}
                 />
@@ -553,7 +459,7 @@ export function AuthPage() {
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="e.g. GOV-AUDIT-707"
+                  placeholder="Enter government clearance ID"
                   value={auditorGovId}
                   onChange={(e) => setAuditorGovId(e.target.value)}
                 />
@@ -595,7 +501,7 @@ export function AuthPage() {
                 <input
                   type="email"
                   className="form-control"
-                  placeholder="name@krishi.in"
+                  placeholder="Enter email address"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
@@ -607,7 +513,7 @@ export function AuthPage() {
                 <input
                   type="tel"
                   className="form-control"
-                  placeholder="+91 98765 43210"
+                  placeholder="Enter 10-digit mobile number"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   required
@@ -629,6 +535,7 @@ export function AuthPage() {
                     <input
                       type="text"
                       className="form-control"
+                      placeholder="e.g. Maharashtra, Karnataka"
                       value={farmerState}
                       onChange={(e) => setFarmerState(e.target.value)}
                       required
@@ -640,6 +547,7 @@ export function AuthPage() {
                     <input
                       type="text"
                       className="form-control"
+                      placeholder="Enter district"
                       value={farmerDistrict}
                       onChange={(e) => setFarmerDistrict(e.target.value)}
                       required
@@ -653,6 +561,7 @@ export function AuthPage() {
                     <input
                       type="text"
                       className="form-control"
+                      placeholder="Enter taluk / village"
                       value={farmerVillage}
                       onChange={(e) => setFarmerVillage(e.target.value)}
                       required
@@ -664,7 +573,7 @@ export function AuthPage() {
                     <input
                       type="text"
                       className="form-control"
-                      placeholder="e.g. SY-482/A"
+                      placeholder="Enter official survey number"
                       value={farmerSurvey}
                       onChange={(e) => setFarmerSurvey(e.target.value)}
                       required
@@ -679,7 +588,9 @@ export function AuthPage() {
                       className="form-control"
                       value={farmerCrop}
                       onChange={(e) => setFarmerCrop(e.target.value)}
+                      required
                     >
+                      <option value="">-- Select Cultivated Crop --</option>
                       <option value="Cotton">Cotton (Gossypium hirsutum)</option>
                       <option value="Paddy (Rice)">Paddy / Rice (Oryza sativa)</option>
                       <option value="Maize">Maize (Zea mays)</option>
@@ -698,6 +609,7 @@ export function AuthPage() {
                       type="number"
                       step="0.1"
                       className="form-control"
+                      placeholder="e.g. 4.5"
                       value={farmerAcres}
                       onChange={(e) => setFarmerAcres(e.target.value)}
                       required
@@ -711,7 +623,7 @@ export function AuthPage() {
                     type="text"
                     maxLength={4}
                     className="form-control"
-                    placeholder="e.g. 4819"
+                    placeholder="Enter last 4 digits"
                     value={farmerAadhaar4}
                     onChange={(e) => setFarmerAadhaar4(e.target.value)}
                     required
@@ -737,7 +649,9 @@ export function AuthPage() {
                     className="form-control"
                     value={insurerCompany}
                     onChange={(e) => setInsurerCompany(e.target.value)}
+                    required
                   >
+                    <option value="">-- Select Insurance Organization --</option>
                     <option value="National Agriculture Insurance Company (NAIC)">National Agriculture Insurance Company (NAIC)</option>
                     <option value="Agriculture Insurance Company of India (AIC)">Agriculture Insurance Company of India (AIC)</option>
                     <option value="HDFC ERGO General Insurance">HDFC ERGO General Insurance</option>
@@ -752,7 +666,7 @@ export function AuthPage() {
                     <input
                       type="text"
                       className="form-control"
-                      placeholder="IRDAI-SLA-8842"
+                      placeholder="Enter IRDAI License ID"
                       value={insurerLicense}
                       onChange={(e) => setInsurerLicense(e.target.value)}
                       required
@@ -764,6 +678,7 @@ export function AuthPage() {
                     <input
                       type="text"
                       className="form-control"
+                      placeholder="Enter state"
                       value={insurerState}
                       onChange={(e) => setInsurerState(e.target.value)}
                       required
@@ -776,6 +691,7 @@ export function AuthPage() {
                   <input
                     type="text"
                     className="form-control"
+                    placeholder="Enter regional branch location"
                     value={insurerBranch}
                     onChange={(e) => setInsurerBranch(e.target.value)}
                     required
@@ -797,6 +713,7 @@ export function AuthPage() {
                   <input
                     type="text"
                     className="form-control"
+                    placeholder="Enter operations division"
                     value={adminDivision}
                     onChange={(e) => setAdminDivision(e.target.value)}
                     required
@@ -830,6 +747,7 @@ export function AuthPage() {
                   <input
                     type="text"
                     className="form-control"
+                    placeholder="Enter regulatory agency"
                     value={auditorAgency}
                     onChange={(e) => setAuditorAgency(e.target.value)}
                     required
@@ -842,7 +760,7 @@ export function AuthPage() {
                     <input
                       type="text"
                       className="form-control"
-                      placeholder="e.g. GOV-AUDIT-707"
+                      placeholder="Enter government employee ID"
                       value={auditorGovId}
                       onChange={(e) => setAuditorGovId(e.target.value)}
                       required
@@ -854,6 +772,7 @@ export function AuthPage() {
                     <input
                       type="text"
                       className="form-control"
+                      placeholder="Enter designation"
                       value={auditorDesignation}
                       onChange={(e) => setAuditorDesignation(e.target.value)}
                       required
